@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+
+\fill[green!70!black] (1,2) rectangle ++(1,1);
+\fill[green!70!black] (3,2) rectangle ++(1,1);
+\fill[green!70!black] (3,3) rectangle ++(1,1);
+\fill[green!70!black] (4,3) rectangle ++(1,1);
+\fill[green!70!black] (2,0) rectangle ++(1,1);
+\fill[green!70!black] (2,1) rectangle ++(1,1);
+\fill[green!70!black] (2,2) rectangle ++(1,1);
+\fill[green!70!black] (3,0) rectangle ++(1,1);
+\fill[green!70!black] (5,0) rectangle ++(1,1);
+\fill[green!70!black] (5,1) rectangle ++(1,1);
+
+\draw[thick] (0,0) grid ++(6,4);
+
+\node at (3,-0.7) {\bf Lancer de 10 blocs};
+
+
+
+
+\end{tikzpicture}

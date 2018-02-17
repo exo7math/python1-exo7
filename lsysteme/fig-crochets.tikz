@@ -1,0 +1,25 @@
+\begin{tikzpicture}[scale=1]
+
+
+
+\draw[ultra thick,blue] (0,0) -- ++(1,0) -- ++(0,1) ;
+
+\draw[ultra thick,red] (1,1) -- ++(-3,0);
+\draw[ultra thick,green!70!black] (1,1) -- ++(0,1);
+\draw[ultra thick,purple] (1,2) -- ++(2,0);
+\draw[ultra thick,orange] (1,2) -- ++(0,1);
+
+\node[scale=1.5,right] at (3.2,1) {\bf 
+{\color{blue}AgA}
+{\color{red}[gAAA]}
+{\color{green!70!black}A}
+{\color{purple}[dAA]}
+{\color{orange}A}};
+
+\fill (0,0) circle (2pt) node[below]{$O$};
+\fill (1,1) circle (2pt) node[right]{$P$};
+\fill (1,2) circle (2pt) node[left]{$Q$};
+
+\draw[->,>=latex,thick] (1.05,1)-- ++(0,0.5);
+\draw[->,>=latex,thick] (1.05,2)-- ++(0,0.5);
+\end{tikzpicture}

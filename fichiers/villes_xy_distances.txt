@@ -1,0 +1,5 @@
+               Paris      Lille     Nantes  Marseille 
+Paris              0        200        412        894 
+Lille            200          0        500       1077 
+Nantes           412        500          0       1063 
+Marseille        894       1077       1063          0 

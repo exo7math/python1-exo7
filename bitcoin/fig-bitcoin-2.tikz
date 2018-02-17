@@ -1,0 +1,84 @@
+\begin{tikzpicture}%[scale=1.2, every node/.style={scale=1.2}]
+
+\node[blue,right,scale=1.4] at (15,0.5) {\bf liste};
+
+\draw[very thick] (0,1)--++(0,-1)--++(4,0)--++(0,1);
+\node[scale=1.5]  at (2,0.5) {\bf A};
+\node  at (2,-0.5) {\bf bloc  1};
+
+\begin{scope}[xshift=5cm]
+\draw[very thick] (0,1)--++(0,-1)--++(4,0)--++(0,1);
+\node[scale=1.5]  at (2,0.5) {\bf B};
+\node  at (2,-0.5) {\bf bloc  2};
+\end{scope}
+
+\begin{scope}[xshift=10cm]
+\draw[very thick] (0,1)--++(0,-1)--++(4,0)--++(0,1);
+\node[scale=1.5]  at (2,0.5) {\bf C};
+\node  at (2,-0.5) {\bf bloc  3};
+\end{scope}
+
+
+\begin{scope}[yshift=-5cm]
+\draw[very thick] (0,1)--++(0,-1)--++(4,0)--++(0,1);
+\node[scale=1.5]  at (2,0.5) {\bf A'};
+
+\end{scope}
+
+\draw [->,>=latex,red,ultra thick] (2,-1) to[bend right] node[midway, left] {10 tours}++(-0.2,-3) ;
+%\draw [->,>=latex,red,ultra thick] (2.2,-4) to[bend left] ++(4.8,3) ;
+
+\draw[->,>=latex,red,ultra thick] (2.2,-4) to[out=90,in=-90,->] node[below] {addition}++(4.8,3);
+
+\draw [->,>=latex,blue!20,ultra thick,line width=10] (7,-3) to ++(-0,-5) ;
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{scope}[yshift=-10cm]
+
+
+\begin{scope}[xshift=5cm]
+\draw[very thick] (0,1)--++(0,-1)--++(4,0)--++(0,1);
+\node[scale=1.5]  at (2,0.5) {\bf B'};
+\end{scope}
+
+\begin{scope}[xshift=10cm]
+\draw[very thick] (0,1)--++(0,-1)--++(4,0)--++(0,1);
+\node[scale=1.5]  at (2,0.5) {\bf C};
+\end{scope}
+
+\draw [->,>=latex,blue!20,ultra thick,line width=10] (12,-3) to ++(-0,-5) ;
+
+\begin{scope}[xshift=5cm,yshift=-5cm]
+\draw[very thick] (0,1)--++(0,-1)--++(4,0)--++(0,1);
+\node[scale=1.5]  at (2,0.5) {\bf B''};
+\end{scope}
+
+\draw [->,>=latex,red,ultra thick] (7,-0.5) to[bend right] node[midway, left] {10 tours}++(-0.2,-3.5) ;
+%\draw [->,>=latex,red,ultra thick] (2.2,-4) to[bend left] ++(4.8,3) ;
+
+\draw[->,>=latex,red,ultra thick] (7.2,-4) to[out=90,in=-90,->] node[below] {addition}++(4.8,3.5);
+\end{scope}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{scope}[yshift=-20cm]
+
+\begin{scope}[xshift=10cm]
+\draw[very thick] (0,1)--++(0,-1)--++(4,0)--++(0,1);
+\node[scale=1.5]  at (2,0.5) {\bf C'};
+\end{scope}
+
+
+\begin{scope}[xshift=10cm,yshift=-5cm]
+\draw[very thick] (0,1)--++(0,-1)--++(4,0)--++(0,1);
+\node[scale=1.5]  at (2,0.5) {\bf C''};
+\end{scope}
+
+\draw [->,>=latex,red,ultra thick] (12,-0.5) to[bend right] node[midway, left] {10 tours}++(-0.2,-3.5) ;
+
+\node[blue,right,scale=1.4] at (15,-4.5) {\bf empreinte};
+\end{scope}
+\end{tikzpicture}

@@ -1,0 +1,448 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+%====================================================================
+% \chapitre{Codes}
+%====================================================================
+
+\lstset{
+  language=Python,
+  upquote=true,
+  columns=flexible,
+  keepspaces=true,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\color{gray},
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},  
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  inputencoding=utf8,
+  literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1,
+}
+
+% Reduit la hauteur des lignes vides
+\makeatletter
+\lst@AddToHook{OnEmptyLine}{\vspace{-0.5\baselineskip}}
+\makeatother
+
+% Copy-paste-able spaces
+%\makeatletter
+%\def\lst@outputspace{{\ifx\lst@bkgcolor\empty\color{white}\else\lst@bkgcolor\fi\lst@visiblespace}}
+%\makeatother
+
+
+
+% \setlength{\parindent}{0em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Test
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section*{Test}
+%
+%
+%\insertcode{test-tex.py}{test.py}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Premiers pas}
+
+\subsection*{Activité 1}
+
+\insertcode{../premiers_pas/premiers_pas_1.py}{Activité 1 \hfill \texttt{premiers\_pas\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../premiers_pas/premiers_pas_2.py}{Activité 2 \hfill \texttt{premiers\_pas\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../premiers_pas/premiers_pas_3.py}{Activité 3 \hfill \texttt{premiers\_pas\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../premiers_pas/premiers_pas_4.py}{Activité 4 \hfill \texttt{premiers\_pas\_4.py}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tortue (Scratch avec Python)}
+
+\subsection*{Activité 1}
+
+\insertcode{../tortue/tortue_1.py}{Activité 1 \hfill \texttt{tortue\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../tortue/tortue_2.py}{Activité 2 \hfill \texttt{tortue\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../tortue/tortue_3.py}{Activité 3 \hfill \texttt{tortue\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../tortue/tortue_4.py}{Activité 4 \hfill \texttt{tortue\_4.py}}
+
+\subsection*{Activité 5}
+
+\insertcode{../tortue/tortue_5.py}{Activité 5 \hfill \texttt{tortue\_5.py}}
+
+\subsection*{Activité 6}
+
+\insertcode{../tortue/tortue_6.py}{Activité 6 \hfill \texttt{tortue\_6.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Si ... alors ...}
+
+\subsection*{Activité 1}
+
+\insertcode{../sialors/sialors_1.py}{Activité 1 \hfill \texttt{sialors\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../sialors/sialors_2.py}{Activité 2 \hfill \texttt{sialors\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../sialors/sialors_3.py}{Activité 3 \hfill \texttt{sialors\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../sialors/sialors_4.py}{Activité 4 \hfill \texttt{sialors\_4.py}}
+
+\subsection*{Activité 5}
+
+\insertcode{../sialors/sialors_5.py}{Activité 5 \hfill \texttt{sialors\_5.py}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fonctions}
+
+\subsection*{Activité 1}
+
+\insertcode{../fonctions/fonctions_1.py}{Activité 1 \hfill \texttt{fonctions\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../fonctions/fonctions_2.py}{Activité 2 \hfill \texttt{fonctions\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../fonctions/fonctions_3.py}{Activité 3 \hfill \texttt{fonctions\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../fonctions/fonctions_4.py}{Activité 4 \hfill \texttt{fonctions\_4.py}}
+
+\subsection*{Activité 5}
+
+\insertcode{../fonctions/fonctions_5.py}{Activité 5 \hfill \texttt{fonctions\_5.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Arithmétique -- Boucle tant que -- I}
+
+\subsection*{Activité 1}
+
+\insertcode{../tantque/tantque_1.py}{Activité 1 \hfill \texttt{tantque\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../tantque/tantque_2.py}{Activité 2 \hfill \texttt{tantque\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../tantque/tantque_3.py}{Activité 3 \hfill \texttt{tantque\_3.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Chaînes de caractères -- Analyse d’un texte}
+
+\subsection*{Activité 1}
+
+\insertcode{../chaines/chaines_1.py}{Activité 1 \hfill \texttt{chaines\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../chaines/chaines_2.py}{Activité 2 \hfill \texttt{chaines\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../chaines/chaines_3.py}{Activité 3 \hfill \texttt{chaines\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../chaines/chaines_4.py}{Activité 4 \hfill \texttt{chaines\_4.py}}
+
+\subsection*{Activité 5}
+
+\insertcode{../chaines/chaines_5.py}{Activité 5 \hfill \texttt{chaines\_5.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Listes I}
+
+\subsection*{Activité 1}
+
+\insertcode{../listes/listes_I_1.py}{Activité 1 \hfill \texttt{listes\_I\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../listes/listes_I_1.py}{Activité 2 \hfill \texttt{listes\_I\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../listes/listes_I_1.py}{Activité 3 \hfill \texttt{listes\_I\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../listes/listes_I_1.py}{Activité 4 \hfill \texttt{listes\_I\_4.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Statistique -- Visualisation de données}
+
+\subsection*{Activité 1}
+
+\insertcode{../statistique/statistique_1.py}{Activité 1 \hfill \texttt{statistique\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../statistique/statistique_2.py}{Activité 2 \hfill \texttt{statistique\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../statistique/statistique_3.py}{Activité 3 \hfill \texttt{statistique\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../statistique/statistique_4.py}{Activité 4 \hfill \texttt{statistique\_4.py}}
+
+\subsection*{Activité 5}
+
+\insertcode{../statistique/statistique_5.py}{Activité 5 \hfill \texttt{statistique\_5.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fichiers}
+
+\subsection*{Activité 1}
+
+\insertcode{../fichiers/fichiers_1.py}{Activité 1 \hfill \texttt{fichier\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../fichiers/fichiers_2.py}{Activité 2 \hfill \texttt{fichier\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../fichiers/fichiers_3.py}{Activité 3 \hfill \texttt{fichier\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../fichiers/fichiers_4.py}{Activité 4 \hfill \texttt{fichier\_4.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Arithmétique -- Boucle tant que -- II}
+
+\subsection*{Activité 1}
+
+\insertcode{../tantque/tantque_4.py}{Activité 1 \hfill \texttt{tantque\_4.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../tantque/tantque_5.py}{Activité 2 \hfill \texttt{tantque\_5.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../tantque/tantque_6.py}{Activité 3 \hfill \texttt{tantque\_6.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Binaire I}
+
+\insertcode{../binaire/binaire_I.py}{Activités \hfill \texttt{binaire\_I.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Listes II}
+
+\subsection*{Activité 1}
+
+\insertcode{../listes/listes_II_1.py}{Activité 1 \hfill \texttt{listes\_II\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../listes/listes_II_2.py}{Activité 2 \hfill \texttt{listes\_II\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../listes/listes_II_3.py}{Activité 3 \hfill \texttt{listes\_II\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../listes/listes_II_4.py}{Activité 4 \hfill \texttt{listes\_II\_4.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Binaire II}
+
+\insertcode{../binaire/binaire_II.py}{Activités \hfill \texttt{binaire\_II.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Probabilités – Paradoxe de Parrondo}
+
+\insertcode{../proba/proba.py}{Activités \hfill \texttt{proba.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Chercher et remplacer}
+
+\subsection*{Activité 1}
+
+\insertcode{../chercher/chercher_1.py}{Activité 1 \hfill \texttt{chercher\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../chercher/chercher_2.py}{Activité 2 \hfill \texttt{chercher\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../chercher/chercher_3.py}{Activité 3 \hfill \texttt{chercher\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../chercher/chercher_4.py}{Activité 4 \hfill \texttt{chercher\_4.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Calculatrice polonaise -- Piles}
+
+\subsection*{Activité 1}
+
+\insertcode{../piles/piles_1.py}{Activité 1 \hfill \texttt{piles\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../piles/piles_2.py}{Activité 2 \hfill \texttt{piles\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../piles/piles_3.py}{Activité 3 \hfill \texttt{piles\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../piles/piles_4.py}{Activité 4 \hfill \texttt{piles\_4.py}}
+
+\subsection*{Activité 5}
+
+\insertcode{../piles/piles_5.py}{Activité 5 \hfill \texttt{piles\_5.py}}
+
+\subsection*{Activité 6}
+
+\insertcode{../piles/piles_6.py}{Activité 6 \hfill \texttt{piles\_6.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Visualiseur de texte -- Markdown}
+
+\subsection*{Activité 1}
+
+\insertcode{../markdown/markdown_1.py}{Activité 1 \hfill \texttt{markdown\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../markdown/markdown_2.py}{Activité 2 \hfill \texttt{markdown\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../markdown/markdown_3.py}{Activité 3 \hfill \texttt{markdown\_3.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{L-système}
+
+\insertcode{../lsysteme/lsysteme.py}{Activités \hfill \texttt{lsysteme.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Images dynamiques}
+
+\insertcode{../images/images.py}{Activités \hfill \texttt{images.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Jeu de la vie}
+
+\subsection*{Activité 1}
+
+\insertcode{../vie/vie_1.py}{Activité 1 \hfill \texttt{vie\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../vie/vie_2.py}{Activité 2 \hfill \texttt{vie\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../vie/vie_3.py}{Activité 3 \hfill \texttt{vie\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../vie/vie_4.py}{Activité 4 \hfill \texttt{vie\_4.py}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Graphes et combinatoire de Ramsey}
+
+\subsection*{Activité 1}
+
+\insertcode{../ramsey/ramsey_1.py}{Activité 1 \hfill \texttt{ramsey\_1.py}}
+
+\subsection*{Activité 2}
+
+\insertcode{../ramsey/ramsey_2.py}{Activité 2 \hfill \texttt{ramsey\_2.py}}
+
+\subsection*{Activité 3}
+
+\insertcode{../ramsey/ramsey_3.py}{Activité 3 \hfill \texttt{ramsey\_3.py}}
+
+\subsection*{Activité 4}
+
+\insertcode{../ramsey/ramsey_4.py}{Activité 4 \hfill \texttt{ramsey\_4.py}}
+
+\subsection*{Activité 5}
+
+\insertcode{../ramsey/ramsey_5.py}{Activité 5 \hfill \texttt{ramsey\_5.py}}
+
+\subsection*{Activité 6}
+
+\insertcode{../ramsey/ramsey_6.py}{Activité 6 \hfill \texttt{ramsey\_6.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bitcoin}
+
+\insertcode{../bitcoin/bitcoin.py}{Activités \hfill \texttt{bitcoin.py}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Constructions aléatoires}
+
+\subsection*{Activités 1 et 2}
+\insertcode{../aleatoire/aleatoire_vertical.py}{Activités 1 et 2 \hfill \texttt{aleatoire\_vertical.py}}
+
+\subsection*{Activité 3}
+\insertcode{../aleatoire/aleatoire_circulaire.py}{Activité 3 \hfill \texttt{aleatoire\_circulaire.py}}
+
+\end{document}

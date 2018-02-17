@@ -1,0 +1,31 @@
+
+\begin{tikzpicture}[scale=0.8]
+
+\draw[ultra thick,blue,fill = blue!10] (0,0) rectangle ++(3,1);
+\node at (1.5,0.5) {\bf 7};
+
+\draw[ultra thick,blue,fill = blue!10] (4,0) rectangle ++(3,1);
+\node at (5.5,0.5) {\bf 5};
+
+\draw[ultra thick,blue,fill = blue!10] (8,0) rectangle ++(3,1);
+\node at (9.5,0.5) {\bf 13};
+
+\draw[ultra thick,red,fill = red!10] (12,0) rectangle ++(3,1);
+\node at (13.5,0.5) {\bf W};
+
+\draw[ultra thick,red,fill = red!10] (16,0) rectangle ++(3,1);
+\node at (17.5,0.5) {\bf S};
+
+\draw[ultra thick,red,fill = red!10] (20,0) rectangle ++(3,1);
+\node at (21.5,0.5) {\bf G};
+
+
+\foreach \x in {3,7,...,19}{
+  \draw[ultra thick] (\x,0.5)--++(1,0);
+} 
+
+\draw[ultra thick,->,>=latex] (0,0.5)--++(-1,0);
+
+\node at (11.5,-1) {\bf Un train tri\'e.};
+
+\end{tikzpicture}

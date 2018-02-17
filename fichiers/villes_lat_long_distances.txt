@@ -1,0 +1,13 @@
+
+
+	                   Paris     New-York    Vancouver         Lima    Hong-Kong  Addis-Abeba 
+	Paris                  0         5837         7924        10253         9629         5573 
+	New-York            5837            0         3905         5874        12959        11207 
+	Vancouver           7924         3905            0         8168        10257        13298 
+	Lima               10253         5874         8168            0        18371        13001 
+	Hong-Kong           9629        12959        10257        18371            0         8135 
+	Addis-Abeba         5573        11207        13298        13001         8135            0 
+
+
+
+

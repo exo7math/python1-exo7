@@ -1,0 +1,40 @@
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[scale=1, every node/.style={transform shape}]
+\Large
+\node[right] (A) at (0,0) {\texttt{for}};
+\node[right,right=-0.5em of A] (B) {\texttt{i}};
+\node[right,right=-0.5em of B] (C)  {\texttt{in}};
+\node[right,right=-0.5em of C] (D) {\texttt{range(n)}};
+\node[right,right=-1.4em of D] (EE) {\texttt{:}};
+
+
+
+ \draw[<-,>=latex,ultra thick, red!20]    (0.7,-1.6)  to[bend right=10] (9,-3.2) node[red,right] {indentation};
+
+
+\node[right] (E) at (1,-0.7) {\texttt{instruction\_1}};
+\node[right] at (1,-1.4) {\texttt{instruction\_2}};
+\node[right] at (1,-2.1) {\texttt{...}};
+\node[right] (F) at (0,-2.8) {\texttt{instructions suivantes}};
+
+ \draw[<-,>=latex,ultra thick, red]  (A.north) to[bend left] (9,3) node[right] {mots reserv\'es "\texttt{for}" et "\texttt{in}"};
+ \draw[<-,>=latex,ultra thick, red!20]  (C.north) to[bend left] (9,3);
+ \draw[<-,>=latex,ultra thick, red]  (B.north) to[bend left] (9,2.2) node[right] {une variable};
+ \draw[<-,>=latex,ultra thick, red]  (D.north) to[bend left] (9,1.4) node[right] {liste \`a parcourir, ici $0$, $1$, $2$, \ldots, $n-1$};
+ \draw[<-,>=latex,ultra thick, red]  (EE.north) to[bend left] (9,0.6) node[right] {deux points};
+
+ \draw[|-|,ultra thick, red] (5.5,-0.3)--++(0,-2.1);
+ \draw[ultra thick, red]  (5.5,-1.2) to[bend right] (10,-0.5) node[right] {bloc d'instructions indent\'e};
+ \node[right,red]  at (10,-1.2) {sera r\'ep\'et\'e $n$ fois};
+ \node[right,red]  at (10,-1.9) {pour $i=0$, puis $i=1$\ldots{} jusqu'\`a $i=n-1$};
+
+ \draw[<-,>=latex,ultra thick, red]    (F.south)  to[bend right=15] (9,-4.2) node[right] {suite du programme};
+
+\node[blue,right,scale=0.8] at (0.08,-0.85) {\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace};
+
+\node[blue,right,scale=0.8] at (0.08,-1.55) {\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace};
+
+\node[blue,right,scale=0.8] at (0.08,-2.2) {\textvisiblespace\textvisiblespace\textvisiblespace\textvisiblespace};
+
+
+\end{tikzpicture}

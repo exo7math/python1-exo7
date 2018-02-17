@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+
+  \draw[blue,line width=3] (0,-1)rectangle ++(6,2);
+  \draw[fill=blue] (0,-0.2)rectangle ++(-7,0.4);
+  \draw[fill=blue] (6,-0.2)rectangle ++(4,0.4);
+
+  \draw[fill=blue] (3.5,-1)rectangle ++(0.2,2);
+
+
+      \draw[<-,>=latex,ultra thick,red] (-7,0.3)  to[bend left=10] ++(1,2) node[above right]{minimum};
+      \draw[<-,>=latex,ultra thick,red] (10,0.3)  to[bend left=10] ++(1,2) node[above right]{maximum};
+
+
+      \draw[<-,>=latex,ultra thick,red] (3.6,1.1)  to[bend left=10] ++(1,2) node[above]{m\'ediane};
+
+      \draw[<-,>=latex,ultra thick,red] (0,1.1)  to[bend left=10] ++(1,2) node[above right]{$Q_1$};
+      \draw[<-,>=latex,ultra thick,red] (6,1.1)  to[bend left=10] ++(1,2) node[above right]{$Q_3$};
+
+\end{tikzpicture} 

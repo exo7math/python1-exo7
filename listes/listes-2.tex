@@ -1,0 +1,394 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+\begin{document}
+
+% Commande spécifique
+\newcommand{\badletter}[1]{\underline{\textcolor{red}{#1}}}
+
+
+
+%====================================================================
+\chapitre{Listes II}
+%====================================================================
+
+\objectifs{Les listes sont tellement utiles qu'il faut savoir les manipuler de façon simples et efficaces. C'est le but de cette fiche !}
+
+\index{liste}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Manipuler efficacement les listes]
+\sauteligne
+\begin{itemize}
+  \item \textbf{Trancher des listes.}
+  
+  \index{liste!trancher}
+
+  \begin{itemize}
+    \item Tu connais déjà \ci{maliste[a:b]} qui renvoie la sous-liste des éléments du rang $a$ au rang $b-1$.
+    
+    \item \ci{maliste[a:]} renvoie la liste des éléments du rang $a$ jusqu'à la fin.
+      
+    \item \ci{maliste[:b]} renvoie la liste des éléments du début jusqu'au rang $b-1$.
+    
+    \item \ci{maliste[-1]} renvoie le dernier élément, \ci{maliste[-2]} renvoie l'avant-dernier élément,\ldots
+
+  \item \textbf{Exercice.} 
+  \myfigure{0.7}{
+  \tikzinput{fig-listes-4}
+}   
+  
+  Avec \ci{maliste = [7,2,4,5,3,10,9,8,3]}, 
+que renvoient les instructions suivantes ?
+
+
+  
+\begin{itemize}
+  \item \ci{maliste[3:5]}
+  \item \ci{maliste[4:]}
+  \item \ci{maliste[:6]}
+  \item \ci{maliste[-1]}
+\end{itemize}
+
+   \end{itemize} 
+   
+   
+
+  \item \textbf{Trouver le rang d'un élément.} 
+
+\begin{itemize}
+
+    \item  \index{index@\ci{index}}
+   \ci{liste.index(element)} et renvoie la première position à laquelle l'élément a été trouvé. Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
+   \ci{liste.index(5)} renvoie $2$.
+
+  \item   \index{in@\ci{in}} 
+  Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :\\
+  \centerline{\ci{element in liste}}  
+  renvoie \ci{True} ou \ci{False}.
+  Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
+   \og\ci{9 in liste}\fg{} est vrai, alors que \og\ci{8 in liste}\fg{} est faux.
+  
+\end{itemize}
+   
+  \item \textbf{Liste par compréhension.}
+  
+  \index{liste!par comprehension@par compréhension}
+  
+  On peut définir un ensemble en donnant la liste de tous ses éléments, par exemple $E = \{0,2,4,6,8,10\}$. Une autre façon est de dire que les éléments de l'ensemble doivent  vérifier une certaine propriété. Par exemple le même ensemble $E$ peut se définir par :
+  $$E = \{ x \in \Nn \mid x \le 10 \text{ et } x \text{ est pair} \}.$$
+  
+  Avec \Python{} il existe un tel moyen de définir des listes. C'est une syntaxe extrêmement puissante et efficace. Voyons des exemples :
+  \begin{itemize}
+    \item Partons d'une liste, par exemple \ci{maliste = [1,2,3,4,5,6,7,6,5,4,3,2,1]}.
+    
+    \item La commande \ci{liste_doubles = [ 2*x for x in maliste ]} renvoie une liste qui contient les doubles des éléments de la liste \ci{maliste}. C'est donc la liste 
+    \ci{[2,4,6,8,...]}.
+    
+    \item La commande \ci{liste_carres = [ x**2 for x in maliste ]} renvoie la liste des carrés des éléments de la liste initiale. C'est donc la liste \ci{[1,4,9,16,...]}.
+    
+    \item La commande \ci{liste_partielle = [x for x in maliste if x > 2]}
+    extrait la liste composée des seuls éléments strictement supérieurs à $2$. C'est donc la liste \ci{[3,4,5,6,7,6,5,4,3]}.
+	\end{itemize}
+	
+	 
+  
+  \item \textbf{Liste de listes.}
+  
+  \index{liste!de listes}
+  \index{tableau}
+  
+  Une liste peut contenir d'autres listes, par exemple :\\
+  \centerline{\ci{maliste = [ ["Harry", "Hermione", "Ron"], [101,103] ]}}
+   contient deux listes. 
+  Nous allons nous intéresser à des listes qui contiennent des listes d'entiers, que nous appellerons des \defi{tableaux}. Par exemple : \\
+  \centerline{\ci{tableau = [ [2,14,5], [3,5,7], [15,19,4], [8,6,5] ]}}
+  Alors \ci{tableau[i]} renvoie la sous-liste de rang $i$, alors que
+  \ci{tableau[i][j]} renvoie l'entier situé au rang $j$ dans la sous-liste de rang $i$. Par exemple :
+  \begin{itemize}
+  \item \ci{tableau[0]} renvoie la sous-liste \ci{[2,14,5]},
+  \item \ci{tableau[1]} renvoie la sous-liste \ci{[3,5,7]},
+  \item \ci{tableau[0][0]} renvoie l'entier \ci{2},
+  \item \ci{tableau[0][1]} renvoie l'entier \ci{14},
+  \item \ci{tableau[2][1]} renvoie l'entier \ci{19}.
+\end{itemize}
+
+\end{itemize}
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Listes par compréhension]
+
+\objectifs{Objectifs : mettre en pratique les listes par compréhension. Dans cette activité les listes sont des listes d'entiers.}
+
+\begin{enumerate}
+  \item Programme une fonction \ci{multiplier(liste,k)} qui multiplie chaque élément de la liste par $k$. Par exemple \ci{multiplier([1,2,3,4,5],2)} renvoie \ci{[2,4,6,8,10]}.
+  
+  \item Programme une fonction \ci{puissance(liste,k)} qui élève chaque élément de la liste à la puissance $k$. Par exemple \ci{puissance([1,2,3,4,5],3)} renvoie \ci{[1,8,27,64,125]}.
+  
+  \item Programme une fonction \ci{addition(liste1,liste2)} qui additionne terme à terme les éléments de deux listes de même longueur. Par exemple \ci{addition([1,2,3],[4,5,6])} renvoie \ci{[5,7,9]}.
+  
+  \emph{Indication.} C'est un exemple de tâche où on n'utilise pas les listes par compréhension !
+  
+
+  \item Programme une fonction \ci{non_zero(liste)} qui renvoie la liste de tous les éléments non nuls. Par exemple \ci{non_zero([1,0,2,3,0,4,5,0])} renvoie \ci{[1,2,3,4,5]}.
+  
+  \item Programme une fonction \ci{pairs(liste)} qui renvoie la liste de tous les éléments pairs. Par exemple \ci{pairs([1,0,2,3,0,4,5,0])} renvoie \ci{[0,2,0,4,0]}.
+  
+\end{enumerate}
+
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Atteindre une somme fixée]
+
+\objectifs{Objectifs : chercher à atteindre le total de $100$ dans une liste de nombres.}
+
+On considère une liste de $n$ entiers compris entre $1$ et $99$ (inclus).
+Par exemple la liste de $n=20$ entiers :\\
+\centerline{\ci{[16,2,85,27,9,45,98,73,12,26,46,25,26,49,18,99,10,86,7,42]}}
+qui a été obtenue au hasard par la commande :\\
+\centerline{\ci{liste_20 = [randint(1,99) for i in range(20)]}}
+
+On cherche différentes manières de trouver des nombres de la liste dont la somme fait exactement $100$.
+
+\begin{enumerate}
+  \item Programme une fonction \ci{somme_deux_consecutifs_100(liste)} qui teste s'il existe deux éléments consécutifs de la liste dont la somme vaut $100$. La fonction renvoie \og{}vrai\fg{} ou \og{}faux\fg{} (mais elle peut aussi afficher les nombres et leur position pour vérification). Pour l'exemple donné la fonction renvoie \ci{False}.
+  
+  \item Programme une fonction \ci{somme_deux_100(liste)} qui teste s'il existe deux éléments de la liste, situés à des positions différentes, dont la somme vaut $100$. 
+ Pour l'exemple donné la fonction renvoie \ci{True} et peut afficher les entiers $2$ et $98$ (aux rangs $1$ et $6$ de la liste). 
+ 
+ 
+  \item Programme une fonction \ci{somme_suite_100(liste)} qui teste s'il existe des éléments consécutifs de la liste dont la somme vaut $100$. 
+ Pour l'exemple donné la fonction renvoie \ci{True} et peut afficher les entiers à suivre $25$, $26$, $49$ (aux rangs $11$, $12$ et$13$).
+ 
+ \item \emph{(Facultatif.)} Plus la taille de la liste est grande plus il y a de chances d'obtenir des entiers dont la somme vaut $100$. Pour chacune des trois situations précédentes, détermine à partir de quelle taille $n$ de la liste, la probabilité d'obtenir une somme de $100$ est plus grande que $1/2$. 
+ 
+  \emph{Indications.} Pour chaque cas, tu obtiens une estimation de cet entier $n$, en écrivant une fonction \ci{proba(n,N)} qui effectue un grand nombre $N$ de tirages aléatoires de listes à $n$ éléments (avec par exemple $N=10\,000$). La probabilité est approchée par le nombre de cas favorables (où la fonction renvoie vraie) divisé par le nombre total de cas (ici $N$).
+ 
+ 
+  
+\end{enumerate}
+
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Tableau]
+
+\objectifs{Objectifs : travailler avec des listes de listes. }
+
+Dans cette activité nous travaillons avec des tableaux carrés de taille $n \times n$ contenant des entiers.
+L'élément \ci{tableau} est donc une liste de $n$ listes ayant chacune $n$ éléments.
+
+Par exemple (avec $n=3$) : \\
+\centerline{\ci{tableau = [ [1,2,3], [4,5,6], [7,8,9] ]}}
+représente le tableau :
+$$\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}$$
+
+\begin{enumerate}
+  \item Écris une fonction \ci{somme_diagonale(tableau)} qui calcule la somme des éléments situés sur la diagonale principale.
+  La diagonale principale de l'exemple donné est constituée de $1$, $5$, $9$, la somme vaut donc $15$.
+  
+  \item Écris une fonction \ci{somme_anti_diagonale(tableau)} qui calcule la somme des éléments situés sur l'autre diagonale.
+  L'anti-diagonale de l'exemple donné est constituée de $3$, $5$, $7$, la somme vaut encore $15$.
+  
+  \item Écris une fonction \ci{somme_tout(tableau)} qui calcule la somme totale de tous les éléments. Pour l'exemple la somme totale vaut $45$.
+  
+  \item  Écris une fonction \ci{affiche_tableau(tableau)} qui affiche proprement à l'écran un tableau. Tu peux utiliser la commande :\\
+\centerline{\ci{print('\{:>3d\}'.format(tableau[i][j]), end="")}}  
+
+\emph{Explications.}
+\begin{itemize}
+  \item La commande \ci{print(chaine,end="")} permet d'afficher une chaîne de caractères sans passer à la ligne.
+  
+  \item La commande \ci{'\{:>3d\}'.format(k)} affiche l'entier $k$ sur trois cases (même s'il n'y a qu'un chiffre à afficher).
+\end{itemize}  
+\end{enumerate}
+
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Carrés magiques]
+
+\index{carre magique@carré magique}
+
+\objectifs{Objectifs : construire des carrés magiques de taille aussi grande que l'on souhaite ! Il faut d'abord avoir fait l'activité précédente.}
+
+
+Un \defi{carré magique} est un tableau carré de taille $n\times n$ qui contient tous les entiers de $1$ à $n^2$ et qui vérifie que :
+la somme de chaque ligne, la somme de chaque colonne, la somme de la diagonale principale et la somme de l'anti-diagonale ont toutes la même valeur.
+
+Voici un exemple de carré magique de taille $3\times 3$ et un de taille $4\times 4$.
+
+
+  \myfigure{1}{
+  \tikzinput{fig-listes-5}
+}  
+
+%carre_3x3 = [ [4,9,2], [3,5,7], [8,1,6] ]
+%carre_4x4 = [ [1,14,15,4], [7,9,6,12], [10,8,11,5], [16,3,2,13] ]
+
+
+Pour un carré magique de taille $n \times n$, la valeur de la somme est :
+$$S_n = \frac{n(n^2+1)}{2}.$$
+
+
+
+\begin{enumerate}
+  \item \textbf{Exemples.} Définis un tableau pour chacun des exemples $3 \times 3$ et $4 \times 4$ ci-dessus et affiche-les à l'écran (utilise l'activité précédente).
+  
+  \item \textbf{Être ou ne pas être.} Définis une fonction \ci{est_carre_magique(carre)} qui teste si un tableau donné est (ou pas) un carré magique (utilise l'activité précédente pour les diagonales).
+  
+  \item \textbf{Carrés aléatoires.} \emph{(Facultatif.)} Génère de façon aléatoire des carrés contenant les entiers de $1$ à $n^2$ grâce à une fonction \ci{carre_aleatoire(n)}. Vérifie expérimentalement qu'il est rare d'obtenir ainsi un carré magique ! 
+
+  \emph{Indications.} Pour une liste \ci{maliste}, la commande \ci{shuffle(maliste)}\index{shuffle@\ci{shuffle}} (issue du module \ci{random}) mélange aléatoirement la liste (la liste est modifiée sur place). 
+ 
+ 
+ \medskip
+	
+  \emph{Le but des questions restantes est de créer des carrés magiques de grandes tailles.}
+	 
+  
+  \item \textbf{Addition.} Définis une fonction \ci{addition_carre(carre,k)}
+  qui ajoute un entier $k$ à tous les éléments du carré. Avec l'exemple du carré $3\times 3$, la commande \ci{addition_carre(carre,-1)} soustrait $1$ à tous les éléments et renvoie donc un tableau qui s'afficherait ainsi :
+$$\begin{array}{ccc}
+3&8&1\\2&4&6\\7&0&5
+\end{array}$$  
+
+\emph{Indications.} Pour définir un nouveau carré, commence par le remplir avec des $0$ :\\
+\centerline{\ci{nouv_carre = [[0 for j in range(n)] for i in range(n)]}}
+puis remplis-le avec les bonnes valeurs par des commandes du type :\\
+\centerline{\ci{nouv_carre[i][j] = ...}}
+
+  \item \textbf{Multiplication.} Définis une fonction \ci{multiplication_carre(carre,k)}
+  qui multiplie par $k$ tous les éléments du carré. Avec l'exemple du carré $3\times 3$, la commande \ci{multiplication_carre(carre,2)} multiplie tous les éléments par $2$ et renvoie donc un tableau qui s'afficherait ainsi :
+$$\begin{array}{ccc}
+8&18&4\\6&10&14\\16&2&12
+\end{array}$$ 
+  
+  \item \textbf{Homothétie.} Définis une fonction \ci{homothetie_carre(carre,k)}
+  qui agrandit le carré d'un facteur $k$ comme sur les exemples ci-dessous. 
+  Voici un exemple du carré $3 \times 3$ avec une homothétie de rapport $k=3$.
+ $$
+  \begin{array}{c|c|c}  
+  4& 9& 2\\\hline
+  3& 5& 7\\\hline
+  8& 1& 6\\  
+  \end{array} 
+\quad  \longrightarrow\quad
+  \begin{array}{ccc|ccc|ccc}  
+  4& 4& 4& 9& 9& 9& 2& 2& 2\\
+  4& 4& 4& 9& 9& 9& 2& 2& 2\\ 
+  4& 4& 4& 9& 9& 9& 2& 2& 2\\\hline
+  3& 3& 3& 5& 5& 5& 7& 7& 7\\
+  3& 3& 3& 5& 5& 5& 7& 7& 7\\
+  3& 3& 3& 5& 5& 5& 7& 7& 7\\\hline
+  8& 8& 8& 1& 1& 1& 6& 6& 6\\
+  8& 8& 8& 1& 1& 1& 6& 6& 6\\
+  8& 8& 8& 1& 1& 1& 6& 6& 6 \\
+  \end{array}
+$$
+  
+Voici l'exemple d'un carré $4\times 4$ avec une homothétie de rapport $k=2$.
+$$  
+  \begin{array}{c|c|c|c}  
+  1& 14& 15& 4\\\hline
+  7& 9& 6& 12\\\hline
+  10& 8& 11& 5\\\hline
+  16& 3& 2& 13\\    
+  \end{array} 
+\quad  \longrightarrow \quad 
+  \begin{array}{cc|cc|cc|cc}
+ 1& 1&14&14&15&15& 4& 4\\
+  1& 1&14&14&15&15& 4& 4\\\hline
+  7& 7& 9& 9& 6& 6&12&12\\
+  7& 7& 9& 9& 6& 6&12&12\\\hline
+ 10&10& 8& 8&11&11& 5& 5\\
+ 10&10& 8& 8&11&11& 5& 5\\\hline
+ 16&16& 3& 3& 2& 2&13&13\\
+ 16&16& 3& 3& 2& 2&13&13
+ \end{array}
+  $$
+  
+\item \textbf{Addition de blocs.} Définis une fonction \ci{addition_bloc_carre(grand_carre,petit_carre)} qui ajoute par bloc un petit carré au grand carré comme sur l'exemple ci-dessous. Le petit carré $2 \times 2$ à gauche est ajouté au grand carré au centre pour donné le résultat à droite. Pour cette addition le grand carré est décomposé en $9$ blocs, il y a en tout $36$ additions.
+$$
+  \begin{array}{cc} 
+  1& 2  \\
+  3& 4  \\
+  \end{array}
+  \qquad
+  \begin{array}{cc|cc|cc}  
+  4& 4& 9& 9& 2& 2  \\
+  4& 4& 9& 9& 2& 2  \\\hline
+  3& 3& 5& 5& 7& 7  \\
+  3& 3& 5& 5& 7& 7  \\\hline
+  8& 8& 1& 1& 6& 6  \\
+  8& 8& 1& 1& 6& 6  \\
+  \end{array}
+  \qquad  \longrightarrow \qquad
+  \begin{array}{cc|cc|cc}
+  5& 6&10&11& 3& 4  \\
+  7& 8&12&13& 5& 6  \\\hline
+  4& 5& 6& 7& 8& 9  \\
+  6& 7& 8& 9&10&11  \\\hline
+  9&10& 2& 3& 7& 8  \\
+ 11&12& 4& 5& 9&10  \\
+  \end{array}
+$$
+
+ \item \textbf{Produits de carrés magiques.} Définis une fonction \ci{produit_carres(carre1,carre2)} qui à partir de deux carrés magiques, calcule un grand carré magique appelé le produit des deux carrés. L'algorithme est le suivant :
+
+ \begin{algorithme}
+  \sauteligne 
+ \begin{itemize}
+   \item
+   \begin{itemize}
+     \item Entrées : un carré magique $C_1$ de taille $n\times n$ et un carré magique $C_2$ de tailles $m\times m$.
+     \item Sortie : un carré magique $C$ de taille $(nm)\times(nm)$.
+   \end{itemize}
+
+  \item Définis le carré $C_{3a}$ en retirant $1$ à tous les éléments de $C_2$. (Utilise la commande \ci{addition(carre2,-1)}.)
+  
+  \item Définis le carré $C_{3b}$ comme l'homothétie du carré $C_{3a}$ de rapport $n$. (Utilise la commande \ci{homothetie(carre3a,n)}.)
+  
+  \item Définis le carré $C_{3c}$ en multipliant tous les termes du carré $C_{3b}$ par $n^2$. (Utilise la commande \ci{multiplication_carre(carre3b,n**2)}.)
+  
+  \item Définis le carré $C_{3d}$ en ajoutant par bloc le carré $C_1$ au carré $C_{3c}$. (Utilise la commande \ci{addition_bloc_carre(carre3c,carre1)}.)
+  
+  \item Renvoie le carré $C_{3d}$.
+   
+ \end{itemize}  
+ \end{algorithme}
+ 
+ \begin{itemize}
+   \item Implémente cet algorithme. 
+   \item Teste-le sur des exemples, en vérifiant que le carré obtenu est bien un carré magique.
+   \item Construis un carré magique de taille $36 \times 36$ !
+   \item Vérifie aussi que l'ordre du produit est important ($C_1 \times C_2$ n'est pas le même carré que $C_2 \times C_1$). 
+  \end{itemize}  
+
+\end{enumerate}
+
+\end{activite}
+
+\end{document}

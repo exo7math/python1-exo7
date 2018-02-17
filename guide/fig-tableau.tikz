@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+
+
+\node at (0.5,0.5) {\bf 8};
+\node at (1.5,0.5) {\bf 6};
+\node at (2.5,0.5) {\bf 5};
+\node at (0.5,1.5) {\bf 15};
+\node at (1.5,1.5) {\bf 19};
+\node at (2.5,1.5) {\bf 4};
+\node at (0.5,2.5) {\bf 3};
+\node at (1.5,2.5) {\bf 5};
+\node at (2.5,2.5) {\bf 7};
+\node at (0.5,3.5) {\bf 2};
+\node at (1.5,3.5) {\bf 14};
+\node at (2.5,3.5) {\bf 5};
+
+\draw[thick] (0,0) grid ++(3,4);
+
+% \node at (3,-0.7) {\bf Un tableau avec $5$ blocs ($N=4$, $M=6$)};
+
+\draw[->,>=latex,very thick]   (0,5)  to node[midway, above] {indice $j$}  ++(3,0) ;
+\draw[->,>=latex,very thick]   (-1.5,4)  to node[midway, left] {indice $i$}  ++(0,-4) ;
+
+\node[scale=0.7,above] at (0.5,4) {$j=0$};
+\node[scale=0.7,above] at (1.5,4) {$j=1$};
+\node[scale=0.7,above] at (2.5,4) {$j=2$};
+
+
+\node[scale=0.7,left] at (0,3.5) {$i=0$};
+\node[scale=0.7,left] at (0,2.5) {$i=1$};
+\node[scale=0.7,left] at (0,1.5) {$i=2$};
+\node[scale=0.7,left] at (0,0.5) {$i=3$};
+
+
+\end{tikzpicture}

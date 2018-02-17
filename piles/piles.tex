@@ -1,0 +1,685 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+
+
+\begin{document}
+
+% Commande spécifique
+\newcommand{\badletter}[1]{\underline{\textcolor{red}{#1}}}
+
+
+
+%====================================================================
+\chapitre{Calculatrice polonaise -- Piles}
+%====================================================================
+
+\objectifs{Tu vas programmer ta propre calculatrice ! Pour cela tu vas découvrir une nouvelle notation pour les formules et aussi découvrir ce qu'est une \og{}pile\fg{} en informatique.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Pile]
+
+  Une \defi{pile} est une suite de données munie de trois opérations de base :
+  \begin{itemize}
+    \item \defi{empiler}\index{empiler} : on ajoute un élément au sommet de la pile,
+    \item \defi{dépiler}\index{depiler@dépiler} : on lit la valeur de l'élément au sommet de la pile et on retire cet élément de la pile,
+    \item et enfin, on peut tester si la pile est vide.
+  \end{itemize}  
+
+\myfigure{0.6}{
+  \tikzinput{fig-piles1}
+} 
+
+\myfigure{0.5}{
+  \tikzinput{fig-piles2}
+} 
+
+Remarques.
+\begin{itemize}
+  \item \textbf{Analogie.} Tu peux faire le lien avec une pile d'assiettes. On peut déposer, une à une, des assiettes sur une pile. On peut retirer, une à une, les assiettes en commençant bien sûr par celle du haut. En plus, il faut considérer que sur chaque assiette est dessinée une donnée (un nombre, un caractère, une chaîne\ldots).
+
+  \item \textbf{Dernier entré, premier sorti.} 
+  Dans une file d'attente, le premier qui attend, est le premier qui est servi et ressort. Ici  c'est le contraire ! Une pile fonctionne selon le principe \og{}dernier entré, premier sorti\fg{}.
+  
+  \item Dans une liste, on peut accéder directement à n'importe quel élément ; dans une pile on n'accède directement  qu'à l'élément au sommet de la pile. Pour accéder aux autres éléments, il faut dépiler plusieurs fois.
+  
+  \item L'avantage d'une pile est que c'est une structure de donnée très simple qui correspond bien à ce qui se passe dans la mémoire d'un ordinateur.
+\end{itemize}
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cours}[Variable globale]
+
+\index{variable!globale}
+\index{global@\ci{global}}
+
+Une \defi{variable globale} est une variable qui est définie pour l'ensemble du programme. Il n'est généralement pas recommandé d'utiliser de telles variables mais cela peut être utile dans certain cas. Voyons un exemple.
+
+On déclare la variable globale, ici la constante de gravitation, en début de programme comme une variable classique : \\
+\centerline{\ci{gravitation = 9.81}}
+
+La contenu de la variable \ci{gravitation} est maintenant accessible partout.
+Par contre, si on souhaite changer la valeur de cette variable dans une fonction, il faut bien préciser à \Python{} que l'on est conscient de modifier une variable globale !
+
+Par exemple pour des calculs sur la Lune, il faut changer la constante de gravitation qui y est beaucoup plus faible.
+
+\begin{lstlisting}
+def sur_la_lune():
+    global gravitation   # Oui, je veux modifier cette variable globale !
+    gravitation = 1.625  # Nouvelle valeur pour tout le programme    
+    ...
+\end{lstlisting}
+
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Manipulations de la pile]
+
+\objectifs{Objectifs : définir les trois commandes (très simples) pour utiliser les piles.}
+
+Dans cette fiche, une pile sera modélisée par une liste. L'élément en fin de liste correspond au sommet de la pile.
+
+\myfigure{0.6}{
+  \tikzinput{fig-piles3}
+} 
+
+La pile sera stockée dans une variable globale \ci{pile}. 
+Il faut commencer chaque fonction qui modifie la pile par la commande : \\
+\centerline{\ci{global pile}}
+
+
+\begin{enumerate}
+  \item Écris une fonction \ci{empile()} qui ajoute un élément au sommet de la pile.
+  
+  \begin{fonction}[\ci{empile()}]
+  Usage : \ci{empile(element)} \\
+  Entrée : un entier, une chaîne\ldots \\
+  Sortie : rien \\
+  Action : la pile contient un élément en plus
+  
+  \medskip
+    
+  Exemple : si au départ \ci{pile = [5,1,3]} alors, après l'instruction \ci{empile(8)}, la pile vaut \ci{[5,1,3,8]} et si on continue avec l'instruction
+\ci{empile(6)}, la pile vaut maintenant \ci{[5,1,3,8,6]}.     
+  \end{fonction}
+
+  \item Écris une fonction \ci{depile()}, sans paramètre, qui retire l'élément au sommet de la pile et renvoie sa valeur.
+  
+  \begin{fonction}[\ci{depile()}]
+  Usage : \ci{depile()} \\
+  Entrée : rien \\
+  Sortie : l'élément du sommet de la pile \\
+  Action : la pile contient un élément de moins
+  
+  \medskip
+    
+  Exemple : si au départ \ci{pile = [13,4,9]} alors l'instruction \ci{depile()} renvoie la valeur \ci{9} et la pile vaut maintenant \ci{[13,4]} ; si on exécute une nouvelle instruction \ci{depile()}, elle renvoie cette fois la valeur \ci{4} et la pile vaut maintenant \ci{[13]}.
+  \end{fonction}
+  
+  \item Écris une fonction \ci{pile_est_vide()}, sans paramètre, qui teste si la pile est vide ou non. 
+  
+  \begin{fonction}[\ci{pile_est_vide()}]
+  Usage : \ci{pile_est_vide()} \\
+  Entrée : rien \\
+  Sortie : vrai ou faux \\
+  Action : ne fait rien sur la pile
+  
+  \medskip
+    
+  Exemple : 
+  \begin{itemize}
+    \item si \ci{pile = [13,4,9]} alors l'instruction \ci{pile_est_vide()} renvoie \ci{False},
+    \item si \ci{pile = []} alors l'instruction \ci{pile_est_vide()} renvoie \ci{True}.
+  \end{itemize}
+  \end{fonction}
+\end{enumerate} 
+\end{activite}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Opérations sur la pile]
+
+\objectifs{Objectifs : manipuler les piles en utilisant seulement les trois fonctions \ci{empile()}, \ci{depile()} et \ci{pile_est_vide()}.}
+
+Dans cet exercice, on travaille avec une pile formée d'entiers. Les questions sont indépendantes.
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item En partant d'une pile vide, arrive à une pile \ci{[5,7,2,4]}.
+    \item Exécute ensuite les instructions \ci{depile()}, \ci{empile(8)}, \ci{empile(1)}, \ci{empile(3)}. Que vaut-maintenant la pile ? Que renvoie maintenant l'instruction \ci{depile()} ?
+\end{enumerate}  
+
+  \item Pars d'une pile. Écris une fonction \ci{pile_contient(element)} qui teste si la pile contient un élément donné.
+  
+  \item Pars d'une pile. Écris une fonction qui calcule la somme des éléments de la pile. 
+  
+  \item Pars d'une pile. Écris une fonction qui renvoie l'avant-dernier élément de la pile (le dernier élément est celui tout en bas ; si cet avant-dernier élément n'existe pas, la fonction renvoie \ci{None}). 
+  
+\end{enumerate} 
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cours}[Manipulation de chaînes]
+\sauteligne
+
+\begin{enumerate}
+  \item  La fonction \ci{split()}\index{split@\ci{split}}\index{chaine@chaîne!separer@séparer} est une méthode \Python{} qui sépare une chaîne de caractères en morceaux. Si aucun séparateur n'est préciser, le séparateur est le caractère espace.
+  
+  \begin{fonctionpython}[\ci{python : split()}]
+    Usage : \ci{chaine.split(separateur)}\\
+    Entrée : une chaîne de caractères \ci{chaine} et éventuellement un séparateur \ci{separateur}  \\
+    Sortie : une liste de chaînes de caractères
+  
+  \medskip
+     
+   Exemple :
+  \begin{itemize}  
+    \item \ci{"Etre ou ne pas etre.".split()} renvoie \ci{['Etre', 'ou', 'ne', 'pas', 'etre.']}
+    \item \ci{"12.5;17.5;18".split(";")} renvoie \ci{['12.5', '17.5', '18']}
+  \end{itemize} 
+  \end{fonctionpython}  
+  
+  \item La fonction \ci{join()}\index{join@\ci{join}}\index{chaine@chaîne!regrouper} est une méthode \Python{} qui recolle une liste de chaînes en une seule chaîne. C'est l'opération inverse de \ci{split()}.
+  
+   \begin{fonctionpython}[\ci{python : join()}]
+    Usage : \ci{separateur.join(liste)}\\
+    Entrée : une liste de chaînes de caractères \ci{liste} et un séparateur \ci{separateur}  \\
+    Sortie : une chaîne de caractères
+  
+  \medskip
+     
+   Exemple :
+  \begin{itemize}  
+    \item \ci{"".join(["Etre", "ou", "ne", "pas", "etre."])} renvoie \ci{'Etreounepasetre.'} Il manque les espaces.
+    \item \ci{" ".join(["Etre", "ou", "ne", "pas", "etre."])} renvoie \ci{'Etre ou ne pas etre.'}   C'est mieux lorsque le séparateur est une espace.
+    \item \ci{"--".join(["Etre", "ou", "ne", "pas", "etre."])} renvoie \ci{'Etre--ou--ne--pas--etre.'}  
+  \end{itemize} 
+  \end{fonctionpython}  
+
+  \item  La fonction \ci{isdigit()}\index{isdigit@\ci{isdigit}} est une méthode \Python{} qui teste si une chaîne de caractères ne contient que des chiffres. Cela permet donc de tester si une chaîne correspond à un entier positif.
+ Voici des exemples : \ci{"1789".isdigit()} renvoie \ci{True} ;  \ci{"Coucou".isdigit()} renvoie \ci{False}.
+ 
+ Rappelons que l'on peut convertir une chaîne en un entier par la commande \ci{int(chaine)}. Le petit programme suivant teste si une chaîne peut être convertie en un entier positif :
+ 
+\begin{lstlisting}
+machaine = "1789" # Une chaîne
+if machaine.isdigit():
+    monentier = int(chaine)   # monentier est un entier
+else:                         # Problème
+    print("Je ne sais pas convertir la chaîne en un entier !")
+\end{lstlisting} 
+
+\end{enumerate}  
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Gare de triage]
+
+\objectifs{Objectifs : résoudre un problème de triage en modélisant une zone de stockage par la pile.}
+
+
+
+Un train comporte des wagons bleus qui portent un numéro et des wagons rouges qui portent une lettre. 
+
+\myfigure{0.6}{
+  \tikzinput{fig-triage1}
+} 
+
+Le chef de gare souhaite séparer les wagons : d'abord tous les bleus et ensuite tous les rouges (l'ordre des wagons bleus n'a pas d'importance, l'ordre des wagons rouges non plus). 
+
+\myfigure{0.6}{
+  \tikzinput{fig-triage2}
+} 
+
+Pour cela, il dispose d'une gare de sortie et d'une zone d'attente : un wagon peut soit être directement envoyé à la gare de sortie, soit être momentanément stocké dans la zone d'attente.
+
+\myfigure{0.7}{
+  \tikzinput{fig-triage3}
+} 
+
+
+Voici les instructions du chef de gare.
+\begin{itemize}
+
+  \item \textbf{Phase 1.} Pour chaque wagon du train :
+     \begin{itemize} 
+       \item si c'est un wagon bleu, envoyez-le directement en gare de sortie ;
+       \item si c'est un wagon rouge, envoyez-le dans la zone d'attente.
+     \end{itemize}
+   
+  \item \textbf{Phase 2.} Ensuite, déplacez un par un les wagons (rouges) de la zone d'attente vers la gare de sortie en les raccrochant aux autres.
+\end{itemize}  
+ 
+\myfigure{0.7}{
+  \tikzinput{fig-triage4}
+} 
+ 
+\myfigure{0.7}{
+  \tikzinput{fig-triage5}
+} 
+  
+
+
+Voici comment nous allons modéliser le train et son triage.
+\begin{itemize}
+  \item Le train est une chaîne de caractères formée d'une suite de nombres (les wagons bleus) et de lettres (les wagons rouges) séparés par des espaces. Par exemple \ci{train = "G 6 Z J 14"}. 
+  
+  \item On obtient la liste des wagons par la commande \ci{train.split()}.
+  
+  \item On teste si un wagon est bleu est regardant s'il est marqué d'un nombre, par la fonction \ci{wagon.isdigit()}.
+  
+  \item Le train reconstitué par les wagons triés est aussi une chaîne de caractères. Au départ, c'est la chaîne vide.
+  
+  \item La zone d'attente sera la pile. Au départ la pile est vide. On va y ajouter uniquement les wagons rouges. À la fin, on vide la pile vers la queue du train reconstitué.
+\end{itemize}
+
+
+En suivant les instructions du chef de gare, écris une fonction \ci{tri_wagons()} qui sépare les wagons bleus et rouges d'un train.
+
+
+\begin{fonction}[\ci{tri_wagons()}]
+  Usage : \ci{tri_wagons(train)} \\
+  Entrée : une chaîne de caractères avec des wagons bleus (nombres) et des wagons rouges (lettres) \\
+  Sortie : les wagons bleus d'abord et les rouges ensuite \\
+  Action : utilise la pile
+  
+  \medskip
+    
+  Exemple : 
+  \begin{itemize}
+    \item \ci{tri_wagons("A 4 C 12")} renvoie \ci{"4 12 C A"}
+    \item \ci{tri_wagons("K 8 P 17 L B R 3 10 2 N")} renvoie \ci{"8 17 3 10 2 N R B L P K"}
+    \end{itemize}
+    
+\end{fonction}
+
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Notation polonaise]
+
+\objectifs{L'écriture en notation polonaise (de son vrai nom, notation polonaise inverse) est une autre façon d'écrire une expression algébrique. Son avantage est que cette notation n'utilise pas de parenthèses et qu'elle est plus facile à manipuler pour un ordinateur. Son inconvénient est que nous n'y sommes pas habitués.}
+
+\index{ecriture@écriture!polonaise}
+
+Voici la façon classique d'écrire une expression algébrique (à gauche) et son écriture polonaise (à droite). Dans tous les cas, le résultat sera $13$ !
+$$\text{Classique : } \quad 7 + 6 \qquad\qquad\qquad \text{Polonaise : } \quad 7 \ \ 6 \ \ +$$
+Autres exemples :
+\begin{itemize}
+  \item 
+  classique : $(10 + 5) \times 3$ \quad ; \quad
+  polonaise : $10 \ \ 5 \ \ + \ \ 3 \ \ \times$
+  
+  \item 
+  classique : $10 + 2 \times 3$ \quad ; \quad
+  polonaise : $10 \ \ 2 \ \ 3 \ \ \times \ \ +$  
+   
+  \item 
+  classique : $(2 + 8) \times (6 + 11)$ \quad ; \quad
+  polonaise : $2 \ \ 8 \ \ + \ \ 6 \ \ 11 \ \ + \ \ \times$ 
+\end{itemize}
+
+\bigskip
+
+Voyons comment calculer la valeur d'une expression en écriture polonaise. 
+\begin{itemize}
+  \item On lit l'expression de gauche à droite :
+$$\color{red}\underrightarrow{\color{black}2 \ \ 8 \ \ + \ \ 6 \ \ 11 \ \ + \ \ \times}$$ 
+
+  \item Lorsque l'on rencontre un premier opérateur ($+$, $\times$,\ldots) on calcule l'opération \emph{avec les deux membres juste avant cet opérateur} : 
+$$\underbrace{\color{red}2 \ \ 8 \ \ +}_{2 + 8} \ \ 6 \ \ 11 \ \ + \ \ \times$$ 
+   
+  \item On remplace cette opération par le résultat :
+$$\underbrace{\color{red} 10}_{\substack{\text{résultat de }\\2 + 8}} \ \ 6 \ \ 11 \ \ + \ \ \times$$
+  
+  \item On continue la lecture de l'expression (on cherche le premier opérateur et les deux termes juste avant) :
+ $$10 \ \ \underbrace{\color{red}6 \ \ 11 \ \ +}_{6 + 11 = 17}  \ \ \times
+ \qquad \text{ devient } \qquad 
+10 \ \ 17  \ \ \times  \qquad \text{ qui vaut } \qquad 170$$
+  
+  \item 	À la fin il ne reste qu'une valeur, c'est le résultat ! (Ici $170$.)
+\end{itemize}
+
+\bigskip
+
+Autres exemples :
+\begin{itemize}
+  \item $8 \ \ 2 \ \ \div \ \ 3 \ \ \times \ \ 7 \ \ +$  
+$$\underbrace{8 \ \ 2 \ \ \div}_{8 \div 2 = 4} \ \ 3 \ \ \times \ \ 7 \ \ +
+\quad\text{ devient }\quad
+\underbrace{4 \ \ 3 \ \ \times}_{4 \times 3 = 12} \ \ 7 \ \ + 
+\quad\text{ devient }\quad
+ 12 \ \ 7 \ \ +
+\quad\text{ qui vaut }\quad
+19$$ 
+ 
+  \item $11 \ \ 9 \ \ 4 \ \ 3 \ \ + \ \ - \ \ \times$  
+$$11 \ \ 9 \ \ \underbrace{4 \ \ 3 \ \ +}_{4+3=7} \ \ - \ \ \times
+\quad\text{ devient }\quad
+11 \ \ \underbrace{9 \ \ 7 \ \ -}_{9 - 7 = 2} \ \ \times 
+\quad\text{ devient }\quad
+11 \ \ 2 \ \ \times
+\quad\text{ qui vaut }\quad
+22$$ 
+\end{itemize}  
+
+Exercice. Calcule la valeur des expressions :
+\begin{itemize}
+  \item $13 \ \ 5 \ \ + \ \ 3 \ \ \times$
+  \item $3 \ \ 5 \ \ 7 \ \ \times \ \ +$
+  \item $3 \ \ 5 \ \ 7 \ \ + \ \ \times$  
+  \item $15 \ \ 5 \ \ \div \ \ 4 \ \ 12 \ \ + \ \ \times$
+\end{itemize}
+
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Calculatrice polonaise]
+
+\objectifs{Objectifs : programmer une mini-calculatrice qui calcule les expressions en écriture polonaise.}
+
+\begin{enumerate}
+  \item Écris une fonction \ci{operation()} qui calcule la somme ou le produit de deux nombres.
+  
+  \begin{fonction}[\ci{operation()}]
+  Usage : \ci{operation(a,b,op)} \\
+  Entrée : deux nombres \ci{a} et \ci{b}, un caractère d'opération \ci{"+"} ou \ci{"*"} \\
+  Sortie : le résultat de l'opération \ci{a + b} ou \ci{a * b} 
+  
+  \medskip
+    
+  Exemple : 
+  \begin{itemize}
+    \item \ci{operation(2,4,"+")} renvoie \ci{6}
+    \item \ci{operation(2,4,"*")} renvoie \ci{8}        
+  \end{itemize}     
+  \end{fonction}
+
+
+  \item Programme une calculatrice polonaise, selon l'algorithme suivant :
+ 
+ \begin{algorithme}
+  \sauteligne 
+ \begin{itemize}
+   \item
+   \begin{itemize}
+     \item Entrée : une expression en écriture polonaise (une chaîne de caractères).
+     \item Sortie : la valeur de cette expression.
+     \item Exemple : \ci{"2 3 + 4 *"} (le calcul $(2+3) \times 4$) donne $20$.        
+   \end{itemize}
+
+  \item Partir avec une pile vide.   
+   
+   \item Pour chaque élément de l'expression (lue de gauche à droite) :
+   \begin{itemize}
+     \item si l'élément est un nombre, alors ajouter ce nombre à la pile,
+     
+     \item si l'élément est une opération, alors :
+       \begin{itemize}
+         \item dépiler une fois pour obtenir un nombre $b$,
+         \item dépiler une seconde fois pour obtenir un nombre $a$,
+         \item calculer $a+b$ ou $a \times b$ selon l'opération.
+       \end{itemize}
+     \end{itemize}   
+   \item À la fin, la pile ne contient qu'un seul élément, c'est le résultat du calcul.
+   
+ \end{itemize}  
+ \end{algorithme}
+
+\begin{fonction}[\ci{calculatrice_polonaise()}]
+  Usage : \ci{calculatrice_polonaise(expression)} \\
+  Entrée : une expression en notation polonaise (chaîne de caractères) \\
+  Sortie : le résultat du calcul \\
+  Action : utilise une pile
+   
+  \medskip
+   
+  Exemple : 
+  \begin{itemize}
+    \item \ci{calculatrice_polonaise("2 3 4 + +")} renvoie \ci{9}
+    \item \ci{calculatrice_polonaise("2 3 + 5 *")} renvoie \ci{25}
+    \end{itemize}    
+\end{fonction}  
+  
+\end{enumerate} 
+
+\textbf{Bonus.} Modifie ton code pour prendre en charge la soustraction et la division !
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Expression bien parenthésée]
+
+\objectifs{Objectifs : déterminer si les parenthèses d'une expression sont placées de façon cohérente.}
+
+Voici des exemples d'expressions bien et mal parenthésées :
+\begin{itemize}
+  \item $2 + (3 + b) \times (5 + (a - 4))$ est correctement parenthésée ;
+  \item $(a+ 8) \times 3 ) + 4$ est mal parenthésée : il y a une parenthèse fermante \og{}$)$\fg{}  seule ;
+  \item $(b + 8 / 5)) + (4$ est mal parenthésée : il y a autant de parenthèses ouvrantes 
+  \og{}$($\fg{} que de parenthèses fermantes \og{}$)$\fg{} mais elles sont mal positionnées.
+\end{itemize}
+
+\begin{enumerate}
+  \item 
+ 
+  Voici l'algorithme qui décide si les parenthèses d'une expression sont bien placées. 
+  La pile joue le rôle d'une zone de stockage intermédiaire pour les parenthèses ouvrantes \ci{"("}. Chaque fois que l'on trouve une parenthèse fermante \ci{")"} dans l'expression on supprime une parenthèse ouvrante de la pile.
+  
+  \begin{algorithme}
+  Entrée : une expression en écriture habituelle (une chaîne de caractères).
+  
+  Sortie : \og{}vrai\fg{} si les parenthèses sont cohérentes, \og{}faux\fg{} sinon. 
+  
+  \begin{itemize}
+   \item Partir avec une pile vide.   
+   
+   \item Pour chaque caractère de l'expression lue de gauche à droite :
+   \begin{itemize}
+     \item si le caractère n'est ni \ci{"("}, ni \ci{")"} alors ne rien faire !
+     
+     \item si le caractère est une parenthèse ouvrante  \ci{"("} alors ajouter ce caractère à la pile ;
+     
+     \item si le caractère est une parenthèse fermante  \ci{")"} :
+       \begin{itemize}
+         \item tester si la pile est vide, si elle vide alors renvoyer \og{}faux\fg{} (le programme se termine là, l'expression est mal parenthésée), si la pile n'est pas vide continuer, 
+         \item dépiler une fois, on dépile un  \ci{"("}.
+       \end{itemize}
+     \end{itemize} 
+       
+   \item Si à la fin, la pile est vide alors renvoyer la valeur \og{}vrai\fg{}, sinon renvoyer \og{}faux\fg{}.
+   
+ \end{itemize}  
+   \end{algorithme}
+
+
+\begin{fonction}[\ci{parentheses_correctes()}]
+  Usage : \ci{parentheses_correctes(expression)} \\
+  Entrée : une expression (chaîne de caractères) \\
+  Sortie : vrai ou faux selon que les parenthèses sont correctes ou pas\\
+  Action : utilise une pile
+   
+  \medskip
+   
+  Exemple : 
+  \begin{itemize}
+    \item \ci{parentheses_correctes("(2+3)*(4+(8/2))")} renvoie \ci{True}
+    \item \ci{parentheses_correctes("(x+y)*((7+z)")} renvoie \ci{False}
+    \end{itemize}    
+\end{fonction}  
+  
+  
+\item Améliore cette fonction pour tester une expression avec des parenthèses et des crochets.
+Voici une expression cohérente : $[(a+b)*(a-b)]$, voici des expressions non correctes :
+$[a+b)$, $(a+b]*[a-b)$.
+
+Voici l'algorithme à programmer en une fonction \ci{crochets_parentheses_correctes()}.
+
+
+  \begin{algorithme}
+  Entrée : une expression en écriture habituelle (une chaîne de caractères).
+
+  Sortie : \og{}vrai\fg{} si les parenthèses et les crochets sont cohérents, \og{}faux\fg{} sinon.     
+
+  \begin{itemize}
+
+  \item Partir avec une pile vide.   
+   
+   \item Pour chaque caractère de l'expression lue de gauche à droite :
+   \begin{itemize}
+     \item si le caractère n'est ni \ci{"("}, ni \ci{")"}, ni \ci{"["}, ni \ci{"]"} alors ne rien faire ;
+     
+     \item si le caractère est une parenthèse ou un crochet ouvrant  \ci{"("} ou \ci{"["}, alors ajouter ce caractère à la pile ;
+     
+     \item si le caractère est une parenthèse ou un crochet fermant  \ci{")"} ou \ci{"]"} :
+       \begin{itemize}
+         \item tester si la pile est vide, si elle vide alors renvoyer \og{}faux\fg{} (le programme se termine là, l'expression n'est pas cohérente), si la pile n'est pas vide continuer, 
+         \item dépiler une fois, on dépile un  \ci{"("} ou un \ci{"["},
+         \item si le caractère dépilé (ouvrant) ne correspond pas au caractère lu dans l'expression, alors renvoyer \og{}faux\fg{}. Le programme se termine là, l'expression n'est pas cohérente ; dire que les caractères correspondent c'est avoir \ci{"("} avec \ci{")"} et \ci{"["} avec \ci{"]"}.
+       \end{itemize}
+     \end{itemize} 
+       
+   \item Si à la fin, la pile est vide alors renvoyer la valeur \og{}vrai\fg{}, sinon renvoyer \og{}faux\fg{}.
+   
+ \end{itemize} 
+ \end{algorithme}
+ 
+ Cette fois la pile peut contenir des parenthèses ouvrantes \ci{"("} ou biens des crochets ouvrants \ci{"["}.  Chaque fois que l'on trouve une parenthèse fermante \ci{")"} dans l'expression, il faut que le haut de la pile soit une parenthèse ouvrante \ci{"("}. 
+Chaque fois que l'on trouve un crochet fermant \ci{"]"} dans l'expression, il faut que le haut de la pile soit un crochet ouvrant \ci{"["}.
+
+\end{enumerate} 
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Conversion en écriture polonaise]
+
+\objectifs{Objectifs : transformer une expression algébrique classique avec parenthèse en une écriture polonaise. L'algorithme est une version très améliorée de l'activité précédente. Nous ne donnerons pas de justification.}
+ 
+ 
+Tu es habitué à l'écriture \og{}$(13+5) \times 7$\fg{} ; tu as vu que l'ordinateur savait facilement calculer \og{}$13 \ 5 \ + \ 7 \ \times$\fg{}. Il ne reste plus qu'à passer de l'expression algébrique classique (avec parenthèses) à l'écriture polonaise (sans parenthèses) !
+
+  Voici l'algorithme pour des expressions ne comportant que des additions et des multiplications. 
+ 
+  \begin{algorithme}
+  Entrée : une expression en écriture habituelle
+
+  Sortie : l'expression écrite en notation polonaise
+
+  \begin{itemize}
+    \item  Partir avec une pile vide.  
+    
+    \item  Partir avec une chaîne vide \ci{polonaise} qui à la fin contiendra le résultat.
+   
+   \item Pour chaque caractère de l'expression (lue de gauche à droite) :
+   \begin{itemize} 
+     \item si le caractère est un nombre, alors ajouter ce nombre à la chaîne de sortie \ci{polonaise} ;
+     
+     \item si le caractère est une parenthèse ouvrante \ci{"("}, alors ajouter ce caractère à la pile ;
+     
+     \item si le caractère est l'opérateur de multiplication \ci{"*"}, alors ajouter ce caractère à la pile ;  
+        
+     \item si le caractère est l'opérateur d'addition \ci{"+"}, alors \\
+     tant que la pile n'est pas vide : \\
+     \indentation dépiler un élément,\\
+     \indentation si cet élément est l'opérateur de multiplication \ci{"*"}, alors :\\
+     \indentation \indentation ajouter cet élément à la chaîne de sortie \ci{polonaise}\\
+     \indentation sinon :\\
+     \indentation \indentation empiler cet élément (on le remet sur la pile après l'avoir enlevé)\\
+     \indentation \indentation terminer immédiatement la boucle \og{}tant que\fg{} (avec \ci{break})\\              
+     enfin, ajouter l'opérateur d'addition \ci{"+"} à la pile.
+
+     \item si le caractère est une parenthèse fermante \ci{")"}, alors \\
+     tant que la pile n'est pas vide : \\
+     \indentation dépiler un élément,\\
+     \indentation si cet élément est une parenthèse ouvrante \ci{"("}, alors :\\
+     \indentation \indentation terminer immédiatement la boucle \og{}tant que\fg{} (avec \ci{break})\\  
+     \indentation sinon :\\          
+     \indentation \indentation ajouter cet élément à la chaîne de sortie \ci{polonaise}\\
+
+   \end{itemize}          
+         
+    \item Si à la fin, la pile n'est pas vide, alors ajouter chaque élément de la pile à la chaîne de sortie \ci{polonaise}.
+  \end{itemize} 
+             
+ \end{algorithme}
+ 
+ 
+ 
+   \begin{fonction}[\ci{ecriture_polonaise()}]
+  Usage : \ci{ecriture_polonaise(expression)} \\
+  Entrée : une expression classique (avec les éléments séparés par des espaces) \\
+  Sortie : l'expression en notation polonaise\\
+  Action : utilise la pile
+  
+  \medskip
+  
+  Exemple :
+  \begin{itemize}
+     \item \ci{ecriture_polonaise("2 + 3")} renvoie \ci{"2 3 +"}
+     \item \ci{ecriture_polonaise("4 * ( 2 + 3 )")} renvoie \ci{"4 2 3 + *"}
+     \item \ci{ecriture_polonaise("( 2 + 3 ) * ( 4 + 8 )")} renvoie \ci{"2 3 + 4 8 + *"}
+  \end{itemize}     
+  \end{fonction}
+  
+ Dans cet algorithme, on appelle abusivement \og{}caractère\fg{} d'une expression chaque élément entre deux espaces. Exemple : les caractères de \ci{"( 17 + 10 ) * 3"} sont \ci{(}, \ci{17}, \ci{+}, \ci{10}, \ci{)}, \ci{*} et \ci{3}.
+ 
+ Tu vois que l'addition a un traitement plus compliqué que la multiplication. C'est dû au fait que la multiplication est prioritaire devant l'addition. Par exemple 
+ $2+3 \times 5$ signifie $2+(3 \times 5)$ et pas $(2+3) \times 5$. 
+ Si tu souhaites prendre en compte la soustraction et la division, il faut faire attention à la non-commutativité ($a-b$ n'est pas égal à $b-a$, $a\div b$ n'est pas égal à $b \div a$).
+ 
+
+
+\end{activite}
+
+\bigskip
+\bigskip
+
+Termine cette fiche en vérifiant que tout fonctionne correctement avec différentes expressions.
+Par exemple :
+\begin{itemize}
+  \item Définis une expression \ci{exp = "( 17 * ( 2 + 3 ) ) + ( 4 + ( 8 * 5 ) )"}
+  \item Demande à \Python{} de calculer cette expression : \ci{eval(exp)}.\index{eval@\ci{eval}} \Python{} renvoie \ci{129}.
+  \item Convertis l'expression en écriture polonaise :  \ci{ecriture_polonaise(exp)} renvoie \\
+  \centerline{ \ci{"17 2 3 + * 4 8 5 * + +"} }
+  \item Avec ta calculatrice calcule le résultat : \ci{calculatrice_polonaise("17 2 3 + * 4 8 5 * + +")} renvoie \ci{129}. On obtient bien le même résultat !
+  \end{itemize}
+  
+
+
+\end{document}

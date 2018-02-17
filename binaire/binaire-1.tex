@@ -1,0 +1,458 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+\begin{document}
+
+% Commande spécifique
+\newcommand{\badletter}[1]{\underline{\textcolor{red}{#1}}}
+
+
+
+%====================================================================
+\chapitre{Binaire I}
+%====================================================================
+
+\objectifs{Les ordinateurs transforment toutes les données en nombres et manipulent uniquement ces nombres. Ces nombres sont stockés sous la forme de listes de $0$ et de $1$. C'est l'écriture binaire des nombres !
+Pour mieux comprendre l'écriture binaire, tu vas d'abord mieux comprendre l'écriture décimale.
+}
+
+\index{binaire}
+\index{ecriture@écriture!binaire}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[\'Ecriture décimale]
+
+\index{ecriture@écriture!decimale@décimale}
+
+L'écriture habituelle des entiers se fait dans le système décimal (en base $10$). Par exemple, $70\,685$ c'est 
+${\color{blue}7} \times 10\,000
++{\color{blue}0} \times 1\,000
++{\color{blue}6} \times 100
++{\color{blue}8} \times 10 
++{\color{blue}5} \times 1$ : 
+$$
+\begin{array}{|c|c|c|c|c|}
+  \hline
+  {\color{blue}7} & {\color{blue}0} & {\color{blue}6} & {\color{blue}8} & {\color{blue}5} \\ 
+  \hline\hline
+  10000 & 1000 & 100 & 10 & 1 \\\hline
+  10^4 & 10^3 & 10^2 & 10^1 & 10^0 \\
+  \hline
+\end{array}
+$$   
+(on voit bien que $5$ est le chiffre des unités, $8$ celui des dizaines, $6$ celui des centaines\ldots). 
+
+Il faut bien comprendre les puissances de $10$. On note $10^k$ pour $10 \times 10 \times \cdots \times 10$ (avec $k$ facteurs).
+
+$$
+\begin{array}{|c|c|c|c|c|c|c|c|}
+  \hline
+  {\color{blue}d_{p-1}} & {\color{blue}d_{p-2}}& {\color{blue}\cdots} & {\color{blue}d_i}& {\color{blue}\cdots} & {\color{blue}d_2} & {\color{blue}d_1} & {\color{blue}d_0} \\ 
+  \hline\hline
+  10^{p-1} & 10^{p-2} & \cdots & 10^i &\cdots & 10^2 & 10^1 & 10^0 \\
+  \hline
+\end{array}
+$$   
+  
+On calcule donc l'entier correspondant aux chiffres $[d_{p-1},d_{p-2}, \ldots,d_2,d_1,d_0]$ par la formule :
+$$n = {\color{blue}d_{p-1}} \times 10^{p-1} + {\color{blue}d_{p-2}} \times 10^{p-2} + \cdots + {\color{blue}d_i} 10^{i} +  \cdots + {\color{blue}d_2} \times 10^2 + {\color{blue}d_1} \times 10^1 + {\color{blue}d_0} \times 10^0$$
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[De l'écriture décimale vers l'entier]
+
+\objectifs{Objectifs : à partir de l'écriture décimale, retrouver l'entier.}
+
+\'Ecris une fonction \ci{decimale_vers_entier(liste_decimale)} qui à partir d'une liste représentant l'écriture décimale calcule l'entier correspondant.
+  
+  \begin{fonction}[\ci{decimale_vers_entier()}]
+  Usage : \ci{decimale_vers_entier(liste_decimale)} \\
+  Entrée : une liste de chiffres entre $0$ et $9$ \\
+  Sortie : l'entier dont l'écriture décimale est la liste
+  
+  \medskip
+  Exemple : si l'entrée est \ci{[1,2,3,4]}, la sortie est \ci{1234}.
+  \end{fonction} 
+  
+  \emph{Indications.}  Il faut faire la somme d'éléments du type
+    $$d_i \times 10^{i} \quad \text{ pour } 0 \le i < p$$
+    où $p$ est la longueur de la liste et $d_i$ est le chiffre en position $i$ \emph{en comptant à partir de la fin} (c'est-à-dire de droite à gauche). Pour gérer le fait que l'indice $i$ utilisé pour parcourir la liste ne correspond pas à la puissance de $10$, il y a deux solutions :
+  \begin{itemize}
+    \item comprendre que $d_i = $\ci{liste}$[p-1-i]$ où \ci{liste} est la liste des $p$ chiffres,
+    \item ou bien commencer par inverser \ci{liste}.    
+   \end{itemize}  
+  
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cours}[Binaire]
+\sauteligne
+\begin{itemize}
+  \item \textbf{Puissances de 2.}
+    On note $2^k$ pour $2 \times 2 \times \cdots \times 2$ (avec $k$ facteurs). Par exemple, $2^3 = 2 \times 2 \times 2 = 8$. 
+$$
+\begin{array}{|c|c|c|c|c|c|c|c|}
+  \hline
+  2^7  & 2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0 \\
+  \hline
+  128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\ 
+  \hline
+\end{array}
+$$
+\index{puissances de 2}
+
+  \item \textbf{\'Ecriture binaire : un exemple.}
+  
+    Tout entier admet une écriture binaire, c'est-à-dire une écriture où les seuls chiffres sont des $0$ ou des $1$. En binaire, les chiffres sont appelés des \defi{bits}.\index{bits@\emph{bits}}
+     Par exemple, $1.0.1.1.0.0.1$ (prononce les chiffres un par un) est l'écriture binaire de l'entier $89$. Comment faire ce calcul ? C'est comme pour la base $10$, mais en utilisant les puissances de $2$ ! 
+$$
+\begin{array}{|c|c|c|c|c|c|c|}
+  \hline
+  {\color{red}1} & {\color{red}0} & {\color{red}1} & {\color{red}1} & {\color{red}0} & {\color{red}0} & {\color{red}1} \\ 
+  \hline\hline
+  64 & 32 & 16  & 8 & 4 & 2 & 1 \\\hline
+  2^6 & 2^5 & 2^4 & 2^3 & 2^2 & 2^1 & 2^0 \\
+  \hline
+\end{array}
+$$
+
+
+    Donc l'écriture {\color{red}1}.{\color{red}0}.{\color{red}1}.{\color{red}1}.{\color{red}0}.{\color{red}0}.{\color{red}1} représente l'entier : 
+    $${\color{red}1} \times 64  + {\color{red}0} \times 32 + {\color{red}1} \times 16  + {\color{red}1} \times 8 + {\color{red}0} \times 4 + {\color{red}0} \times 2 + {\color{red}1} \times 1 = 64 + 16 + 8 + 1 = 89.$$
+   \item \textbf{\'Ecriture binaire : formule.} 
+ 
+ 
+  $$
+\begin{array}{|c|c|c|c|c|c|c|c|}
+  \hline
+  {\color{red}b_{p-1}} & {\color{red}b_{p-2}}& {\color{red}\cdots} & {\color{red}b_i}& {\color{red}\cdots} & {\color{red}b_2} & {\color{red}b_1} & {\color{red}b_0} \\ 
+  \hline\hline
+  2^{p-1} & 2^{p-2} & \cdots & 2^i &\cdots & 2^2 & 2^1 & 2^0 \\
+  \hline
+\end{array}
+$$   
+  
+On calcule donc l'entier correspondant aux \emph{bits} $[b_{p-1},b_{p-2}, \ldots,b_2,b_1,b_0]$ comme une somme de termes $b_i \times 2^i$, par la formule :
+$$n = {\color{red}b_{p-1}} \times 2^{p-1} + {\color{red}b_{p-2}} \times 2^{p-2} + \cdots + {\color{red}b_i} 2^i +  \cdots + {\color{red}b_2} \times 2^2 + {\color{red}b_1} \times 2^1 + {\color{red}b_0} \times 2^0$$
+  
+    \item \textbf{\Python{} et le binaire.} \Python{} accepte que l'on écrive directement les entiers en écriture binaire, il suffit d'utiliser le préfixe \og{}\ci{0b}\fg{}.
+    Exemples :
+    \begin{itemize}
+      \item avec \ci{x = 0b11010}, alors \ci{print(x)} affiche \ci{26},
+      \item avec \ci{y = 0b11111}, alors \ci{print(y)} affiche \ci{31},
+      \item et \ci{print(x+y)} affiche \ci{57}.
+    \end{itemize} 
+ \end{itemize}     
+
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[De l'écriture binaire vers l'entier]
+
+\objectifs{Objectifs : à partir de l'écriture binaire, retrouver l'entier (en écriture décimale usuelle).}
+
+\begin{enumerate}
+
+  \item Calcule l'entier dont l'écriture binaire est donnée ci-dessous. Tu peux le faire à la main ou t'aider de \Python. Par exemple $1.0.0.1.1$ vaut $2^4+2^1+2^0 = 19$ ce que confirme la commande \ci{0b10011} qui renvoie $19$.
+  
+  \begin{itemize}
+    \item $1.1$, $1.0.1$, $1.0.0.1$, $1.1.1.1$
+    \item $1.0.0.0.0$, $1.0.1.0.1$, $1.1.1.1.1$
+    \item $1.0.1.1.0.0$, $1.0.0.0.1.1$
+    \item $1.1.1.0.0.1.0.1$
+  \end{itemize}
+  
+
+  \item \'Ecris une fonction \ci{binaire_vers_entier(liste_binaire)} qui à partir d'une liste représentant l'écriture binaire calcule l'entier correspondant.
+  
+  \begin{fonction}[\ci{binaire_vers_entier()}]
+  Usage : \ci{binaire_vers_entier(liste_binaire)} \\
+  Entrée : une liste de \emph{bits} $0$ et $1$ \\
+  Sortie : l'entier dont l'écriture binaire est la liste
+  
+  \medskip
+  Exemples : 
+  \begin{itemize}
+    \item entrée \ci{[1,1,0]}, sortie \ci{6}
+    \item entrée \ci{[1,1,0,1,1,1]}, sortie \ci{55}
+    \item entrée \ci{[1,1,0,1,0,0,1,1,0,1,1,1]}, sortie \ci{3383}
+  \end{itemize}       
+  \end{fonction}
+  
+  \emph{Indications.}  Il faut cette fois  faire la somme d'éléments du type
+    $$b_i \times 2^{i} \quad \text{ pour } 0 \le i < p$$
+    où $p$ est la longueur de la liste et $b_i$ est le \emph{bit} ($0$ ou $1$) en position $i$ de la liste en comptant à partir de la fin.
+  
+  
+  \item Voici un algorithme qui effectue le même travail : il permet le calcul de l'entier à partir de l'écriture binaire, mais il a l'avantage de ne jamais calculer directement des puissances de $2$. Programme cet algorithme en une fonction \ci{binaire_vers_entier_bis()} qui a les mêmes caractéristiques que la fonction précédente.
+  
+  \begin{algorithme}
+  Entrée : \ci{liste} : une liste de $0$ et de $1$
+
+  Sortie : le nombre binaire associé 
+
+  \begin{itemize}
+    \item  Initialiser une variable $n$ à $0$.
+
+    
+    \item  Pour chaque élément $b$ de \ci{liste} :
+    
+     \begin{itemize} 
+       \item si $b$ vaut $0$, alors faire $n \leftarrow 2n$,
+       \item si $b$ vaut $1$, alors faire $n \leftarrow 2n+1$.
+     \end{itemize}    
+         
+    \item Le résultat est la valeur de $n$.
+  \end{itemize} 
+             
+ \end{algorithme}
+ 
+\end{enumerate}
+
+\end{activite}
+  
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Écriture décimale (bis)]
+
+Bien sûr, quand tu vois le nombre $1234$ tu sais tout de suite trouver la liste de ses  chiffres $[1,2,3,4]$. Mais comment faire en général à partir d'un entier $n$ ?
+ 
+\begin{enumerate}
+  \item On aura besoin de la division euclidienne par $10$ :
+  \begin{itemize}
+    \item on calcule par \ci{n \% 10} le \defi{reste}, on l'appelle aussi \defi{$n$ modulo $10$}
+    \item on calcule par \ci{n // 10} le \defi{quotient} de cette division. 
+  \end{itemize}
+  
+\myfigure{1}{
+\tikzinput{fig-binaire-1}
+}
+  
+  \item Les commandes \Python{} sont simplement \ci{n \% 10} et \ci{n // 10}.
+  
+  Exemple : \ci{1234 \% 10} vaut \ci{4} ; \ci{1234 // 10} vaut \ci{123}.
+  
+  \item
+  \begin{itemize}
+    \item Le chiffre des unités de $n$ s'obtient comme le reste modulo $10$ : c'est $n\%10$. Exemple $1234 \% 10 = 4$.
+    \item Le chiffre des dizaines s'obtient à partir du quotient de la division de $n$ par $10$, puis en prenant le chiffre des unités de ce nombre : c'est donc $(n // 10) \% 10$.
+   Exemple : $1234 // 10 = 123$, puis on a $123 \% 10 = 3$ ; le chiffre des dizaines de $1234$ est bien $3$.
+   
+   \item Pour le chiffre de centaines, on calcule le quotient de la division de $n$ par $100$, puis on prend le chiffre des unités.  Exemple $1234 // 100 = 12$ ; $2$ est le chiffre des unités de $12$ et c'est le chiffre des centaines de $1234$. Remarque : diviser par $100$, c'est diviser par $10$, puis de nouveau par $10$.
+   
+   \item Pour le chiffre des milliers on calcule le quotient de la division par $1000$ puis on prend le chiffre des unités\ldots
+   \end{itemize} 
+ \end{enumerate}     
+
+\end{cours}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Trouver les chiffres d'un entier]
+
+\objectifs{Objectifs : décomposer un entier en la liste de ses chiffres (en base $10$).}
+
+Programme l'algorithme suivant en une fonction \ci{entier_vers_decimale()}.
+
+ 
+   \begin{fonction}[\ci{entier_vers_decimale()}]
+  Usage : \ci{entier_vers_decimale(n)} \\
+  Entrée : un entier positif \\
+  Sortie : la liste de ses chiffres
+  
+  \medskip
+    
+  Exemple : si l'entrée est \ci{1234}, la sortie est \ci{[1,2,3,4]}.
+  \end{fonction}
+
+
+  \begin{algorithme}
+  Entrée : une entier $n>0$
+
+  Sortie : la liste de ses chiffres 
+
+  \begin{itemize}
+    \item Partir d'une liste vide.
+    
+    \item Tant que $n$ n'est pas nul :
+    
+     \begin{itemize} 
+       \item ajouter $n \% 10$ au début de la liste,
+       \item faire $n \leftarrow n//10$.
+     \end{itemize}    
+         
+    \item Le résultat est la liste.
+  \end{itemize} 
+             
+ \end{algorithme}
+ 
+  
+
+\end{activite}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{cours}[\'Ecriture binaire avec \Python]
+
+\Python{} calcule très bien l'écriture binaire d'un entier grâce à la fonction \ci{bin()}.
+\index{bin@\ci{bin}}
+  
+   \begin{fonctionpython}[\ci{python : bin()}]
+    Usage : \ci{bin(n)}\\
+    Entrée : un entier  \\
+    Sortie : l'écriture binaire de $n$ sous la forme d'une chaîne de caractères commençant par \ci{'0b'}
+  
+  \medskip
+     
+   Exemple :
+  \begin{itemize}  
+    \item \ci{bin(37)} renvoie \ci{'0b100101'}
+    \item \ci{bin(139)} renvoie \ci{'0b10001011'}
+  \end{itemize} 
+  \end{fonctionpython}  
+   
+\end{cours}
+
+
+\begin{cours}[Calcul de l'écriture binaire]
+
+Pour calculer l'écriture binaire d'un entier $n$, c'est la même méthode que pour calculer l'écriture décimale mais en remplaçant les divisions par $10$ par des divisions par $2$.
+
+Nous avons donc besoin :
+  \begin{itemize}
+    \item de $n\%2$ : le reste de la division euclidienne de $n$ par $2$ (appelé aussi $n$ modulo $2$) ; le reste vaut soit $0$ soit $1$.
+    \item de $n//2$ : le \defi{quotient} de cette division. 
+  \end{itemize}
+  
+  Note que le reste  $n\%2$ vaut soit $0$ (quand $n$ est pair) soit $1$ (quand $n$ est impair).
+  
+  Voici la méthode générale pour calculer l'écriture binaire d'un entier :
+\begin{itemize}
+  \item On part de l'entier dont on veut l'écriture binaire.
+  
+  \item On effectue une suite de divisions euclidiennes par 2 : 
+  \begin{itemize}
+    \item à chaque division, on obtient un reste qui vaut 0 ou 1 ; 
+    \item on obtient un quotient que l'on divise de nouveau par 2\ldots{} On s'arrête quand ce quotient est nul.
+  \end{itemize}
+  
+  \item On lit l'écriture binaire comme la suite des restes, mais en partant du dernier reste.
+\end{itemize}
+
+\begin{exemple}
+Calcul de l'écriture binaire de 14.
+
+\begin{itemize}
+  \item On divise 14 par 2, le quotient est 7, le reste est 0.
+  \item On divise 7 (le quotient précédent) par 2 : le nouveau quotient est 3, le nouveau reste est 1.
+  \item On divise 3 par 2 : quotient 1, reste 1.
+  \item On divise 1 par 2 : quotient 0, reste 1.
+  \item C'est terminé (le dernier quotient est nul).
+  \item Les restes successifs sont 0, 1, 1, 1. On lit l'écriture binaire à l'envers c'est 1.1.1.0.  
+\end{itemize}
+
+Les divisions se font de gauche à droite, mais on lit les restes de droite à gauche.
+
+\myfigure{1}{
+\tikzinput{fig-binaire-2}
+}
+\end{exemple}
+
+\begin{exemple}
+Écriture binaire de 50.
+
+\myfigure{1}{
+\tikzinput{fig-binaire-3}
+}
+
+Les restes successifs sont 0, 1, 0, 0, 1, 1, donc l'écriture binaire de 50 est 1.1.0.0.1.0.
+\end{exemple}
+
+
+\end{cours}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[]
+
+\objectifs{Objectifs : trouver l'écriture binaire d'un entier.}
+
+\begin{enumerate}
+  \item Calcule à la main l'écriture binaire des entiers suivants. Vérifie tes résultats à l'aide de la fonction \ci{bin()} de \Python.
+  
+   \begin{itemize}
+    \item $13$, $18$, $29$, $31$,
+    \item $44$, $48$, $63$, $64$,
+    \item $100$, $135$, $239$, $1023$.
+  \end{itemize} 
+  
+  \item
+  Programme l'algorithme suivant en une fonction \ci{entier_vers_binaire()}.
+
+  \begin{algorithme}
+  Entrée : une entier $n>0$
+
+  Sortie : son écriture binaire sous la forme d'une liste
+
+  \begin{itemize}
+    \item Partir d'un liste vide.
+    
+    \item Tant que $n$ n'est pas nul :
+    
+     \begin{itemize} 
+       \item ajouter $n \% 2$ au début de la liste,
+       \item faire $n \leftarrow n//2$.
+     \end{itemize}    
+         
+    \item Le résultat est la liste.
+  \end{itemize} 
+             
+ \end{algorithme}
+ 
+   \begin{fonction}[\ci{entier_vers_binaire()}]
+  Usage : \ci{entier_vers_binaire(n)} \\
+  Entrée : un entier positif \\
+  Sortie : son écriture binaire sous forme d'une liste
+  
+  \medskip  
+  Exemple : si l'entrée est \ci{204}, la sortie est \ci{[1,1,0,0,1,1,0,0]}.
+  \end{fonction} 
+  
+  Vérifie que tes fonctions fonctionnent bien :
+  \begin{itemize}
+    \item pars d'un entier $n$,
+    \item calcule son écriture binaire,
+    \item calcule l'entier associé à cette écriture,
+    \item tu dois retrouver l'entier de départ !
+  \end{itemize}
+\end{enumerate}
+\end{activite}
+
+\end{document}

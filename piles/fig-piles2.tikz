@@ -1,0 +1,102 @@
+
+\usetikzlibrary{patterns}
+
+\begin{tikzpicture}[scale=0.8]
+
+
+
+\draw[ultra thick] (-3,0) -- (3,0);
+\fill[pattern=north west lines] (-3,-1) rectangle (3,0);
+
+\draw[thick] (-2,0) rectangle ++(4,1);
+\node at (0,0.5) {$U$};
+
+\draw[thick] (-2,1) rectangle ++(4,1);
+\node at (0,1.5) {$Z$};
+
+\draw[thick] (-2,2) rectangle ++(4,1);
+\node at (0,2.5) {$A$};
+
+
+
+\draw[thick] (-6,4) rectangle ++(4,1);
+\node at (-4,4.5) {$J$};
+
+\draw[->,>=latex,thick ] (-1.9,4.5)  to[bend left] (0,3.1);
+\node at (1.2,4.2) {\small empile($J$)};
+
+\draw[->,>=latex,ultra thick,red] (2.5,1.5)  -- ++(4,0) node[midway,below] {\bf Empiler};
+
+\begin{scope}[xshift=9cm]
+\draw[ultra thick] (-3,0) -- (3,0);
+\fill[pattern=north west lines] (-3,-1) rectangle (3,0);
+
+\draw[thick] (-2,0) rectangle ++(4,1);
+\node at (0,0.5) {$U$};
+
+\draw[thick] (-2,1) rectangle ++(4,1);
+\node at (0,1.5) {$Z$};
+
+\draw[thick] (-2,2) rectangle ++(4,1);
+\node at (0,2.5) {$A$};
+
+\draw[thick] (-2,3) rectangle ++(4,1);
+\node at (0,3.5) {$J$};
+\end{scope}
+
+
+
+\begin{scope}[xshift=18cm]
+\draw[ultra thick] (-3,0) -- (3,0);
+\fill[pattern=north west lines] (-3,-1) rectangle (3,0);
+
+\draw[thick] (-2,0) rectangle ++(4,1);
+\node at (0,0.5) {$x$};
+
+\draw[thick] (-2,1) rectangle ++(4,1);
+\node at (0,1.5) {$s$};
+
+\draw[thick] (-2,2) rectangle ++(4,1);
+\node at (0,2.5) {$k$};
+
+\draw[thick] (-2,3) rectangle ++(4,1);
+\node at (0,3.5) {$b$};
+
+\draw[->,>=latex,thick ] (2.1,3.5)  to[bend right] (6,5.9);
+\node[right] at (6,5.2) {\small depile()};
+\node[right] at (6,4.5) {\small renvoie la valeur (ici "$b$")};
+
+
+
+\end{scope}
+
+\draw[->,>=latex,ultra thick,red] (20.5,1.5)  -- ++(4,0) node[midway,below] {\bf D\'epiler};
+
+
+\begin{scope}[xshift=27cm]
+\draw[ultra thick] (-3,0) -- (3,0);
+\fill[pattern=north west lines] (-3,-1) rectangle (3,0);
+
+\draw[thick] (-2,0) rectangle ++(4,1);
+\node at (0,0.5) {$x$};
+
+\draw[thick] (-2,1) rectangle ++(4,1);
+\node at (0,1.5) {$s$};
+
+\draw[thick] (-2,2) rectangle ++(4,1);
+\node at (0,2.5) {$k$};
+
+6\draw[thick] (-5,6) rectangle ++(4,1);
+\node at (-3,6.5) {$b$};
+
+\draw (-3,6.5) circle (0.45);
+
+
+\end{scope}
+
+
+
+
+
+
+\end{tikzpicture}

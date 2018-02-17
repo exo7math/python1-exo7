@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+
+\Large
+
+\begin{scope}
+\node[left] at (0,2.6) {$1.0.1.1.0$};
+\node[left] at (0,2) {$1.1.0.1.0$};
+\node[left] at (0,1) {$1.0.0.1.0$};
+\node[left] at (-3,2) {ET};
+\draw[thick] (-4,1.5)--(0,1.5);
+\end{scope}
+
+\begin{scope}[xshift=7cm]
+\node[left] at (0,2.6) {$1.0.0.1.0$};
+\node[left] at (0,2) {{\color{black!40}$0.0.$}$1.1.0$};
+\node[left] at (0,1) {$1.0.1.1.0$};
+\node[left] at (-3,2) {OU};
+\draw[thick] (-4,1.5)--(0,1.5);
+\end{scope}
+
+\end{tikzpicture}

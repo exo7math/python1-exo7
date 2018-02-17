@@ -1,0 +1,13 @@
+\begin{tikzpicture}[scale=2]
+
+\draw[ultra thick,green!60!black] (0,0)--(1,0)--(1,1)--(0,1)--(0,0)--(1,1);
+\draw[ultra thick,green!60!black] (0,1)--(1,0);
+
+\fill[black] (0,0) circle (2pt);
+ \fill[black] (0,1) circle (2pt);
+\fill[black] (1,0) circle (2pt);
+\fill[black] (1,1) circle (2pt);
+
+
+
+\end{tikzpicture}

@@ -1,0 +1,18 @@
+\tikzstyle{line} = [draw,  thick]
+
+\begin{tikzpicture}
+
+\path node(P1) {$5$ };
+\path (P1)+(2,0) node(P2) {$4$};
+\path (P1)+(1,-1.5) node(P3){$+$};
+\path (P3)+(2,0) node(P4) {$3$};
+\path (P3)+(1,-1.5) node(P5){$\times$};
+
+% Draw arrows between elements
+\path[line] (P1.south) -- node [above] {} (P3);
+\path[line] (P2.south) -- node [above] {} (P3);
+\path[line] (P3.south) -- node [above] {} (P5);
+\path[line] (P4.south) -- node [above] {} (P5);
+
+
+\end{tikzpicture}

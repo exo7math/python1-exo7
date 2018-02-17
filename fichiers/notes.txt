@@ -1,0 +1,7 @@
+Robin Dubois 5.0 16.5 19.5
+Tintin Dubois 8.5 15.5 16.5
+Gargamel Lupin 15.0 18.0 5.5
+Tintin Tchoupi 18.0 11.0 13.0
+Hermione Lupin 19.5 10.5 9.0
+James Tchoupi 10.0 11.0 6.0
+Alice Voldemort 13.0 16.5 20.0

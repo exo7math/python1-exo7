@@ -1,0 +1,55 @@
+\begin{tikzpicture}%[scale=1.2, every node/.style={scale=1.2}]
+%\usetikzlibrary{backgrounds}
+\def\rectangle{
+\draw[thick] (0,0) rectangle  +(6,1.5);
+\foreach \i in {1,2,3,4,5}{
+  \draw[thick] (\i,0) -- ++(0,1.5);
+};
+}
+
+\foreach \j in {0,3,6,9,12}{
+  \begin{scope}[yshift=\j cm]
+    \rectangle;
+  \end{scope}
+}
+
+\foreach \i in {0,1,2,3,4,5}{
+  \node at  (\i+0.5,12.75) {$b_\i$};
+};
+
+% Modulo 100
+\foreach \i in {0,1,2,3,4,5}{
+  \draw[<-,>=latex,ultra thick,red] (\i+0.5,1.75) -- ++(0,1);
+};
+
+% Permutation   
+% \begin{scope}[on background layer]
+        \draw[<-,>=latex,ultra thick,red!60] (0.5,4.75) -- ++(5,1);
+ %   \end{scope}
+\foreach \i in {1,2,3,4,5}{
+  \draw[<-,>=latex,ultra thick,red] (\i+0.5,4.75) -- ++(-1,1);
+};
+
+% Multiplications
+\foreach \i/\p in {0/7,2/13,4/19}{
+  \draw[<-,>=latex,ultra thick,red] (\i+0.35,7.75) -- ++(0,1) node[midway,right,scale=0.6,black]{$\times \p + 1$};
+};
+\foreach \i/\p in {1/11,3/17,5/23}{
+  \draw[<-,>=latex,ultra thick,red] (\i+0.35,7.75) -- ++(0,1) node[pos=0.7,right,scale=0.6,black]{$\times \p + 1$};
+};
+
+% Additions
+\foreach \i in {0,2,4}{
+  \draw[<-,>=latex,ultra thick,red] (\i+0.35,10.75) -- ++(0,1);
+};
+\foreach \i in {1,3,5}{
+  \draw[<-,>=latex,ultra thick,red] (\i+0.5,10.75) -- ++(0,1);
+\draw[ultra thick,red] (\i+0.5,11.25) -- ++(-0.75,0.5) node[pos=0.3,above,black] {$+$};
+};
+
+\node[right,red] at (6.5,2.25) {\bf (d) modulo 100};
+\node[right,red] at (6.5,5.25) {\bf (c) permutation circulaire};
+\node[right,red] at (6.5,8.25) {\bf (b) multiplications};
+\node[right,red] at (6.5,11.25) {\bf (a) additions};
+
+\end{tikzpicture}

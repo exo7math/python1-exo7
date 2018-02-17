@@ -1,0 +1,61 @@
+\begin{tikzpicture}
+
+
+% Jeu de la vie - Bouche
+\fill[red] (1,1) rectangle ++(1,1);
+\fill[red] (2,1) rectangle ++(1,1);
+\fill[red] (3,1) rectangle ++(1,1);
+\fill[red] (2,2) rectangle ++(1,1);
+\fill[red] (3,2) rectangle ++(1,1);
+\fill[red] (4,2) rectangle ++(1,1);
+
+\draw (0,0) grid ++(6,4);
+
+\node at (3,-1.5) {\bf Cellules};
+
+% Jeu de la vie - Tableau
+\begin{scope}[xshift=12cm]
+\draw (0,0) grid ++(6,4);
+
+\foreach \i in {0.5,1.5,2.5,3.5,4.5,5.5}{
+  \node[blue] at (\i,0.5) {\bf 0};
+  \node[blue] at (\i,3.5) {\bf 0};
+}
+
+
+\node[blue] at (0.5,1.5) {\bf 0};
+\node[blue] at (1.5,1.5) {\bf 1};
+\node[blue] at (2.5,1.5) {\bf 1};
+\node[blue] at (3.5,1.5) {\bf 1};
+\node[blue] at (4.5,1.5) {\bf 0};
+\node[blue] at (5.5,1.5) {\bf 0};
+
+\node[blue] at (0.5,2.5) {\bf 0};
+\node[blue] at (1.5,2.5) {\bf 0};
+\node[blue] at (2.5,2.5) {\bf 1};
+\node[blue] at (3.5,2.5) {\bf 1};
+\node[blue] at (4.5,2.5) {\bf 1};
+\node[blue] at (5.5,2.5) {\bf 0};
+
+\node at (3,-1.5) {\bf Tableau};
+
+\draw[->,>=latex,very thick]   (0,5)  to node[midway, above] {indice $j$}  ++(6,0) ;
+\draw[->,>=latex,very thick]   (-2,4)  to node[midway, left] {indice $i$}  ++(0,-4) ;
+
+\node[scale=0.7,above] at (0.5,4) {$j=0$};
+\node[scale=0.7,above] at (1.5,4) {$j=1$};
+\node[scale=0.7,above] at (3.5,4.05) {$\cdots$};
+\node[scale=0.7,above] at (5.5,4) {$j=p-1$};
+
+\node[scale=0.7,left] at (0,3.5) {$i=0$};
+\node[scale=0.7,left] at (0,2.5) {$i=1$};
+\node[scale=0.7,left] at (-0.3,1.5) {$\vdots$};
+\node[scale=0.7,left] at (0,0.5) {$i=n-1$};
+
+
+\draw[<->,>=latex,very thick,gray]   (0,-0.5)  to node[midway, below] {$p$}  ++(6,0) ;
+\draw[<->,>=latex,very thick,gray]   (6.5,0)  to node[midway, right] {$n$}  ++(0,4) ;
+
+\end{scope}
+
+\end{tikzpicture}

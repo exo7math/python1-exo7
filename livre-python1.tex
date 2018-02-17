@@ -1,0 +1,165 @@
+\documentclass[11pt]{report}
+%\documentclass[11pt,twoside,openright]{report}
+
+\usepackage[screen]{python}
+%\usepackage[print]{python}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titre + préface + sommaire
+\renewcommand{\contentsname}{Sommaire}
+
+% Préface
+\pagenumbering{roman}
+\import{divers/}{preface_livre_python.tex}
+\debutchapitres
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Les feuilles
+
+\clearemptydoublepage
+
+
+%======================================
+% Introduction
+%======================================
+
+\part{Mise en route}
+
+% 1 - Hello world!
+\import{premiers_pas/}{premiers_pas.tex}
+
+% 2 - Tortue (Scratch avec Python)
+\import{tortue/}{tortue.tex}
+
+
+%======================================
+% Fondamentaux
+%======================================
+
+\part{Fondamentaux}
+
+% 1 - Si-alors
+\import{sialors/}{sialors.tex}
+
+% 2 - Fonctions
+\import{fonctions/}{fonctions.tex}
+
+% 3 - Tant que - Arithmétique - I
+\import{tantque/}{tantque-1.tex}
+
+% 4 - Chaînes de caractères
+\import{chaines/}{chaines.tex}
+
+% 5 - Listes I
+\import{listes/}{listes-1.tex}
+
+
+%======================================
+% Avancé
+%======================================
+
+\part{Notions avancées}
+
+% 1 - Statistique
+\import{statistique/}{statistique.tex}
+
+% 2 - Fichiers
+\import{fichiers/}{fichiers.tex}
+
+% 3 - Tant que - Arithmétique - II
+\import{tantque/}{tantque-2.tex}
+
+% 4 - Binaire I
+\import{binaire/}{binaire-1.tex}
+
+% 5 - Listes II
+\import{listes/}{listes-2.tex}
+
+% 6 - Binaire II
+\import{binaire/}{binaire-2.tex}
+
+
+%======================================
+% Projets
+%======================================
+
+\part{Projets}
+
+% 1 - Probabilités
+\import{proba/}{proba.tex}
+
+% 2 - Chercher
+\import{chercher/}{chercher.tex}
+
+% 3 - Piles
+\import{piles/}{piles.tex}
+
+% 4 - Markdown
+\import{markdown/}{markdown.tex}
+
+% 5 - L-systèmes
+\import{lsysteme/}{lsysteme.tex}
+
+% 6 - Images dynamiques
+\import{images/}{images.tex}
+
+% 7 - Jeu de la vie
+\import{vie/}{vie.tex}
+
+% 8 - Graphes et combinatoire de Ramsey
+\import{ramsey/}{ramsey.tex}
+
+% 9 - Bitcoin
+\import{bitcoin/}{bitcoin.tex}
+
+% 10 - Constructionss aléatoires
+\import{aleatoire/}{aleatoire.tex}
+
+
+
+%======================================
+% Codes
+%======================================
+% \part{Codes}
+
+% Codes de toutes les activités
+% \import{code/}{code.tex}
+
+
+%======================================
+% Guide de survie
+%======================================
+\part{Guides}
+
+% 1 - Python
+\import{guide/}{guide-python.tex}
+
+% 2 - Principales fonctions
+\import{guide/}{guide-fonctions.tex}
+
+% 2 - Notes et références
+\import{guide/}{guide-biblio.tex}
+
+
+
+\clearemptydoublepage
+
+%======================================
+% Postface et index
+%======================================
+
+\import{divers/}{postface_livre_python.tex}
+
+\vfill
+\bigskip
+\bigskip
+
+\centerline{Version 0.06 -- Février 2018}
+
+
+
+\end{document}
+

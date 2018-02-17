@@ -1,0 +1,75 @@
+\begin{tikzpicture}[scale=0.8, every node/.style={scale=1}]
+
+
+\draw[ultra thick] (0,0) rectangle ++(6,2);
+\node[blue] at (3,1) {\bf preuve initiale};
+
+\begin{scope}[xshift=9cm]
+\draw[ultra thick] (0,0) rectangle ++(6,2);
+\node[blue] at (3,1) {\bf transaction 1};
+\end{scope}
+
+
+\draw [->,>=latex,blue!20,ultra thick,line width=5] (6.5,1) to ++(2,0);
+\draw [->,>=latex,blue!20,ultra thick,line width=5] (15.5,1) to ++(3,0) node[right,blue] {empreinte} ;
+
+\draw[->,>=latex,red,ultra thick] (3,2.1) to[out=90,in=-90,->] ++(4,1.8);
+\draw[->,>=latex,red,ultra thick] (12,2.1) to[out=90,in=-90,->] ++(-4,1.8);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{scope}[xshift=4.5cm,yshift=4cm]
+\draw[ultra thick] (0,0) rectangle ++(6,2);
+\node[blue] at (3,1) {\bf preuve};
+\end{scope}
+
+\begin{scope}[xshift=4.5cm,yshift=4cm]
+
+\begin{scope}[xshift=9cm]
+\draw[ultra thick] (0,0) rectangle ++(6,2);
+\node[blue] at (3,1) {\bf transaction 2};
+\end{scope}
+
+\draw [->,>=latex,blue!20,ultra thick,line width=5] (6.5,1) to ++(2,0);
+\draw [->,>=latex,blue!20,ultra thick,line width=5] (15.5,1) to ++(3,0) node[right,blue] {empreinte} ;
+
+\draw[->,>=latex,red,ultra thick] (3,2.1) to[out=90,in=-90,->] ++(4,1.8);
+\draw[->,>=latex,red,ultra thick] (12,2.1) to[out=90,in=-90,->] ++(-4,1.8);
+\end{scope}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{scope}[xshift=9cm,yshift=8cm]
+\draw[ultra thick] (0,0) rectangle ++(6,2);
+\node[blue] at (3,1) {\bf preuve};
+\end{scope}
+
+\begin{scope}[xshift=9cm,yshift=8cm]
+
+\begin{scope}[xshift=9cm]
+\draw[ultra thick] (0,0) rectangle ++(6,2);
+\node[blue] at (3,1) {\bf transaction 3};
+\end{scope}
+
+\draw [->,>=latex,blue!20,ultra thick,line width=5] (6.5,1) to ++(2,0);
+\draw [->,>=latex,blue!20,ultra thick,line width=5] (15.5,1) to ++(3,0) node[right,blue] {empreinte} ;
+
+\draw[->,>=latex,red,ultra thick] (3,2.1) to[out=90,in=-90,->] ++(4,1.8);
+\draw[->,>=latex,red,ultra thick] (12,2.1) to[out=90,in=-90,->] ++(-4,1.8);
+
+\end{scope}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{scope}[xshift=13.5cm,yshift=12cm]
+\draw[ultra thick] (0,0) rectangle ++(6,2);
+\node[blue] at (3,1) {\bf preuve};
+\end{scope}
+
+
+
+\end{tikzpicture}

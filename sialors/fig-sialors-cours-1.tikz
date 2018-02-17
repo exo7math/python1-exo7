@@ -1,0 +1,25 @@
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[scale=1, every node/.style={transform shape}]
+\Large
+\node[right] (A) at (0,0) {\texttt{if}};
+\node[right,right=-0.7em of A] (B)  {\texttt{condition}};
+\node[right,right=-0.8em of B] (C) {\texttt{:}};
+
+
+\node[right] (E) at (1,-0.7) {\texttt{instruction\_1}};
+\node[right] at (1,-1.4) {\texttt{instruction\_2}};
+\node[right] at (1,-2.1) {\texttt{...}};
+\node[right] (F) at (0,-2.8) {\texttt{instructions suivantes}};
+
+ \draw[<-,>=latex,ultra thick, red]  (A.north) to[bend left] (9,3) node[right] {mot reserv\'e "\texttt{if}"};
+ \draw[<-,>=latex,ultra thick, red]  (B.north) to[bend left] (9,2) node[right] {une condition};
+ \draw[<-,>=latex,ultra thick, red]  (C.north) to[bend left] (9,1) node[right] {deux points};
+
+ \draw[|-|,ultra thick, red] (5.5,-0.3)--++(0,-2.1);
+ \draw[ultra thick, red]  (5.5,-1.2) to[bend right] (10,-0.5) node[right] {bloc d'instructions indent\'e};
+ \node[right,red]  at (10,-1.25) {sera \'ex\'ecut\'e uniquement};
+ \node[right,red]  at (10,-1.9) {si la condition est v\'erifi\'ee};
+
+ \draw[<-,>=latex,ultra thick, red]    (F.east)  to[bend left] (9,-3.2) node[right] {suite du programme};
+
+\end{tikzpicture}

@@ -1,0 +1,46 @@
+\begin{tikzpicture}[scale=0.8, every node/.style={scale=1}]
+
+
+\draw[ultra thick,gray] (0,0) grid ++(8,8);
+
+\node[blue,scale=1] at (0.5,7.5) {\bf A};
+\node[blue,scale=1] at (1.5,7.5) {\bf B};
+\node[blue,scale=1] at (0.5,6.5) {\bf C};
+\node[blue,scale=1] at (1.5,6.5) {\bf D};
+
+\node[red,scale=1] at (2.5,7.5) {\bf a};
+\node[red,scale=1] at (3.5,7.5) {\bf b};
+\node[red,scale=1] at (2.5,6.5) {\bf c};
+\node[red,scale=1] at (3.5,6.5) {\bf d};
+
+\draw [->,>=latex,red!20,ultra thick,line width=7] (9,4) to ++(3,0);
+
+\node[scale=0.7] at (-0.8,7.5) {$i\!=\!0$};
+\node[scale=0.7] at (-0.8,6.5) {$i\!=\!1$};
+\node[scale=0.7] at (0.5,8.5) {$j\!=\!0$};
+\node[scale=0.7] at (1.5,8.5) {$j\!=\!1$};
+
+\begin{scope}[xshift=13cm]
+
+\draw[ultra thick,gray] (0,0) grid ++(8,8);
+\draw[line width=4,black!80] (0,4) -- ++(8,0);
+\draw[line width=4,black!80] (4,0) -- ++(0,8);
+
+\node[blue,scale=1] at (0.5,7.5) {\bf A};
+\node[blue,scale=1] at (4.5,7.5) {\bf B};
+\node[blue,scale=1] at (0.5,3.5) {\bf C};
+\node[blue,scale=1] at (4.5,3.5) {\bf D};
+
+\node[red,scale=1] at (1.5,7.5) {\bf a};
+\node[red,scale=1] at (5.5,7.5) {\bf b};
+\node[red,scale=1] at (1.5,3.5) {\bf c};
+\node[red,scale=1] at (5.5,3.5) {\bf d};
+
+\node[scale=0.7] at (-0.8,7.5) {$i'\!=\!0$};
+\node[scale=0.7] at (-0.8,6.5) {$i'\!=\!1$};
+\node[scale=0.7] at (0.5,8.5) {$j'\!=\!0$};
+\node[scale=0.7] at (1.5,8.5) {$j'\!=\!1$};
+
+\end{scope}
+
+\end{tikzpicture}

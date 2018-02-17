@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+
+\begin{scope}[rotate=5]
+
+\coordinate (A) at (0,0);
+\coordinate (B) at (8,0);
+
+%\draw[ultra thick,blue] (A) circle (5 cm);
+%\draw[ultra thick,blue] (B) circle (4 cm);
+
+\coordinate (C) at (24:5);
+% \fill (C) circle (5pt);
+
+
+\draw[ultra thick,blue]
+ (A) -- node[midway,below,black]{$c$} (B) 
+        -- node[midway,above right,black]{$a$}(C) 
+        -- node[midway,above left,black]{$b$} cycle;
+
+% \node[left] at (A) {$A$};
+% \node[right] at (B) {$B$};
+% \node[above] at (C) {$C$};
+
+\draw[double] (0:1) arc  (0:24:1) node[midway,right] {$\alpha$};
+\draw[double] (7,0) arc  (180:150:1) node[midway,left] {$\beta$};
+
+\draw[double] (24:4) arc  (-180+24:-30:1) node[midway,below] {$\gamma$};
+\end{scope}
+
+\end{tikzpicture}

@@ -1,0 +1,27 @@
+
+\begin{tikzpicture}[scale=1.5]
+
+      \draw[->,>=latex, gray] (-0.5,0)--(6,0) node[below,black] {$x$};
+      \draw[->,>=latex, gray] (0,-0.5)--(0,4.5) node[right,black] {$y$};
+
+\def\v0{10}
+\def\g{9.8}
+\def\angle{60}
+
+	  \draw[ultra thick, color=blue,domain=0:1,smooth] plot ( {\x*\v0*cos(\angle)} , {-1/2*\g*\x^2+\x*\v0*sin(\angle)});
+
+     \coordinate (M) at (3,3.45);
+     \draw[dashed] (M)--(3,0) node[below] {$x$};
+     \draw[dashed] (M)--(0,3.45) node[left] {$y(x)$};
+
+      \fill  (M) circle (2pt);
+
+   \draw[->,>=latex,thick, red] (0,0)--++(62:2) node[midway,left] {$v$};
+   \draw[red, double] (1.1,0) arc (0:62:1.1) node[midway, right] {$\alpha$};
+
+%    \draw[->,>=latex,very thick] (0,0)--++(1,0) node[midway, below] {$\vec {i}$};
+%    \draw[->,>=latex,very thick] (0,0)--++(0,1) node[midway, left] {$\vec {j}$};
+
+\fill  (0,0) circle (2pt);
+  \node[below left] at (0,0) {$(0,0)$};
+\end{tikzpicture}

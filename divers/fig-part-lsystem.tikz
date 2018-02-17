@@ -1,0 +1,13 @@
+%% Pour figure titre \part python1
+%\usetikzlibrary{lindenmayersystems}
+% Author: Stefan Kottwitz
+%\usetikzlibrary[shadings]
+%\pgfdeclarelindenmayersystem{Hilbert curve}{
+%  \rule{L -> +RF-LFL-FR+}
+%  \rule{R -> -LF+RFR+FL-}}
+%% Fin figure \part python1
+\begin{tikzpicture}
+    \shadedraw [bottom color=red!80, top color=red!10, draw=red!80!black]
+    [l-system={Hilbert curve, axiom=L, order=5, step=8pt, angle=90}]
+    lindenmayer system; 
+\end{tikzpicture}

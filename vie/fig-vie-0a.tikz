@@ -1,0 +1,49 @@
+\begin{tikzpicture}
+
+
+
+% Jeu de la vie - Naissance
+\fill[red] (2,1) rectangle ++(1,1);
+\fill[red] (2,2) rectangle ++(1,1);
+\fill[red] (1,2) rectangle ++(1,1);
+
+\draw (0,0) grid ++(4,4);
+
+\node at (2,-0.7) {\bf Position de d\'epart (jour $j$)};
+
+
+% Jeu de la vie - Voisin
+\begin{scope}[xshift=8cm]
+\fill[red] (2,1) rectangle ++(1,1);
+\fill[red] (2,2) rectangle ++(1,1);
+\fill[red] (1,2) rectangle ++(1,1);
+
+\fill[green!20] (1,1) rectangle ++(1,1);
+
+\draw (0,0) grid ++(4,4);
+
+\draw[<-,>=latex,ultra thick]   (1.5,1.5)  to[bend left] (3,4.5) node[right] {A $3$ voisins};
+
+
+\node at (2,-0.7) {\bf Nombre de voisins};
+\end{scope}
+
+% Jeu de la vie - Evolution
+\begin{scope}[xshift=16cm]
+\fill[red] (2,1) rectangle ++(1,1);
+\fill[red] (2,2) rectangle ++(1,1);
+\fill[red] (1,2) rectangle ++(1,1);
+
+\fill[red] (1,1) rectangle ++(1,1);
+
+\draw (0,0) grid ++(4,4);
+
+\draw[<-,>=latex,ultra thick]   (1.5,1.5)  to[bend left] (3,4.5) node[right] {Naissance};
+
+
+\node at (2,-0.7) {\bf \'Evolution (jour $j+1$)};
+\end{scope}
+
+\draw[->,>=latex,ultra thick, blue]   (4,-1.5)  to[bend right=20] node[midway, below] {\bf Naissance} (16,-1.5) ;
+
+\end{tikzpicture}

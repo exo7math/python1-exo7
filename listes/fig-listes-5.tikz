@@ -1,0 +1,59 @@
+\begin{tikzpicture}[thick,scale=0.8, every node/.style={scale=1.2}]
+
+
+\node at (0.5,0.5) {\bf 8};
+\node at (1.5,0.5) {\bf 1};
+\node at (2.5,0.5) {\bf 6};
+\node at (0.5,1.5) {\bf 3};
+\node at (1.5,1.5) {\bf 5};
+\node at (2.5,1.5) {\bf 7};
+\node at (0.5,2.5) {\bf 4};
+\node at (1.5,2.5) {\bf 9};
+\node at (2.5,2.5) {\bf 2};
+
+\draw[->,>=latex,red,very thick] (3,0.5)-- ++(1,0) node[right,scale=0.8]{15};
+\draw[->,>=latex,red,very thick] (3,1.5)-- ++(1,0) node[right,scale=0.8]{15};
+\draw[->,>=latex,red,very thick] (3,2.5)-- ++(1,0) node[right,scale=0.8]{15};
+
+\draw[->,>=latex,red,very thick] (0.5,0)-- ++(0,-1) node[below,scale=0.8]{15};
+\draw[->,>=latex,red,very thick] (1.5,0)-- ++(0,-1) node[below,scale=0.8]{15};
+\draw[->,>=latex,red,very thick] (2.5,0)-- ++(0,-1) node[below,scale=0.8]{15};
+
+\draw[->,>=latex,red,very thick] (3,0)-- ++(0.7,-0.7) node[below right,scale=0.8]{15};
+\draw[->,>=latex,red,very thick] (0,0)-- ++(-0.7,-0.7) node[below left,scale=0.8]{15};
+
+\begin{scope}[xshift=9cm,yshift=-0.5cm]
+[1,14,15,4], [7,9,6,12], [10,8,11,5], [16,3,2,13]
+\node at (0.5,0.5) {\bf 16};
+\node at (1.5,0.5) {\bf 3};
+\node at (2.5,0.5) {\bf 2};
+\node at (3.5,0.5) {\bf 13};
+\node at (0.5,1.5) {\bf 10};
+\node at (1.5,1.5) {\bf 8};
+\node at (2.5,1.5) {\bf 11};
+\node at (3.5,1.5) {\bf 5};
+\node at (0.5,2.5) {\bf 7};
+\node at (1.5,2.5) {\bf 9};
+\node at (2.5,2.5) {\bf 6};
+\node at (3.5,2.5) {\bf 12};
+\node at (0.5,3.5) {\bf 1};
+\node at (1.5,3.5) {\bf 14};
+\node at (2.5,3.5) {\bf 15};
+\node at (3.5,3.5) {\bf 4};
+
+
+\draw[->,>=latex,red,very thick] (4,0.5)-- ++(1,0) node[right,scale=0.8]{34};
+\draw[->,>=latex,red,very thick] (4,1.5)-- ++(1,0) node[right,scale=0.8]{34};
+\draw[->,>=latex,red,very thick] (4,2.5)-- ++(1,0) node[right,scale=0.8]{34};
+\draw[->,>=latex,red,very thick] (4,3.5)-- ++(1,0) node[right,scale=0.8]{34};
+
+\draw[->,>=latex,red,very thick] (0.5,0)-- ++(0,-1) node[below,scale=0.8]{34};
+\draw[->,>=latex,red,very thick] (1.5,0)-- ++(0,-1) node[below,scale=0.8]{34};
+\draw[->,>=latex,red,very thick] (2.5,0)-- ++(0,-1) node[below,scale=0.8]{34};
+\draw[->,>=latex,red,very thick] (3.5,0)-- ++(0,-1) node[below,scale=0.8]{34};
+
+\draw[->,>=latex,red,very thick] (4,0)-- ++(0.7,-0.7) node[below right,scale=0.8]{34};
+\draw[->,>=latex,red,very thick] (0,0)-- ++(-0.7,-0.7) node[below left,scale=0.8]{34};
+\end{scope}
+
+\end{tikzpicture}

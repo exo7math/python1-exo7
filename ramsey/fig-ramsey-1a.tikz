@@ -1,0 +1,60 @@
+\begin{tikzpicture}
+
+\begin{scope}[scale=3.5]
+\draw[ultra thick,red,dashed]  (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+\draw[ultra thick,green!60!black] (1,1)--(0,0);
+\draw[ultra thick,green!60!black] (0,1)--(1,0);
+
+\fill[black] (0,0) circle (1pt) node[below left]{2};
+ \fill[black] (0,1) circle (1pt) node[above left]{3};
+\fill[black] (1,0) circle (1pt) node[below right]{1};
+\fill[black] (1,1) circle (1pt) node[above right]{0};
+\end{scope}
+
+% Ramsey - Tableau
+\begin{scope}[xshift=10cm,yshift=-0.5cm]
+\draw (0,0) grid ++(4,4);
+
+\node[red] at (0.5,0.5) {\bf 0};
+\node[green!60!black] at (1.5,0.5) {\bf 1};
+\node[red] at (2.5,0.5) {\bf 0};
+\node[red] at (3.5,0.5) {\bf 0};
+
+\node[green!60!black] at (0.5,1.5) {\bf 1};
+\node[red] at (1.5,1.5) {\bf 0};
+\node[red] at (2.5,1.5) {\bf 0};
+\node[red] at (3.5,1.5) {\bf 0};
+
+\node[red] at (0.5,2.5) {\bf 0};
+\node[red] at (1.5,2.5) {\bf 0};
+\node[red] at (2.5,2.5) {\bf 0};
+\node[green!60!black] at (3.5,2.5) {\bf 1};
+
+\node[red] at (0.5,3.5) {\bf 0};
+\node[red] at (1.5,3.5) {\bf 0};
+\node[green!60!black] at (2.5,3.5) {\bf 1};
+\node[red] at (3.5,3.5) {\bf 0};
+
+
+%\node at (3,-1.5) {\bf Tableau};
+
+\draw[->,>=latex,very thick]   (0,5)  to node[midway, above] {indice $j$}  ++(4,0) ;
+\draw[->,>=latex,very thick]   (-1.5,4)  to node[midway, left] {indice $i$}  ++(0,-4) ;
+
+\node[scale=0.7,above] at (0.5,4) {$j=0$};
+\node[scale=0.7,above] at (1.5,4) {$j=1$};
+\node[scale=0.7,above] at (2.5,4) {$j=2$};
+\node[scale=0.7,above] at (3.5,4) {$j=3$};
+
+\node[scale=0.7,left] at (0,3.5) {$i=0$};
+\node[scale=0.7,left] at (0,2.5) {$i=1$};
+\node[scale=0.7,left] at (0,1.5) {$i=2$};
+\node[scale=0.7,left] at (0,0.5) {$i=3$};
+
+
+\draw[<->,>=latex,very thick,gray]   (0,-0.5)  to node[midway, below] {$n$}  ++(4,0) ;
+\draw[<->,>=latex,very thick,gray]   (4.5,0)  to node[midway, right] {$n$}  ++(0,4) ;
+
+\end{scope}
+
+\end{tikzpicture}

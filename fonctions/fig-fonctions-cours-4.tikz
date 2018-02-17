@@ -1,0 +1,72 @@
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes}
+\begin{tikzpicture}[scale=1, every node/.style={transform shape}]
+
+
+
+\Large
+
+
+\node[right,red,draw,circle,ultra thick,inner sep=2pt] (A) at (0.3,1) {\texttt{x}};
+\node[right,right=-0.5em of A] (B) {\texttt{= 7}};
+\draw[<-,>=latex,ultra thick, red]  (A.north) to[bend left=40] (7,1.5) node[right] {variable globale};
+
+%%%%%%%%%%%%%%%
+\node[right] (AA) at (0,0) {\texttt{def plus\_un(}};
+\node[right,right=-0.5em of AA,blue,draw,rectangle,ultra thick,inner sep=2pt] (BB) {\texttt{x}};
+\node[right,right=-0.5em of BB] (CC) {\texttt{):}};
+
+\draw[<-,>=latex,ultra thick, blue]  (BB.south) to[bend right=30] (7,-1) node[right] {variable locale};
+
+\node[right,blue,draw,rectangle,ultra thick,inner sep=3pt] (DD) at (1.2,-0.7) {\texttt{x}};
+\node[right,right=-0.5em of DD] (EE) {\texttt{=}};
+\node[right,right=-0.5em of EE,blue,draw,rectangle,ultra thick,inner sep=3pt] (FF)  {\texttt{x}};
+\node[right,right=-0.5em of FF] (GG)  {\texttt{+1}};
+
+\node[right] (HH) at (0.8,-1.4) {\texttt{return}};
+\node[right,right=-0.5em of HH,blue,draw,rectangle,ultra thick,inner sep=3pt] (II)  {\texttt{x}};
+
+
+%%%%%%%%%%%%%%%
+\begin{scope}[yshift=-3cm]
+\node[right] (AA) at (0,0) {\texttt{def double(}};
+\node[right,right=-0.5em of AA,green!70!black,draw,diamond,ultra thick,inner sep=2pt] (BB) {\texttt{x}};
+\node[right,right=-0.5em of BB] (CC) {\texttt{):}};
+
+\draw[<-,>=latex,ultra thick, green!70!black]  (BB.south east) to[bend right=30] (7,-1) node[right] {autre variable locale};
+
+\node[right,green!70!black,draw,diamond,ultra thick,inner sep=2pt] (DD) at (1,-0.7) {\texttt{x}};
+\node[right,right=-0.5em of DD] (EE) {\texttt{= 2 *}};
+\node[right,right=-0.5em of EE,green!70!black,draw,diamond,ultra thick,inner sep=2pt] (FF)  {\texttt{x}};
+
+
+\node[right] (HH) at (0.8,-1.4) {\texttt{return}};
+\node[right,right=-0.5em of HH,green!70!black,draw,diamond,ultra thick,inner sep=2pt] (II)  {\texttt{x}};
+\end{scope}
+
+%%%%%%%%%%%%%%%
+\begin{scope}[yshift=-7cm]
+\node[right] (A) at (0,1) {\texttt{print(}};
+\node[right,right=-0.5em of A,red,draw,circle,ultra thick,inner sep=2pt] (B) {\texttt{x}};
+\node[right,right=-0.5em of B](C) {\texttt{)}};
+\end{scope}
+
+\begin{scope}[yshift=-7.7cm]
+\node[right] (A) at (0,1) {\texttt{print(plus\_un(}};
+\node[right,right=-0.5em of A,red,draw,circle,ultra thick,inner sep=2pt] (B) {\texttt{x}};
+\node[right,right=-0.5em of B](C) {\texttt{))}};
+\end{scope}
+
+
+\begin{scope}[yshift=-8.4cm]
+\node[right] (A) at (0,1) {\texttt{print(double(}};
+\node[right,right=-0.5em of A,red,draw,circle,ultra thick,inner sep=2pt] (B) {\texttt{x}};
+\node[right,right=-0.5em of B](C) {\texttt{))}};
+\end{scope}
+
+\begin{scope}[yshift=-9.1cm]
+\node[right] (A) at (0,1) {\texttt{print(}};
+\node[right,right=-0.5em of A,red,draw,circle,ultra thick,inner sep=2pt] (B) {\texttt{x}};
+\node[right,right=-0.5em of B](C) {\texttt{)}};
+\end{scope}
+\end{tikzpicture}

@@ -1,0 +1,222 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+
+
+\begin{document}
+
+% Commande spécifique
+\newcommand{\badletter}[1]{\underline{\textcolor{red}{#1}}}
+
+
+
+%====================================================================
+\chapitre{Binaire II}
+%====================================================================
+
+\objectifs{On continue notre exploration du monde des $0$ et des $1$.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\index{binaire}
+\index{ecriture@écriture!binaire}
+
+\begin{activite}[Palindromes]
+
+\objectifs{Objectifs : trouver des palindromes en écriture binaire et en écriture décimale.}
+\index{palindrome}
+
+En français un palindrome est un mot (ou une phrase) qui se lit dans les deux sens, par exemple \og{}\mot{RADAR}\fg{} ou \og{}\mot{ENGAGE LE JEU QUE JE LE GAGNE}\fg{}.
+Dans cette activité, un \defi{palindrome} sera une liste, qui a les mêmes éléments lorsqu'on la parcourt de gauche à droite ou de droite à gauche.
+
+Exemples :
+\begin{itemize}
+  \item \ci{[1,0,1,0,1]} est un palindrome (avec une écriture binaire),
+  \item \ci{[2,9,4,4,9,2]} est un palindrome (avec une écriture décimale).
+\end{itemize}
+
+\begin{enumerate}
+
+  \item Programme une fonction \ci{est_palindrome(liste)} qui teste si une liste est un palindrome ou pas. 
+  
+  \emph{Indications.} Tu peux comparer les éléments en position $i$ et $p-1-i$ ou bien utiliser \ci{list(reversed(liste))}.
+ 
+  \item On cherche des entiers $n$ tels que leur écriture binaire soit un palindrome. Par exemple l'écriture binaire de $n=27$ est le palindrome \ci{[1,1,0,1,1]}. C'est le dixième entier $n$ ayant cette propriété. 
+  
+  Quel est le millième entier $n\ge0$ dont l'écriture binaire est un palindrome ?
+  
+  \item Quel est le millième entier $n\ge0$ dont l'écriture décimale est un palindrome ?
+  
+  Par exemple les décimales de $n=909$ forment le palindrome \ci{[9,0,9]}. C'est le centième entier $n$ ayant cette propriété.
+  
+  \item Un entier $n$ est un \defi{bi-palindrome} si son écriture binaire \emph{et} son écriture décimales sont des palindromes. Par exemple $n=585$ a une écriture décimale qui est un palindrome et son écriture binaire 
+  \ci{[1,0,0,1,0,0,1,0,0,1]} aussi. C'est le dixième entier $n$ ayant cette propriété.
+  
+  Quel est le vingtième entier $n\ge0$ a être un bi-palindrome ?
+  
+\end{enumerate}
+
+\end{activite}
+  
+   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Opérations logiques]
+
+\index{operation logique@opération logique}
+
+On considère que $0$ représente le \og{}faux\fg{} et $1$ le \og{}vrai\fg{}. 
+\begin{itemize}
+  \item Avec l'opération logique \og{}OU\fg{}, le résultat est vrai dès que l'un au moins des deux termes est vrai. Cela s'écrit :
+  \begin{itemize}
+    \item 0 OU 0 = 0
+    \item 0 OU 1 = 1
+    \item 1 OU 0 = 1
+    \item 1 OU 1 = 1
+   \end{itemize}
+   
+  \item Avec l'opération logique \og{}ET\fg{}, le résultat est vrai uniquement lorsque les deux termes sont vrais. Cela s'écrit :
+  \begin{itemize}
+    \item 0 ET 0 = 0
+    \item 0 ET 1 = 0
+    \item 1 ET 0 = 0
+    \item 1 ET 1 = 1
+   \end{itemize}  
+   
+  \item L'opération logique \og{}NON\fg{}, échange vrai et faux :
+  \begin{itemize}
+    \item NON 0 = 1
+    \item NON 1 = 0
+   \end{itemize}
+   
+    \item Pour des nombres en écriture binaire, ces opérations s'étendent \emph{bits} à \emph{bits}, c'est-à-dire chiffre par chiffre (en commençant par les chiffres de droite) comme on poserait une addition (sans retenue). 
+    
+ Par exemple : 
+    
+ \myfigure{1}{
+\tikzinput{fig-binaire-4}
+}     
+
+Si les deux écritures n'ont pas le même nombre de \emph{bits}, on rajoute des $0$ non significatifs à gauche (exemple de $1.0.0.1.0$ OU $1.1.0$ sur la figure de droite).
+\end{itemize}  
+  
+   
+
+\end{cours}
+
+
+\begin{activite}[Opérations logiques]
+
+\objectifs{Objectifs : programmer les principales opérations logiques.}
+ \index{operation logique@opération logique}
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item Programme une fonction \ci{NON()}\index{non} qui correspond à la négation pour une liste donnée. Par exemple
+    \ci{NON([1,1,0,1])} renvoie \ci{[0,0,1,0]}.
+    \item Programme une fonction \ci{OUeg()}\index{ou} qui correspond au \og{}OU\fg{} avec en entrée deux listes qui ont la même longueur. Par exemple, avec \ci{liste1 = [1,0,1,0,1,0,1]} et \ci{liste2 = [1,0,0,1,0,0,1]}, la fonction renvoie \ci{[1,0,1,1,1,0,1]}.
+    \item Même travail avec \ci{ETeg()}\index{et} pour deux listes de longueurs égales.
+  \end{enumerate}
+  
+  \item \'Ecris une fonction \ci{ajouter_zeros(liste,p)} qui rajoute des zéros au début de la liste afin d'obtenir un liste de longueur \ci{p}.
+  Exemple : si \ci{liste = [1,0,1,1]} et \ci{p = 8}, alors la fonction renvoie \ci{[0,0,0,0,1,0,1,1]}.
+  
+  \item Écris deux fonctions \ci{OU()} et \ci{ET()} qui correspondent aux opérations logiques \og{}OU\fg{} et \og{}ET\fg{}, mais avec deux listes qui n'ont pas nécessairement la même longueur. 
+  
+  Exemple :
+  \begin{itemize}
+    \item \ci{liste1 = [1,1,1,0,1]} et \ci{liste2 = [1,1,0]},
+    \item il faut considérer que \ci{liste2} est équivalente à la liste 
+    \ci{liste2bis = [0,0,1,1,0]} de même longueur que \ci{liste1},
+    \item donc \ci{OU(liste1,liste2)} renvoie \ci{[1,1,1,1,1]},
+    \item puis \ci{ET(liste1,liste2)} renvoie \ci{[0,0,1,0,0]} (ou bien \ci{[1,0,0]} selon ton choix).
+\end{itemize}  
+  
+  \emph{Indications :} tu peux reprendre le contenu de tes fonctions \ci{OUeg} et \ci{ETeg}, ou bien tu peux d'abord ajouter des zéros à la liste la plus courte.
+\end{enumerate}
+
+\end{activite}
+
+
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Lois de Morgan]
+
+\objectifs{Objectifs : générer toutes les listes possibles de $0$ et $1$ afin de vérifier une proposition.}
+\index{lois de Morgan}
+
+\begin{enumerate}
+  \item \textbf{Première méthode : utiliser l'écriture binaire.}
+  
+  On souhaite générer toutes les listes possibles de $0$ et de $1$ d'une taille $p$ donnée. Voici comment faire :
+  \begin{itemize}
+    \item Un entier $n$ parcourt tous les entiers de $0$ à $2^p -1$.
+    \item Pour chacun de ces entiers $n$, on calcule son écriture binaire (sous la forme d'une liste).
+    \item On rajoute (si besoin) des $0$ en début de liste, afin d'obtenir une liste de longueur $p$.
+  \end{itemize}
+  
+  Exemple : avec $n = 36$, son écriture binaire est \ci{[1,0,0,1,0,0]}. Si on veut une liste de $p=8$ \emph{bits}, on rajoute deux $0$ :
+   \ci{[0,0,1,0,0,1,0,0]}.
+  
+  
+  \item \textbf{Seconde méthode (optionnelle) : un algorithme récursif.}
+  
+  On souhaite de nouveau générer toutes les listes possibles de $0$ et de $1$ d'une taille donnée. On adopte la procédure suivante : si on sait trouver toutes les listes de taille $p-1$, alors pour obtenir toutes les listes de taille $p$, il suffit de rajouter un $0$ en début de chacune des listes de taille $p-1$, puis de recommencer en rajoutant un $1$ en début de chacune des listes de taille $p-1$. 
+  
+  Par exemple : il y a $4$ listes de longueur $2$ :  \ci{[0, 0]},  \ci{[0, 1]},  \ci{[1, 0]},  \ci{[1, 1]}. J'en déduis les $8$ listes de longueur $3$ :
+  \begin{itemize}
+    \item $4$ listes en rajoutant un $0$ devant :  \ci{[0, 0, 0]},  \ci{[0, 0, 1]},  \ci{[0, 1, 0]},  \ci{[0, 1, 1]}, 
+    \item $4$ listes en rajoutant un $1$ devant :  \ci{[1, 0, 0]}, \ci{[1, 0, 1]},  \ci{[1, 1, 0]},  \ci{[1, 1, 1]}.
+  \end{itemize}
+  
+  Cela donne l'algorithme suivant, qui est un algorithme récursif (car la fonction s'appelle elle-même).
+  \begin{algorithme}
+  Usage : \ci{tous_les_binaires(p)}\\
+  Entrée : un entier \ci{p}\,$>0$\\
+  Sortie : la liste de toutes les listes possibles de $0$ et de $1$ de longueur \ci{p}
+
+  \begin{itemize}
+%    \item  Si \ci{p}$=0$ renvoyer la liste vide \ci{[]}.  
+    \item  Si \ci{p}\,$=1$ renvoyer la liste  \ci{[ [0], [1] ]}.     
+    \item  Si \ci{p}\,$\ge2$, alors :
+    \begin{itemize}
+      \item obtenir toutes les listes de taille \ci{p-1} par l'appel \ci{tous_les_binaires(p-1)}
+      \item pour chaque élément de cette liste, construire deux nouveaux éléments :
+       \begin{itemize} 
+         \item d'une part ajouter \ci{0} en début de cet élément ;
+         \item d'autre part ajouter \ci{1} en début de cet élément ;
+         \item ajouter ensuite ces deux éléments à la liste des listes de taille \ci{p}.
+       \end{itemize}      
+    \end{itemize}
+    
+    \item Renvoyer la liste des listes de taille \ci{p}.
+  \end{itemize}     
+ \end{algorithme}  
+  
+    \item \textbf{Les lois de Morgan.} 
+    
+    Les lois de Morgan affirment que pour des booléens (vrai/faux) ou des \emph{bits} (1/0), on a toujours les égalités :
+    $$\text{NON}( b_1 \text{ OU } b_2 ) = 
+    \text{NON}( b_1 )  \text{ ET } \text{NON}(b_2),
+    \qquad \quad 
+    \text{NON}( b_1 \text{ ET } b_2 ) = 
+    \text{NON}( b_1 )  \text{ OU } \text{NON}(b_2).$$
+    
+    Vérifie expérimentalement que ces égalités sont encore vraies pour n'importe quelles listes $\ell_1$ et $\ell_2$ d'exactement $8$ \emph{bits}.
+    
+\end{enumerate}
+
+\end{activite}
+
+\end{document}

@@ -1,0 +1,6 @@
+Paris 48.853 2.350
+New-York 40.713 -74.006
+Vancouver 49.250 -123.119
+Lima -12.043 -77.0282
+Hong-Kong 22.286 114.158
+Addis-Abeba 9.0250 38.747

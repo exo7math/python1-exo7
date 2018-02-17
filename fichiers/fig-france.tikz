@@ -1,0 +1,43 @@
+\begin{tikzpicture}
+
+\tikzstyle{edge} = [draw, thick]
+\tikzstyle{vertex} = [draw] 
+
+\draw (0,0) grid (11,11);
+
+\coordinate (L) at (5,10);
+\coordinate (P) at (5,8);
+\coordinate (S) at (10,8);
+\coordinate (Ly) at (9,4);
+\coordinate (M) at (9,0);
+\coordinate (T) at (4,1);
+\coordinate (N) at (1,7);
+\coordinate (B) at (1,2);
+
+\foreach \V/\Ville/\pos in {L/Lille/above,P/Paris/below,S/Strasbourg/right,Ly/Lyon/right,M/Marseille/below,T/Toulouse/below,N/Nantes/left, B/Bordeaux/left}{
+  \fill[blue] (\V) circle(0.1);
+  \node[\pos,blue] at (\V) {\Ville};
+}
+
+\fill (0,0) circle (0.1) node[below left]  at (0,0) {$(0,0)$};
+
+\draw[<->,>=latex,thick] (1,-0.4)--++(1,0) node[midway,below]{100 km};
+
+
+
+ \draw[edge] (0,0) -- (1,4) -- (0,8)--(-2,9) -- (5,12) -- (11,8)--(10,-1)--cycle;
+
+% \draw[edge] (L)--(P) node[midway,right]{200};
+% \draw[edge] (L)--(N) node[midway,above left]{500};
+% \draw[edge] (P)--(N) node[midway,below]{400};
+% \draw[edge] (P)--(S) node[midway,above]{500};
+% \draw[edge] (P)--(Ly) node[midway,right]{500};
+% \draw[edge] (Ly)--(M) node[midway,right]{300};
+% \draw[edge] (T)--(M) node[midway,above]{400};
+% \draw[edge] (T)--(B) node[midway,above]{200};
+% \draw[edge] (N)--(B) node[midway,left]{400};
+% \draw[edge] (S)--(Ly) node[midway,right]{400};
+% \draw[edge] (S)--(L) node[midway,above right]{400};
+
+
+\end{tikzpicture}

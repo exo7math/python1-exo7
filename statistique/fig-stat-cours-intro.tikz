@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+
+
+       \draw[->,>=latex,ultra thick] (0,10)--++(10,0) node[above]{$x$};
+       \draw[->,>=latex,ultra thick] (0,10)--++(0,-7) node[left]{$y$};
+
+
+        \coordinate (A) at (4,9);
+        \coordinate (B) at (9,7);
+       \fill[blue] (A) circle (4pt) node[above left] {$(x_1,y_1)$};
+       \fill[blue] (B) circle (4pt) node[below right] {$(x_2,y_2)$};
+       \draw[ultra thick,blue] (A) rectangle (B);
+
+
+
+
+
+       \draw[ultra thick,red] (4,5) circle (3 and 1);
+        \coordinate (AA) at (1,6);
+        \coordinate (BB) at (7,4);
+       \fill[red] (AA) circle (4pt) node[above] {$(x_1,y_1)$};
+       \fill[red] (BB) circle (4pt) node[below] {$(x_2,y_2)$};
+       \draw[thick,dashed,red] (AA) rectangle (BB);
+       \fill (0,10) circle (4pt) node[above left] {$(0,0)$};
+
+
+
+\end{tikzpicture} 

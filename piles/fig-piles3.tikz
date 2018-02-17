@@ -1,0 +1,31 @@
+
+\usetikzlibrary{patterns}
+
+\begin{tikzpicture}[scale=0.8]
+
+\draw[ultra thick] (-3,0) -- (3,0);
+\fill[pattern=north west lines] (-3,-1) rectangle (3,0);
+
+\draw[thick] (-2,0) rectangle ++(4,1);
+\node at (0,0.5) {$4$};
+
+\draw[thick] (-2,1) rectangle ++(4,1);
+\node at (0,1.5) {$2$};
+
+\draw[thick] (-2,2) rectangle ++(4,1);
+\node at (0,2.5) {$11$};
+
+\draw[thick] (-2,3) rectangle ++(4,1);
+\node at (0,3.5) {$7$};
+
+\node at (0,-2) {\bf Une pile};
+
+
+\begin{scope}[xshift=10cm]
+
+\node at (0,1) {\bf\texttt{pile = [4,2,11,7]}};
+\node at (0,-2) {\bf Mod\`ele sous forme de liste};
+
+\end{scope}
+
+\end{tikzpicture}

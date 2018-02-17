@@ -1,0 +1,34 @@
+
+\begin{tikzpicture}
+ 
+\foreach \x in {33,...,42}{
+   \node at (0,-\x+33) {{\scriptsize \x} \ \  \bf\symbol{\x}};
+}
+\foreach \x in {43,...,52}{
+   \node at (2,-\x+43) {{\scriptsize \x} \ \  \bf\symbol{\x}};
+}
+\foreach \x in {53,...,62}{
+   \node at (4,-\x+53) {{\scriptsize \x} \ \  \bf\symbol{\x}};
+}
+\foreach \x in {63,...,72}{
+   \node at (6,-\x+63) {{\scriptsize \x} \ \  \bf\symbol{\x}};
+}
+\foreach \x in {73,...,82}{
+   \node at (8,-\x+73) {{\scriptsize \x} \ \  \bf\symbol{\x}};
+}
+\foreach \x in {83,...,92}{
+   \node at (10,-\x+83) {{\scriptsize \x} \ \  \bf\symbol{\x}};
+}
+\foreach \x in {93,...,102}{
+   \node at (12,-\x+93) {{\scriptsize \x} \ \  \bf\symbol{\x}};
+}
+\foreach \x in {103,...,112}{
+   \node at (14,-\x+103) {{\scriptsize \x} \ \  \bf\symbol{\x}};
+}
+\foreach \x in {113,...,122}{
+   \node at (16,-\x+113) {{\scriptsize \x} \ \  \bf\symbol{\x}};
+}
+\foreach \x in {123,...,127}{
+   \node at (18,-\x+123) {{\scriptsize \x} \ \  \bf\symbol{\x}};
+}
+\end{tikzpicture}

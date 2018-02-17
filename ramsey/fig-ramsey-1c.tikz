@@ -1,0 +1,72 @@
+\begin{tikzpicture}
+
+\begin{scope}[scale=2]
+\coordinate (A) at (0:2);
+\coordinate (B) at (70:2);
+\coordinate (C) at (144:2);
+\coordinate (D) at (-144:2);
+\coordinate (E) at (-72:2);
+
+\draw[ultra thick,green!60!black]  (C)--(A)--(E)--(D)--(C)--(B)--(E);
+
+\draw[ultra thick,red,dashed]  (A)--(B)--(D)--cycle;
+\draw[ultra thick,red,dashed]  (C)--(E);
+
+\fill[black] (A) circle (1pt) node[below right]{$0$};
+ \fill[black] (B) circle (1pt) node[above left]{$4$};
+\fill[black] (C) circle (1pt) node[above left]{$3$};
+ \fill[black] (D) circle (1pt) node[below left]{$2$};
+\fill[black] (E) circle (1pt) node[below right]{$1$};
+\end{scope}
+
+% Ramsey - Tableau
+\begin{scope}[xshift=9cm,yshift=-2.5cm]
+\draw (0,0) grid ++(5,5);
+
+\node[red] at (0.5,0.5) {\bf 0};
+\node[green!60!black] at (1.5,0.5) {\bf 1};
+\node[red] at (2.5,0.5) {\bf 0};
+\node[green!60!black] at (3.5,0.5) {\bf 1};
+\node[red] at (4.5,0.5) {\bf 0};
+
+\node[green!60!black] at (0.5,1.5) {\bf 1};
+\node[red] at (1.5,1.5) {\bf 0};
+\node[green!60!black] at (2.5,1.5) {\bf 1};
+\node[red] at (3.5,1.5) {\bf 0};
+\node[green!60!black] at (4.5,1.5) {\bf 1};
+
+\node[red] at (0.5,2.5) {\bf 0};
+\node[green!60!black] at (1.5,2.5) {\bf 1};
+\node[red] at (2.5,2.5) {\bf 0};
+\node[green!60!black] at (3.5,2.5) {\bf 1};
+\node[red] at (4.5,2.5) {\bf 0};
+
+
+\node[green!60!black] at (0.5,3.5) {\bf 1};
+\node[red] at (1.5,3.5) {\bf 0};
+\node[green!60!black] at (2.5,3.5) {\bf 1};
+\node[red] at (3.5,3.5) {\bf 0};
+\node[green!60!black] at (4.5,3.5) {\bf 1};
+
+\node[red] at (0.5,4.5) {\bf 0};
+\node[green!60!black] at (1.5,4.5) {\bf 1};
+\node[red] at (2.5,4.5) {\bf 0};
+\node[green!60!black] at (3.5,4.5) {\bf 1};
+\node[red] at (4.5,4.5) {\bf 0};
+
+
+\node[scale=0.7,above] at (0.5,5) {$j=0$};
+\node[scale=0.7,above] at (1.5,5) {$j=1$};
+\node[scale=0.7,above] at (2.5,5) {$j=2$};
+\node[scale=0.7,above] at (3.5,5) {$j=3$};
+\node[scale=0.7,above] at (4.5,5) {$j=4$};
+
+\node[scale=0.7,left] at (0,4.5) {$i=0$};
+\node[scale=0.7,left] at (0,3.5) {$i=1$};
+\node[scale=0.7,left] at (0,2.5) {$i=2$};
+\node[scale=0.7,left] at (0,1.5) {$i=3$};
+\node[scale=0.7,left] at (0,0.5) {$i=4$};
+
+
+\end{scope}
+\end{tikzpicture}

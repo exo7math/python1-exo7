@@ -1,0 +1,33 @@
+
+\usetikzlibrary{patterns}
+
+\begin{tikzpicture}[scale=0.8]
+
+
+
+\draw[ultra thick] (-3,0) -- (3,0);
+\fill[pattern=north west lines] (-3,-1) rectangle (3,0);
+
+
+\draw[thick] (-2,0) rectangle ++(4,1);
+\node at (0,0.5) {$\big((0,0),30\big)$};
+
+\draw[thick] (-2,1) rectangle ++(4,1);
+\node at (0,1.5) {$\big((0,0),90\big)$};
+
+\draw[thick] (-2,2) rectangle ++(4,1);
+\node at (0,2.5) {$\big((100,100),0\big)$};
+
+\draw[thick] (-2,3) rectangle ++(4,1);
+\node at (0,3.5) {$\big((0,0),0\big)$};
+
+\draw[thick] (-2,4) rectangle ++(4,1);
+\node at (0,4.5) {$\big((-100,0),60\big)$};
+
+
+\node at (0,-2) {\bf Une  pile};
+
+\node[right] at (6.1,4) {Sommet de la pile};
+\draw[->,>=latex,thick ] (6,4)  to[bend right] (2,4.5);
+
+\end{tikzpicture}

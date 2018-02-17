@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+
+\filldraw[blue,fill=blue!10,very thick] (0,0) 
+-- node[midway, below,black]{$B=7$} ++(7,0) 
+-- ++ (-2,3)
+--node[midway, above,black]{$b=4$} ++(-4,0)
+--cycle;
+
+\draw (4.5,0) -- ++(0,3) node[midway,left]{$h=3$};
+
+\end{tikzpicture}

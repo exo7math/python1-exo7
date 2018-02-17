@@ -1,0 +1,617 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+
+\begin{document}
+
+% Commande spécifique
+\newcommand{\badletter}[1]{\underline{\textcolor{red}{#1}}}
+
+
+
+%====================================================================
+\chapitre{Chaînes de caractères -- Analyse d'un texte}
+%====================================================================
+
+\objectifs{Tu vas faire quelques activités amusantes en manipulant les chaînes de caractères.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Caractère et chaîne]
+\sauteligne
+\begin{enumerate}
+  \item Un \defi{caractère}\index{caractere@caractère} est un symbole unique, par exemple une lettre minuscule \codeinline{"a"}, une lettre majuscule \codeinline{"B"}, un symbole spécial \codeinline{"\&"}, un symbole représentant un chiffre \codeinline{"7"}, une espace \codeinline{" "} que l'on notera aussi \lstinline[showstringspaces=true]!" "!.
+  
+Pour désigner un caractère, il faut le mettre entre guillemets simples \codeinline{'z'} ou entre guillemets doubles \codeinline{"z"}.
+  
+  \item Une \defi{chaîne de caractères}\index{chaine@chaîne} est une suite de caractères, comme un mot \codeinline{"Bonjour"}, une phrase \codeinline{'Il fait beau.'}, un mot de passe \codeinline{"N[w5ms\}e!"}.
+  
+  \item Le type d'un caractère ou d'une chaîne est \codeinline{str}\index{str@\ci{str}} (pour \emph{string}).
+  
+
+\end{enumerate}  
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cours}[Opérations sur les chaînes]
+\sauteligne
+\begin{enumerate}
+  \item La \defi{concaténation}\index{concatenation@concaténation}, c'est-à-dire la mise bout à bout de deux chaînes, s'effectue à l'aide de l'opérateur \codeinline{+}. Par exemple \ci{"para"+"pluie"} donne la chaîne \ci{"parapluie"}.
+ 
+  \item La chaîne vide \ci{""} est utile lorsque l'on veut initialiser une chaîne avant d'y ajouter d'autres caractères.
+  
+  \item La \defi{longueur} d'une chaîne est le nombre de caractères qu'elle contient. Elle s'obtient par la fonction \ci{len()}\index{len@\ci{len}}.
+  Par exemple \lstinline[showstringspaces=true]!len("Hello World")! renvoie $11$ (l'espace compte comme un caractère).
+  
+  \item Si \ci{mot} est une chaîne alors on peut récupérer chaque caractère par \ci{mot[i]}. Par exemple si 
+  \ci{mot = "avion"} alors :
+  \begin{itemize}
+    \item \ci{mot[0]} est le caractère \ci{"a"},
+    \item \ci{mot[1]} est le caractère \ci{"v"}, 
+    \item \ci{mot[2]} est le caractère \ci{"i"},
+    \item \ci{mot[3]} est le caractère \ci{"o"},       
+    \item \ci{mot[4]} est le caractère \ci{"n"}.
+  \end{itemize} 
+\end{enumerate}  
+
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|}
+\hline
+Lettre & a & v & i & o & n \\ \hline
+Rang & 0 & 1 & 2 & 3 & 4 \\ \hline
+\end{tabular}
+\end{center}
+
+  Note qu'il y a $5$ lettres dans le mot \ci{"avion"} et qu'on y accède par les indices en commençant par $0$. Les indices sont donc ici $0$, $1$, $2$, $3$ et $4$ pour la dernière lettre.  De façon plus générale, si \ci{mot} est une chaîne, les caractères s'obtiennent par \ci{mot[i]} pour \ci{i} variant de \ci{0} à \ci{len(mot)-1}.
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Sous-chaînes]
+\sauteligne
+
+On peut extraire plusieurs caractères d'une chaîne à l'aide de la syntaxe \ci{mot[i:j]} qui renvoie une chaîne formée des caractères numéro $i$ à $j-1$ (attention le caractère numéro $j$ n'est pas inclus !).
+
+Par exemple si \ci{mot = "vendredi"} alors :
+\begin{itemize}
+  \item \ci{mot[0:4]} renvoie la sous-chaîne \ci{"vend"} formée des caractères de rang $0$, $1$, $2$ et $3$ (mais pas $4$),
+  \item \ci{mot[3:6]} renvoie \ci{"dre"} correspondant aux rangs $3$, $4$ et $5$.
+\end{itemize}  
+
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|c|c|}
+\hline
+Lettre & v & e & n & d & r & e & d & i \\ \hline
+Rang   & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\ \hline
+\end{tabular}
+\end{center}
+ 
+Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et dernière lettre.
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Pluriels des mots]
+
+\objectifs{Objectifs : écrire petit à petit un programme qui renvoie le pluriel d'un mot donné.}
+
+\begin{enumerate}
+  \item Pour une chaîne \ci{mot}, par exemple \ci{"chat"}, affiche le pluriel de ce mot en rajoutant un \ci{"s"}. 
+  
+  \item Pour un mot, par exemple \ci{"souris"}, affiche la dernière lettre de cette chaîne (ici \ci{"s"}). Améliore ton programme de la première question, en testant si la dernière lettre est déjà un \ci{"s"} :
+  \begin{itemize}
+    \item si c'est le cas, il n'y a rien à faire pour le pluriel,
+    \item sinon il faut ajouter un  \ci{"s"}.
+  \end{itemize} 
+
+  \item Teste si un mot se termine par \ci{"al"}. Si c'est le cas, affiche le pluriel en \ci{"aux"} (le pluriel de \ci{"cheval"}
+  est \ci{"chevaux"}). (Ne tiens pas compte des exceptions.)
+  
+  \item Rassemble tout ton travail des trois premières questions dans une fonction \ci{met_au_pluriel()}. La fonction n'affiche rien, mais renvoie le mot au pluriel.
+  
+  \begin{fonction}[\ci{met_au_pluriel()}]
+  Usage : \ci{met_au_pluriel(mot)} \\
+  Entrée : un mot (une chaîne de caractères) \\
+  Sortie : le pluriel du mot 
+  
+  \medskip
+  
+  Exemples : 
+  \begin{itemize}
+    \item \ci{met_au_pluriel("chat")} renvoie \ci{"chats"}
+    \item \ci{met_au_pluriel("souris")} renvoie \ci{"souris"}  
+    \item \ci{met_au_pluriel("cheval")} renvoie \ci{"chevaux"}         
+  \end{itemize}     
+  \end{fonction}
+
+  \item Écris une fonction \ci{affiche_conjugaison()} qui conjugue un verbe du premier groupe au présent.
+  
+  \begin{fonction}[\ci{affiche_conjugaison()}]
+  Usage : \ci{affiche_conjugaison(verbe)} \\
+  Entrée : un verbe du premier groupe (une chaîne de caractères se terminant par \ci{"er"}) \\
+  Sortie : pas de résultat mais l'affichage de la conjugaison du verbe au présent
+  
+  \medskip
+    
+  Exemple : 
+  \begin{itemize}
+    \item \ci{affiche_conjugaison("chanter")}, affiche \ci{"je chante, tu chantes,..."}
+    
+    \item \ci{affiche_conjugaison("choisir")}, affiche 
+    
+    \ci{"Ce n'est pas un verbe du premier groupe."}
+  \end{itemize}   
+  \end{fonction}
+
+
+\end{enumerate} 
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Un peu plus sur les chaînes]
+
+\sauteligne
+
+\begin{enumerate}
+  \item Une boucle \ci{for ... in ...} permet de parcourir une chaîne, caractère par caractère :\index{boucle!pour}\index{for@\ci{for}}
+  \begin{center}
+  \begin{minipage}{0.4\textwidth}
+  \ci{for carac in mot:}\\
+  \indentation \ci{print(carac)}
+  \end{minipage}
+  \end{center}
+
+  \item On peut tester si un caractère appartient à une certaine liste de caractères. Par exemple : \\  
+  \centerline{\codeinline{if carac in ["a", "A", "b", "B", "c", "C"]:}}
+\index{in@\ci{in}}  
+  
+  permet d’exécuter des instructions si le caractère \ci{carac}  est l'une des lettres a, A, b, B, c, C. 
+  
+  Pour éviter certaines lettres, on utiliserait : \\
+  \centerline{\codeinline{if carac not in ["X", "Y", "Z"]:}}
+  \index{not in@\ci{not in}}
+  \end{enumerate}  
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Jeux de mots]
+
+\objectifs{Objectifs : manipuler des mots de façon amusante.}
+
+\begin{enumerate}
+  \item \textbf{Distance entre deux mots.}
+  
+  La distance\index{distance} de Hamming entre deux mots de même longueur est le nombre d'endroits  où les lettres sont différentes.
+
+Par exemple : \\
+\centerline{\mot{
+\badletter{J}A\badletter{P}ON}\qquad \mot{\badletter{S}A\badletter{V}ON}
+}
+La première lettre de \mot{JAPON} est différente de la première lettre de \mot{SAVON}, les troisièmes aussi sont différentes. La distance de Hamming entre  \mot{JAPON} et \mot{SAVON} vaut donc $2$.  
+
+Écris une fonction \ci{distance_hamming()} qui calcule la distance de Hamming entre deux mots de même longueur.
+
+  \begin{fonction}[\ci{distance_hamming()}]
+  Usage : \ci{distance_hamming(mot1,mot2)} \\
+  Entrée : deux mots (des chaînes de caractères) \\
+  Sortie : la distance de Hamming (un entier)
+  
+  \medskip
+    
+  Exemple : \ci{distance_hamming("LAPIN","SATIN")} renvoie $2$
+  \end{fonction}
+
+    
+  \item \textbf{Latin-cochon.} 
+  
+  On transforme un mot commençant par une consonne selon la recette suivante :
+  \begin{itemize}
+    \item on déplace la première lettre à la fin du mot ;
+    \item on rajoute le suffixe \mot{UM}.
+  \end{itemize}  
+  Par exemple \mot{VITRE} devient \mot{ITREVUM} ; \mot{BLANCHE} devient \mot{LANCHEBUM} ; 
+  \mot{CARAMEL} devient \mot{ARAMELCUM}. Les mots commençant par une voyelle ne changent pas. 
+  Écris une fonction  \ci{latin_cochon()} qui transforme un mot selon ce procédé.
+  
+  \begin{fonction}[\ci{latin_cochon()}]
+  Usage : \ci{latin_cochon(mot)} \\
+  Entrée : un mot (une chaîne de caractères) \\
+  Sortie : le mot transformé en latin-cochon, s'il commence par une consonne.
+  
+  \medskip
+    
+  Exemple : \ci{latin_cochon("BONJOUR")} renvoie \ci{"ONJOURBUM"}
+  \end{fonction} 
+
+  \item \textbf{Verlan.} 
+  
+  Écris une fonction \ci{verlan()} qui renvoie un mot à l'envers : \mot{SALUT} devient \mot{TULAS}.
+  
+  \medskip
+  
+  \begin{fonction}[\ci{verlan()}]
+  Usage : \ci{verlan(mot)} \\
+  Entrée : un mot (une chaîne de caractères) \\
+  Sortie : le mot à l'envers
+  
+  \medskip
+    
+  Exemple : \ci{verlan("TOCARD")} renvoie \ci{"DRACOT"}
+  \end{fonction}
+  
+  
+  \item \textbf{Palindrome.}
+  
+  Déduis-en une fonction qui teste si un mot est un palindrome ou pas. Un \emph{palindrome}\index{palindrome} est un mot qui s'écrit indifféremment de gauche à droite ou de droite à gauche ; par exemple \mot{RADAR} est un palindrome.
+  
+  \begin{fonction}[\ci{est_un_palindrome()}]
+  Usage : \ci{est_un_palindrome(mot)} \\
+  Entrée : un mot (une chaîne de caractères) \\
+  Sortie : \og{}vrai\fg{} si le mot est un palindrome, \og{}faux\fg{} sinon.
+  
+  \medskip
+    
+  Exemple : \ci{est_un_palindrome("KAYAK")} renvoie \ci{True}
+  \end{fonction}
+ 
+  
+\end{enumerate}  
+\end{activite}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[ADN]
+\objectifs{
+Une molécule d'ADN est formée d'environ six milliards de nucléotides. 
+L'ordinateur est donc un outil indispensable pour l'analyse de l'ADN.
+Dans un brin d'ADN il y a seulement quatre types de nucléotides qui sont notés \mot{A}, \mot{C}, \mot{T} ou \mot{G}. Une séquence d'ADN est donc un long mot de la forme : \mot{TAATTACAGACCTGAA...}
+}\index{ADN}
+
+\begin{enumerate}
+  \item Écris une fonction \ci{presence_de_A()} qui teste si une séquence contient le nucléotide \mot{A}.
+  
+  \begin{fonction}[\ci{presence_de_A()}]
+  Usage : \ci{presence_de_A(sequence)} \\
+  Entrée : une séquence d'ADN (une chaîne de caractères parmi A, C, T, G) \\
+  Sortie : \og{}vrai\fg{} si la séquence contient \og{}A\fg{}, \og{}faux\fg{} sinon.
+  
+  \medskip
+    
+  Exemple : \ci{presence_de_A("CTTGCT")} renvoie \ci{False}
+  \end{fonction}
+  
+  \item Écris une fonction \ci{position_de_AT()} qui teste si une séquence contient le nucléotide \mot{A} suivi du nucléotide \mot{T} et renvoie la position de la première occurrence trouvée.
+  
+  \begin{fonction}[\ci{position_de_AT()}]
+  Usage : \ci{position_de_AT(sequence)} \\
+  Entrée : une séquence d'ADN (une chaîne de caractères parmi A, C, T, G) \\
+  Sortie : la position de la première séquence \og{}AT\fg{} trouvée (commence à 0) ; \ci{None} si n'apparaît pas
+  
+  \medskip
+    
+  Exemple : 
+  \begin{itemize}  
+    \item \ci{position_de_AT("CTTATGCT")} renvoie \ci{3}
+    \item \ci{position_de_AT("GATATAT")} renvoie \ci{1}
+    \item \ci{position_de_AT("GACCGTA")} renvoie \ci{None}
+  \end{itemize} 
+  \end{fonction}
+  
+  \emph{Indication.} \ci{None}\index{none@\ci{None}} est affecté à une variable pour signifier l'absence de valeur. 
+  
+  \item Écris une fonction \ci{position()} qui teste si une séquence contient un code donné et renvoie la position de la première occurrence.
+  
+  \begin{fonction}[\ci{position()}]
+  Usage : \ci{position(code,sequence)} \\
+  Entrée : un code et une séquence d'ADN \\
+  Sortie : la position du début du code trouvé ; \ci{None} si n'apparaît pas
+  
+  \medskip
+    
+  Exemple : \ci{position("CCG","CTCCGTT")} renvoie \ci{2}
+  \end{fonction}
+    
+  
+  \item Un crime a été commis dans le château d'Adéno. 
+Tu as récupéré deux brins d'ADN, provenant de deux positions éloignées de l'ADN du coupable. Il y a quatre suspects, dont tu as sequencé l'ADN.
+Sauras-tu trouver qui est le coupable ?
+
+Premier code du coupable : \mot{CATA} 
+
+Second code du coupable : \mot{ATGC}
+
+{\small
+ADN du colonel Moutarde :
+
+ \mot{CCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGC}
+
+
+ADN de Mlle Rose :
+
+ \mot{CTCCTGATGCTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGG}
+
+
+ADN de Mme Pervenche :
+
+ \mot{AAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGTACTCCGCGCGCCGGGACAGAATGCC}
+
+
+ADN de M. Leblanc :
+
+\mot{CTGCAGGAACTTCTTCTGGAAGTACTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAG}
+}
+\end{enumerate}
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Codage des caractères]
+
+\index{codage des caracteres@codage des caractères}
+
+Un caractère est stocké par l'ordinateur sous la forme d'un entier.
+Pour le codage ASCII/unicode, la lettre majuscule \og{}A\fg{} est codé par $65$, la lettre minuscule \og{}h\fg{} est codée par $104$, le symbole \og{}\#\fg{} par $35$.
+
+Voici la table des premiers caractères. Les numéros $0$ à $32$ ne sont pas des caractères imprimables. Cependant le numéro $32$ est le caractère espace \lstinline!" "!.
+
+\index{ascii}
+\index{unicode}
+
+\myfigure{0.8}{
+\small
+  \tikzinput{chaines-unicode}
+} 
+
+\begin{enumerate}  
+
+  \item La fonction \ci{chr()}\index{chr@\ci{chr}} est une fonction \Python{} qui renvoie le caractère associé à un code.
+  
+  \begin{fonctionpython}[\ci{python : chr()}]
+  Usage : \ci{chr(code)}\\
+   Entrée : un code (un entier)\\
+   Sortie : un caractère
+  
+  \medskip
+     
+   Exemple :
+  \begin{itemize}  
+    \item \ci{chr(65)} renvoie \ci{"A"}
+    \item \ci{chr(123)} renvoie \ci{"\{"}
+  \end{itemize} 
+  \end{fonctionpython} 
+  
+  \item La fonction \ci{ord()}\index{ord@\ci{ord}} est une fonction \Python{} correspondant à l'opération inverse : elle renvoie le code associé à un caractère.
+  
+  \begin{fonctionpython}[\ci{python : ord()}]
+  Usage : \ci{ord(carac)}\\
+   Entrée : un caractère (une chaîne de longueur $1$)\\
+   Sortie : un entier
+  
+  \medskip
+     
+   Exemple :
+  \begin{itemize}  
+    \item \ci{ord("A")} renvoie \ci{65}
+    \item \ci{ord("*")} renvoie \ci{42}
+  \end{itemize} 
+  \end{fonctionpython}  
+\end{enumerate}
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Majuscules/minuscules]
+
+\objectifs{Objectifs : convertir un mot en majuscules ou en minuscules.}
+
+
+\begin{enumerate}
+  \item Décode à la main le message chiffré sous les codes suivants : \\
+  
+\centerline{80-121-116-104-111-110 \quad 101-115-116 \quad 115-121-109-112-64}
+   
+%    [\symbol{80}\symbol{121}\symbol{116}\symbol{104}\symbol{111}\symbol{110}
+%    \symbol{101}\symbol{115}\symbol{116}   
+%    \symbol{115}\symbol{121}\symbol{109}\symbol{112}\symbol{64}] 
+    
+  \item  Écris une boucle qui affiche les caractères codés par les entiers de $33$ à $127$.
+  
+  \item Que renvoie la commande \ci{chr(ord("a")-32)} ? Et \ci{chr(ord("B")+32)} ?
+  
+  \item Écris une fonction \ci{lettre_majuscule()} qui transforme un lettre minuscule en sa lettre majuscule.
+  
+  \begin{fonction}[\ci{lettre_majuscule()}]
+  
+   Usage : \ci{lettre_majuscule(carac)}\\
+   Entrée : un caractère minuscule parmi ci{"a"},...,\ci{"z"}\\
+   Sortie : la même lettre en majuscule
+  
+  \medskip
+     
+   Exemple : \ci{lettre_majuscule("t")} renvoie \ci{"T"}
+  \end{fonction} 
+  
+    \item Écris une fonction \ci{majuscules()} qui à partir d'une phrase écrite en minuscules renvoie la même phrase écrite en majuscules. Les caractères qui ne sont pas des lettres minuscules restent inchangés.
+  
+  \begin{fonction}[\ci{majuscules()}]
+   Usage : \ci{majuscules(phrase)}\\
+   Entrée : une phrase\\
+   Sortie : la même phrase en majuscules
+  
+  \medskip
+     
+   Exemple : \ci{majuscules("Bonjour le monde !")} renvoie \ci{"BONJOUR LE MONDE !"}
+  \end{fonction} 
+   
+   Fais le travail semblable pour une fonction \ci{minuscules()}.
+  
+   \item Écris une fonction \ci{formate_prenom_nom()} qui renvoie le prénom et le nom formatés suivant le style \mot{Prenom NOM}.
+   
+   
+  \begin{fonction}[\ci{formate_prenom_nom()}]
+  Usage : \ci{formate_prenom_nom(personne)}\\
+   Entrée : le prénom et le nom d'une personne (sans accent, séparés par une espace)\\
+   Sortie : le nom complet au format \ci{"Prenom NOM"}
+  
+  \medskip
+     
+   Exemple :
+   \begin{itemize}  
+    \item \ci{formate_prenom_nom("harry Potter")} renvoie \ci{"Harry POTTER"}
+    \item \ci{formate_prenom_nom("LORD Voldemort")} renvoie \ci{"Lord VOLDEMORT"}
+  \end{itemize} 
+  \end{fonction}    
+    
+\end{enumerate}
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}
+
+\objectifs{Objectifs : déterminer la langue d'un texte à partir de l'analyse des fréquences des lettres.}
+
+\begin{enumerate}
+  \item  Écris une fonction \ci{occurences_lettre()} qui compte le nombre de fois où la lettre donnée apparaît dans une phrase (en majuscules et sans accents).
+  
+    \begin{fonction}[\ci{occurences_lettre()}]
+  Usage : \ci{occurences_lettre(lettre,phrase)}\\
+   Entrée : une lettre et une phrase en majuscules (une chaîne de caractères)\\
+   Sortie : le nombre d'occurrences de la lettre (un entier)
+  
+  \medskip
+     
+   Exemple : \ci{occurences_lettre("E","ESPRIT ES TU LA")} renvoie \ci{2}
+  \end{fonction}
+  
+ \item Écris une fonction \ci{nombre_lettres()} qui compte le nombre total de lettres qui apparaissent dans une phrase (en majuscules et sans accents). Ne pas compter les espaces, ni la ponctuation.
+ 
+     \begin{fonction}[\ci{nombre_lettres()}]
+   Usage : \ci{nombre_lettres(phrase)}\\
+   Entrée : une phrase en majuscules (une chaîne de caractères)\\
+   Sortie : le nombre total de lettres de \og{}A\fg{} à \og{}Z\fg{} (un entier)
+  
+  \medskip
+     
+   Exemple : \ci{nombre_lettres("ESPRIT ES TU LA")} renvoie \ci{12}
+  \end{fonction}
+ 
+ \item La \defi{fréquence d'apparition} d'une lettre dans un texte ou une phrase est le pourcentage donné selon la formule :
+ $$\text{fréquence d'apparition d'une lettre} = \frac{\text{nombre d'occurrences de la lettre}}{\text{nombre total de lettres}} \times 100.$$
+ 
+ \medskip
+ 
+ Par exemple, la phrase \mot{ESPRIT ES TU LA} contient $12$ lettres ; 
+  la lettre \mot{E} y apparaît $2$ fois. La fréquence d'apparition de \mot{E} dans cette phrase est donc :
+  $$f_E =  \frac{\text{nombre d'occurrences de \mot{E}}}{\text{nombre total de lettres}} \times 100 = \frac{2}{12} \times  100 \simeq 16.66$$
+ La fréquence est donc d'environ $17\%$.
+  
+  Écris une fonction \ci{pourcentage_lettre()} qui calcule cette fréquence d'apparition.
+  
+  \begin{fonction}[\ci{pourcentage_lettre()}]
+  Usage : \ci{pourcentage_lettre(lettre,phrase)}\\
+   Entrée : une lettre et une phrase en majuscules (une chaîne de caractères)\\
+   Sortie : la fréquence d'apparition de la lettre (un nombre inférieur à $100$)
+   
+  \medskip
+    
+   Exemple : \ci{pourcentage_lettre("E","ESPRIT ES TU LA")} renvoie \ci{16.66}\ldots
+  \end{fonction}
+  
+  Utilise cette fonction pour afficher proprement la fréquence d'apparition de toutes les lettres d'une phrase.
+ 
+   
+  \item  
+  Voici la fréquence d'apparition des lettres selon la langue utilisée (source :
+  \href{https://en.wikipedia.org/wiki/Letter_frequency}{en.wikipedia.org/wiki/Letter\_frequency}). Par exemple, la lettre la plus courante en français est le \og{}e\fg{} avec une fréquence de plus de $16\%$. Le \og{}w\fg{} représente environ $2\%$ des lettres en anglais et en allemand, mais n'apparaît presque pas en français et en espagnol. Ces fréquences varient aussi en fonction du texte analysé.
+
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|} 
+\hline
+Lettre & Anglais & Français & Allemand & Espagnol \\\hline\hline
+a&8.167\%&8.173\%&7.094\%&12.027\% \\
+b&1.492\%&0.901\%&1.886\%&2.215\% \\
+c&2.782\%&3.345\%&2.732\%&4.019\% \\
+d&4.253\%&3.669\%&5.076\%&5.010\% \\
+e&12.702\%&16.734\%&16.396\%&12.614\% \\
+f&2.228\%&1.066\%&1.656\%&0.692\% \\
+g&2.015\%&0.866\%&3.009\%&1.768\% \\
+h&6.094\%&0.737\%&4.577\%&0.703\% \\
+i&6.966\%&7.579\%&6.550\%&6.972\% \\
+j&0.153\%&0.613\%&0.268\%&0.493\% \\
+k&0.772\%&0.049\%&1.417\%&0.011\% \\
+l&4.025\%&5.456\%&3.437\%&4.967\% \\
+m&2.406\%&2.968\%&2.534\%&3.157\% \\
+n&6.749\%&7.095\%&9.776\%&7.023\% \\
+o&7.507\%&5.819\%&3.037\%&9.510\% \\
+p&1.929\%&2.521\%&0.670\%&2.510\% \\
+q&0.095\%&1.362\%&0.018\%&0.877\% \\
+r&5.987\%&6.693\%&7.003\%&6.871\% \\
+s&6.327\%&7.948\%&7.577\%&7.977\% \\
+t&9.056\%&7.244\%&6.154\%&4.632\% \\
+u&2.758\%&6.429\%&5.161\%&3.107\% \\
+v&0.978\%&1.838\%&0.846\%&1.138\% \\
+w&2.360\%&0.074\%&1.921\%&0.017\% \\
+x&0.150\%&0.427\%&0.034\%&0.215\% \\
+y&1.974\%&0.128\%&0.039\%&1.008\% \\
+z&0.074\%&0.326\%&1.134\%&0.467\% \\ 
+\hline
+\end{tabular} 
+\end{center}
+
+\bigskip
+
+D'après toi, dans quelles langues ont été écrits les quatre textes suivants (les lettres de chaque mot ont été mélangées).
+
+{\small
+\begin{center}
+TMAIER BERACUO RSU NU REBRA PRCEEH EIANTT NE ONS EBC NU GAOFREM EIMATR RERNAD APR L RDUOE LAHECLE UIL TTNI A EUP SREP EC LGNGAEA TE RBONUJO ERMNOUSI DU UBRACEO QUE OVSU EEST LIJO UQE OUVS EM MSZELBE BAEU ASNS MIERNT IS RVETO AGRAME ES PRARPTOE A OEVTR AMGUPLE VUOS SEET EL PNIHXE DSE OSHET ED CSE BIOS A ESC MSOT LE OUBRCEA NE ES ESTN ASP DE IEJO TE OUPR ERRNOTM AS BELEL XOVI IL OREVU NU RGLEA ECB ILESSA EBOMTR AS PIOER EL NRDAER S EN ISIAST TE ITD MNO NOB EUSRMNOI NRPEEAZP QEU UTOT EUTLRFTA IVT XUA SPNEDE DE UECIL UQI L TECEOU TECET NEOCL VATU BNEI UN GMAEORF SNAS TUOED LE EOABURC OHENTXU TE NSCOFU UJRA SMIA UN EPU TRDA UQ NO EN L Y ARRPEIDNT ULSP
+\end{center}
+
+\begin{center}
+WRE TREITE SO TSPA CUDHR AHNCT UND WIND SE STI RED AEVRT MTI ESEIMN IDNK RE ATH END NEABNK WLOH IN EMD AMR ER AFTSS HIN IHSERC RE AHTL HIN MRWA EINM SHNO SAW SRTIBG UD SO NGBA DNEI EIHSGTC ESISTH RAETV UD DEN LERNIOKG NITHC NDE LOENINKGRE TIM OKRN UDN CHWFSEI NEIM NSOH ES STI IEN BIFTRLSEEEN DU BILESE IKDN OMKM EHG MIT MIR RAG ECHNOS EPELSI EIPSL IHC ITM RDI HNCMA BEUTN MBLUNE DINS NA DEM TNDRAS NMIEE UTETMR AHT CAMHN UDNGEL GDAWEN MIEN EATRV MENI VEART DUN OSTHER DU CINTH SAW KNNOEIREGL RIM ILEES PRSTVRCIEH ISE IHGRU BEEILB RIGUH MNEI KNDI NI RDNEUR NATBRLET STAESUL EDR WNID
+\end{center}
+
+\begin{center}
+DSNOACAIF ORP ANU DAEDALRI DNAAEIMTI EQU NNCOSETE EL RSTEOUL SMA AACTFAITNS UQE LE TSVAO OINSRVUE DE US ANIGIICANOM EIORDP TOOD RTEIENS RPO LE ITOABOLRROA ED QIUAMALI USOP A NSSRCAEAD LA TMREAAI NXTADAUEE ROP GOARLS EMESS DE NNAMICLUIAPO Y LOVOIV A RES LE RHMEOB EOMDNEERPRD DE LOS RSOPMRIE OMTSIPE UEQ CIIDADE LE RTDAAOZ ED LSA CELSAL Y LA NICOIOPS ED LAS UESVNA SSACA Y ES ITRMNEEOD QEU AERFU EL UEQIN IIIRDEGAR LA NAIORTREICP DE AL RRTEIA
+\end{center}
+
+\begin{center}
+IMTRUESMME DNA TEH LNGIIV SI EYAS SIFH REA GJPNUIM DNA HET TTNOCO IS GHIH OH OUYR DDADY SI IRHC DAN ROUY MA SI DOGO GKOILON OS USHH LTLIET BBYA NDOT OUY CYR NEO OF HESET GNSRONIM YUO RE NANGO SIER PU SNIGING NAD OULLY EPADRS YUOR GINSW DAN LYOLU KATE OT HET KSY TUB ITLL TATH MGNIRNO EREHT NATI INTGOHN ACN AHMR OYU TWIH DADYD NDA MYMMA NSTIDGAN YB
+\end{center}
+}
+\end{enumerate}
+
+\end{activite}
+
+\end{document}

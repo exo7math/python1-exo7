@@ -1,0 +1,175 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+
+
+\begin{document}
+
+% Commande spécifique
+\newcommand{\badletter}[1]{\underline{\textcolor{red}{#1}}}
+
+
+
+%====================================================================
+\chapitre{Probabilités -- Paradoxe de Parrondo}
+%====================================================================
+
+\objectifs{Tu vas programmer deux jeux simples. Lorsque tu joues à ces jeux, tu as plus de chances de perdre que de gagner. Pourtant lorsque tu joues aux deux jeux en même temps, tu as plus de chances de gagner que de perdre ! C'est une situation paradoxale.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Hasard -- Gain -- Espérance]
+
+\index{hasard}
+
+Un joueur joue à un jeu de hasard : il lance une pièce de monnaie ; en fonction du résultat il gagne ou perd de l'argent. On ne peut pas prévoir combien le joueur va gagner ou perdre à coup sûr, mais on va introduire une valeur qui estime combien le joueur peut espérer gagner en moyenne s'il joue de nombreuses fois.
+
+\begin{itemize}
+  \item Au départ le total de gain du joueur est nul : $g=0$.
+  
+  \item À chaque tirage, il lance une pièce de monnaie. S'il gagne, il obtient un euro, s'il perd il doit un euro.
+  
+  \item Dans les jeux que l'on étudie, la pièce n'est pas équilibrée (elle est un peu truquée). Le joueur n'a pas autant de chances de gagner que de perdre.
+  
+  \item On répète des tirages un certain nombre $N$ de fois. Au bout de $N$ tirages, on totalise le gain du joueur (qui peut être positif ou négatif).
+  
+  \item L'\defi{espérance},\index{esperance@espérance} c'est la somme que peut espérer gagner le joueur à chaque lancer. On estime l’espérance par la moyenne des gains d'un grand nombre de tirages. Autrement dit, on a la formule :
+   $$\text{espérance} \  \simeq \  \frac{\text{gain après $N$ tirages}}{N} \qquad \text{avec $N$ grand}.$$ 
+   
+   Pour nos jeux, l'espérance sera un nombre réel entre $-1$ et $+1$.
+  
+  \item Exemples :
+  \begin{itemize}
+    \item Si la pièce est bien équilibrée ($50$ chances sur $100$ de gagner),
+    alors pour un grand nombre $N$ de tirages, le joueur va gagner à peu près autant de fois qu'il va perdre ; ses gains seront proches de $0$ et donc l'espérance sera proche de $\frac{0}{N} = 0$. En moyenne il gagne $0$ euro par tirage.
+    
+    \item Si la pièce est truquée et que le joueur gagne tout le temps, alors au bout de $N$ tirages, il a empoché $N$ euros. L'espérance est donc $\frac{N}{N}=1$.
+    
+    \item Si la pièce est truquée afin que le joueur perde tout le temps, alors au bout de $N$ tirages, son gain est de $-N$ euros. L'espérance est donc $\frac{-N}{N}=-1$.
+    
+    \item Un espérance de $-0.5$ signifie qu'en moyenne le joueur perd $0.5$ euro par tirage. C'est possible avec une pièce déséquilibrée qui fait gagner dans un cas sur quatre seulement. (Vérifie le calcul !) Si le joueur joue $1000$ fois, on peut estimer qu'il va perdre $500$ euros ($-0.5 \times 1000 = -500$).
+ \end{itemize}     
+\end{itemize}
+
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Jeu A : premier jeu perdant]
+
+\objectifs{Objectifs : modéliser un premier jeu simple, qui en moyenne est perdant pour le joueur.}
+
+\textbf{Jeu A.} Dans ce premier jeu, on lance une pièce de monnaie légèrement déséquilibrée : le joueur gagne un euro dans $49$ cas sur $100$ ; il perd un euro dans $51$ cas sur $100$.
+
+\begin{enumerate}
+  \item \textbf{Tirage.}
+  \'Ecris une fonction \ci{tirage_jeu_A()} qui ne dépend d'aucun argument et qui modélise un tirage du jeu A. Pour cela :
+  \begin{itemize}
+    \item Tire un nombre au hasard $0 \le x < 1$ à l'aide de la fonction \ci{random()} du module \ci{random}.
+    \item Renvoie $+1$ si $x$ est plus petit que $0.49$ ; et $-1$ sinon.
+  \end{itemize}
+  
+  
+  \item \textbf{Gain.} \'Ecris une fonction \ci{gain_jeu_A(N)} qui modélise $N$ tirages du jeu A et renvoie le gain total de ces tirages. Bien sûr, le résultat dépend des tirages, il peut varier d'une fois sur l'autre.
+  
+  \item \textbf{Espérance.} \'Ecris une fonction \ci{esperance_jeu_A(N)} qui renvoie une estimation de l'espérance du jeu A selon la formule :
+  $$\text{espérance} \  \simeq \  \frac{\text{gain après $N$ tirages}}{N}, \qquad \text{avec $N$ grand}.$$
+  
+  \item \textbf{Conclusion.}
+  \begin{enumerate}
+    \item Estime l'espérance en effectuant au moins un million de tirages.
+    \item Que signifie le fait que l'espérance soit négative ?
+    \item Déduis de la valeur de l'espérance, le gain (ou la perte) que je peux espérer en jouant $1000$ fois au jeu A.
+  \end{enumerate}
+
+\end{enumerate}
+
+\end{activite}
+  
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Jeu B : second jeu perdant]
+
+\objectifs{Objectifs : modéliser un second jeu un peu plus compliqué et qui, en moyenne, est encore perdant pour le joueur.}
+
+\textbf{Jeu B.} Le second jeu est un peu plus compliqué. Au début, le joueur part avec un gain nul : $g=0$. Puis en fonction du gain, il joue à un des deux sous-jeux suivants :
+\begin{itemize}
+  \item \textbf{Sous-jeu B1.} Si le gain $g$ est un multiple de $3$, alors il lance un pièce très désavantageuse : le joueur gagne un euro dans seulement $9$ cas sur $100$ (il perd donc un euro dans $91$ cas sur $100$).
+  
+  \item \textbf{Sous-jeu B2.} Si le gain $g$ n'est pas un multiple de $3$, alors il lance un pièce avantageuse : le joueur gagne un euro dans $74$ cas sur $100$ (il perd donc un euro dans $26$ cas sur $100$).
+\end{itemize}
+
+\begin{enumerate}
+  \item \textbf{Tirage.}
+  \'Ecris une fonction \ci{tirage_jeu_B(g)} qui dépend du gain déjà acquis et modélise un tirage du jeu B. Tu peux utiliser le test \ci{g\%3 == 0} pour savoir si $g$ est multiple de $3$.
+  
+  \item \textbf{Gain.} \'Ecris une fonction \ci{gain_jeu_B(N)} qui modélise $N$ tirages du jeu B (en partant d'un gain initial nul) et renvoie le gain total de ces tirages.
+  
+ 
+  
+  \item \textbf{Espérance.} \'Ecris une fonction \ci{esperance_jeu_B(N)} qui renvoie une estimation de l'espérance du jeu B.
+  
+  \item \textbf{Conclusion.}
+  \begin{enumerate}
+    \item Estime l'espérance en effectuant au moins un million de tirages.
+    \item Combien puis-je espérer gagner ou perdre en jouant $1000$ fois au jeu B.
+  \end{enumerate}
+
+\end{enumerate}
+
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Jeux A et B : un jeu gagnant !]
+
+\objectifs{Objectifs : inventer un nouveau jeu en jouant à chaque tour au jeu A ou au jeu B ; bizarrement ce jeu est en moyenne gagnant ! C'est le paradoxe de Parrondo.}
+
+\textbf{Jeux AB.} Dans ce troisième jeu, on joue à chaque tour ou bien au jeu A ou bien au jeu B (le choix est fait au hasard). 
+Au début le joueur part avec un gain nul : $g=0$. 
+\`A chaque étape, il choisit au hasard ($50\%$ de chance chacun) :
+\begin{itemize}
+  \item de jouer une fois au jeu A,
+  \item ou de jouer une fois au jeu B ; plus précisément avec le sous-jeu B1 ou le sous-jeu B2 en fonction du gain déjà acquis $g$.
+\end{itemize}
+
+\begin{enumerate}
+  \item \textbf{Tirage.}
+  \'Ecris une fonction \ci{tirage_jeu_AB(g)} qui dépend du gain déjà acquis et modélise un tirage du jeu AB.
+  
+  \item \textbf{Gain.} \'Ecris une fonction \ci{gain_jeu_AB(N)} qui modélise $N$ tirages du jeu AB (en partant d'un gain initial nul) et renvoie le gain total de ces tirages.
+  
+  \item \textbf{Espérance.} \'Ecris une fonction \ci{esperance_jeu_AB(N)} qui renvoie une estimation de l'espérance du jeu AB.
+  
+  \item \textbf{Conclusion.}
+  \begin{enumerate}
+    \item Estime l'espérance en effectuant au moins un million de tours de jeu.
+    \item Que dire cette fois du signe de l'espérance ?
+    \item Combien puis-je espérer gagner ou perdre en jouant $1000$ fois au jeu AB. Surprenant, non ?
+  \end{enumerate}
+
+\end{enumerate}
+\end{activite}
+
+
+\emph{Référence :} \og{}Paradoxe de Parrondo\fg{}, Hélène Davaux, La gazette des mathématiciens, juillet 2017.
+
+
+\end{document}

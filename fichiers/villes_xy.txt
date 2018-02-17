@@ -1,0 +1,4 @@
+Paris 500 800
+Lille 500 1000
+Nantes 100 700
+Marseille 900 0

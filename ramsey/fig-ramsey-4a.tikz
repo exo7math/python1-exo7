@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+
+
+
+\draw (0,0) grid ++(6,1);
+
+\node at(-5,0.5) {$p = 26$};
+\node at(-5,0) {$(n = 6)$};
+
+\node at(-5,-1.5) {\bf Entier $p$ de d\'epart};
+
+\draw[->,>=latex,ultra thick, blue] (-3.5,0.5)--++(2,0);
+
+\node at (0.5,0.5) {\bf 0};
+\node[red] at (1.5,0.5) {\bf 1};
+\node[red] at (2.5,0.5) {\bf 1};
+\node at (3.5,0.5) {\bf 0};
+\node[red] at (4.5,0.5) {\bf 1};
+\node at (5.5,0.5) {\bf 0};
+
+\node at (-0.5,-0.55) {rang : };
+\node at (0.5,-0.5) {0};
+\node[blue] at (1.5,-0.5) {1};
+\node[blue] at (2.5,-0.5) {2};
+\node at (3.5,-0.5) {3};
+\node[blue] at (4.5,-0.5) {4};
+\node at (5.5,-0.5) {5};
+
+\node at(3,-1.5) {\bf \'Ecriture de $p$ sur $n$ \emph{bits}};
+
+
+\draw[->,>=latex,ultra thick, blue] (7,0.5)--++(2,0);
+
+\node[scale=1.4,blue] at (11,0.5) {$\{1,2,4\}$};
+
+\node at(11,-1.5) {\bf Sous-ensemble associ\'e \`a $p$};
+
+
+\end{tikzpicture}

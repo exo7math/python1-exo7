@@ -1,0 +1,415 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+%====================================================================
+\chapitre{Guide de survie Python}
+%====================================================================
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Test et boucles}
+
+%---------------------------------------------------
+\subsection{Si ... alors ...}
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../sialors/fig-sialors-cours-1}
+} }
+
+%---------------------------------------------------
+\subsection{Si ... alors ... sinon ...}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../sialors/fig-sialors-cours-2}
+} }
+
+%---------------------------------------------------
+\subsection{Boucle pour}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../premiers_pas/fig-premiers_pas-boucle-pour}
+} }
+
+%---------------------------------------------------
+\subsection{Boucle tant que}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../tantque/fig-tantque-cours}
+} }
+
+%---------------------------------------------------
+\subsection{Quitter une boucle}
+
+La commande \Python{} pour quitter immédiatement une boucle \og{}tant que\fg{}
+ou une boucle \og{}pour\fg{} est l'instruction \ci{break}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Type de données}
+
+
+\begin{itemize}
+  \item \ci{int}  \quad Entier. Exemples : \ci{123} ou \ci{-15}.
+  \item \ci{float} \quad Nombre flottant (ou à virgule). Exemples : \ci{4.56},
+\ci{-0.001}, \ci{6.022e23} (pour $6.022 \times 10^{23}$), \ci{4e-3} (pour $0.004 = 4 \times 10^{-3}$).
+  \item \ci{str} \quad Caractère ou chaînes de caractères. Exemples : \ci{'Y'},
+  \ci{"k"}, \ci{'Hello'}, \ci{"World !"}. 
+  \item \ci{bool} \quad Booléen. \ci{True} ou \ci{False}.
+  \item \ci{list} \quad Liste. Exemple : \ci{[1,2,3,4]}.
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Définir des fonctions}
+
+%---------------------------------------------------
+\subsection{Définition d'une fonction}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../fonctions/fig-fonctions-cours-1}
+} }
+
+%---------------------------------------------------
+\subsection{Fonction avec un paramètre}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../fonctions/fig-fonctions-cours-2}
+} }
+%---------------------------------------------------
+\subsection{Fonction avec plusieurs paramètres}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../fonctions/fig-fonctions-cours-3}
+} }
+
+%---------------------------------------------------
+\subsection{Commentaires et docstring}
+
+\begin{itemize}
+  \item \textbf{Commentaire.} Tout ce qui suit le signe dièse \ci{#} est un commentaire et est ignoré par \Python. 
+  Par exemple :
+\begin{lstlisting}
+# Boucle principale
+while r != 0:   # Tant que le reste n'est pas nul
+    r = r - 1   # Diminuer le reste
+\end{lstlisting}
+  
+  \item \textbf{Docstring.} Tu peux décrire ce que fait une fonction en commençant par un \emph{docstring}, c'est-à-dire une description     
+en français, entourée par trois guillemets.  
+ Par exemple :
+\begin{lstlisting}
+def produit(x,y):
+    """ Calcule le produit de deux nombres
+    Entrée : deux nombres x et y
+    Sortie : le produit de x par y """
+    p = x * y
+    return p 
+\end{lstlisting} 
+
+\end{itemize}
+
+
+%---------------------------------------------------
+\subsection{Variable locale}
+
+
+Voici une fonction toute simple qui prend en entrée un nombre et renvoie le nombre augmenté de un.
+\begin{center}
+\begin{lstlisting}
+def ma_fonction(x):
+    x = x + 1
+    return x
+\end{lstlisting}
+\end{center}
+
+\begin{itemize}
+  \item Bien évidemment \ci{ma_fonction(3)} renvoie \ci{4}.
+  
+  \item Si je pose \ci{y = 5} alors \ci{ma_fonction(y)} renvoie \ci{6}. Mais attention, la valeur de \ci{y} n'a pas changé, elle vaut toujours \ci{5}.
+  
+  \item Voici la situation problématique qu'il faut bien comprendre :
+ \begin{center}
+\begin{lstlisting}
+x = 7
+print(ma_fonction(x))
+print(x)
+\end{lstlisting}
+\end{center}
+  \begin{itemize}
+    \item La variable \ci{x} est initialisée à \ci{7}.
+    
+    \item L'appel de la fonction \ci{ma_fonction(x)} est donc la même chose que 
+     \ci{ma_fonction(7)} et renvoie logiquement \ci{8}.
+     
+    
+    \item Que vaut la variable \ci{x} à la fin ? La variable \ci{x} est inchangée et vaut toujours \ci{7} ! Même s'il y a eu entre temps une instruction \ci{x = x + 1}. Cette instruction a changé le \ci{x} à l'intérieur de la fonction, mais  pas le \ci{x} en dehors de la fonction.
+\end{itemize}   
+\end{itemize} 
+ 
+\bigskip
+
+\begin{itemize}
+  \item Les variables définies à l'intérieur d'une fonction sont appelées 
+\defi{variables locales}. 
+Elles n'existent pas en dehors de la fonction.
+  
+  \item S'il existe une variable dans une fonction qui porte le même nom qu'une variable dans le programme (comme le \ci{x} dans l'exemple ci-dessus), c'est comme si il y avait deux variables distinctes ; la variable locale n'existant que dans la fonction.
+  
+\end{itemize}
+
+
+Pour bien comprendre la portée des variables, tu peux colorier les variables globales d'une fonction en rouge, et les variables locales avec une couleur par fonction.
+Le petit programme suivant définit une fonction qui ajoute un, et une autre qui calcule le double.
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{../fonctions/fig-fonctions-cours-4}
+} }
+
+Le programme affiche d'abord la valeur de \ci{x}, donc \ci{7}, puis il ajoute un à \ci{7}, il affiche donc \ci{8}, puis il affiche le double de \ci{x}, donc \ci{14}. La variable globale \ci{x} n'a jamais changé, le dernier affichage de \ci{x} est donc encore \ci{7}.
+
+%---------------------------------------------------
+\subsection{Variable globale}
+
+Une \defi{variable globale} est une variable qui est définie pour l'ensemble du programme. Il n'est généralement pas recommandé d'utiliser de telles variables, mais cela peut être utile dans certain cas. Voyons un exemple.
+
+On déclare la variable globale, ici la constante de gravitation, en début de programme comme une variable classique : \\
+\centerline{\ci{gravitation = 9.81}}
+
+La contenu de la variable \ci{gravitation} est maintenant accessible partout.
+Par contre, si on souhaite changer la valeur de cette variable dans une fonction, il faut bien préciser à \Python{} que l'on est conscient de modifier une variable globale !
+
+Par exemple pour des calculs sur la Lune, il faut changer la constante de gravitation qui y est beaucoup plus faible.
+
+\begin{lstlisting}
+def sur_la_lune():
+    global gravitation   # Oui, je veux modifier cette variable globale !
+    gravitation = 1.625  # Nouvelle valeur pour tout le programme    
+    ...
+\end{lstlisting}
+
+
+%---------------------------------------------------
+\subsection{Arguments optionnels}
+
+
+Il est possible de donner des arguments optionnels. Voici comment définir une fonction (ici qui dessinerait un trait) en donnant des valeurs par défaut :\\
+ \centerline{\ci{def tracer(longueur, epaisseur=5, couleur="blue"):}}
+ 
+\begin{itemize}
+  \item La commande \ci{tracer(100)} trace mon trait, et comme je n'ai précisé que la longueur, les arguments \ci{epaisseur} et \ci{couleur} prennent les valeurs par défaut ($5$ et bleu).
+  
+   \item La commande \ci{tracer(100, epaisseur=10)} trace mon trait avec une nouvelle épaisseur (la couleur est celle par défaut).
+   
+    \item La commande \ci{tracer(100, couleur="red")} trace mon trait avec une nouvelle couleur (l'épaisseur est celle par défaut).  
+    
+     \item La commande \ci{tracer(100, epaisseur=10, couleur="red")} trace mon trait avec une nouvelle épaisseur et une nouvelle couleur.
+     
+     \item Voici aussi ce que tu peux utiliser :
+     \begin{itemize}
+       \item \ci{tracer(100, 10, "red")} : ne pas préciser les noms des options si on fait attention à l'ordre.
+       \item \ci{tracer(couleur="red", epaisseur=10, longueur=100)} : on peut nommer n'importe quelle variable ; les variables nommées peuvent être passées en paramètre dans n'importe quel ordre !
+ 
+  \end{itemize}   
+\end{itemize}   
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modules}
+
+%---------------------------------------------------
+\subsection{Utilisé un module}
+
+\begin{itemize}
+  \item \ci{from math import *} \quad Importe toutes les fonctions du module \ci{math}. Pour pouvoir utiliser par exemple la fonction sinus par \ci{sin(0)}. C'est la méthode la plus simple et c'est celle que nous utilisons dans ce livre.
+  
+  \item \ci{import math} \quad Permet d'utiliser les fonctions du module \ci{math}. On a alors accès à la fonction sinus par \ci{math.sin(0)}. C'est la méthode recommandée officiellement afin d'éviter les conflits entre les modules.
+\end{itemize}
+
+%---------------------------------------------------
+\subsection{Principaux modules}
+
+
+\begin{itemize}
+  \item \ci{math} \quad contient les principales fonctions mathématiques. 
+  \item \ci{random} \quad simule le tirage au hasard.
+  \item \ci{turtle} \quad la tortue \Python, l'équivalent de \emph{Scratch}.
+  \item \ci{matplotlib} \quad permet de tracer des graphiques et visualiser des données.
+  \item \ci{tkinter} \quad permet d'afficher des fenêtres graphiques.
+  \item \ci{time} \quad pour l'heure, la date et chronométrer.
+  \item \ci{timeit} \quad pour mesurer le temps d’exécution d'une fonction.
+  
+\end{itemize}
+
+Il existe beaucoup d'autres modules !
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Erreurs}
+
+%---------------------------------------------------
+\subsection{Erreurs d'indentation}
+
+\begin{lstlisting}
+a = 3
+ b = 2
+\end{lstlisting}
+
+\Python{} renvoie le message d'erreur \emph{IndentationError: unexpected indent}.
+Il indique le numéro de ligne où se situe l'erreur d'indentation, il pointe même à l'aide du symbole \og{}\ci{\^}\fg{} l'endroit exact de l'erreur.
+
+%---------------------------------------------------
+\subsection{Erreurs de syntaxe}
+
+\begin{itemize}
+   \item 
+\begin{lstlisting}
+while x >= 0
+    x  = x - 1
+\end{lstlisting}
+
+\Python{} renvoie le message d'erreur \emph{SyntaxError: invalid syntax} car il manque les deux points après la condition \ci{while x >= 0 :}
+
+  \item \ci{chaine = Coucou le monde} renvoie une erreur car il manque les guillemets pour définir la chaîne de caractères. 
+  
+
+  \item \ci{print("Coucou"} \quad \Python{} renvoie le message d'erreur \emph{SyntaxError: unexpected EOF while parsing} car l'expression est mal parenthésée.
+
+  \item \ci{if val = 1:} \quad Encore une erreur de syntaxe, car il faudrait écrire \ci{if val == 1:}.
+\end{itemize}
+
+
+%---------------------------------------------------
+\subsection{Erreurs de type}
+
+\begin{itemize}
+   \item \textbf{Entier}
+\begin{lstlisting}
+n = 7.0
+for i in range(n):
+    print(i)
+\end{lstlisting}
+
+\Python{} renvoie le message d'erreur \emph{TypeError: 'float' object cannot be interpreted as an integer}. En effet \ci{7.0} n'est pas un entier, mais un nombre flottant. 
+
+  \item \textbf{Nombre flottant}
+\begin{lstlisting}
+x = "9"
+sqrt(x)
+\end{lstlisting} 
+  \Python{} renvoie le message d'erreur \emph{TypeError: a float is required}, car  \ci{"9"} est une chaîne de caractères et pas un nombre.
+  
+  \item \textbf{Mauvais nombre d'arguments}
+  
+  \ci{gcd(12)} \quad \Python{} renvoie le message d'erreur \emph{TypeError: gcd() takes exactly 2 arguments (1 given)}
+  car la fonction \ci{gcd()} du module \ci{math} a besoin des deux arguments, comme par exemple \ci{gcd(12,18)}.
+  
+
+ 
+
+ \end{itemize}
+
+
+%---------------------------------------------------
+\subsection{Erreurs de nom}
+
+\begin{itemize}
+  
+  \item \ci{if y != 0: y = y - 1} \quad \Python{} renvoie le message \emph{NameError: name 'y' is not defined} si la variable \ci{y} n'a pas encore de valeur.
+  
+  \item Cette erreur peut aussi se produire si les minuscules/majuscules ne pas scrupuleusement respectées. 
+  \ci{variable}, \ci{Variable} et \ci{VARIABLE} sont trois noms de variables différents.
+  
+  \item \ci{x = sqrt(2)} \quad \Python{} renvoie le message \emph{NameError: name 'sqrt' is not defined}, il faut importer le module \ci{math} pour pouvoir utiliser la fonction \ci{sqrt()}.
+  
+   \item \textbf{Fonction non encore définie}  
+\begin{lstlisting}
+produit(6,7)
+
+def produit(a,b):
+    return a*b
+\end{lstlisting}   
+  
+Renvoie une erreur \emph{NameError: name 'produit' is not defined} car une fonction doit être définie avant d'être utilisée.
+
+  
+\end{itemize}
+  
+%---------------------------------------------------
+\subsection{Exercice}
+
+Corrige le code ! \Python{} doit afficher \ci{7 5 9}.
+
+\begin{lstlisting}
+a == 7
+if (a = 2) or (a >= 5) 
+    b = a - 2
+     c = a + 2
+else
+b = a // 2
+c = 2 * a
+print(a b c)
+\end{lstlisting}
+
+
+
+%---------------------------------------------------
+\subsection{Autres problèmes}
+
+Le programme se lance mais s’interrompt en court de route ou bien ne fait ce que tu veux ? C'est là que les ennuis commencent, il faut décafardiser le code !  Il n'y a pas de solutions générales mais seulement quelques conseils :
+\begin{itemize}
+  \item Un code propre, bien structuré, bien commenté, avec des noms de variables et de fonctions bien choisis est plus facile à relire.
+
+  \item Teste ton algorithme à la main avec papier/crayon pour les cas faciles.
+
+  \item N'hésite pas à afficher les valeurs des variables, pour voir leur évolution au cours du temps. Par exemple \ci{print(i,liste[i])} dans une boucle.
+  
+  \item Est-ce que le programme fonctionne avec certaines valeurs et pas d'autres ? As-tu pensé aux cas extrêmes ? Est-ce que $n$ est nul alors que ce n'est pas autorisé ? Est-ce que la liste est vide, alors que le programme ne gère pas ce cas ? etc.
+\end{itemize}
+
+ \medskip
+ 
+Voici quelques exemples.
+
+\begin{itemize}
+  \item Je veux afficher les carrés des entiers de $1$ à $10$. Le programme suivant ne renvoie pas d'erreur mais ne fait pas ce que je veux.
+\begin{lstlisting}
+for i in range(10):
+    print(i ** 2)
+\end{lstlisting}
+La boucle itère sur les entiers de $0$ à $9$. Il faut écrire \ci{range(1,11)}.
+
+  \item  Je veux afficher le dernier élément de ma liste.
+\begin{lstlisting}     
+liste = [1,2,3,4]
+print(liste[4])
+\end{lstlisting}  
+\Python{} renvoie le message d'erreur \emph{IndexError: list index out of range} car le dernier élément est celui de rang $3$.
+
+
+  \item Je veux faire un compte à rebours. Le programme suivant ne s'arrête jamais.
+\begin{lstlisting}   
+n = 10
+while n != "0":
+    n = n - 1
+    print(n)
+\end{lstlisting} 
+Avec une boucle \og{}tant que\fg{} il faut prendre grand soin de bien écrire la condition et de vérifier qu'elle finit pas être fausse. Ici, elle mal formulée, cela devrait être \ci{while n!= 0:}.
+
+
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,16 @@
+\begin{tikzpicture}[scale=1.2, every node/.style={scale=1.2}]
+
+  \draw[very thick] (0,0) -- (1,0);
+  \draw[very thick] (0,-1.25) -- (0,0.75);
+
+  \node at (0.5,0.4) {$10$};
+
+  \node at (-0.5,0.4) {$1234$};
+  \node at (0.5,-0.4) {$123$};
+  \node[blue] at (-0.5,-0.4) {$4$};
+
+\draw[<-,>=latex,ultra thick,blue] (0.6,-0.6) to [bend right] (2.5,-1) node[right,black]{quotient};
+\draw[<-,>=latex,ultra thick,blue] (-0.6,-0.6) to [bend left] (-2.5,-1) node[left]{reste};
+
+
+\end{tikzpicture}

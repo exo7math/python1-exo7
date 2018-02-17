@@ -1,0 +1,16 @@
+\tikzstyle{line} = [draw,gray,very thick]
+\tikzstyle{arrow} = [->,>=latex,ultra thick]
+\begin{tikzpicture}[scale=0.5]
+
+\draw[line] (-5,-5) rectangle ++(10,10);
+\draw[arrow,red] (-5,-5) -- ++(3,0);
+\draw[arrow,green!60!black] (-5,5) -- ++(0,-3);
+\draw[arrow,orange] (5,5) -- ++(-3,0);
+\draw[arrow,blue] (5,-5) -- ++(0,3);
+
+\fill[red] (-5,-5)  circle (7pt) node[below left, black] {tortue 1};
+\fill[green!60!black] (-5,5)  circle (7pt) node[above left, black] {tortue 4};
+\fill[orange] (5,5)  circle (7pt) node[above right, black] {tortue 3};
+\fill[blue] (5,-5)  circle (7pt) node[below right, black] {tortue 2};
+
+\end{tikzpicture}

@@ -1,0 +1,27 @@
+\begin{tikzpicture}[scale=0.8, every node/.style={scale=1}]
+
+\draw[ultra thick,gray] (0,0) rectangle ++(4,2);
+\draw[ultra thick,gray] (4,0) rectangle ++(4,2);
+
+\node[blue!50,scale=4] at (2,1) {\bf A};
+\node[blue!50,scale=4] at (6,1) {\bf B};
+
+\draw [->,>=latex,red!20,ultra thick,line width=7] (9,1) -- ++(3,0) node[above,pos=0.35,red] {\bf replier};
+
+% \draw [blue] plot [smooth] coordinates {(6,0) (8,-1) (3,1) (1,0) (2,-1)};
+\draw [->,ultra thick,blue]  
+(6,-0.2) to[out=-90,in=180]
+(8,-2) to[out=0,in=-90] 
+++(1,1.5) to[out=90,in=180] 
+(8,-1.5) to[out=0,in=180] 
+(12.8,0);
+
+\begin{scope}[xshift=13cm, yshift=1cm]
+\draw[ultra thick,gray] (0,0) rectangle ++(4,2);
+\draw[ultra thick,gray] (0,-2) rectangle ++(4,2);
+
+\node[blue!50,scale=4] at (2,1) {\bf A};
+\node[blue!50,scale=4,rotate=180] at (2,-1) {\bf B};
+\end{scope}
+
+\end{tikzpicture}

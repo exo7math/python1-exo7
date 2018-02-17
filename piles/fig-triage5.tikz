@@ -1,0 +1,88 @@
+% Railway from https://tex.stackexchange.com/questions/198057/tikz-drawing-railway-tracks
+
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzstyle{track}=[
+    postaction={draw=gray,dashed,line width=12pt},
+    postaction={draw,decorate,decoration={curveto,raise=3pt},line width=2pt},
+    postaction={draw,decorate,decoration={curveto,raise=-3pt},line width=2pt}]
+
+\begin{tikzpicture}[scale=0.4, every node/.style={scale=1}]
+
+
+  \path[track] (-12,0) -- (12,0);
+  \path[track] (0,-10) -- (0,-12);
+
+\path[track] (7,0)    to[out= 180,in=90] ( 0,-10) ;
+
+\path[track] (-7,0)    to[out= 0,in=90] ( 0,-10) ;
+%                             to[out=  0,in= 90] ( 7,25) 
+%                             to[out=270,in=  0] (-5,27);
+
+%     \path[track] (-5,27)    to[out=  0,in=180] ( 5,33) 
+%                             to[out=  0,in= 90] ( 7,25) 
+%                             to[out=270,in=  0] (-5,27);
+
+%     \path[track] (-4,10)    to ( 0,10) to[out=  0,in=270] (4,16);
+%     \path[track] (12,10)    to ( 8,10) to[out=180,in=270] (4,16) to (4,20);
+% 
+%     \path[track] (-4, 0)    to (12, 0);
+% 
+%     \path[track] ( 0, 0)    to[out=  0,in=270] (3,2) 
+%                             to[out= 90,in=270] (1,4)
+%                             to[out= 90,in=180] (4,6) 
+%                             to[out=  0,in=120] (8,5) 
+%                             to[out=300,in=  0] (4,0);
+
+
+\begin{scope}[xshift= 5cm,yshift = 0.8cm,scale=0.7,every node/.style={scale=0.7}]
+
+\begin{scope}[xshift=-30cm]
+
+\draw[ultra thick,->,>=latex] (0,0.5)--++(-2,0);
+\draw[ultra thick,blue,fill = blue!10] (0,0) rectangle ++(3,1);
+\node at (1.5,0.5) {\bf 7};
+
+\draw[ultra thick,blue,fill = blue!10] (4,0) rectangle ++(3,1);
+\node at (5.5,0.5) {\bf 13};
+
+\draw[ultra thick,blue,fill = blue!10] (8,0) rectangle ++(3,1);
+\node at (9.5,0.5) {\bf 5};
+
+\foreach \x in {3,7}{
+  \draw[ultra thick] (\x,0.5)--++(1,0);
+} 
+
+\end{scope}
+
+\begin{scope}[xshift=-5cm,yshift=-25cm,rotate=90,every node/.style={rotate=90,scale=0.7}]
+
+\draw[ultra thick,red,->,>=latex] (11,0.5) to[out=0,in=-135] ++(8,2);
+
+\draw[ultra thick,red,fill = red!10] (0,0) rectangle ++(3,1);
+\node at (1.5,0.5) {\bf W};
+
+\draw[ultra thick,red,fill = red!10] (4,0) rectangle ++(3,1);
+\node at (5.5,0.5) {\bf G};
+
+\draw[ultra thick,red,fill = red!10] (8,0) rectangle ++(3,1);
+\node at (9.5,0.5) {\bf S};
+
+\foreach \x in {3,7}{
+  \draw[ultra thick] (\x,0.5)--++(1,0);
+} 
+
+
+\end{scope}
+
+\end{scope}
+
+
+\node at (-10,-7) {\bf Phase 2};
+
+
+%\node at (11,-1) {\bf Gare d'arriv\'ee};
+%\node at (-11,-1) {\bf Gare de sortie};
+%\node[right] at (1,-10) {\bf Zone d'attente};
+
+\end{tikzpicture}

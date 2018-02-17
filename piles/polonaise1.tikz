@@ -1,0 +1,28 @@
+
+\tikzstyle{line} = [draw,  thick]
+
+\begin{tikzpicture}
+
+\node at (0,0) {$2+3$};
+\node at (0,-2) {Notation alg\'ebrique classique};
+
+
+\begin{scope}[xshift=5cm,yshift=1cm]
+\path node(P1) {$2$ };
+\path (P1)+(2,0) node(P2) {$3$};
+\path (P1)+(1,-1.5) node(P3){$+$};
+
+% Draw arrows between elements
+\path[line] (P1.south) -- node [above] {} (P3);
+\path[line] (P2.south) -- node [above] {} (P3);
+
+\node at (1,-3) {Notation par un arbre};
+\end{scope}
+
+\begin{scope}[xshift=12cm]
+
+\node at (0,0) {$2 \ \  3 \ \  +$};
+\node at (0,-2) {\'Ecriture polonaise};
+\end{scope}
+
+\end{tikzpicture}

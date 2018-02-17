@@ -1,0 +1,68 @@
+
+\usetikzlibrary{patterns}
+
+\begin{tikzpicture}[scale=0.8]
+
+\draw[ultra thick] (-3,0) -- (3,0);
+\fill[pattern=north west lines] (-3,-1) rectangle (3,0);
+
+
+\draw[thick] (-2,0) rectangle ++(4,1);
+\node at (0,0.5) {$7$};
+
+\draw[thick] (-2,1) rectangle ++(4,1);
+\node at (0,1.5) {$3$};
+
+\draw[thick] (-2,2) rectangle ++(4,1);
+\node at (0,2.5) {$11$};
+
+\draw[thick] (-2,3) rectangle ++(4,1);
+\node at (0,3.5) {$6$};
+
+\node at (0,-2) {\bf Une pile d'entiers};
+
+
+%% Sommets
+
+\node[right] at (14.1,6) {Sommet de la pile};
+\draw[->,>=latex,thick ] (14,6)  to[bend right] (10,6.5);
+
+
+\begin{scope}[xshift=8cm]
+\draw[ultra thick] (-3,0) -- (3,0);
+\fill[pattern=north west lines] (-3,-1) rectangle (3,0);
+
+
+\draw[thick] (-2,0) rectangle ++(4,1);
+\node at (0,0.5) {"Mais"};
+
+\draw[thick] (-2,1) rectangle ++(4,1);
+\node at (0,1.5) {"Ou"};
+
+\draw[thick] (-2,2) rectangle ++(4,1);
+\node at (0,2.5) {"Et"};
+
+\draw[thick] (-2,3) rectangle ++(4,1);
+\node at (0,3.5) {"Donc"};
+
+\draw[thick] (-2,4) rectangle ++(4,1);
+\node at (0,4.5) {"Or"};
+
+\draw[thick] (-2,5) rectangle ++(4,1);
+\node at (0,5.5) {"Ni"};
+
+\draw[thick] (-2,6) rectangle ++(4,1);
+\node at (0,6.5) {"Car"};
+
+\node at (0,-2) {\bf Une pile de cha\^ines};
+\end{scope}
+
+\begin{scope}[xshift=16cm]
+
+\draw[ultra thick] (-3,0) -- (3,0);
+\fill[pattern=north west lines] (-3,-1) rectangle (3,0);
+
+\node at (0,-2) {\bf Une pile vide};
+\end{scope}
+
+\end{tikzpicture}

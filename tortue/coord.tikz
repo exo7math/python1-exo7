@@ -1,0 +1,24 @@
+\tikzstyle{line} = [draw,gray,thick]
+\tikzstyle{arrow} = [->,>=latex,thick]
+\begin{tikzpicture}%[scale=0.5]
+
+
+
+\draw[arrow,orange] (-5,0)--(5.5,0) node[below]{$x$};
+\draw[arrow,blue] (0,-4.25)--(0,4.5) node[left]{$y$};
+
+
+
+\foreach \x in {-4,-3,-2,-1,1,2,3,4} {
+  \draw[orange] (\x,0.1)--++(0,-0.2) node[below,scale=0.7]{$\x00$};
+}
+
+\foreach \y in {-3,-2,-1,1,2,3} {
+  \draw[blue] (0.1,\y)--++(-0.2,0) node[left,scale=0.7]{$\y00$};
+}
+
+\node[above right,scale=0.7] at (0,0) {$(0,0)$};
+\fill (0,0) circle (2pt);
+
+\draw (-4.75,-4) rectangle (4.75,4);
+\end{tikzpicture}

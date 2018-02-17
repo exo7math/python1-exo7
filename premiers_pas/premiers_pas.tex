@@ -1,0 +1,540 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Premiers pas}
+%====================================================================
+
+\objectifs{Lance-toi dans la programmation ! Dans cette toute première activité, tu vas apprendre à manipuler des nombres, des variables et tu vas coder tes premières boucles avec \Python.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Nombres avec \Python]
+
+Vérifie dans la console que \Python{} fonctionne correctement, en tapant les commandes suivantes dans une console \Python{} :
+\begin{lstlisting}
+>>> 2+2
+>>> "Bonjour le monde !"
+\end{lstlisting}
+
+Voici quelques instructions.
+\begin{itemize}
+  \item \textbf{Addition.} \ci{5+7}.
+  \item \textbf{Multiplication.} 
+  \ci{6*7} ; avec des parenthèses \ci{3*(12+5)} ; avec des nombres à virgule \ci{3*1.5}.
+  \item \textbf{Puissance.}\index{puissance}\index{**@\ci{**}} \ci{3**2} pour $3^2=9$ ; puissance négative \ci{10**-3} pour $10^{-3} = 0.001$.
+  \item \textbf{Division réelle.} \ci{14/4} vaut \ci{3.5} ; \ci{1/3} vaut \ci{0.3333333333333333}.
+  \item \textbf{Division entière\index{division euclidienne} et modulo\index{modulo}\index{reste}.}
+  \begin{itemize}
+    \item \ci{14//4} vaut \ci{3} : c'est le quotient de la division euclidienne de $14$ par $4$, note bien la double barre ;
+    \item \ci{14\%4} vaut \ci{2} : c'est le reste de la division euclidienne de $14$ par $4$, on dit aussi \og{}$14$ modulo $4$\fg.
+  \end{itemize}
+\end{itemize}
+
+\emph{Remarque.} Dans tout ce cours, on écrira les \og{}nombres à virgule\fg{} sous la forme $3.5$ (et pas $3,5$). Le séparateur décimal est donc le point. En informatique les nombres à virgules sont appelés \og{}nombres flottants\fg{}\index{nombre flottant}.
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Premiers pas]
+
+\objectifs{Objectifs : faire tes premiers calculs avec \Python.}
+
+\begin{enumerate}
+  \item Combien y a-t-il de secondes en un siècle ? (Ne tiens pas compte des années bissextiles.)
+  
+  \item Jusqu'où faut-il compléter les pointillés pour obtenir un nombre plus grand qu'un milliard ?
+  $$(1+2)\times(3+4)\times(5+6)\times(7+8)\times\cdots$$
+  
+  \item Quels sont les trois derniers chiffres de 
+  $$\underbrace{123456789 \times 123456789 \times \cdots}_{7 \text{ occurrences de } 123456789} \quad ?$$
+  
+  \item $7$ est le premier entier tel que son inverse ait une écriture décimale périodique de longueur $6$ :
+  $$\frac{1}{7} = 0.\underbrace{142857}\underbrace{142857}\underbrace{142857}\ldots$$ Trouve le premier entier dont l'inverse a une écriture décimale périodique de longueur $7$ :
+  $$\frac{1}{???} = 0.00\underbrace{abcdefg}\underbrace{abcdefg}\ldots$$
+  
+  \emph{Indication.} L'entier est plus grand que $230$ !
+  
+  \item Trouve l'unique entier :
+  \begin{itemize}
+    \item qui donne un quotient de $107$ lorsque l'on effectue sa division (euclidienne) par $11$,
+    \item et qui donne un quotient de $90$ lorsque l'on effectue sa division (euclidienne) par $13$,
+    \item et qui donne un reste égal à $6$ modulo $7$ !
+  \end{itemize}
+    
+\end{enumerate}
+
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Travailler avec un éditeur]
+À partir de maintenant, il est préférable que tu travailles dans un éditeur de texte dédié à \Python. Tu dois alors explicitement demander d'afficher\index{print@\ci{print}} le résultat :
+\begin{lstlisting}
+print(2+2)
+print("Bonjour le monde !")
+\end{lstlisting}
+
+%Dans la suite tu continues d'écrire ton code dans l'éditeur mais on n'indiquera plus qu'il faut utiliser \ci{print()} pour afficher les résultats.
+\end{cours}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Variables]
+
+
+\textbf{Variable.} 
+Une \defi{variable}\index{variable} est un nom associé à un emplacement de la mémoire. C'est comme une boîte que l'on identifie par une étiquette.
+La commande \og{}\ci{a = 3}\fg{}\index{=@\ci{=}}\index{affectation} signifie que j'ai une variable \og{}\ci{a}\fg{} associée à la valeur $3$. 
+
+Voici un premier exemple :
+\begin{lstlisting}
+a = 3  # Une variable
+b = 5  # Une autre variable
+
+print("La somme vaut",a+b)   # Affiche la somme
+print("Le produit vaut",a*b) # Affiche le produit
+
+c = b**a     # Nouvelle variable...
+print(c)     # ... qui s'affiche
+\end{lstlisting}
+
+
+\medskip
+
+\textbf{Commentaires.}
+\index{\#@\#}
+\index{commentaire}
+Tout texte qui suit le caractère dièse \og{}\#\fg{} n'est pas exécuté par \Python{} mais sert à expliquer le programme. C'est une bonne habitude de commenter abondamment ton code.
+
+ 
+\medskip
+
+\textbf{Noms.} 
+Il est très important de donner un nom clair et précis aux variables. Par exemple, avec les noms bien choisis tu devrais savoir ce que calcule le code suivant :
+\begin{lstlisting}
+base = 8
+hauteur = 3
+aire = base * hauteur / 2
+print(aire)
+print(Aire)  # !! Erreur !!
+\end{lstlisting}
+
+Attention ! \Python{} distingue les majuscules des minuscules. Donc \ci{mavariable}, \ci{Mavariable} et \ci{MAVARIABLE} sont des variables différentes.
+
+\medskip
+
+\textbf{Réaffectation.}\index{affectation} Imaginons que tu veuilles tenir tes comptes journaliers. Tu pars d'une somme $S_0 = 1000$, le lendemain tu gagnes $100$, donc maintenant $S_1 = S_0 + 100$ ; le jour d'après tu rajoutes $200$, donc $S_2 = S_1 + 200$ ; puis tu perds $50$, donc au troisième jour $S_3 = S_2 - 50$. Avec \Python{} tu peux n'utiliser qu'une seule variable \ci{S} pour toutes ces opérations.
+
+\begin{lstlisting}
+S = 1000
+S = S + 100
+S = S + 200
+S = S - 50
+print(S)
+\end{lstlisting}
+Il faut comprendre l'instruction \og{}\ci{S = S + 100}\fg{} comme ceci : \og{}je prends le contenu de la boîte \ci{S}, je rajoute $100$, je remets tout dans la même boîte\fg{}.
+\end{cours}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Variables]
+
+\objectifs{Objectifs : utiliser des variables !}
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item   Définis des variables, puis calcule l'aire d'un trapèze. 
+  Ton programme doit afficher \ci{"L'aire vaut ..."} en utilisant \ci{print("L'aire vaut",aire)}.
+
+\myfigure{0.9}{
+  \tikzinput{fig-trapeze}
+}  
+
+    
+    \item Définis des variables pour calculer le volume d'une boîte (un parallélépipède rectangle) dont les dimensions sont $10$, $8$, $3$.
+    
+    \item Définis une variable \ci{PI} qui vaut $3.14$. Définis un rayon $R = 10$. Écris la formule de l'aire du disque de rayon $R$.
+
+\end{enumerate}    
+
+  
+  \item Remets les lignes dans l'ordre de sorte qu'à la fin $x$ ait la valeur $46$.
+\begin{center}
+\begin{minipage}{0.5\textwidth}
+\begin{lstlisting}  
+(1)  y = y - 1
+(2)  y = 2*x
+(3)  x = x + 3*y     
+(4)  x = 7
+\end{lstlisting}
+\end{minipage}
+\end{center}  
+  
+  \item Tu places la somme de $1000$ euros sur un compte d'épargne. Chaque année les intérêts sur l'argent placé rapportent $10\%$ (le capital est donc multiplié par $1.10$).
+  Écris le code qui permet de calculer le capital pour les trois premières années.
+
+
+  \item Je définis deux variables par \ci{a = 9} et \ci{b = 11}. Je souhaite échanger le contenu de \ci{a} et \ci{b}. Quelles instructions conviennent de sorte qu'à la fin \ci{a} vaut $11$ et \ci{b} vaut $9$ ?
+  
+\begin{center}
+\begin{minipage}{0.2\textwidth}
+\begin{lstlisting}  
+a = b
+b = a   
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+\begin{lstlisting}  
+c = b
+a = b
+b = c
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+\begin{lstlisting}
+c = a
+a = b
+b = c 
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+\begin{lstlisting} 
+c = a
+a = c
+c = b
+b = c
+\end{lstlisting}
+\end{minipage}
+
+\end{center} 
+ 
+\end{enumerate}  
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Utiliser des fonctions]
+\sauteligne
+\begin{itemize}
+  \item \textbf{Utiliser des fonctions de \Python.}
+  
+  Tu connais déjà la fonction \ci{print()} qui affiche une chaîne de caractères (ou des nombres). Elle s'utilise ainsi \ci{print("Coucou")} ou bien à travers une valeur : 
+\begin{center}
+\begin{minipage}{0.5\textwidth}
+\begin{lstlisting}  
+chaine = "Bonjour"
+print(chaine)
+\end{lstlisting}
+\end{minipage}
+\end{center} 	 
+
+  Il existe plein d'autres fonctions. Par exemple la fonction \ci{abs()} calcule la valeur absolue : \ci{abs(-3)} renvoie \ci{3}, \ci{abs(5)} renvoie \ci{5}.
+ % Autre exemple : \ci{float()} transforme une chaîne de caractères en un nombre : \ci{float("+1.234567")} renvoie le nombre flottant \ci{1.234567}.
+
+  \item \textbf{Le module \ci{math}.}
+
+	Toutes les fonctions ne sont pas directement accessibles. Elles sont souvent regroupées dans des \defi{modules}\index{module}. Par exemple le module \ci{math}\index{math@\ci{math}}\index{module!math@\ci{math}} contient les fonctions mathématiques. Tu y trouves par exemple la fonction racine carrée \ci{sqrt()}\index{sqrt@\ci{sqrt}}\index{racine carree@racine carrée} (\emph{square root}). Voici comment l'utiliser : 
+\begin{center}
+\begin{minipage}{0.5\textwidth}
+\begin{lstlisting} 
+from math import *
+
+x = sqrt(2)
+print(x)
+print(x**2)
+\end{lstlisting}
+\end{minipage}
+
+\end{center} 	
+
+La première ligne importe toutes les fonctions du module \ci{math}\index{import@\ci{import}}, la seconde calcule $x = \sqrt{2}$ (en valeur approchée) et ensuite on affiche $x$ et $x^2$.	
+  \item \textbf{Sinus et cosinus.} 
+  
+  Le module \ci{math} contient les fonctions trigonométriques sinus\index{sin@\ci{sin}} et cosinus\index{cos@\ci{cos}} et même la constante \ci{pi}\index{pi@\ci{pi}}\index{$\pi$} qui est une valeur approchée de $\pi$. Attention, les angles sont exprimés en radians.
+
+Voici le calcul de $\sin(\frac\pi2)$. 
+\begin{center}
+\begin{minipage}{0.5\textwidth} 
+\begin{lstlisting}
+angle = pi/2
+print(angle)
+print(sin(angle))
+\end{lstlisting}
+\end{minipage}
+\end{center}
+
+  \item \textbf{Décimal vers entier.}
+
+Dans le module \ci{math} il y aussi des fonctions pour arrondir un nombre décimal : 
+  \begin{itemize}
+    \item \ci{round()}\index{round@\ci{round}} arrondit à l'entier le plus proche : \ci{round(5.6)} renvoie \ci{6}, \ci{round(1.5)} renvoie \ci{2}.
+    \item \ci{floor()}\index{floor@\ci{floor}} renvoie l'entier inférieur ou égal : \ci{round(5.6)} renvoie \ci{5}.
+    \item \ci{ceil()}\index{ceil@\ci{ceil}} renvoie l'entier supérieur ou égal : \ci{round(5.6)} renvoie \ci{6}.
+  \end{itemize}       
+    
+\end{itemize}
+
+\end{cours}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Utiliser des fonctions]
+
+\objectifs{Objectifs : utiliser des fonctions de \Python{} et du module \ci{math}.}
+
+\begin{enumerate}
+  \item  La fonction \Python{} est \ci{gcd(a,b)}\index{gcd@\ci{gcd}}\index{pgcd} (sans le \og{}p\fg{}, pour \emph{greatest common divisor}). Calcule le pgcd de $a = 10\,403$ et $b = 10\,506$. Déduis-en le ppcm\index{ppcm} de $a$ et $b$. La fonction ppcm n'existe pas, tu dois utiliser la formule :
+  $$\text{ppcm}(a,b) = \frac{a \times b}{\text{pgcd}(a,b)}.$$
+  
+  \item Trouve par tâtonnement un nombre réel $x$ qui vérifie toutes les conditions suivantes (plusieurs solutions sont possibles) :
+  \begin{itemize}
+    \item \ci{abs(x**2 - 15)} est inférieur à \ci{0.5}
+    \item \ci{round(2*x)} renvoie \ci{8}
+    \item \ci{floor(3*x)} renvoie \ci{11}
+    \item \ci{ceil(4*x)} renvoie \ci{16} 
+  \end{itemize}
+ 
+  \emph{Indication.} \ci{abs()}\index{abs@\ci{abs}}\index{valeur absolue} désigne la fonction valeur absolue.
+  
+  \item Tu connais la formule de trigonométrie 
+  $$\cos^2 \theta + \sin^2 \theta = 1.$$
+  Vérifie que pour $\theta = \frac\pi7$ (ou d'autres valeurs) cette formule est numériquement vraie. (Ce n'est pas une preuve de la formule, car \Python{} ne fait que des calculs approchés du sinus et du cosinus).
+\end{enumerate}  
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{cours}[Boucle \og{}pour\fg{}]
+
+\objectifs{La boucle \og{}pour\fg{} est la façon la plus simple de répéter des instructions.}
+
+\index{for@\ci{for}}
+\index{in@\ci{in}}
+\index{boucle!pour}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{fig-premiers_pas-boucle-pour}
+} }
+
+
+Note bien que ce qui délimite le bloc d'instructions à répéter, c'est \defi{l'indentation}\index{indentation}, c'est-à-dire les espaces placées en début de ligne qui décalent les lignes vers la droite.
+Toutes les lignes d'un bloc doivent avoir exactement la même indentation. Dans ce livre, nous choisissons une indentation de $4$ espaces.
+
+N'oublie pas les deux points en fin de la ligne de la déclaration du \ci{for} !
+
+\begin{itemize}
+  \item \textbf{Exemple de boucle \og{}pour\fg{}.}
+
+Voici une boucle qui affiche les premiers carrés. 
+\begin{center}
+\begin{minipage}{0.5\textwidth} 
+\begin{lstlisting}
+for i in range(10):
+    print(i*i)
+\end{lstlisting}
+\end{minipage}
+\end{center} 
+La seconde ligne est décalée et constitue le bloc à répéter.
+La variable \ci{i} prend la valeur $0$ et l'instruction affiche $0^2$ ;
+puis \ci{i} prend la valeur $1$, et l'instruction affiche $1^2$ ; puis $2^2$, $3^2$\ldots
+
+Au final ce programme affiche :
+$$0,1,4,9,16,25,36,49,64,81.$$
+
+Attention : la dernière valeur prise par \ci{i} est bien $9$ (et pas $10$).
+
+  \item \textbf{Parcourir une liste quelconque.}
+  
+La boucle \og{}pour\fg{} permet de parcourir n'importe quelle liste. Voici une boucle qui affiche le cube des premiers nombres premiers.
+\begin{center}
+\begin{minipage}{0.5\textwidth} 
+\begin{lstlisting}
+for p in [2,3,5,7,11,13]:
+    print(p**3)
+\end{lstlisting}
+\end{minipage}
+\end{center} 
+
+  \item \textbf{Sommes des entiers.}
+
+Voici un programme qui calcule 
+$$0+1+2+3+\cdots + 18 +19.$$
+
+\begin{center}
+\begin{minipage}{0.5\textwidth} 
+\begin{lstlisting}
+somme = 0
+for i in range(20):
+    somme = somme + i
+print(somme)
+\end{lstlisting}
+\end{minipage}
+\end{center} 
+
+Comprends bien ce code : une variable \ci{somme} est initialisée à $0$. 
+On va tour à tour lui ajouter $0$, puis $1$, puis $2$\ldots{}
+On peut mieux comprendre cette boucle en complétant un tableau :
+  $$
+  \begin{array}{l}
+  \text{Initialisation : \ci{somme}$=0$}    \\
+  \begin{array}{|c|c|}
+  \hline  
+   \text{\ci{i}} &  \text{\ci{somme}} \\
+  \hline\hline
+  0 & 0 \\  
+  1 & 1 \\
+  2 & 3 \\
+  3 & 6 \\
+  4 & 10\\
+  \hspace*{5ex}\ldots\hspace*{5ex} & \hspace*{5ex}\ldots\hspace*{5ex} \\
+  18 & 171 \\
+  19 & 190 \\ 
+  \hline
+  \end{array} \\
+  \text{Affichage : $190$}  
+  \end{array} 
+  $$ 
+\end{itemize} 
+
+% pas d'index dans une mybox !!  
+\index{range@\ci{range}}
+\index{list@\ci{list}}  
+\mybox
+{ 
+ \begin{itemize}
+ \item \textbf{\ci{range()}.}
+	\begin{itemize}
+	  \item avec \ci{range(n)} on parcourt les entiers de $0$ à $n-1$.
+	  Par exemple \ci{range(10)} correspond à la liste \ci{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}. 
+	  
+	  Attention ! la liste s'arrête bien à $n-1$ et pas à $n$. Ce qu'il faut retenir 
+	  c'est que la liste contient bien $n$ éléments (car elle commence à $0$).
+	  
+	  Si tu veux afficher la liste des éléments parcourus, il faut utiliser la commande :\\
+	  \centerline{\ci{list(range(10))}}
+	
+	\item avec \ci{range(a,b)} on parcourt les éléments de $a$ à $b-1$.
+	Par exemple  \ci{range(10,20)} correspond à la liste \ci{[10, 11, 12, 13, 14, 15, 16, 17, 18, 19]}.  
+	
+	\item avec \ci{range(a,b,pas)} on parcourt les éléments $a$, $a+\text{pas}$, $a + 2\text{pas}$\ldots{} Par exemple \ci{range(10,20,2)} correspond à la liste \ci{[10, 12, 14, 16, 18]}.  
+
+	\end{itemize}
+\end{itemize}	
+}
+\begin{itemize}
+  \item \textbf{Imbrication de boucles.}
+
+Il est possible d'imbriquer des boucles, c'est-à-dire que dans le bloc d'une boucle, on utilise une nouvelle boucle.
+\begin{center}
+\begin{minipage}{0.5\textwidth} 
+\begin{lstlisting}
+for x in [10,20,30,40,50]:
+    for y in [3,7]:
+        print(x+y)
+\end{lstlisting}
+\end{minipage}
+\end{center}
+Dans ce petit programme $x$ vaut d'abord $10$, $y$ prend la valeur $3$ puis la valeur $7$ (le programme affiche donc $13$, puis $17$). Ensuite $x=20$, et $y$ vaut de nouveau $3$ puis $7$ (le programme affiche donc ensuite $23$, puis $27$). 
+Au final le programme affiche :
+$$13,17,23,27,33,37,43,47,53,57.$$
+    
+\end{itemize} 
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Boucle \og{}pour\fg{}]
+
+\objectifs{Objectifs : construire des boucles simples.}
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}
+    \item Affiche les cubes des entiers de $0$ à $100$.
+    \item Affiche les puissances quatrièmes des entiers de $10$ à $20$.
+    \item Affiche les racines carrées des entiers $0$, $5$, $10$, $15$,\ldots{} jusqu'à $100$.   
+  \end{enumerate}
+
+  \item Affiche les puissances de $2$, de $2^1$ à $2^{10}$, et apprends par c\oe ur les résultats !
+  
+  
+  \item Recherche de façon expérimentale une valeur approchée du minimum de la fonction 
+  $$f(x) = x^3-x^2-\frac14x+1$$
+   sur l'intervalle $[0,1]$.
+  
+  \emph{Indications.}
+  \begin{itemize}
+    \item Construis une boucle dans laquelle une variable $i$ balaye les entiers de $0$ à $100$.
+    \item Définis $x=\frac{i}{100}$. Ainsi $x=0.00$, puis $x=0.01$, $x=0.02$\ldots
+    \item Calcule $y = x^3-x^2-\frac14x+1$.
+    \item Affiche les valeurs à l'aide de \ci{print("x =",x,"y =",y)}.
+    \item Cherche à la main pour quelle valeur de $x$ on obtient un $y$ le plus petit possible.
+    \item N'hésite pas à modifier ton programme pour augmenter la précision.
+  \end{itemize}
+    
+  \item  Cherche une valeur approchée que doit avoir
+  le rayon $R$ d'une boule afin que son volume soit $100$ ?
+  
+  \emph{Indications.} 
+  \begin{itemize}
+    \item Utilise une méthode de balayage comme à la question précédente.
+    \item La formule du volume d'une boule est $V = \frac43 \pi R^3$.
+    \item Affiche les valeurs à l'aide de \ci{print("R =",R,"V =",V)}.    
+    \item Pour $\pi$ tu peux prendre la valeur approchée $3.14$ ou bien la valeur approchée \ci{pi} du module \ci{math}.
+  \end{itemize}
+  
+\end{enumerate}  
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Boucle \og{}pour\fg{} (suite)]
+
+\objectifs{Objectifs : construire des boucles plus compliquées.}
+
+\begin{enumerate}
+  \item Définis une variable $n$ (par exemple $n=20$). Calcule la somme
+  $$1^2+2^2+3^2+\cdots+i^2+\cdots +n^2.$$
+  
+  \item Calcule le produit :
+  $$1 \times 3 \times 5 \times \cdots \times 19.$$
+  
+  \emph{Indications.} Commence par définir une variable \ci{produit} initialisée à la valeur $1$. Utilise \ci{range(a,b,2)} pour obtenir un entier sur deux.
+  
+  \item Affiche les tables de multiplication entre $1$ et $10$. Voici un exemple de ligne à afficher :\\
+  \centerline{\ci{7 x 9 = 63}}
+  Utilise une commande d'affichage du style : \ci{print(a,"x",b,"=",a*b)}.
+\end{enumerate}  
+\end{activite}
+
+\end{document}

@@ -1,0 +1,88 @@
+\begin{tikzpicture}
+
+
+\begin{scope}[xshift=-4cm,yshift=7cm]
+\draw (0,0) grid ++(10,1);
+
+
+\node[green!60!black] at (9.5,0.5) {\bf 1};
+\node[red] at (8.5,0.5) {\bf 0};
+\node[green!60!black] at (7.5,0.5) {\bf 1};
+\node[red] at (6.5,0.5) {\bf 0};
+\node[red] at (5.5,0.5) {\bf 0};
+\node[red] at (4.5,0.5) {\bf 0};
+\node[green!60!black] at (3.5,0.5) {\bf 1};
+\node[green!60!black] at (2.5,0.5) {\bf 1};
+\node[red] at (1.5,0.5) {\bf 0};
+\node[green!60!black] at (0.5,0.5) {\bf 1};
+
+\node at (5,1.5){\bf \'Ecriture de $p$ sur $N$ \emph{bits}};
+
+\end{scope}
+
+% Fleches
+
+\draw[->,>=latex,blue,very thick] (5.5,7.1) to[out=-110,in=90,->] (1.5,4.8);
+\draw[->,>=latex,blue!60,very thick] (4.5,7.1) to[out=-90,in=90,->] (2.5,4.8);
+\draw[->,>=latex,blue!40,very thick] (3.5,7.1) to[out=-60,in=60,->] (3.5,4.8);
+\draw[->,>=latex,blue!20,very thick] (2.5,7.1) to[out=-90,in=90,->] (4.5,4.8);
+
+\draw[->,>=latex,blue!80,very thick] (1.5,7.1) to[out=-90,in=90,->] (2.5,3.8);
+
+\draw[->,>=latex,blue!80,very thick] (-3.5,7.1) to[out=-15,in=180,->] (4.2,1.5);
+
+
+% Tableau
+\draw (0,0) grid ++(5,5);
+
+\node[red] at (0.5,0.5) {\bf };
+\node[green!60!black] at (1.5,0.5) {\bf };
+\node[red] at (2.5,0.5) {\bf };
+\node[green!60!black] at (3.5,0.5) {\bf };
+\node[black] at (4.5,0.5) {\bf 0};
+
+\node[green!60!black] at (0.5,1.5) {\bf };
+\node[red] at (1.5,1.5) {\bf };
+\node[green!60!black] at (2.5,1.5) {\bf };
+\node[black] at (3.5,1.5) {\bf 0};
+\node[green!60!black] at (4.5,1.5) {\bf 1};
+
+\node[red] at (0.5,2.5) {\bf };
+\node[green!60!black] at (1.5,2.5) {\bf };
+\node[black] at (2.5,2.5) {\bf 0};
+\node[green!60!black] at (3.5,2.5) {\bf 1};
+\node[red] at (4.5,2.5) {\bf 0};
+
+
+\node[green!60!black] at (0.5,3.5) {\bf };
+\node[black] at (1.5,3.5) {\bf 0};
+\node[red] at (2.5,3.5) {\bf 0};
+\node[red] at (3.5,3.5) {\bf 0};
+\node[green!60!black] at (4.5,3.5) {\bf 1};
+
+\node[black] at (0.5,4.5) {\bf 0};
+\node[green!60!black] at (1.5,4.5) {\bf 1};
+\node[red] at (2.5,4.5) {\bf 0};
+\node[green!60!black] at (3.5,4.5) {\bf 1};
+\node[red] at (4.5,4.5) {\bf 0};
+
+\node at (2.5,-1){\bf Remplissage du tableau};
+
+\draw[|-|,very thick,blue] (-0.5,0)--++(0,4) node[midway,left,black,text width = 4cm]{$N$ cases sous la diagonale (remplies par sym\'etrie)};
+
+\draw[|-|,very thick,blue] (5.5,1)--++(0,4) node[midway,right,black,text width = 4cm]{$N$ cases au-dessus de la diagonale};
+
+% \node[scale=0.7,above] at (0.5,5) {$i=0$};
+% \node[scale=0.7,above] at (1.5,5) {$i=1$};
+% \node[scale=0.7,above] at (2.5,5) {$i=2$};
+% \node[scale=0.7,above] at (3.5,5) {$i=3$};
+% \node[scale=0.7,above] at (4.5,5) {$i=4$};
+% 
+% \node[scale=0.7,left] at (0,4.5) {$j=0$};
+% \node[scale=0.7,left] at (0,3.5) {$j=1$};
+% \node[scale=0.7,left] at (0,2.5) {$j=2$};
+% \node[scale=0.7,left] at (0,1.5) {$j=3$};
+% \node[scale=0.7,left] at (0,0.5) {$j=4$};
+
+
+\end{tikzpicture}

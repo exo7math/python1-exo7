@@ -1,0 +1,346 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Arithmétique -- Boucle tant que -- II}
+%====================================================================
+
+\objectifs{On approfondit notre étude des nombres avec la boucle \og{}tant que\fg{}. Pour cette fiche tu as besoin d'une fonction \ci{est_premier()} construite dans la fiche
+\og{}Arithmétique -- Boucle tant que -- I\fg{}.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Conjecture(s) de Goldbach]
+
+\objectifs{Objectifs : étudier deux conjectures de Goldbach. Une conjecture est un énoncé que l'on pense vrai mais que l'on ne sait pas démontrer.}
+\index{conjecture de Goldbach}
+
+\begin{enumerate}
+  \item \textbf{La bonne conjecture de Goldbach :} \emph{Tout entier pair plus grand que $4$ est la somme de deux nombres premiers.}
+
+  Par exemple $4 = 2+2$, $6=3+3$, $8=3+5$, $10=3+7$ (mais aussi $10=5+5$), $12 = 5+7$,\ldots{}
+  Pour $n=100$ il y a $6$ solutions : $100=3+97=11+89=17+83=29+71=41+59=47+53$.
+  
+  Personne ne sait démontrer cette conjecture, mais tu vas voir qu'il y a de bonnes raisons de penser qu'elle est vraie.
+  
+  \begin{enumerate}
+    \item Programme une fonction \ci{nombre_solutions_goldbach(n)} qui pour un entier pair $n$ donné, trouve combien il existe de décompositions $n=p+q$ avec $p$ et $q$ deux nombres premiers et $p\le q$.
+    
+    Par exemple pour $n=8$, il n'y a qu'une seule solution $8=3+5$, par contre pour $n=10$ il y a deux solutions $10 =  3+7$ et $10=5+5$.
+ 
+   \emph{Indications.} 
+   \begin{itemize}
+     \item Il faut donc tester tous les $p$ compris $2$ et $n/2$ ;
+     \item poser $q = n - p$ ;
+     \item on a une solution quand $p \le q$ et que $p$ et $q$ sont tous les deux des nombres premiers.
+   \end{itemize}
+   
+   \item Prouve avec la machine que la conjecture de Goldbach est vérifiée pour tous les entiers $n$ pairs compris entre $4$ et $10\,000$.
+    
+  \end{enumerate}
+  
+  \item \textbf{La mauvaise conjecture de Goldbach :} \emph{Tout entier impair $n$ peut s'écrire sous la forme
+  $$n = p + 2k^2$$
+où $p$ est un nombre premier et $k$ un entier (éventuellement nul).}
+  
+  \begin{enumerate}
+    \item Programme une fonction \ci{existe_decomposition_goldbach(n)} qui renvoie \og{}vrai\fg{} lorsqu'il existe une décomposition de la forme $n=p+2k^2$.
+    
+    \item Montre que cette seconde conjecture de Goldbach est fausse ! Il existe deux entiers plus petits que $10\,000$ qui n'admettent pas une telle décomposition. Trouve-les !
+  \end{enumerate} 
+\end{enumerate}   
+     
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Nombres ayant 4 ou 8 diviseurs]
+
+\objectifs{Objectifs : réfuter une conjecture en faisant beaucoup de calculs !}
+
+\textbf{Conjecture :} \emph{Entre $1$ et $N$, il y a plus d'entiers qui ont exactement $4$ diviseurs que d'entiers qui ont exactement $8$ diviseurs.}
+
+Tu vas voir que cette conjecture a l'air vrai pour $N$ assez petit, mais tu vas montrer que cette conjecture est fausse en trouvant un $N$ grand qui contredit cet énoncé.
+
+\begin{enumerate}
+  \item \textbf{Nombre de diviseurs.}
+  
+  Programme une fonction \ci{nombre_de_diviseurs(n)} qui renvoie le nombre d'entiers divisant $n$.
+  
+  Par exemple : \ci{nombre_de_diviseurs(100)} renvoie $9$ car il y a $9$ diviseurs de $n=100$ :
+  $$1,2,4,5,10,20,25,50,100$$
+  
+  \emph{Indications.}
+  \begin{itemize}
+    \item N'oublie pas $1$ et $n$ comme diviseurs.
+    \item Essaie d'optimiser ta fonction car tu l'utiliseras intensivement : par exemple il n'y a pas de diviseurs strictement plus grands que $\frac n2$ (à part $n$).    
+   \end{itemize}
+   
+   
+   \item \textbf{4 ou 8 diviseurs.}
+   
+   Programme une fonction \ci{quatre_et_huit_diviseurs(Nmin,Nmax)} qui renvoie deux nombres : (1) le nombre d'entiers $n$ avec $N_{\text{min}} \le n < N_{\text{max}}$ qui admettent exactement $4$ diviseurs et (2) le nombre d'entiers $n$ avec $N_{\text{min}} \le n < N_{\text{max}}$ qui admettent exactement $8$ diviseurs.
+   
+   Par exemple \ci{quatre_et_huit_diviseurs(1,100)} renvoie \ci{(32, 10)} car il y a $32$ entiers entre $1$ et $99$ qui admettent $4$ diviseurs, mais seulement $10$ entiers qui en admettent $8$.
+   
+   \item \textbf{Preuve que la conjecture est fausse.}
+   
+   Expérimente que pour des \og{}petites\fg{} valeurs de $N$ (jusqu'à $N = 10\,000$ par exemple) il y a plus d'entiers ayant $4$ diviseurs que $8$. Mais calcule que pour $N=300\,000$ ce n'est plus le cas.
+   
+   \emph{Indications.} Comme il y a beaucoup de calculs, tu peux les séparer en tranches (la tranche des entiers $1\le n < 50\,000$, puis $50\,000 \le n < 100\,000$,...) puis fais la somme.
+   Tu peux ainsi partager tes calculs entre plusieurs ordinateurs.
+   
+\end{enumerate}   
+     
+\end{activite}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[121111\ldots{} n'est jamais premier ?]
+
+\objectifs{Objectifs : étudier une nouvelle conjecture fausse !}
+
+On appelle $U_k$ l'entier :
+$$U_k = 1\,2 \underbrace{1\,1\,1\,\ldots\,1\,1\,1}_{k \text{ occurences de } 1}$$
+formé du chiffre $1$, puis du chiffre $2$, puis de $k$ fois le chiffre $1$.
+
+Par exemple $U_0 = 12$, $U_1 = 121$, $U_2 = 1211$,\ldots
+
+
+
+
+\begin{enumerate}
+  \item \'Ecris une fonction \ci{un_deux_un(k)} qui renvoie l'entier $U_k$.
+  
+  \emph{Indications.} Tu peux remarquer qu'en partant de $U_0=12$, on a la relation
+  $U_{k+1} = 10 \cdot U_k + 1$. Donc tu peux partir de \ci{u = 12} et répéter un certain nombre de fois \ci{u  = 10*u + 1}.
+  
+  \item Vérifie à l'aide de la machine que $U_0,\ldots,U_{20}$ ne sont pas des nombres premiers. 
+  
+  \medskip
+  
+ \emph{On pourrait croire que c'est toujours le cas, mais ce n'est pas vrai ! L'entier $U_{136}$ est un nombre premier ! Malheureusement il est trop grand pour qu'on puisse le vérifier avec nos algorithmes. Dans la suite on va définir ce qu'est un \emph{nombre presque premier} pour pouvoir pousser plus loin les calculs.}
+  
+  \item Programme une fonction \ci{est_presque_premier(n,r)} qui renvoie \og{}vrai\fg{} si l'entier $n$ n'admet aucun diviseur $d$ tel que $1< d \le r$ (on suppose $r<n$). 
+  
+  Par exemple : $n = 143 = 11 times 13$ et $r=10$, alors \ci{est_presque_premier(n,r)} est
+  \og{}vrai\fg{} car $n$ n'admet aucun diviseur inférieur ou égal à $10$. (Mais bien sûr, $n$ n'est pas un nombre premier.)
+  
+  \emph{Indications.} Modifie ta fonction \ci{est_premier(n)} !
+  
+  \item Trouve tous les entiers $U_k$ avec $0\le k \le 150$ qui sont presque premiers pour 
+  $r = 1 \,000\,000$ (c'est-à-dire qu'ils ne sont divisibles par aucun entier $d$ avec $1<d \le 1\,000\,000$).
+  
+  \emph{Indications.} Dans la liste tu dois retrouver $U_{136}$ (qui est un nombre premier) mais aussi $U_{34}$ qui n'est pas premier mais dont le plus petit diviseur est
+  $10\,149\,217\,781$.
+\end{enumerate}   
+     
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Racine carrée entière]
+
+\objectifs{Objectifs : calculer la racine carrée entière d'un entier.}
+
+\index{racine carree@racine carrée}
+
+Soit $n \ge 0$ un entier. 
+La \defi{racine carrée entière de $n$} est le plus grand entier $r\ge0$ tel que $r^2 \le  n$. 
+Une autre définition est de dire que la racine carrée entière de $n$ est la partie entière de $\sqrt{n}$.
+
+Exemples :
+\begin{itemize}
+  \item $n=21$, alors la racine carrée entière de $n$ est $4$ (car $4^2 \le 21$, mais $5^2 > 21$). Autre façon, $\sqrt{21} = 4.58\ldots$, on ne retient que la partie entière (l'entier à gauche de la virgule), c'est donc $4$.
+  
+  \item $n=36$, alors la racine carrée entière de $n$ est $6$ (car $6^2 \le 36$, mais $7^2 > 36$). Autre façon, $\sqrt{36} = 6$ et la racine carrée entière est bien sûr aussi $6$.    
+\end{itemize}
+
+\begin{enumerate}
+  \item Écris une première fonction qui calcule la racine carrée entière d'un entier $n$, en calculant d'abord $\sqrt{n}$, puis en prenant la partie entière.
+  
+  \emph{Indications.}
+  \begin{itemize}
+    \item Pour cette question uniquement, tu peux utiliser le module \ci{math} de \Python. 
+    \item Dans ce module \ci{sqrt()} renvoie la racine carrée réelle.
+    \item La fonction \ci{floor()} du même module renvoie la partie entière d'un nombre.
+  \end{itemize}
+  
+  \item Écris une deuxième fonction qui calcule la racine carrée entière d'un entier $n$, mais cette fois selon la méthode suivante :
+  \begin{itemize}
+    \item Pars de $p=0$.
+    \item Tant que $p^2 \le n$, incrémente la valeur de $p$.
+  \end{itemize}
+  Teste bien quelle doit être la valeur renvoyée (attention au décalage !).
+  
+  \item Écris une troisième fonction qui calcule encore la racine carrée entière d'un entier $n$ avec l'algorithme décrit ci-dessous. Cet algorithme s'appelle la méthode babylonienne ou bien méthode de Héron ou bien encore méthode de Newton !
+  
+    \begin{algorithme}
+  Entrée : un entier positif $n$
+
+  Sortie : sa racine carrée entière
+
+  \begin{itemize}
+    \item  Partir avec $a=1$ et $b=n$.
+    
+    \item  Tant que $|a-b| > 1$ :
+    \begin{itemize} 
+     \item $a \leftarrow (a+b)//2$ ;
+     \item $b \leftarrow n // a$ 
+    \end{itemize}          
+         
+    \item Renvoyer le minimum entre $a$ et $b$ : c'est la racine carrée entière de $n$.
+  \end{itemize} 
+           
+ \end{algorithme}
+ 
+% On a noté $p//q$ pour la division entière (c'est-à-dire le quotient de la division euclidienne de $p$ par $q$). Cela s'obtient tout simplement par la commande \Python{} : \ci{p//q}.
+ 
+  Nous n'expliquons pas comment fonctionne cet algorithme, mais il faut savoir que c'est l'une des méthodes les plus efficaces pour calculer les racines carrées. Les nombres $a$ et $b$ fournissent, au cours de l’exécution, un encadrement de plus en plus précis de $\sqrt{n}$. 
+  
+  Voici un tableau qui détaille un exemple de calcul pour la racine carrée entière de $n=1664$.
+$$\begin{array}{|c|c|c|} 
+\hline
+\text{Étape} & a & b \\ \hline\hline
+i = 0  &  a =  1    &  b =  1664 \\
+i = 1  &  a =  832  &  b =  2 \\
+i = 2  &  a =  417  &  b =  3 \\
+i = 3  &  a =  210  &  b =  7 \\
+i = 4  &  a =  108  &  b =  15 \\
+i = 5  &  a =  61   &  b =  27 \\
+i = 6  &  a =  44   &  b =  37 \\
+i = 7  &  a =  40   &  b =  41 \\ \hline
+\end{array}$$
+À la dernière étape, l'écart entre $a$ et $b$ est inférieur ou égal à $1$, donc la racine carrée entière est $40$. On peut vérifier que c'est exact car : $40^2 = 1600 \le 1664 < 41^2 = 1681$.
+    
+\end{enumerate}  
+  
+  
+\textbf{Bonus.} Compare les vitesses d'exécution des trois méthodes à l'aide de \ci{timeit()}. Voir la fiche \og{}Fonctions\fg{}.
+
+\end{activite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{cours}[Quitter une boucle]
+
+Il n'est pas toujours facile de trouver la condition adéquate pour une boucle \og{}tant que\fg{}. \Python{} possède une commande pour quitter immédiatement une boucle \og{}tant que\fg{}
+ou une boucle \og{}pour\fg{} : c'est l'instruction 
+\ci{break}\index{break@\ci{break}}\index{boucle!quitter}.
+
+Voici des exemples qui utilisent la commande \ci{break}. Comme c'est rarement un façon élégante d'écrire son programme, des alternatives sont aussi présentées.
+
+\begin{exemple}
+
+Voici différents codes pour un compte à rebours de $10$ à $0$.
+
+\begin{minipage}{0.3\textwidth}
+\begin{lstlisting}
+# Compte à rebours
+n = 10
+while True: # Boucle infinie
+    print(n)
+    n = n - 1
+    if n < 0:
+        break # Arrêt
+\end{lstlisting}
+\end{minipage}\qquad\qquad
+\begin{minipage}{0.4\textwidth}
+\begin{lstlisting}
+# Mieux (avec un drapeau)
+n = 10
+termine = False
+while not termine:
+    print(n)
+    n = n - 1   
+    if n < 0:
+        termine = True
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+\begin{lstlisting}
+# Encore mieux
+n = 10
+while n >= 0:
+    print(n)
+    n = n - 1
+\end{lstlisting}
+\end{minipage}
+\end{exemple}
+
+\begin{exemple}
+
+Voici des programmes qui cherchent la racine carrée entière de $777$, c'est-à-dire le plus grand entier $i$ qui vérifie $i^2 \le 777$. La recherche est limitée aux entiers $i$ entre $0$ et $99$.
+
+\begin{minipage}{0.4\textwidth}
+\begin{lstlisting}
+# Racine carrée entière
+n = 777
+for i in range(100):
+    if i**2 >= n:
+        break
+print(i-1)
+\end{lstlisting}
+\end{minipage}\qquad\qquad
+\begin{minipage}{0.4\textwidth}
+\begin{lstlisting}
+# Mieux
+n = 777
+i = 0 
+while (i**2 < n)  and (i < 100):
+    i = i + 1
+print(i-1) 
+\end{lstlisting}
+\end{minipage}
+\end{exemple}
+
+\begin{exemple}
+
+Voici des programmes qui calculent les racines carrés réelles des éléments d'une liste, sauf bien sûr si le nombre est négatif. Le code de gauche s'arrête avant la fin de la liste, alors que le code de droite gère proprement le problème.\index{try@\ci{try/except}}
+
+\begin{minipage}{0.4\textwidth}
+\begin{lstlisting}
+# Racines carrées des éléments 
+# d'une liste
+liste = [3,7,0,10,-1,12]
+for element in liste:
+    if element < 0:
+        break
+    print(sqrt(element))
+\end{lstlisting}
+\end{minipage}\qquad\qquad
+\begin{minipage}{0.4\textwidth}
+\begin{lstlisting}
+# Mieux avec try/except
+liste = [3,7,0,10,-1,12]
+for element in liste:
+    try: 
+        print(sqrt(element))
+    except:
+        print("Problème avec",element)
+\end{lstlisting}
+\end{minipage}
+\end{exemple}
+
+
+\end{cours}
+
+\end{document}

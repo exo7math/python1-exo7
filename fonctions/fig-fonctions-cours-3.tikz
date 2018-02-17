@@ -1,0 +1,28 @@
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[scale=1, every node/.style={transform shape}]
+\Large
+\node[right] (A) at (0,0) {\texttt{def}};
+\node[right,right=-0.5em of A] (B) {\texttt{ma\_fonction}};
+\node[right,right=-1em of B] (C)  {\texttt{(param1,param2)}};
+\node[right,right=-1em of C] (D) {\texttt{:}};
+
+\node[right]  (B) at (1,-1) {\texttt{"""Cette fonction fait ceci et cela"""}};
+
+\node[right] (E) at (1,-2) {\texttt{if param1 == param2:}};
+\node[right] (EE) at (2,-2.5) {\texttt{return 0,0,0}};
+\node[right] at (1,-3.5) {\texttt{autres instructions...}};
+
+
+% \node[right] at (1,-2.5) {\texttt{...}};
+\node[right] (F) at (1,-4.5) {\texttt{return}};
+\node[right,right=-0.5em of F] (G) {\texttt{valeur1, valeur2, valeur3}};
+
+ \draw[<-,>=latex,ultra thick, red]  (C.north) to[bend left] (8,1.5) node[right] {un ou plusieurs param\`etres};
+
+\draw[<-,>=latex,ultra thick, red]  (B.west) to[bend right=70] (0,-6.5) node[right] {documentation de la fonction};
+
+ \draw[<-,>=latex,ultra thick, red]    (EE.east)  to[bend right=10] (8,-2.5) node[right, text width = 7cm] {fin imm\'ediate de la fonction dans ce cas};
+
+ \draw[<-,>=latex,ultra thick, red]  (G.south)  to[bend right] (8,-6) node[right] {renvoie plusieurs valeurs};
+
+\end{tikzpicture}

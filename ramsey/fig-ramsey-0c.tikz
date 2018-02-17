@@ -1,0 +1,25 @@
+\begin{tikzpicture}[scale=2]
+
+
+\coordinate (A) at (0:2);
+\coordinate (B) at (70:2);
+\coordinate (C) at (144:2);
+\coordinate (D) at (-144:2);
+\coordinate (E) at (-72:2);
+
+\draw[ultra thick,green!60!black]  (C)--(A)--(E)--(D)--(C)--(B)--(E);
+
+\draw[line width=3pt,red,dashed]  (A)--(B)--(D)--cycle;
+\draw[ultra thick,red,dashed]  (C)--(E);
+
+\fill[black] (A) circle (3pt) node[below right]{$0$};
+ \fill[black] (B) circle (3pt) node[above left]{$4$};
+\fill[black] (C) circle (2pt) node[above left]{$3$};
+ \fill[black] (D) circle (3pt) node[below left]{$2$};
+\fill[black] (E) circle (2pt) node[below right]{$1$};
+
+\node at (0,-2.5) {\bf Un graphe avec $n=5$ qui v\'erifie l'\'enonc\'e de Ramsey};
+
+
+
+\end{tikzpicture}
