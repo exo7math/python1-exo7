@@ -1,0 +1,44 @@
+
+# Quatrième de couverture
+
+  * Python au lycée
+  * Python langage puissant,
+  * Python facile à débuter
+  * Guider pas à pas
+  * Orienté mathématiques
+  * Niveau math <= seconde
+  * Activités originales
+  * Algorithme et programmation
+
+
+Python est le langage idéal pour apprendre la programmation.
+C'est un langage puissant qui vous permettra de plonger dans le monde des algorithmes. 
+
+Ce livre vous guide pas à pas à travers des activités mathématiques et informatiques originales adaptées au lycée. Il se complète par des ressources en ligne : des vidéos et des fiches en couleurs. 
+Vous avez tout en main pour réussir !
+
+
+Premiers pas
+Tortue (Scratch avec Python)
+Si ... alors ...
+Fonctions
+Arithmétique -- Boucle tant que -- I
+Chaînes de caractères -- Analyse d’un texte
+Listes I
+Statistique -- Visualisation de données
+Fichiers
+Arithmétique -- Boucle tant que -- II
+Binaire I
+Listes II
+Binaire II
+Probabilités – Paradoxe de Parrondo
+Chercher et remplacer
+Calculatrice polonaise -- Piles
+Visualiseur de texte -- Markdown
+L-système
+Images dynamiques
+Jeu de la vie
+Graphes et combinatoire de Ramsey
+Bitcoin
+Constructions aléatoires
+
