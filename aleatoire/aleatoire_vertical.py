@@ -1,6 +1,6 @@
 
 ##############################
-# Aléatoire - Idées
+# Aléatoire
 ##############################
 
 from random import *

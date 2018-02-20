@@ -27,12 +27,12 @@ def deplacer():
     x0 = x0 + dx  # Nouvelle abscisse
     y0 = y0 + dy  # Nouvelle ordonnée
 
+    canvas.coords(rect,x0,y0,x0+20,y0+20)  # Déplacement
+
     if x0 < 0 or x0 > Largeur:
         dx = -dx  # Changement de sens horizontal
     if y0 < 0 or y0 > Hauteur:
         dy = -dy  # Changement de sens vertical
-
-    canvas.coords(rect,x0,y0,x0+20,y0+20)    # Nouveau rectangle
 
     canvas.after(50,deplacer)  # Appel après 50 millisecondes
  
@@ -42,7 +42,6 @@ def deplacer():
 def action_deplacer():
     deplacer()
     return
-
 
 # Boutons
 bouton_couleur = Button(root,text="Déplacer", width=20, command=action_deplacer)
