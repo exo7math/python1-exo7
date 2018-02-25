@@ -81,12 +81,22 @@ ou une boucle \og{}pour\fg{} est l'instruction \ci{break}.
 %---------------------------------------------------
 \subsection{Fonction avec un paramètre}
 
+\phmnote{Proposition d'introduire ici les paramètres : un ou
+  plusieurs paramètres. C'est la notion de paramètre qui importe, pas
+  le nombre de paramètres.}
+
 \mybox{
 \myfigure{0.7}{
   \tikzinput{../fonctions/fig-fonctions-cours-2}
 } }
 %---------------------------------------------------
 \subsection{Fonction avec plusieurs paramètres}
+
+\phmnote{Proposition de mentionner ici les autres caractéristiques
+  \og avancées\fg{} des fonctions : documentation, instruction
+  \ci{return}, renvoyer plusieurs valeurs. (Mais pas le fait qu'une
+  fonction puisse admettre plusieurs paramètres.) Ajouter un exemple
+  d'utilisation d'une fonction renvoyant plusieurs valeurs.}
 
 \mybox{
 \myfigure{0.7}{
@@ -374,7 +384,7 @@ Le programme se lance mais s’interrompt en court de route ou bien ne fait pas 
 
   \item Teste ton algorithme à la main avec papier/crayon p our les cas faciles.
 
-  \item N'hésite pas à afficher les valeurs des variables, pour voir leur évolution au cours du temps. Par exemple \ci{print(i,liste[i])} dans une boucle. 
+  \item N'hésite pas à afficher les valeurs des variables, pour voir leur évolution au cours du temps. Par exemple \ci{print(i,liste[i])} dans une boucle. \phmnote{Ce n'est pas une bonne pratique. L'usage d'un dévermineur permettant de visualiser les valeurs associées aux variables et l'exécution pas à pas est à conseiller.}
   
   \item Est-ce que le programme fonctionne avec certaines valeurs et pas d'autres ? As-tu pensé aux cas extrêmes ? Est-ce que $n$ est nul alors que ce n'est pas autorisé ? Est-ce que la liste est vide, alors que le programme ne gère pas ce cas ? etc.
 \end{itemize}
