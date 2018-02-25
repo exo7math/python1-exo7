@@ -24,13 +24,13 @@
 
 
  \draw[|-|,ultra thick, red] (5.5,-0.3)--++(0,-2.1);
- \draw[ultra thick, red]  (5.5,-1.2) to[bend right] (10,-0.5) node[right] {bloc \'ex\'ecut\'e};
+ \draw[ultra thick, red]  (5.5,-1.2) to[bend right] (10,-0.5) node[right] {bloc ex\'ecut\'e};
  \node[right,red]  at (10,-1.3) {si la condition est v\'erifi\'ee};
 
 
  \draw[|-|,ultra thick, red] (5.5,-3.1)--++(0,-1.5);
 
- \draw[ultra thick, red]  (5.5,-3.9) to[bend right] (10,-3.5) node[right] {bloc \'ex\'ecut\'e};
+ \draw[ultra thick, red]  (5.5,-3.9) to[bend right] (10,-3.5) node[right] {bloc ex\'ecut\'e};
  \node[right,red]  at (10,-4.3) {si la condition n'est pas v\'erifi\'ee};
 
 % \draw[<-,>=latex,ultra thick, red]    (F.east)  to[bend left] (9,-3.2) node[right] {suite du programme};
