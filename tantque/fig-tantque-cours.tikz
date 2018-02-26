@@ -17,7 +17,7 @@
 
  \draw[|-|,ultra thick, red] (5.5,-0.3)--++(0,-2.1);
  \draw[ultra thick, red]  (5.5,-1.2) to[bend right] (10,-0.5) node[right] {bloc d'instructions indent\'e};
- \node[right,red]  at (10,-1.25) {sera \'ex\'ecut\'e tant que};
+ \node[right,red]  at (10,-1.25) {sera ex\'ecut\'e tant que};
  \node[right,red]  at (10,-1.9) {la condition est v\'erifi\'ee};
 
  \draw[<-,>=latex,ultra thick, red]    (F.east)  to[bend left] (9,-3.2) node[right] {suite du programme};

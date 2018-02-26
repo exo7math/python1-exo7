@@ -81,12 +81,22 @@ ou une boucle \og{}pour\fg{} est l'instruction \ci{break}.
 %---------------------------------------------------
 \subsection{Fonction avec un paramètre}
 
+\phmnote{Proposition d'introduire ici les paramètres : un ou
+  plusieurs paramètres. C'est la notion de paramètre qui importe, pas
+  le nombre de paramètres.}
+
 \mybox{
 \myfigure{0.7}{
   \tikzinput{../fonctions/fig-fonctions-cours-2}
 } }
 %---------------------------------------------------
 \subsection{Fonction avec plusieurs paramètres}
+
+\phmnote{Proposition de mentionner ici les autres caractéristiques
+  \og avancées\fg{} des fonctions : documentation, instruction
+  \ci{return}, renvoyer plusieurs valeurs. (Mais pas le fait qu'une
+  fonction puisse admettre plusieurs paramètres.) Ajouter un exemple
+  d'utilisation d'une fonction renvoyant plusieurs valeurs.}
 
 \mybox{
 \myfigure{0.7}{
@@ -136,7 +146,7 @@ def ma_fonction(x):
 \begin{itemize}
   \item Bien évidemment \ci{ma_fonction(3)} renvoie \ci{4}.
   
-  \item Si je pose \ci{y = 5} alors \ci{ma_fonction(y)} renvoie \ci{6}. Mais attention, la valeur de \ci{y} n'a pas changé, elle vaut toujours \ci{5}.
+  \item Si la valeur de \ci{y} est \ci{5}, alors \ci{ma_fonction(y)} renvoie \ci{6}. Mais attention, la valeur de \ci{y} n'a pas changé, elle vaut toujours \ci{5}.
   
   \item Voici la situation problématique qu'il faut bien comprendre :
  \begin{center}
@@ -164,7 +174,7 @@ print(x)
 \defi{variables locales}. 
 Elles n'existent pas en dehors de la fonction.
   
-  \item S'il existe une variable dans une fonction qui porte le même nom qu'une variable dans le programme (comme le \ci{x} dans l'exemple ci-dessus), c'est comme si il y avait deux variables distinctes ; la variable locale n'existant que dans la fonction.
+  \item Si une variable dans une fonction porte le même nom qu'une variable dans le programme (comme le \ci{x} dans l'exemple ci-dessus),  il y a deux variables distinctes ; la variable locale n'existant que dans la fonction.
   
 \end{itemize}
 
@@ -229,7 +239,7 @@ Il est possible de donner des arguments optionnels. Voici comment définir une f
 \section{Modules}
 
 %---------------------------------------------------
-\subsection{Utilisé un module}
+\subsection{Utiliser un module}
 
 \begin{itemize}
   \item \ci{from math import *} \quad Importe toutes les fonctions du module \ci{math}. Pour pouvoir utiliser par exemple la fonction sinus par \ci{sin(0)}. C'est la méthode la plus simple et c'est celle que nous utilisons dans ce livre.
@@ -327,7 +337,7 @@ sqrt(x)
 
 \begin{itemize}
   
-  \item \ci{if y != 0: y = y - 1} \quad \Python{} renvoie le message \emph{NameError: name 'y' is not defined} si la variable \ci{y} n'a pas encore de valeur.
+  \item \ci{if y != 0: y = y - 1} \quad \Python{} renvoie le message \emph{NameError: name 'y' is not defined} si la variable \ci{y} n'a pas encore été définie.
   
   \item Cette erreur peut aussi se produire si les minuscules/majuscules ne pas scrupuleusement respectées. 
   \ci{variable}, \ci{Variable} et \ci{VARIABLE} sont trois noms de variables différents.
@@ -368,13 +378,13 @@ print(a b c)
 %---------------------------------------------------
 \subsection{Autres problèmes}
 
-Le programme se lance mais s’interrompt en court de route ou bien ne fait ce que tu veux ? C'est là que les ennuis commencent, il faut décafardiser le code !  Il n'y a pas de solutions générales mais seulement quelques conseils :
+Le programme se lance mais s’interrompt en court de route ou bien ne fait pas ce que tu veux ? C'est là que les ennuis commencent, il faut décafardiser le code !  Il n'y a pas de solutions générales mais seulement quelques conseils :
 \begin{itemize}
   \item Un code propre, bien structuré, bien commenté, avec des noms de variables et de fonctions bien choisis est plus facile à relire.
 
-  \item Teste ton algorithme à la main avec papier/crayon pour les cas faciles.
+  \item Teste ton algorithme à la main avec papier/crayon p our les cas faciles.
 
-  \item N'hésite pas à afficher les valeurs des variables, pour voir leur évolution au cours du temps. Par exemple \ci{print(i,liste[i])} dans une boucle.
+  \item N'hésite pas à afficher les valeurs des variables, pour voir leur évolution au cours du temps. Par exemple \ci{print(i,liste[i])} dans une boucle. \phmnote{Ce n'est pas une bonne pratique. L'usage d'un dévermineur permettant de visualiser les valeurs associées aux variables et l'exécution pas à pas est à conseiller.}
   
   \item Est-ce que le programme fonctionne avec certaines valeurs et pas d'autres ? As-tu pensé aux cas extrêmes ? Est-ce que $n$ est nul alors que ce n'est pas autorisé ? Est-ce que la liste est vide, alors que le programme ne gère pas ce cas ? etc.
 \end{itemize}
