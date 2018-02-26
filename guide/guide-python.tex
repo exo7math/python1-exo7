@@ -79,29 +79,57 @@ ou une boucle \og{}pour\fg{} est l'instruction \ci{break}.
 } }
 
 %---------------------------------------------------
-\subsection{Fonction avec un paramètre}
+\subsection{Fonction avec paramètre}
 
-\phmnote{Proposition d'introduire ici les paramètres : un ou
-  plusieurs paramètres. C'est la notion de paramètre qui importe, pas
-  le nombre de paramètres.}
+Les fonctions informatiques acquièrent tout leur potentiel avec :
+\begin{itemize}
+  \item une \defi{entrée}, qui regroupent des variables qui servent de \defi{paramètres},
+  \item une \defi{sortie}, qui est un résultat renvoyé par la fonction (et qui souvent dépendra des paramètres d'entrée).
+\end{itemize}
+
 
 \mybox{
 \myfigure{0.7}{
   \tikzinput{../fonctions/fig-fonctions-cours-2}
 } }
+
+
 %---------------------------------------------------
 \subsection{Fonction avec plusieurs paramètres}
 
-\phmnote{Proposition de mentionner ici les autres caractéristiques
-  \og avancées\fg{} des fonctions : documentation, instruction
-  \ci{return}, renvoyer plusieurs valeurs. (Mais pas le fait qu'une
-  fonction puisse admettre plusieurs paramètres.) Ajouter un exemple
-  d'utilisation d'une fonction renvoyant plusieurs valeurs.}
+Il peut y avoir plusieurs paramètres en entrée, il peut y avoir plusieurs résultats en sortie.
+  
 
 \mybox{
 \myfigure{0.7}{
   \tikzinput{../fonctions/fig-fonctions-cours-3}
 } }
+
+Voici un exemple d'une fonction avec deux paramètres et deux sorties.
+\begin{lstlisting}
+def somme_produit(x,y):
+    """ Calcule la somme et le produit de deux nombres. """
+    S = x + y     # Somme
+    P = x*y       # Produit
+    return S, P   # Renvoie les résultats
+
+# Appel de la fonction
+som, prod = somme_produit(3,7)  # Résultats
+print("Somme :",som)            # Affichage
+print("Produit :",prod)         # Affichage
+\end{lstlisting}
+
+\begin{itemize}
+  \item Très important ! Il ne faut pas confondre afficher et renvoyer une valeur.
+  L'affichage (par la commande \ci{print()}) affiche juste quelque chose à l'écran. La plupart des fonctions n'affichent rien, mais renvoient une valeur (ou plusieurs). C'est beaucoup plus utile car cette valeur peut être utilisée ailleurs dans le programme.
+
+  
+  \item Dès que le programme rencontre l'instruction \ci{return}\index{return@\ci{return}}\index{fonction!return@\ci{return}}, la fonction s'arrête et renvoie le résultat. Il peut y avoir plusieurs fois l'instruction \ci{return} dans une fonction mais une seule sera exécutée. On peut aussi ne pas mettre d'instruction \ci{return} si la fonction ne renvoie rien.
+  
+  \item Dans les instructions d'une fonction, on peut bien sûr faire appel à d'autres fonctions !
+   
+%  \item Il est important de bien commenter tes programmes. Pour documenter une fonction, tu peux décrire ce qu'elle fait en commençant par un \emph{docstring}\index{docstring@\emph{docstring}}\index{fonction!docstring@\emph{docstring}}, c'est-à-dire une description (en français) entourée par trois guillemets : \ci{""" Ma fonction fait ceci et cela. """} à placer juste après l'entête.
+\end{itemize}
 
 %---------------------------------------------------
 \subsection{Commentaires et docstring}
@@ -384,8 +412,10 @@ Le programme se lance mais s’interrompt en court de route ou bien ne fait pas 
 
   \item Teste ton algorithme à la main avec papier/crayon p our les cas faciles.
 
-  \item N'hésite pas à afficher les valeurs des variables, pour voir leur évolution au cours du temps. Par exemple \ci{print(i,liste[i])} dans une boucle. \phmnote{Ce n'est pas une bonne pratique. L'usage d'un dévermineur permettant de visualiser les valeurs associées aux variables et l'exécution pas à pas est à conseiller.}
+  \item N'hésite pas à afficher les valeurs des variables, pour voir leur évolution au cours du temps. Par exemple \ci{print(i,liste[i])} dans une boucle. 
   
+  \item Une meilleur méthode pour inspecter le code est de visualiser les valeurs associées aux variables à l'aide des fonctionnalité \emph{debug} de ton éditeur \Python{} favoris. Il est aussi possible de faire un exécution pas à pas.
+
   \item Est-ce que le programme fonctionne avec certaines valeurs et pas d'autres ? As-tu pensé aux cas extrêmes ? Est-ce que $n$ est nul alors que ce n'est pas autorisé ? Est-ce que la liste est vide, alors que le programme ne gère pas ce cas ? etc.
 \end{itemize}
 
