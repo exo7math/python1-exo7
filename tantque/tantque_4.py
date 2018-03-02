@@ -75,7 +75,7 @@ def test_conjecture_goldbach(nmax):
 
 # Test    
 print("--- Conjecture de Goldbach ---")
-# test_conjecture_goldbach(10000)
+test_conjecture_goldbach(10000)
 
 
 ##############################

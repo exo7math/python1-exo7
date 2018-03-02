@@ -85,9 +85,9 @@ def crochets_parentheses_correctes(expression):
         if car == "(" or car == "[":
             empile(car)
 
-        if car == ")" or "]":
+        if car == ")" or car == "]":
             if pile_est_vide():
-                return False     # Problème : il manque une "(" 
+                return False     # Problème : il manque "(" ou "[" 
             else:
                 element = depile()
                 if element == "[" and car == ")":
@@ -103,10 +103,11 @@ def crochets_parentheses_correctes(expression):
 print("--- Expression avec crochets et parenthèses corrects ---")
 
 expression = "(a+b)^2 = (a^2 + [b^2+[2(ab)]])"
-print("L'expression",expression,"est bien parenthésées et crochetées ?",parentheses_correctes(expression))
+print("L'expression",expression,"est bien parenthésées et crochetées ?",crochets_parentheses_correctes(expression))
 
 expression = "((a+b)]^3 = [a+b]"
-print("L'expression",expression,"est bien parenthésées et crochetées ?",parentheses_correctes(expression))
+print("L'expression",expression,"est bien parenthésées et crochetées ?",crochets_parentheses_correctes(expression))
 
 expression = "[a+b)^4] = (a+b)"
-print("L'expression",expression,"est bien parenthésées et crochetées ?",parentheses_correctes(expression))
+print("L'expression",expression,"est bien parenthésées et crochetées ?",crochets_parentheses_correctes(expression))
+

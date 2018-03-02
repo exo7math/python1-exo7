@@ -31,7 +31,7 @@ Arithmétique -- Boucle tant que -- II
 Binaire I
 Listes II
 Binaire II
-Probabilités – Paradoxe de Parrondo
+Probabilités -- Paradoxe de Parrondo
 Chercher et remplacer
 Calculatrice polonaise -- Piles
 Visualiseur de texte -- Markdown
