@@ -45,7 +45,7 @@ Remarques.
   
   \item Dans une liste, on peut accéder directement à n'importe quel élément ; dans une pile on n'accède directement  qu'à l'élément au sommet de la pile. Pour accéder aux autres éléments, il faut dépiler plusieurs fois.
   
-  \item L'avantage d'une pile est que c'est une structure de donnée très simple qui correspond bien à ce qui se passe dans la mémoire d'un ordinateur.
+  \item L'avantage d'une pile est que c'est une structure de données très simple qui correspond bien à ce qui se passe dans la mémoire d'un ordinateur.
 \end{itemize}
 \end{cours}
 
@@ -182,7 +182,7 @@ Dans cet exercice, on travaille avec une pile formée d'entiers. Les questions s
 \sauteligne
 
 \begin{enumerate}
-  \item  La fonction \ci{split()}\index{split@\ci{split}}\index{chaine@chaîne!separer@séparer} est une méthode \Python{} qui sépare une chaîne de caractères en morceaux. Si aucun séparateur n'est préciser, le séparateur est le caractère espace.
+  \item  La fonction \ci{split()}\index{split@\ci{split}}\index{chaine@chaîne!separer@séparer} est une méthode \Python{} qui sépare une chaîne de caractères en morceaux. Si aucun séparateur n'est précisé, le séparateur est le caractère espace.
   
   \begin{fonctionpython}[\ci{python : split()}]
     Usage : \ci{chaine.split(separateur)}\\
@@ -564,7 +564,7 @@ Voici l'algorithme à programmer en une fonction \ci{crochets_parentheses_correc
      
      \item si le caractère est une parenthèse ou un crochet fermant  \ci{")"} ou \ci{"]"} :
        \begin{itemize}
-         \item tester si la pile est vide, si elle vide alors renvoyer \og{}faux\fg{} (le programme se termine là, l'expression n'est pas cohérente), si la pile n'est pas vide continuer, 
+         \item tester si la pile est vide, si elle est vide alors renvoyer \og{}faux\fg{} (le programme se termine là, l'expression n'est pas cohérente), si la pile n'est pas vide continuer, 
          \item dépiler une fois, on dépile un  \ci{"("} ou un \ci{"["},
          \item si le caractère dépilé (ouvrant) ne correspond pas au caractère lu dans l'expression, alors renvoyer \og{}faux\fg{}. Le programme se termine là, l'expression n'est pas cohérente ; dire que les caractères correspondent c'est avoir \ci{"("} avec \ci{")"} et \ci{"["} avec \ci{"]"}.
        \end{itemize}

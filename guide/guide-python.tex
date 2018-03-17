@@ -83,7 +83,7 @@ ou une boucle \og{}pour\fg{} est l'instruction \ci{break}.
 
 Les fonctions informatiques acquièrent tout leur potentiel avec :
 \begin{itemize}
-  \item une \defi{entrée}, qui regroupent des variables qui servent de \defi{paramètres},
+  \item une \defi{entrée}, qui regroupe des variables qui servent de \defi{paramètres},
   \item une \defi{sortie}, qui est un résultat renvoyé par la fonction (et qui souvent dépendra des paramètres d'entrée).
 \end{itemize}
 
@@ -406,15 +406,15 @@ print(a b c)
 %---------------------------------------------------
 \subsection{Autres problèmes}
 
-Le programme se lance mais s’interrompt en court de route ou bien ne fait pas ce que tu veux ? C'est là que les ennuis commencent, il faut décafardiser le code !  Il n'y a pas de solutions générales mais seulement quelques conseils :
+Le programme se lance mais s’interrompt en cours de route ou bien ne fait pas ce que tu veux ? C'est là que les ennuis commencent, il faut décafardiser le code !  Il n'y a pas de solutions générales mais seulement quelques conseils :
 \begin{itemize}
   \item Un code propre, bien structuré, bien commenté, avec des noms de variables et de fonctions bien choisis est plus facile à relire.
 
-  \item Teste ton algorithme à la main avec papier/crayon p our les cas faciles.
+  \item Teste ton algorithme à la main avec papier/crayon pour les cas faciles.
 
   \item N'hésite pas à afficher les valeurs des variables, pour voir leur évolution au cours du temps. Par exemple \ci{print(i,liste[i])} dans une boucle. 
   
-  \item Une meilleur méthode pour inspecter le code est de visualiser les valeurs associées aux variables à l'aide des fonctionnalité \emph{debug} de ton éditeur \Python{} favoris. Il est aussi possible de faire un exécution pas à pas.
+  \item Une meilleure méthode pour inspecter le code est de visualiser les valeurs associées aux variables à l'aide des fonctionnalités \emph{debug} de ton éditeur \Python{} favori. Il est aussi possible de faire une exécution pas à pas.
 
   \item Est-ce que le programme fonctionne avec certaines valeurs et pas d'autres ? As-tu pensé aux cas extrêmes ? Est-ce que $n$ est nul alors que ce n'est pas autorisé ? Est-ce que la liste est vide, alors que le programme ne gère pas ce cas ? etc.
 \end{itemize}
@@ -446,7 +446,7 @@ while n != "0":
     n = n - 1
     print(n)
 \end{lstlisting} 
-Avec une boucle \og{}tant que\fg{} il faut prendre grand soin de bien écrire la condition et de vérifier qu'elle finit pas être fausse. Ici, elle mal formulée, cela devrait être \ci{while n!= 0:}.
+Avec une boucle \og{}tant que\fg{} il faut prendre grand soin de bien écrire la condition et de vérifier qu'elle finit pas être fausse. Ici, elle est mal formulée, cela devrait être \ci{while n!= 0:}.
 
 
 \end{itemize}

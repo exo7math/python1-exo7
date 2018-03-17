@@ -1,0 +1,47 @@
+\documentclass[12pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\pagestyle{empty}
+
+\begin{document}
+
+% Commande spécifique
+\newcommand{\badletter}[1]{\underline{\textcolor{red}{#1}}}
+
+
+
+%====================================================================
+\chapitre{Probabilités -- Paradoxe de Parrondo}
+%====================================================================
+
+\textbf{Jeu A.} Dans ce premier jeu, on lance une pièce de monnaie légèrement déséquilibrée : le joueur gagne un euro dans $49$ cas sur $100$ ; il perd un euro dans $51$ cas sur $100$.
+
+
+\bigskip
+\bigskip
+
+   $$\text{espérance} \  \simeq \  \frac{\text{gain après $N$ tirages}}{N} \qquad \text{avec $N$ grand}.$$ 
+
+
+\newpage
+
+\textbf{Jeu B.} Le second jeu est un peu plus compliqué. Au début, le joueur part avec un gain nul : $g=0$. Puis en fonction du gain, il joue à un des deux sous-jeux suivants :
+\begin{itemize}
+  \item \textbf{Sous-jeu B1.} Si le gain $g$ est un multiple de $3$, alors il lance un pièce très désavantageuse : le joueur gagne un euro dans seulement $9$ cas sur $100$ (il perd donc un euro dans $91$ cas sur $100$).
+  
+  \item \textbf{Sous-jeu B2.} Si le gain $g$ n'est pas un multiple de $3$, alors il lance un pièce avantageuse : le joueur gagne un euro dans $74$ cas sur $100$ (il perd donc un euro dans $26$ cas sur $100$).
+\end{itemize}
+
+
+\newpage
+
+\textbf{Jeux AB.} Dans ce troisième jeu, on joue à chaque tour ou bien au jeu A ou bien au jeu B (le choix est fait au hasard). 
+Au début le joueur part avec un gain nul : $g=0$. 
+\`A chaque étape, il choisit au hasard ($50\%$ de chance chacun) :
+\begin{itemize}
+  \item de jouer une fois au jeu A,
+  \item ou de jouer une fois au jeu B ; plus précisément avec le sous-jeu B1 ou le sous-jeu B2 en fonction du gain déjà acquis $g$.
+\end{itemize}
+
+
+\end{document}

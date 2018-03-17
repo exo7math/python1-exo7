@@ -163,7 +163,7 @@ au tableau de droite :
 \end{center}
 
   \emph{Indications.} Pour définir un nouveau tableau reprend la commande :\\    \centerline{\ci{nouveau_tableau = [[0 for j in range(p)] for i in range(n)]}}
-  puis modifie-le comme voulu.
+  puis modifie le tableau comme voulu.
 
 \end{enumerate}
 \end{activite}
@@ -214,7 +214,7 @@ au tableau de droite :
 \index{souris}
 \index{clic}
 
-Voici un petit programme qui affiche une fenêtre graphique. Chaque fois que l'utilisateur clique (avec le bouton gauche de la souris), le programme affiche (sur la console) \og{}Clic à $x=\ldots$, $y=\ldots$\fg{}. 
+Voici un petit programme qui affiche une fenêtre graphique. Chaque fois que l'utilisateur clique (avec le bouton gauche de la souris) le programme affiche un petit carré (sur la fenêtre) et affiche \og{}Clic à $x=\ldots$, $y=\ldots$\fg{} (sur la console).
 
 \begin{lstlisting}
 from tkinter import *
@@ -229,6 +229,7 @@ def action_clic_souris(event):
     canvas.focus_set()
     x = event.x
     y = event.y
+    canvas.create_rectangle(x,y,x+10,y+10,fill="red")
     print("Clic a x =",x,", y =",y)
     return
 
@@ -248,7 +249,7 @@ Voici quelques explications :
 \centerline{\ci{canvas.bind("<Button-1>", action_clic_souris)}}
 Chaque fois que le bouton gauche de la souris est cliqué, \Python{} exécute la fonction \ci{action_clic_souris}. (Note qu'il n'y a pas de parenthèses pour l'appel à la fonction.)
 
-   \item Second point clé : la fonction \ci{action_clic_souris} récupère les coordonnées du clic et ici les affiche.
+   \item Second point clé : la fonction \ci{action_clic_souris} récupère les coordonnées du clic et ici ensuite fait deux choses : elle affiche un petit rectangle à l'endroit du clic et affiche dans la fenêtre du terminal les coordonnées $(x,y)$.
    
    \item Les coordonnées $x$ et $y$ sont exprimées en pixels ; $(0,0)$ désigne le coin en haut à gauche de la fenêtre (la zone délimitée par \ci{canvas}).
 \end{itemize}
@@ -273,8 +274,8 @@ Tu en trouveras plein d'autres sur internet mais surtout amuse-toi à en découv
 
 En particulier, trouve des configurations :
 \begin{itemize}
-  \item qui restent fixent au cours du temps ;
-  \item qui évoluent, puis deviennent fixent ;
+  \item qui restent fixes au cours du temps ;
+  \item qui évoluent, puis deviennent fixes ;
   \item qui sont périodiques (les mêmes configurations reviennent en boucles) avec une période de $2$, $3$ ou plus ;
   \item qui voyagent ;
   \item qui propulsent des cellules ; 

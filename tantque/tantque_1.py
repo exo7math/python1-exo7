@@ -32,7 +32,7 @@ def quotient_reste(a,b):
         verif_egal = True
     else:
         verif_egal = False
-    print("Vérification égalité a = bq + r ok ?",verif_egal)
+    print("Vérification égalité a = bq + r ?",verif_egal)
 
     return q,r
 

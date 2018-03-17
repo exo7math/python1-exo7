@@ -23,7 +23,6 @@ rect = canvas.create_rectangle(x0,y0,x0+20,y0+20,width=2,fill="red")
 # Fonction principale
 def deplacer():
     global x0, y0, dx, dy
-    global job
 
     x0 = x0 + dx  # Nouvelle abscisse
     y0 = y0 + dy  # Nouvelle ordonnée
@@ -35,7 +34,7 @@ def deplacer():
     if y0 < 0 or y0 > Hauteur:
         dy = -dy  # Changement de sens vertical
 
-    job = canvas.after(50,deplacer)  # Appel après 50 millisecondes
+    canvas.after(50,deplacer)  # Appel après 50 millisecondes
  
     return
     
@@ -44,16 +43,11 @@ def action_deplacer():
     deplacer()
     return
 
-def action_quitter():
-    canvas.after_cancel(job)
-    root.quit()    
-    return    
-
 # Boutons
 bouton_couleur = Button(root,text="Déplacer", width=20, command=action_deplacer)
 bouton_couleur.pack(pady=10)
 
-bouton_quitter = Button(root,text="Quitter", width=20, command=action_quitter)
+bouton_quitter = Button(root,text="Quitter", width=20, command=root.quit)
 bouton_quitter.pack(side=BOTTOM, pady=10)
 
 root.mainloop()

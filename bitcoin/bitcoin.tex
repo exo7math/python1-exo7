@@ -8,7 +8,7 @@
 \chapitre{Bitcoin}
 %====================================================================
 
-\objectifs{Le \emph{bitcoin} est une monnaie dématérialisée et décentralisée. Elle repose sur deux principes informatiques : la cryptographique à clé publique et la preuve de travail. Pour comprendre ce second principe, tu vas créer un modèle simple de \emph{bitcoin}.}
+\objectifs{Le \emph{bitcoin} est une monnaie dématérialisée et décentralisée. Elle repose sur deux principes informatiques : la cryptographie à clé publique et la preuve de travail. Pour comprendre ce second principe, tu vas créer un modèle simple de \emph{bitcoin}.}
 
 \index{bitcoin@\emph{bitcoin}}
 
@@ -19,7 +19,7 @@
 \begin{activite}[Preuve de travail]
 
 \objectifs{Objectifs : comprendre ce qu'est une preuve de travail sur un modèle simple. Cette activité est indépendante du reste de la fiche.
-L'idée est de trouver un problème difficile à résoudre mais facile à vérifier. Comme les sodukus par exemple : il suffit de dix secondes pour vérifier qu'une grille est remplie correctement, par contre il a fallu plus de dix minutes pour le résoudre.}
+L'idée est de trouver un problème difficile à résoudre mais facile à vérifier. Comme les sudokus par exemple : il suffit de dix secondes pour vérifier qu'une grille est remplie correctement, par contre il a fallu plus de dix minutes pour le résoudre.}
 
 \index{preuve de travail}
 
@@ -340,7 +340,7 @@ Par exemple : soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel blo
   \ci{[0, 0, 5, 47, 44, 71]} qui commence par \ci{[0,0,5]} plus petit que l'objectif.
 
   \item \ci{preuve = [0, 0, 2, 0, 61, 2]} convient aussi car après concaténation on a 
-  \ci{[0,1,2,3,4,5,0, 0, 2, 0, 61, 2]} dont la hachage donne \ci{[0, 0, 3, 12, 58, 92]}.
+  \ci{[0,1,2,3,4,5,0, 0, 2, 0, 61, 2]} dont le hachage donne \ci{[0, 0, 3, 12, 58, 92]}.
   
   \item \ci{[97, 49, 93, 87, 89, 47]} ne convient pas, car après concaténation puis hachage on obtient \ci{[0, 0, 8, 28, 6, 60]} qui est plus grand que l'objectif voulu.
 \end{itemize}
@@ -371,8 +371,6 @@ Par exemple : soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel blo
    \item \textbf{Temps de calcul.}
    
    Compare le temps de calcul d'une simple vérification par rapport au temps de recherche d'une solution. Choisis l'objectif \ci{Max} de sorte que la recherche d'une preuve de travail nécessite environ entre 30 et 60 secondes de calculs.
-  
-  
   
 \end{enumerate}  
 

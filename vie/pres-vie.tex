@@ -1,0 +1,74 @@
+\documentclass[12pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+
+\pagestyle{empty}
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Jeu de la vie}
+%====================================================================
+
+\textbf{Règle du jeu.}
+
+
+\begin{itemize}
+  \item Pour une case vide au jour $j$ et ayant exactement $3$ cellules voisines : une cellule naît au jour $j+1$.
+
+\myfigure{0.5}{
+  \tikzinput{fig-vie-0a}
+}
+
+ \bigskip
+
+  \item Pour une case contenant une cellule au jour $j$, ayant soit $2$ ou soit $3$ cellules voisines : alors la cellule continue de vivre.
+  Dans les autres cas la cellule meurt (avec $0$ ou $1$, elle meurt d'isolement, avec plus de $4$ voisins, elle meurt de surpopulation !).
+  
+\myfigure{0.5}{
+  \tikzinput{fig-vie-0b}
+}  
+  
+  
+\end{itemize}
+
+\newpage
+ 
+Le \og{}clignotant\fg{} :
+
+\myfigure{0.5}{
+  \tikzinput{fig-vie-0c}
+} 
+ 
+ 
+
+ \newpage
+ 
+\textbf{Modélisation}
+
+\myfigure{0.6}{
+  \tikzinput{fig-vie-1}
+} 
+
+\begin{itemize}
+  \item \ci{tableau = [[0 for j in range(p)] for i in range(n)]}
+    
+  \item \ci{tableau[i][j] = 1} 
+  
+  \item Affichage non graphique :
+ \begin{center}
+\ci{00000000}\\
+\ci{00000000}\\
+\ci{00111000}\\
+\ci{00000000}\\
+\ci{00000000}
+\end{center} 
+  
+  \end{itemize}
+
+
+
+
+
+\end{document}

@@ -26,7 +26,7 @@
 
 \textbf{Module \og{}math\fg{}}
 
-L'usage d'autres fonctions mathématiques nécessitent le recours au module \ci{math} qui s'appelle par la commande :\\
+L'usage d'autres fonctions mathématiques nécessite le recours au module \ci{math} qui s'appelle par la commande :\\
 \centerline{\ci{from math import *}}
 
 \begin{itemize}
@@ -56,7 +56,7 @@ Le module \ci{random} génère des nombres de façon pseudo-aléatoire. Il s'app
 \textbf{\'Ecriture binaire}
 
 \begin{itemize}
-  \item \ci{bin(n)}\quad renvoie l'écriture binaire de l'entier $n$ sous la forme d'un chaîne. 
+  \item \ci{bin(n)}\quad renvoie l'écriture binaire de l'entier $n$ sous la forme d'une chaîne. 
   Exemple : \ci{bin(17)} renvoie \ci{'0b10001'}.
   
   \item Pour écrire directement un nombre en écriture binaire, il suffit d'écrire le nombre en commençant par \ci{0b} (sans guillemets). Par exemple \ci{0b11011} vaut \ci{27}.
@@ -757,7 +757,7 @@ canvas.create_rectangle(200,50,300,150,width=5,outline="blue")
 # Un rectangle rempli de violet
 canvas.create_rectangle(350,100,500,150,fill="purple")
 
-# Un oval
+# Un ovale
 canvas.create_oval(50,110,180,160,width=4)
 
 # Du texte
@@ -776,7 +776,7 @@ Quelques explications :
     
   \item Attention ! Le repère graphique de la fenêtre a son axe des ordonnées dirigé vers le bas. L'origine $(0,0)$ est le coin en haut à gauche (voir la figure ci-dessous). 
   
-  \item Commande pour tracer un rectangle : \ci{create_rectangle(x1,y1,x2,y2)} ; il suffit de préciser les coordonnées $(x_1,y_1)$ et $(x_2,y_2)$ de deux sommets opposés. L'option \ci{width} ajuste la taille du trait, \ci{outline} définit la couleur de ce trait et \ci{fill} définit la couleur de remplissage.
+  \item Commande pour tracer un rectangle : \ci{create_rectangle(x1,y1,x2,y2)} ; il suffit de préciser les coordonnées $(x_1,y_1)$ et $(x_2,y_2)$ de deux sommets opposés. L'option \ci{width} ajuste l'épaisseur du trait, \ci{outline} définit la couleur de ce trait et \ci{fill} définit la couleur de remplissage.
   
   \item Une ellipse est tracée par la commande \ci{create_oval(x1,y1,x2,y2)}, où $(x_1,y_1)$, $(x_2,y_2)$ sont les coordonnées de deux sommets opposés d'un rectangle encadrant l'ellipse voulue (voir la figure). On obtient un cercle lorsque le rectangle correspondant est un carré.  
   
@@ -905,7 +905,7 @@ Quelques explications :
 %---------------------------------------------------
 \subsection{Clic de souris}
 
-Voici un petit programme qui affiche une fenêtre graphique. Chaque fois que l'utilisateur clique (avec le bouton gauche de la souris) le programme affiche (sur la console) \og{}Clic à $x=\ldots$, $y=\ldots$\fg{}. 
+Voici un petit programme qui affiche une fenêtre graphique. Chaque fois que l'utilisateur clique (avec le bouton gauche de la souris) le programme affiche un petit carré (sur la fenêtre) et affiche \og{}Clic à $x=\ldots$, $y=\ldots$\fg{} (sur la console). 
 
 \begin{lstlisting}
 from tkinter import *
@@ -920,6 +920,7 @@ def action_clic_souris(event):
     canvas.focus_set()
     x = event.x
     y = event.y
+    canvas.create_rectangle(x,y,x+10,y+10,fill="red")
     print("Clic a x =",x,", y =",y)
     return
 
@@ -939,7 +940,7 @@ Voici quelques explications :
 \centerline{\ci{canvas.bind("<Button-1>", action_clic_souris)}}
 Chaque fois que le bouton gauche de la souris est cliqué, \Python{} exécute la fonction \ci{action_clic_souris}. Note qu'il n'y a pas de parenthèses pour l'appel à la fonction.
 
-   \item Second point clé : la fonction \ci{action_clic_souris} récupère les coordonnées du clic et ici les affiche.
+   \item Second point clé : la fonction \ci{action_clic_souris} récupère les coordonnées du clic et ici ensuite fait deux choses : elle affiche un petit rectangle à l'endroit du clic et affiche dans la fenêtre du terminal les coordonnées $(x,y)$.
    
    \item Les coordonnées $x$ et $y$ sont exprimées en pixels ; $(0,0)$ désigne le coin en haut à gauche de la fenêtre (la zone délimitée par \ci{canvas}).
 \end{itemize}

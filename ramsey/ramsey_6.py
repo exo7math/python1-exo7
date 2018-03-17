@@ -32,7 +32,7 @@ SS_ENS_3 = sous_ensembles_fixe(n,k)
 
 ##################################################
 def graphe_contient_3(graphe):
-    """Cherche si trois sommets sont tous reliés entre eux"""
+    """Cherche si un graphe possède 3 amis ou 3 étrangers."""
   
     n = len(graphe)
 

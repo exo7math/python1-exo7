@@ -93,7 +93,7 @@ def lancer_un_bloc():
 def action_bloc():
     # Affichage centre
     i = (n-1)//2
-    j = (n-1)//2
+    j = (p-1)//2
     canvas.create_rectangle(j*echelle,i*echelle,j*echelle+echelle-1,i*echelle+echelle-1,width=1,fill='green')
 
     lancer_un_bloc()

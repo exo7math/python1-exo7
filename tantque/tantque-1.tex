@@ -72,7 +72,7 @@ Division de a = 100 par b = 7
 Le quotient vaut q = 14
 Le reste vaut r = 2
 Vérification reste 0 <= r < b ? True
-Vérification égalite a = bq + r ok ? True
+Vérification égalite a = bq + r ? True
 \end{lstlisting}
 
 \emph{Remarque.} il faut que tu vérifies sans tricher que l'on a bien $0 \le r<b$ et $a=bq+r$, mais bien sûr cela doit toujours être vrai !
@@ -326,7 +326,7 @@ La seconde écriture est plus courte mais rend le programme moins lisible.
  \begin{itemize}
    \item Par exemple pour tester si $n = 419$ est un nombre premier, on teste d'abord si $d=2$ divise $n$, puis $d=3$ et ensuite $d=5$, $d=7$\ldots 
    \item Cela permet de faire environ deux fois moins de tests !
-   \item Explications : si un nombre pair $d$ divise $n$, alors on a déjà que $2$ divise $n$.   
+   \item Explications : si un nombre pair $d$ divise $n$, alors on sait déjà que $2$ divise $n$.   
    \end{itemize}
   
   
@@ -345,7 +345,7 @@ La seconde écriture est plus courte mais rend le programme moins lisible.
 Il existe deux façons de faire tourner plus rapidement des programmes : une bonne et une mauvaise. La mauvaise, c'est d'acheter un ordinateur plus puissant.
 La bonne, c'est de trouver un algorithme plus efficace !
 
-Avec \Python, c'est facile de mesurer le temps d'exécution d'une fonction afin de le comparer avec une autre. Il suffit d'utiliser le module \ci{timeit}.
+Avec \Python, c'est facile de mesurer le temps d'exécution d'une fonction afin de le comparer avec le temps d'exécution d'une autre. Il suffit d'utiliser le module \ci{timeit}.
 
 \index{module!timeit@\ci{timeit}}
 \index{timeit@\ci{timeit}}
@@ -424,7 +424,7 @@ Elle prend comme paramètres :
   Par exemple, le premier couple de nombres premiers jumeaux après $n=60$ est $p=71$ et $p+2=73$.   
     Quel est le premier couple de nombres premiers jumeaux après $n=100\,000$ ?
     
-  \item Un entier $p$ est un \defi{nombre premier de Germain} si $p$ et $2p+1$ sont des nombres premiers. Écris une fonction \ci{nombre_germain_apres(n)} qui renvoie le couple $p$, $2p+1$ où $p$ le premier nombre premier de Germain $p \ge n$.
+  \item Un entier $p$ est un \defi{nombre premier de Germain} si $p$ et $2p+1$ sont des nombres premiers. Écris une fonction \ci{nombre_germain_apres(n)} qui renvoie le couple $p$, $2p+1$ où $p$ est le premier nombre premier de Germain $p \ge n$.
   
   Par exemple, le premier nombre premier de Germain après $n=60$ est $p=83$ avec $2p+1=167$.   
   Quel est le premier nombre premier de Germain après $n=100\,000$ ?

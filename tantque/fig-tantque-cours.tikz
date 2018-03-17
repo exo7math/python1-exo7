@@ -11,7 +11,7 @@
 \node[right] at (1,-2.1) {\texttt{...}};
 \node[right] (F) at (0,-2.8) {\texttt{instructions suivantes}};
 
- \draw[<-,>=latex,ultra thick, red]  (A.north) to[bend left] (9,3) node[right] {mot reserv\'e "\texttt{while}"};
+ \draw[<-,>=latex,ultra thick, red]  (A.north) to[bend left] (9,3) node[right] {mot r\'eserv\'e "\texttt{while}"};
  \draw[<-,>=latex,ultra thick, red]  (B.north) to[bend left] (9,2) node[right] {une condition};
  \draw[<-,>=latex,ultra thick, red]  (C.north) to[bend left] (9,1) node[right] {deux points};
 

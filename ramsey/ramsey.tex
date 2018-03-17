@@ -55,10 +55,10 @@ Voici un exemple de graphe à $5$ sommets qui vérifie l'énoncé : il possède 
 \objectifs{Nous modélisons un graphe par un tableau à double entrée, contenant des $0$ et des $1$.}
 
 Soit un graphe ayant $n$ sommets, numérotés de $0$ à $n-1$.
-La \defi{tableau du graphe} est un tableau de taille $n \times n$ dans lequel on place un $1$ en position $(i,j)$ si les sommets $i$ et $j$ sont reliés par une arête, sinon on place un $0$.
+Le \defi{tableau du graphe} est un tableau de taille $n \times n$ dans lequel on place un $1$ en position $(i,j)$ si les sommets $i$ et $j$ sont reliés par une arête, sinon on place un $0$.
 
 \bigskip
-Premier exemple ci-dessous : les sommets $0$ et $2$ sont amis (car reliés par un arête verte) donc la tableau contient un $1$ en position $(0,2)$ et aussi en $(2,0)$. De même $1$ et $3$ sont amis, donc le tableau contient un $1$ en position $(1,3)$ et $(3,1)$. Le reste du tableau contient des $0$.
+Premier exemple ci-dessous : les sommets $0$ et $2$ sont amis (car reliés par un arête verte) donc le tableau contient un $1$ en position $(0,2)$ et aussi en $(2,0)$. De même $1$ et $3$ sont amis, donc le tableau contient un $1$ en position $(1,3)$ et $(3,1)$. Le reste du tableau contient des $0$.
 
 \myfigure{0.7}{
   \tikzinput{fig-ramsey-1a}
@@ -399,18 +399,22 @@ Tu dois trouver que :
   
   Avec ces conseils voici les temps de calcul auxquels tu peux t'attendre :
   \begin{center}
-  \begin{tabular}{|c|c|}
+  \begin{tabular}{|c|c|c|}
   \hline
-  Nombre de sommets & Temps de calcul approximatif \\
+  Nombre de sommets & Nombre de graphes & Temps de calcul approximatif \\
   \hline\hline
-  $n=6$ & $< 1$ seconde \\
-  $n=7$ & $< 1$ minute \\  
-  $n=8$ & $< 1$ heure \\
-  $n=9$ & $< 10$ jours \\ 
+  $n=6$ & 32\,768 & $< 1$ seconde \\
+  $n=7$ & 2\,097\,152 & $< 1$ minute \\  
+  $n=8$ & 268\,435\,456 & $< 1$ heure \\
+  $n=9$ & 68\,719\,476\,736 & $< 10$ jours \\ 
   \hline
   \end{tabular} 
   \end{center}
-  
+
+
+
+
+ 
   \item Il existe un énoncé plus difficile. Il s'agit de trouver à partir de quelle taille $n$ un graphe contient toujours ou bien $4$ amis ou bien $3$ étrangers. 
   \^Etre $4$ amis signifie que deux à deux ils sont reliés par un segment vert, comme ci-dessous :
   \myfigure{1}{
