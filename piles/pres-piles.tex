@@ -1,0 +1,225 @@
+\documentclass[12pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\pagestyle{empty}
+
+\begin{document}
+
+% Commande spécifique
+\newcommand{\badletter}[1]{\underline{\textcolor{red}{#1}}}
+
+
+
+%====================================================================
+\chapitre{Calculatrice polonaise -- Piles}
+%====================================================================
+
+
+  Une \defi{pile} est une suite de données munie de trois opérations de base :
+  \begin{itemize}
+    \item \defi{empiler}\index{empiler} : on ajoute un élément au sommet de la pile,
+    \item \defi{dépiler}\index{depiler@dépiler} : on lit la valeur de l'élément au sommet de la pile et on retire cet élément de la pile,
+    \item et enfin, on peut tester si la pile est vide.
+  \end{itemize}  
+
+\myfigure{0.6}{
+  \tikzinput{fig-piles1}
+} 
+
+
+
+\newpage
+
+\myfigure{0.5}{
+  \tikzinput{fig-piles2}
+} 
+
+
+\newpage
+
+
+\myfigure{0.6}{
+  \tikzinput{fig-piles3}
+} 
+
+\newpage
+
+ \centerline{Variable globale \ci{pile}}
+ 
+ \bigskip
+ 
+
+  \begin{fonction}[\ci{empile()}]
+  Usage : \ci{empile(element)} \\
+  Entrée : un entier, une chaîne\ldots \\
+  Sortie : rien \\
+  Action : la pile contient un élément en plus
+  
+  \medskip
+    
+  Exemple : si au départ \ci{pile = [5,1,3]} alors, après l'instruction \ci{empile(8)}, la pile vaut \ci{[5,1,3,8]} et si on continue avec l'instruction
+\ci{empile(6)}, la pile vaut maintenant \ci{[5,1,3,8,6]}.     
+  \end{fonction}
+
+
+\newpage
+
+
+  \begin{fonction}[\ci{depile()}]
+  Usage : \ci{depile()} \\
+  Entrée : rien \\
+  Sortie : l'élément du sommet de la pile \\
+  Action : la pile contient un élément de moins
+  
+  \medskip
+    
+  Exemple : si au départ \ci{pile = [13,4,9]} alors l'instruction \ci{depile()} renvoie la valeur \ci{9} et la pile vaut maintenant \ci{[13,4]} ; si on exécute une nouvelle instruction \ci{depile()}, elle renvoie cette fois la valeur \ci{4} et la pile vaut maintenant \ci{[13]}.
+  \end{fonction}
+
+\newpage
+  
+  \begin{fonction}[\ci{pile_est_vide()}]
+  Usage : \ci{pile_est_vide()} \\
+  Entrée : rien \\
+  Sortie : vrai ou faux \\
+  Action : ne fait rien sur la pile
+  
+  \medskip
+    
+  Exemple : 
+  \begin{itemize}
+    \item si \ci{pile = [13,4,9]} alors l'instruction \ci{pile_est_vide()} renvoie \ci{False},
+    \item si \ci{pile = []} alors l'instruction \ci{pile_est_vide()} renvoie \ci{True}.
+  \end{itemize}
+  \end{fonction}
+  
+  
+\newpage
+
+\section*{Calculatrice polonaise}
+
+\begin{itemize}
+
+  \item 
+  classique :  $7 + 6$ \quad ; \quad
+  polonaise : $7 \ \ 6 \ \ +$
+
+  \item 
+  classique : $(10 + 5) \times 3$ \quad ; \quad
+  polonaise : $10 \ \ 5 \ \ + \ \ 3 \ \ \times$
+  
+  \item 
+  classique : $10 + 2 \times 3$ \quad ; \quad
+  polonaise : $10 \ \ 2 \ \ 3 \ \ \times \ \ +$  
+   
+  \item 
+  classique : $(2 + 8) \times (6 + 11)$ \quad ; \quad
+  polonaise : $2 \ \ 8 \ \ + \ \ 6 \ \ 11 \ \ + \ \ \times$ 
+\end{itemize}
+  
+\newpage
+
+\begin{itemize}
+  \item On lit l'expression de gauche à droite :
+$$\color{red}\underrightarrow{\color{black}2 \ \ 8 \ \ + \ \ 6 \ \ 11 \ \ + \ \ \times}$$ 
+
+  \item Lorsque l'on rencontre un premier opérateur ($+$, $\times$,\ldots) on calcule l'opération \emph{avec les deux membres juste avant cet opérateur} : 
+$$\underbrace{\color{red}2 \ \ 8 \ \ +}_{2 + 8} \ \ 6 \ \ 11 \ \ + \ \ \times$$ 
+   
+  \item On remplace cette opération par le résultat :
+$$\underbrace{\color{red} 10}_{\substack{\text{résultat de }\\2 + 8}} \ \ 6 \ \ 11 \ \ + \ \ \times$$
+  
+  \item On continue la lecture de l'expression (on cherche le premier opérateur et les deux termes juste avant) :
+ $$10 \ \ \underbrace{\color{red}6 \ \ 11 \ \ +}_{6 + 11 = 17}  \ \ \times
+ \qquad \text{ devient } \qquad 
+10 \ \ 17  \ \ \times  \qquad \text{ qui vaut } \qquad 170$$
+  
+  \item À la fin il ne reste qu'une valeur, c'est le résultat ! (Ici $170$.)
+\end{itemize}
+
+ 
+\newpage
+
+\begin{itemize}
+  \item $8 \ \ 2 \ \ \div \ \ 3 \ \ \times \ \ 7 \ \ +$  
+  
+   
+ \bigskip
+ 
+$$\underbrace{8 \ \ 2 \ \ \div}_{8 \div 2 = 4} \ \ 3 \ \ \times \ \ 7 \ \ +
+\quad\text{ devient }\quad
+\underbrace{4 \ \ 3 \ \ \times}_{4 \times 3 = 12} \ \ 7 \ \ + 
+\quad\text{ devient }\quad
+ 12 \ \ 7 \ \ +
+\quad\text{ qui vaut }\quad
+19$$ 
+ 
+ 
+ \bigskip
+ 
+ \bigskip
+ 
+  \item $11 \ \ 9 \ \ 4 \ \ 3 \ \ + \ \ - \ \ \times$  
+   
+ \bigskip
+  
+$$11 \ \ 9 \ \ \underbrace{4 \ \ 3 \ \ +}_{4+3=7} \ \ - \ \ \times
+\quad\text{ devient }\quad
+11 \ \ \underbrace{9 \ \ 7 \ \ -}_{9 - 7 = 2} \ \ \times 
+\quad\text{ devient }\quad
+11 \ \ 2 \ \ \times
+\quad\text{ qui vaut }\quad
+22$$ 
+\end{itemize}  
+ 
+\newpage
+
+ \begin{algorithme}
+  \sauteligne 
+ \begin{itemize}
+   \item
+   \begin{itemize}
+     \item Entrée : une expression en écriture polonaise (une chaîne de caractères).
+     \item Sortie : la valeur de cette expression.
+     \item Exemple : \ci{"2 3 + 4 *"} (le calcul $(2+3) \times 4$) donne $20$.        
+   \end{itemize}
+
+  \item Partir avec une pile vide.   
+   
+   \item Pour chaque élément de l'expression (lue de gauche à droite) :
+   \begin{itemize}
+     \item si l'élément est un nombre, alors ajouter ce nombre à la pile,
+     
+     \item si l'élément est une opération, alors :
+       \begin{itemize}
+         \item dépiler une fois pour obtenir un nombre $b$,
+         \item dépiler une seconde fois pour obtenir un nombre $a$,
+         \item calculer $a+b$ ou $a \times b$ selon l'opération,
+         \item ajouter ce résultat à la pile.
+       \end{itemize}
+     \end{itemize}   
+   \item À la fin, la pile ne contient qu'un seul élément, c'est le résultat du calcul.
+   
+ \end{itemize}  
+ \end{algorithme}
+
+ 
+\newpage
+
+\begin{fonction}[\ci{calculatrice_polonaise()}]
+  Usage : \ci{calculatrice_polonaise(expression)} \\
+  Entrée : une expression en notation polonaise (chaîne de caractères) \\
+  Sortie : le résultat du calcul \\
+  Action : utilise une pile
+   
+  \medskip
+   
+  Exemple : 
+  \begin{itemize}
+    \item \ci{calculatrice_polonaise("2 3 4 + +")} renvoie \ci{9}
+    \item \ci{calculatrice_polonaise("2 3 + 5 *")} renvoie \ci{25}
+    \end{itemize}    
+\end{fonction}  
+  
+
+\end{document}

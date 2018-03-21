@@ -37,8 +37,23 @@ print(position)
 position = chercher_find(chaine,"XYZ")
 print(position)
 
-
 ## Question 3 ##
+
+def chercher_index(chaine,sous_chaine):
+    position = chaine.index(sous_chaine)    
+    return position
+
+# Test 
+print("--- Avec index() ---")
+
+position = chercher_index(chaine,sous_chaine)
+print(position)
+
+# position = chercher_index(chaine,"XYZ")
+# print(position)
+
+
+## Question 4 ##
 
 
 def chercher(chaine,sous_chaine):

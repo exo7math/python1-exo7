@@ -1,0 +1,89 @@
+\documentclass[12pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\pagestyle{empty}
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Chercher et remplacer}
+%====================================================================
+
+\newcommand{\rzero}{{\color{red}\textbf{0}}}
+\newcommand{\run}{{\color{blue}\textbf{1}}}
+
+
+On considère une \og{}phrase\fg{} composée de seulement deux lettres possibles 
+\rzero{} et \run. Dans cette phrase nous allons chercher un motif (une sous-chaîne) et le remplacer par un autre.
+
+\begin{exemple}
+Appliquer la transformation \rzero\run{} $\rightarrow$ \run\rzero{}
+à la phrase \run\rzero\run\run\rzero.
+
+On lit la phrase de gauche à droite, on trouve le premier motif \rzero\run{} à partir de la seconde lettre, on le remplace par \run\rzero{} :\\
+\centerline{\run(\rzero\run)\run\rzero{} \quad $\longmapsto$ \quad \run(\run\rzero)\run\rzero}
+
+On peut recommencer à partir du début de la phrase obtenue, avec toujours la même transformation  \rzero\run{} $\rightarrow$ \run\rzero{} :\\
+\centerline{\run\run(\rzero\run)\rzero{}  \quad $\longmapsto$ \quad \run\run(\run\rzero)\rzero}
+
+Le motif \rzero\run{} n'apparaît plus dans la phrase \run\run\run\rzero\rzero{} donc
+la transformation \rzero\run{} $\rightarrow$ \run\rzero{} laisse maintenant cette phrase inchangée.
+
+Résumons : voici l'effet de la transformation itérée \rzero\run{} $\rightarrow$ \run\rzero{} à la phrase \run\rzero\run\run\rzero{} :\\
+\centerline{\run\rzero\run\run\rzero{}  \quad $\longmapsto$ \quad \run\run\rzero\run\rzero{} \quad $\longmapsto$ \quad \run\run\run\rzero\rzero}
+\end{exemple}
+
+
+\newpage
+
+\begin{exemple}
+Appliquer la transformation \rzero\rzero\run{} $\rightarrow$ \run\run\rzero\rzero{}
+à la phrase \rzero\rzero\run\run.
+
+Une première fois :\\
+\centerline{(\rzero\rzero\run)\run{}  \quad $\longmapsto$ \quad (\run\run\rzero\rzero)\run}
+Une seconde fois :\\
+\centerline{\run\run(\rzero\rzero\run)  \quad $\longmapsto$ \quad \run\run(\run\run\rzero\rzero)}
+Et ensuite la transformation ne modifie plus la phrase.
+\end{exemple}
+
+
+\newpage
+
+\begin{exemple}
+Voyons un dernier exemple avec la transformation \rzero\run{} $\rightarrow$ \run\run\rzero\rzero{} pour la phrase de départ \rzero\rzero\rzero\run{}: \\
+\centerline{
+\rzero\rzero\rzero\run{} \quad $\longmapsto$ \quad 
+\rzero\rzero\run\run\rzero\rzero{} \quad $\longmapsto$ \quad 
+\rzero\run\run\rzero\rzero\run\rzero\rzero{} \quad $\longmapsto$ \quad 
+\run\run\rzero\rzero\run\rzero\rzero\run\rzero\rzero{} \quad $\longmapsto$ \quad $\cdots$}
+
+On peut itérer la transformation, pour obtenir des phrases de plus en plus longues.
+\end{exemple}
+
+
+\newpage
+
+On considère ici uniquement des transformations du type \rzero$^a$\run$^b$ $\rightarrow$ \run$^c$\rzero$^d$, c'est-à-dire un motif avec d'abord des \rzero{} puis des \run{} est remplacé par un motif avec d'abord des \run{} puis des \rzero.
+
+\bigskip
+\bigskip
+
+\textbf{Catégories de transformations.}
+	
+	\begin{itemize} 
+	\item \textbf{Transformation linéaire.}
+	Vérifie expérimentalement que la transformation \rzero\rzero\run\run{} $\rightarrow$ \run\run\rzero{} est \emph{linéaire}, c'est-à-dire que pour toutes les phrases de longueur $p$, il y aura au plus de l'ordre de $p$ itérations au maximum. Par exemple pour $p=10$, quel est le nombre maximum d'itérations  ?
+	
+	\item \textbf{Transformation quadratique.}
+	Vérifie expérimentalement que la transformation \rzero\run{} $\rightarrow$ \run\rzero{} est \emph{quadratique}, c'est-à-dire que pour toutes les phrases de longueur $p$, il y aura au plus de l'ordre de $p^2$ itérations au maximum. Par exemple pour $p=10$, quel est le nombre maximum d'itérations  ?
+	
+	\item \textbf{Transformation exponentielle.}
+	Vérifie expérimentalement que la transformation \rzero\run{} $\rightarrow$ \run\run\rzero{} est \emph{exponentielle}, c'est-à-dire que pour toutes les phrases de longueur $p$, il y aura un nombre fini d'itérations, mais que ce nombre peut être très grand (beaucoup plus grand que $p^2$) avant stabilisation. Par exemple pour $p=10$, quel est le nombre maximum d'itérations ?	
+
+	\item \textbf{Transformation sans fin.}
+	Vérifie expérimentalement que pour la transformation  \rzero\run{} $\rightarrow$ \run\run\rzero\rzero{}, il existe des phrases qui ne vont jamais se stabiliser.
+	\end{itemize}
+
+\end{document}

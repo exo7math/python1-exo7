@@ -1,5 +1,8 @@
-\documentclass[11pt,class=report,crop=false]{standalone}
+\documentclass[12pt,class=report,crop=false]{standalone}
 \usepackage[screen]{../python}
+
+
+\pagestyle{empty}
 
 \begin{document}
 
@@ -8,153 +11,33 @@
 \chapitre{Bitcoin}
 %====================================================================
 
-\objectifs{Le \emph{bitcoin} est une monnaie dématérialisée et décentralisée. Elle repose sur deux principes informatiques : la cryptographie à clé publique et la preuve de travail. Pour comprendre ce second principe, tu vas créer un modèle simple de \emph{bitcoin}.}
+\section*{Bitcoin}
 
-\index{bitcoin@\emph{bitcoin}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Activité 1
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{activite}[Preuve de travail]
-
-\objectifs{Objectifs : comprendre ce qu'est une preuve de travail sur un modèle simple. Cette activité est indépendante du reste de la fiche.
-L'idée est de trouver un problème difficile à résoudre mais facile à vérifier. Comme les sudokus par exemple : il suffit de dix secondes pour vérifier qu'une grille est remplie correctement, par contre il a fallu plus de dix minutes pour le résoudre.}
-
-\index{preuve de travail}
-
-Le problème mathématique est le suivant : on te donne un nombre premier $p$  et un entier $y$ ; tu dois trouver un entier $x$ tel que :
-$$x^2 = y \pmod{p}$$
-Autrement dit $x$ est une racine carrée de $y$ modulo $p$.
-Attention, il n'existe pas toujours de solution pour $x$. 
-
-\textbf{Exemples.}
 \begin{itemize}
-  \item Pour $p=13$ et $y = 10$, alors une solution est $x = 6$.
-  Effet $x^2 = 6^2 = 36$. Et $36 = 2\times 13 + 10$ donc $x^2 = 10 \pmod{13}$.
-  
-  \item La solution n'est pas forcément unique. Par exemple, vérifie que $x=7$ est aussi solution.
-  
-  \item Il n'y a pas toujours de solution, par exemple pour $p=13$ et $y=5$, aucun entier $x$ n'est solution.
-  
-  \item Exercice : pour $p = 13$, trouve à la main deux solutions $x$ au problème $x^2 = 9 \pmod{13}$ ; trouve une solution $x$ au problème $x^2 = 3 \pmod{13}$.
-  
-\end{itemize}
+   \item La monnaie \emph{bitcoin} est une monnaie dématérialisée. 
+
+   \item Les transactions sont enregistrées dans un grand livre de compte appelé \emph{blockchain}. 
 
 
-L'entier $p$ est fixé pour toute l'activité. 
-Pour les exemples faciles on prendra $p = 101$, pour les exemples moyens $p = 15\,486\,869$ et pour les exemples difficiles $p = 2\,276\,856\,017$. Plus l'entier $p$ est grand, plus la preuve de travail est difficile à obtenir.
+   \item Imaginons un groupe d'amis qui souhaitent partager les dépenses du groupe de façon la plus simple possible.
 
-\begin{enumerate}
-  \item \textbf{Vérification (facile).} 
-  \'Ecris une fonction \ci{verification(x,y)} qui renvoie \og{}vrai\fg{} si $x$ est bien solution du problème $x^2 = y \pmod{p}$ et \og{}faux\fg{} sinon.
-  
-  Vérifie que $x = 6\,543\,210$ est solution lorsque $y = 8\,371\,779$ et $p = 15\,486\,869$. Affiche le temps de calcul nécessaire à cette vérification. (Voir le cours plus bas.)
-  
-  \item \textbf{Recherche de solution (difficile).} Pour trouver une solution $x$, il n'y a pas vraiment d'autres choix pour nous que de tester tous les $x$ en commençant par $x=0$, $x=1$\ldots{}
-Programme une fonction \ci{racine(y)} qui renvoie une solution $x$ du problème pour $y$ donné (ou \ci{None} s'il n'y a pas de solution).
-
-  \begin{itemize}
-    \item Pour $p = 101$ et $y=17$, trouve $x$ tel que $x^2 = y \pmod{p}$. 
-    \item Pour $p = 15\,486\,869$ et $y = 8\,371\,779$, tu dois retrouver le $x$ de la première question. Combien de temps a pris la recherche ? 
-    
-    \item Pour $p = 15\,486\,869$ et $y = 13\,017\,204$, trouve $x$ tel que $x^2 = y \pmod{p}$.    
-   \end{itemize}
-
-
-\medskip
-
-\emph{Conclusion : nous avons trouvé un problème difficile à résoudre, mais pour lequel il est facile de vérifier qu'une solution donnée convient. Pour des valeurs de $p$ plus grandes, la recherche d'une solution $x$ peut être beaucoup trop longue et ne pas aboutir. Nous allons voir comment on peut ajuster la difficulté du problème.}
-
-
-	\item Au lieu de chercher une solution exacte à notre problème $x^2 = y \pmod{p}$, qui est équivalent à $x^2-y \pmod{p} = 0$. On cherche une solution approchée, c'est-à-dire qui vérifie : 	$$x^2 - y \pmod{p} \ \le m.$$
-	Par exemple si $m=5$, alors on peut avoir (modulo $p$) : $x^2 - y = 0$, $x^2 - y = 1$,
-	$x^2-y = 2$,\ldots, $x^2-y=5$. 
-	
-	Programme une fonction \ci{racine_approchee(y,marge)} qui trouve une solution approchée à notre problème $x^2 = y \pmod{p}$.
-	
-	Combien de temps faut-il pour trouver un solution au problème approché lorsque $p = 15\,486\,869$,  $y = 8\,371\,779$ et $m=20$ ?
-	Choisis un nombre premier $p$ assez grand et trouve une marge d'erreur $m$ de sorte que trouver une solution au problème approché nécessite environ entre 30 et 60 secondes de calculs (pour un $y$ quelconque).
-
-\end{enumerate}
-  
-
-Voici des exemples de nombres premiers que tu peux utiliser pour tes essais :
-$$101 \quad
-1097 \quad
-10651 \quad
-100109 \quad
-1300573 \quad
-15486869 \quad 
-179426321 \quad  
-2276856017 \quad 
-32416187567$$
-\end{activite}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{cours}[Chronomètre]
-
-\index{temps de calcul}
-\index{module!time@\ci{time}}
-\index{time@\ci{time}}
-
-Le module \ci{time} permet de chronométrer le temps d'exécution mais aussi de savoir la date et l'heure (voir aussi le module \ci{timeit} expliqué dans la fiche \og{}Arithmétique -- Tant que\fg{}).
-Voici un petit script pour mesurer le temps de calcul d'une instruction. 
-
-\begin{lstlisting}
-import time
-
-debut_chrono = time.time()
-
-time.sleep(2)
-
-fin_chrono = time.time()
-
-total_chrono = fin_chrono - debut_chrono
-print("Temps d'exécution (en secondes) :", total_chrono)
-\end{lstlisting}
-
-
-\textbf{Explications.}
-\begin{itemize}
-  \item Le module s'appelle \ci{time}.
-  \item La fonction qui renvoie le temps s'appelle aussi \ci{time()}, on l'appelle donc par \ci{time.time()} !
-  \item La fonction \ci{time()} renvoie un nombre qui ne nous intéresse pas. Ce qui nous intéresse c'est l'écart entre deux valeurs de cette fonction. 
-  \item \ci{debut_chrono = time.time()} c'est comme lancer un chronomètre.
-  \item \ci{fin_chrono = time.time()} c'est comme l'arrêter.
-  \item \ci{total_chrono = fin_chrono - debut_chrono} est la durée totale qu'a pris notre script en secondes.
-  \item La fonction \ci{time.sleep(duree)} fait une pause d'une certaine durée de secondes dans le programme.
-\end{itemize}
-\end{cours}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{cours}[\emph{Bitcoin} et \emph{blockchain}]
-
-La monnaie \emph{bitcoin} est une monnaie dématérialisée. Les transactions sont enregistrées dans un grand livre de compte appelé \emph{blockchain}.\index{blockchain@\emph{blockchain}} Nous allons construire un modèle (très simplifié) d'un tel livre de compte.
-
-
-Imaginons un groupe d'amis qui souhaitent partager les dépenses du groupe de façon la plus simple possible. Au départ tout le monde dispose de 1000 \emph{bitcoins} et on note au fur et à mesure les dépenses et les recettes de chacun. 
-%À la fin des vacances, ils  régulariseront la situation.
-
-On note sur le livre de compte la liste des dépenses/recettes, par exemple :
+   \item Au départ tout le monde dispose de 1000 \emph{bitcoins} et on note au fur et à mesure les dépenses et les recettes de chacun.
+ 
+   \item On note sur le livre de compte la liste des dépenses/recettes, par exemple :
 \begin{itemize}
   \item \og{}Amir a dépensé 100 \emph{bitcoins}\fg{}
   \item \og{}Barbara a reçu 45 \emph{bitcoins}\fg{}
   \item etc.
 \end{itemize}
-Il suffit de parcourir tout le livre pour savoir combien chacun a reçu ou dépensé depuis le début.
 
-\bigskip
+   \item Il suffit de parcourir tout le livre pour savoir combien chacun a reçu ou dépensé depuis le début.
+\end{itemize}
+
+\newpage
+
+\section*{Blockchain}
 
 Pour éviter que quelqu'un ne vienne truquer le livre de compte, après chaque transaction on ajoute dans le livre une certification construite à partir d'une preuve de travail.
-Voici ce que l'on écrit dans le livre :
 \begin{enumerate}
   \item On commence par une preuve de travail quelconque. Pour nous ce sera 
   \ci{[0,0,0,0,0,0]}.
@@ -168,75 +51,45 @@ Voici ce que l'on écrit dans le livre :
 \tikzinput{fig-bitcoin-4}
 }  
 
-
-La preuve de travail que l'on calcule dépend de la transaction précédente mais aussi de la preuve de travail précédente, qui elle même dépend des données antérieures... Ainsi, chaque nouvelle preuve de travail dépend en fait de tout ce qui a été écrit depuis le début (même si le calcul ne porte explicitement que sur les deux dernières entrées).
-
-Quelqu'un qui voudrait truquer une transaction passée devrait recalculer toutes les preuves de travail qui viennent après. Ceci n'est pas possible pour une personne seule : il y a plusieurs preuves de travail à calculer et chaque preuve demande beaucoup de calculs.
-\end{cours}
+\newpage
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Activité 2
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Preuve de travail}
 
-\begin{activite}[Outils pour les listes]
 
-\objectifs{Objectifs : construire des fonctions utiles pour manipuler les listes d'entiers dans les activités suivantes.}
 
-Nos listes sont des listes d'entiers compris entre $0$ et $99$.
+\begin{itemize}
+   \item Une preuve de travail est la résolution d'un problème difficile, mais où il est facile de vérifier que la solution obtenue est correcte.
 
-\begin{enumerate}
-  \item Programme une fonction \ci{addition(liste1,liste2)} qui additionne terme à terme et modulo $100$, les éléments de deux listes de même longueur. 
-  Par exemple \ci{addition([1,2,3,4,5,6],[1,1,1,98,98,98])} renvoie \ci{[2,3,4,2,3,4]}.
+  \item Comme les sudokus par exemple : il suffit de dix secondes pour vérifier qu'une grille est remplie correctement, par contre il a fallu plus de dix minutes pour le résoudre.
+\end{itemize}
+
+\myfigure{0.5}{
+\tikzinput{fig-bitcoin-4}
+}  
+
+\newpage
+
+\section*{Fonction de hachage}
+
+
+\begin{itemize}
+  \item À partir d'un long message nous calculons une courte empreinte. 
+  \item Il est difficile de trouver deux messages différents ayant la même empreinte.
+  \item Ici notre message est une liste d'entiers (entre $0$ et $99$) de longueur un multiple quelconque de $N=6$.
+  \item Son empreinte (ou \emph{hash}) sera une liste de longueur $N=6$.
   
-  \item On va chercher des listes qui commencent par des zéros (ou bien des zéros puis des nombres assez petits).  Une liste \ci{liste} est plus petite que la liste \ci{liste_max} si chaque élément de \ci{liste}  est inférieur ou égal à chaque élément de même rang de \ci{liste_max}.
-  
-  Par exemple la liste \ci{[0,0,1,2,3,4]} est plus petite que la liste \ci{[0,0,5]}.
-  Ce n'est pas le cas de la liste \ci{[0,10,0,1,1]}.
-  Autre exemple : être plus petit que la liste \ci{[0,0,0]} cela signifie commencer par trois zéros. Être plus petit que la liste \ci{[0,0,1]} signifie commencer par \ci{[0,0,0]} ou \ci{[0,0,1]}.
-  
-  Programme une fonction \ci{est_plus_petit(liste,liste_max)} qui renvoie \og{}vrai\fg{} lorsque \ci{liste} est plus petite que \ci{liste_max}.
-
-  \item On aura besoin de transformer une phrase en une liste de nombres. De plus, on va découper nos listes en blocs de taille $N$ (avec $N=6$), on rajoute donc des zéros en début de liste afin qu'elle soit de longueur un multiple de $N$.
-  
-  Écris une fonction \ci{phrase_vers_liste(phrase)} qui convertit une chaîne de caractères en liste d'entiers entre $0$ et $99$ et si besoin rajoute des zéros devant afin que la liste ait la bonne taille. 
-  
-  La formule à utiliser pour convertir un caractère en un entier strictement inférieur à $100$ est :\\
-  \centerline{\ci{ord(c) \% 100}}  
-  Par exemple : si \ci{phrase = "Vive moi !"} alors la fonction renvoie :\\  
-\centerline{\ci{[0, 0, 86, 5, 18, 1, 32, 9, 11, 5, 32, 33]}}
-Le caractère \ci{"i"} à pour code ASCII/unicode $105$ donc, modulo $100$, le nombre est $5$. Note que la fonction ajoute deux $0$ en début de liste afin d'avoir une longueur qui est un multiple de $N=6$.
-  
-\end{enumerate}   
-     
-\end{activite}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Activité 3
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{activite}[Fonction de hachage]
-
-\objectifs{Objectifs : créer une fonction de hachage. À partir d'un long message nous calculons une courte empreinte. Il est difficile de trouver deux messages différents ayant la même empreinte.}
-
-\index{fonction!de hachage}
-\index{hash@\emph{hash}}
-
-Dans cette activité, notre message est une liste d'entiers (entre $0$ et $99$) de longueur un multiple quelconque de $N=6$, nous le transformons en une liste de longueur $N=6$ : son empreinte (ou \emph{hash}). Voici des exemples de ce que va faire notre fonction de hachage :
-\begin{itemize}	
-  \item la liste \ci{[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]} a pour empreinte :\\
+  \item  Exemple : \ci{[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]} a pour empreinte :\\
   \centerline{\ci{[10, 0, 58, 28, 0, 90]}}
-  \item la liste \ci{[1, 1, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]} a pour empreinte :\\
+  \item Exemple : \ci{[1, 1, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]} a pour empreinte :\\
   \centerline{\ci{[25, 14, 29, 1, 19, 6]}}
 \end{itemize}  
   
  L'idée est de mélanger les nombres par bloc de $N=6$ entiers, puis de combiner ce bloc au suivant et de recommencer, jusqu'à obtenir un seul bloc.
-\begin{enumerate}
 
+\newpage
 
-  \item \textbf{Un tour.} 
+\section*{Un tour} 
   
   Pour un bloc $[b_0,b_1,b_2,b_3,b_4,b_5]$ de taille $N=6$, \emph{faire un tour} consiste à faire les opérations suivantes :
   \begin{enumerate}
@@ -257,7 +110,9 @@ Dans cette activité, notre message est une liste d'entiers (entre $0$ et $99$) 
 \tikzinput{fig-bitcoin-1}
 }  
 
-  
+
+\newpage
+\begin{minipage}{0.6\textwidth}  
   Partant du bloc $[0, 1, 2, 3, 4, 5]$, on a donc successivement :
    \begin{enumerate}
     \item additions : $[0, 1, 2, 5, 4, 9]$
@@ -269,11 +124,21 @@ Dans cette activité, notre message est une liste d'entiers (entre $0$ et $99$) 
     \item réduction modulo $100$ : $[8,1,12,27,86,77]$
   \end{enumerate}
   
-  Programme un telle fonction \ci{un_tour(bloc)} qui renvoie la transformation du bloc après ces opérations. Vérifie que le bloc $[1, 1, 2, 3, 4, 5]$ est transformé en $[8, 8, 23, 27, 86, 77]$.
+   Vérifie que le bloc $[1, 1, 2, 3, 4, 5]$ est transformé en $[8, 8, 23, 27, 86, 77]$.
+\end{minipage}\quad
+\begin{minipage}{0.3\textwidth}
+ \myfigure{0.7}{
+\tikzinput{fig-bitcoin-1}
+}  
+\end{minipage} 
  
-    \item \textbf{Dix tours.} 
+ 
+\newpage
+
+ 
+\section*{Dix tours} 
     
-    Pour bien mélanger chaque bloc, programme une fonction  \ci{dix_tours(bloc)} qui itère dix fois les opérations précédentes.
+    Pour bien mélanger chaque bloc, itère dix fois les opérations précédentes.
     Après $10$ tours :
     \begin{itemize}
       \item le bloc $[0, 1, 2, 3, 4, 5]$ devient $[98, 95, 86, 55, 66, 75]$,
@@ -281,7 +146,9 @@ Dans cette activité, notre message est une liste d'entiers (entre $0$ et $99$) 
     \end{itemize}
  Deux blocs proches sont transformés en deux blocs très différents ! 
    
-   \item \textbf{Hachage d'une liste.} 
+\newpage   
+   
+\section*{Hachage d'une liste} 
    
    Partant d'une liste de longueur un multiple de $N=6$, on la découpe en blocs de longueur $6$ et on calcule l'empreinte de cette liste selon l'algorithme suivant :
    \begin{itemize}
@@ -297,23 +164,24 @@ Voici le schéma d'une situation avec trois blocs : dans un premier temps il y a
 \tikzinput{fig-bitcoin-2}
 }  
   
+\newpage
   
   Exemple avec la liste $[0,1,2,3,4,5,1,1,1,1,1,1,10,10,10,10,10,10]$.
   \begin{itemize}
     \item Le premier bloc est $[0,1,2,3,4,5]$, son mélange à $10$ tours est 
     $[98, 95, 86, 55, 66, 75]$. 
-    \item On ajoute ce mélange au second bloc $[1,1,1,1,1,1]$ (voir la fonction \ci{addition()} de l'activité 2).
+    \item On ajoute ce mélange au second bloc $[1,1,1,1,1,1]$.
     \item La liste restante est maintenant $[99,96,87,56,67,76,10,10,10,10,10,10]$.
     \item On recommence. Le nouveau premier bloc est $[99,96,87,56,67,76]$, son mélange à $10$ tours vaut $[60, 82, 12, 94, 6, 80]$, on l'ajoute au dernier bloc $[10,10,10,10,10,10$] pour obtenir (modulo $100$) $[70,92,22,4,16,90]$.
     \item On effectue un dernier mélange à $10$ tours pour obtenir l'empreinte : $[77, 91, 5, 91, 89, 99]$.
    \end{itemize}
    
-   Programme une fonction \ci{hachage(liste)} qui renvoie l'empreinte d'une liste.
-     Teste-la sur les exemples donnés au début de l'activité.
-\end{enumerate}   
-     
-\end{activite}
+   
+\myfigure{0.4}{
+\tikzinput{fig-bitcoin-2}
+}     
 
+\end{document}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
