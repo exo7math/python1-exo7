@@ -1,0 +1,203 @@
+%
+% A compiler avec xelatex !
+% xelatex -output-driver="xdvipdfmx -V3" python_cover.tex
+%% xelatex -output-driver="xdvipdfmx" python_cover.tex
+\documentclass[tikz,border=0mm]{standalone}
+\usetikzlibrary{calc}
+% =====================================================
+% For the Python logo (that was in SVG)
+% =====================================================
+\usetikzlibrary{svg.path}
+% =====================================================
+% For the Hilbert curve
+% =====================================================
+\usetikzlibrary{shadings,lindenmayersystems}
+\pgfdeclarelindenmayersystem{Hilbert curve}{
+  \rule{L -> +RF-LFL-FR+}
+  \rule{R -> -LF+RFR+FL-}}
+% =====================================================
+% The font
+% =====================================================
+\usepackage{fontspec}
+\newfontfamily\titlefont{AlteDin1451Mittelschrift.ttf}
+\newfontfamily\roboto{Roboto}
+\setmainfont{Roboto}
+%\newfontfamily\authorfont{Times New Roman}
+\newfontfamily\authorfont{Roboto}
+%\newfontfamily\authorfont{AlteDin1451Mittelschrift.ttf}
+
+% =====================================================
+% The colors
+% =====================================================
+\definecolor{scratchgreen}{rgb}{.43000793,.78393555,.27934265}
+\definecolor{scratchviolet}{rgb}{.50601196,.10708618,.55937195}
+
+\definecolor{goldleaf}{HTML}{D1B280}
+% 16 Day & Night
+\definecolor{darknavy}{HTML}{011A27}
+\definecolor{blueberry}{HTML}{073852}
+\definecolor{tangerine}{HTML}{F0810F}
+
+\definecolor{daffodil}{HTML}{E7DF44}
+
+\definecolor{hazelnut}{HTML}{B99A77}
+\definecolor{ginger}{HTML}{AF1C1C}
+\definecolor{sky}{HTML}{2F2F28}
+
+% Colors by function
+\colorlet{background}{hazelnut}
+
+\tikzset{
+  hilbert/.style = {bottom color=black, top color=white, draw=black, opacity=.14},
+  spine/.style = {fill, opacity=.1}
+}
+
+\colorlet{author}{black}
+
+\colorlet{pythonlogoup}{darknavy}
+\colorlet{pythonlogodown}{blueberry}
+\colorlet{titlepython}{ginger}
+\colorlet{titleau}{sky}
+\colorlet{titlelycee}{ginger}
+
+\colorlet{subtitlealgo}{blueberry}
+
+\colorlet{spinepython}{white}
+\colorlet{spineau}{sky}
+\colorlet{spinelycee}{white}
+\colorlet{spinealgo}{ginger}
+
+\definecolor{coul1}{HTML}{FFFFFF}
+\definecolor{coul2}{HTML}{AAAAAA}
+\colorlet{serpent}{coul1}
+\colorlet{oeilserpent}{coul2}
+
+%=======================================================
+% The cover size
+%=======================================================
+% Calculate the splin
+\def\numPages{262}
+\newlength{\thickCream}\setlength{\thickCream}{0.0025 in}
+\newlength{\thickWhite}\setlength{\thickWhite}{0.002252 in}
+\newlength{\SpineW}\setlength{\SpineW}{\numPages\thickWhite} % 236*0.0025 = 0.59 (cream),  262*0.002252 = 0.590024 (white)
+% The standard bleed
+\newlength{\Bleed}\setlength{\Bleed}{.125 in}
+% Set the page size
+\newlength{\PageW}\setlength{\PageW}{8.5 in}
+\newlength{\PageH}\setlength{\PageH}{11 in}
+% Calculate the total dimensions
+\newlength{\TrimW}\setlength{\TrimW}{\dimexpr 2\PageW + \SpineW \relax}
+\newlength{\TrimH}\setlength{\TrimH}{\PageH}
+\newlength{\CropW}\setlength{\CropW}{\dimexpr \TrimW + 2\Bleed \relax}
+\newlength{\CropH}\setlength{\CropH}{\dimexpr \TrimH + 2\Bleed \relax}
+\newlength{\LineW}\setlength{\LineW}{2\Bleed}
+%=======================================================
+% Some PDF specials
+%=======================================================
+\special{pdf: docinfo <<
+/Author (Exo7)
+/Title (Python au Lycée - Algorithmes et programmation)
+/Keywords (Python, Lycée)
+/Subject (manuel de programmation en Python)
+>>}
+\edef\pwpt{\the\numexpr \dimexpr0.996264009963\CropW\relax/65536 \relax} %paper width in PS points
+\edef\phpt{\the\numexpr \dimexpr0.996264009963\CropH\relax/65536 \relax} %paper height in PS points
+\expandafter\special\expandafter{pdf: put @thispage <<
+  /MediaBox [0 0 \pwpt\space\phpt]
+  /BleedBox [0 0 \pwpt\space\phpt]
+  /CropBox [0 0 \pwpt\space\phpt]
+  /TrimBox [0 0 \pwpt\space\phpt]>>}
+%=======================================================
+% for test
+%=======================================================
+\usepackage{blindtext}
+\newif\ifshowborders\showbordersfalse % to display the security zone (Bleed)
+\showborderstrue
+
+\tikzset{
+  frame/.style 2 args={inner sep=0, outer sep=0, minimum width=#1, minimum height=#2, node contents=}
+}
+
+\begin{document}%
+  \begin{tikzpicture}
+    % Clip
+    \clip (-.5*\CropW,-\Bleed) rectangle +(\CropW,\CropH);
+    % Set nodes for anchors : Cover, Back, Front and Spine
+    \path
+      (0,-\Bleed) node[name=Cover,above,fill=background,frame={\CropW}{\CropH}]
+      (-\SpineW/2,0) node[name=Back,above left,frame={\PageW}{\PageH}]
+      (\SpineW/2,0)  node[name=Front,above right,frame={\PageW}{\PageH}]
+      (0,0)  node[name=Spine,above,spine,frame={\SpineW}{\PageH}];
+    % ---------------------------------------------------
+    % Background
+    % ---------------------------------------------------
+    \def\steps{5}
+    \shadedraw[shift={(Cover.south west)},hilbert]
+      [l-system={Hilbert curve, axiom=L, order=5, step={\CropW/31+.01pt}, angle=90}]
+      lindenmayer system;
+    % ---------------------------------------------------
+    % Python logo and title
+        \begin{scope}[transform canvas ={yshift=21mm}] 
+     \begin{scope}[scale=1.6,yshift=110mm,xshift=35mm] 
+     
+       
+\path[ultra thick,fill =serpent] (0,0) arc (90:-90:-1) --  ++(9,0) -- ++(0,-6 ) -- ++ (-4,0) -- ++(0,-3) -- ++(8,0) -- ++(0,-2) --++(-10,0)--++(0,7) --++(4,0) --++(0,2) --cycle ; 
+%
+% (0,0) arc (90:-90:-1) --  ++(9,0) -- ++(0,-6 ) -- ++ (-4,0) -- ++(0,-3) -- ++(4,0) -- ++(0,-6) -- ++(-8,0) % -- ++ (-1,1) -- ++ (1,1) 
+%--++(0,2)
+%-- ++(6,0) -- ++(0,2) --++(-4,0) -- ++(0,7) --++(4,0) -- ++(0,2) --cycle ; 
+\path[fill=oeilserpent] (0,1.2) circle (0.3);  
+\end{scope}    
+    \end{scope}  
+    % ---------------------------------------------------
+    \begin{scope}[transform canvas ={yshift=21mm}]
+ %     \fill[shift={(Front.center)},pythonlogoup]svg{M 133.72 -122.51 v 52.97 c 0 41.07 -34.81 75.63 -74.52 75.63 h -119.15 c -32.64 0 -59.64 27.93 -59.64 60.61 v 113.59 c 0 32.32 28.11 51.34 59.64 60.61 c 37.76 11.1 73.96 13.12 119.15 0 c 30.03 -8.69 59.64 -26.19 59.64 -60.61 v -45.46 h -119.14 v -15.15 h 119.14 h 59.64 c 34.67 0 47.59 -24.18 59.64 -60.48 c 12.45 -37.37 11.93 -73.3 0 -121.23 c -8.57 -34.51 -24.93 -60.47 -59.64 -60.48 h -44.76 z m -67.01 287.64 c 12.37 0 22.38 10.13 22.38 22.66 c 0 12.57 -10.02 22.8 -22.38 22.8 c -12.32 0 -22.38 -10.23 -22.38 -22.8 c 0 -12.53 10.06 -22.66 22.38 -22.66 z};
+ %     \fill[shift={(Front.center)},pythonlogodown]svg{M -2.94 -250 c -20.39 .1 -39.87 1.83 -57 4.87 c -50.48 8.92 -59.64 27.58 -59.65 62.01 v 45.46 h 119.29 v 15.15 h -119.29 h -44.76 c -34.67 0 -65.02 20.84 -74.52 60.48 c -10.95 45.44 -11.44 73.79 0 121.23 c 8.48 35.31 28.73 60.47 63.4 60.48 h 41.01 v -54.51 c 0 -39.37 34.06 -74.1 74.51 -74.1 h 119.15 c 33.17 0 59.64 -27.31 59.64 -60.61 v -113.58 c 0 -32.32 -27.27 -56.61 -59.64 -62.01 c -20.49 -3.41 -41.75 -4.96 -62.14 -4.87 z m -64.51 36.57 c 12.32 0 22.38 10.23 22.38 22.8 c 0 12.53 -10.06 22.66 -22.38 22.66 c -12.37 0 -22.38 -10.13 -22.39 -22.66 c 0 -12.57 10.02 -22.8 22.39 -22.8 z};
+      % ---------------------------------------------------
+     % \path[every node/.style={scale=7, font=\titlefont}]%, outer sep=0, inner sep=0}]
+     \path[every node/.style={scale=7, font=\titlefont}] (Front.center) + (93mm,53mm) node[left] {\textcolor{titlepython}{PYTHON}};
+\path[every node/.style={scale=7, font=\titlefont}](Front.center) +(93mm,23mm) node[left] {\textcolor{titleau}{AU}};
+    \path[every node/.style={scale=7, font=\titlefont}](Front.center) +(93mm,-9mm) node[left] {\textcolor{titlelycee}{LYCÉE}};
+
+    \end{scope}
+    
+    % ---------------------------------------------------  
+    \begin{scope}[transform canvas ={yshift=21mm}]  
+    % Auteur   
+    \path (Front.south) +(-53mm,-1mm) node[author,scale=3,font=\authorfont]{\textcolor{titleau}{\bf Arnaud Bodin}};
+    % Sous-titre
+     \path (Front.center) +(20mm,-86mm) node[right,scale=2.5,font=\authorfont]{Algorithmes et};
+      \path (Front.center) +(20mm,-96mm) node[right,scale=2.5,font=\authorfont]{programmation};    
+     \end{scope}
+  
+    % ---------------------------------------------------
+    % Spine
+    % ---------------------------------------------------
+    \begin{scope}[transform canvas ={yshift=21mm}]
+      \node[rotate=-90,scale=2.1] (tranche) at (Spine.center)
+        {\textcolor{spinepython}{\bf PYTHON}\textcolor{spineau}{\bf ~AU~}\textcolor{spinelycee}{\bf LYCÉE}\textcolor{spinealgo}{\bf ~\textemdash~Algorithmes et programmation}};
+    \end{scope}
+    % ---------------------------------------------------
+    %  Logos Exo7
+    % ---------------------------------------------------
+    \path (Spine.south) +(0,14mm) node{\includegraphics[width=11mm]{exo7_logo_white.pdf}};
+    \path (Front.south) +(80mm,25mm) node{\includegraphics[width=21mm]{exo7_logo_white.pdf}};
+    % ---------------------------------------------------
+    % Back
+    % ---------------------------------------------------
+    \path (Back.center) node[scale=2,text width=7cm,fill=white,fill opacity=.5,text opacity=.77]{\blindtext};
+    % ---------------------------------------------------
+    \ifshowborders
+      % --- security zone
+      \begin{scope}[line width=\LineW,red,opacity=.35]
+        \draw (-.5*\TrimW,0) rectangle +(\TrimW,\TrimH);
+        \draw (-.5*\SpineW-\Bleed/3,0) rectangle +(\SpineW+2\Bleed/3,\TrimH);
+      \end{scope}
+      % --- guides
+      \begin{scope}[dashed]
+        \draw (-.5*\TrimW,0) rectangle +(\TrimW,\TrimH);
+        \draw (-.5*\SpineW,0) rectangle +(\SpineW,\TrimH);
+      \end{scope}
+    \fi
+  \end{tikzpicture}%
+\end{document}

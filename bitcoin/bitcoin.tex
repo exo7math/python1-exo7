@@ -401,14 +401,14 @@ que le temps de calcul mis par le gagnant (parmi l'ensemble de tous les mineurs)
   
     \item Une \emph{transaction} est une chaîne de caractères comprenant un nom et la somme à ajouter (ou à retrancher) à son compte. Par exemple \ci{"Abel +25"} ou \ci{"Barbara -45"}.
     
-    Programme une fonction \ci{ajout_transaction(transaction)} qui ajoute la chaine de caractère \ci{transaction} à la liste \ci{Livre}. 
+    Programme une fonction \ci{ajout_transaction(transaction)} qui ajoute la chaîne de caractère \ci{transaction} à la liste \ci{Livre}. 
 Par exemple après l'initialisation \ci{ajout_transaction("Camille +100")},  
     \ci{Livre} vaut \ci{[ [0, 0, 0, 0, 0, 0], "Camille +100" ]}.
     Attention, pour pouvoir modifier \ci{Livre} il faut commencer la fonction par : \ci{global Livre}.
     
   \end{enumerate} 
   
-   \item Dès qu'une transaction est ajoutée, il faut calculer et ajouter au livre de comptes une preuve de travail. Programme une fonction \ci{minage()}, sans paramètre, qui ajoute une preuve de travail au livre.   
+   \item Dès qu'une transaction est ajoutée, il faut calculer et ajouter au livre de compte une preuve de travail. Programme une fonction \ci{minage()}, sans paramètre, qui ajoute une preuve de travail au livre.   
    
 Voici comment faire :
   \begin{itemize}

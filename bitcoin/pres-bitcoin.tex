@@ -181,28 +181,31 @@ Voici le schéma d'une situation avec trois blocs : dans un premier temps il y a
 \tikzinput{fig-bitcoin-2}
 }     
 
-\end{document}
-
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Activité 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{activite}[Preuve de travail - Minage]
+\section*{Preuve de travail - Minage}
 
-\objectifs{Objectifs : construire un mécanisme de preuve de travail à l'aide de notre fonction de hachage.}
-
-\index{minage}
 
 On va construire un problème compliqué à résoudre, pour lequel, si quelqu'un nous donne la solution, alors il est facile de vérifier qu'elle convient.
+
+\bigskip
 
 \textbf{Problème à résoudre.} On nous donne une liste, il s'agit de trouver un bloc tel que, lorsque qu'on le rajoute à la liste, cela produit un hachage commençant par des zéros.
 Plus précisément étant donné une liste  \ci{liste} et un objectif maximal \ci{Max}, il s'agit de trouver un bloc \ci{preuve} qui, concaténé à la liste puis haché, est plus petit que la liste \ci{Max}, c'est-à-dire : \\
 \centerline{\ci{hachage(liste + preuve)} \  plus petit que \  \ci{Max}}
 
-La liste est de longueur quelconque (un multiple de $N=6$), la preuve est un bloc de longueur $N$, l'objectif est de trouver une liste commençant par des $0$ (voir l'activité 2).
 
-Par exemple : soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel bloc \ci{preuve} puis-je concaténer à \ci{liste} pour résoudre mon problème ?
+La liste est de longueur quelconque (un multiple de $N=6$), la preuve est un bloc de longueur $N$, l'objectif est de trouver une liste commençant par des $0$.
+
+\newpage
+
+\textbf{Exemple.}
+
+soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel bloc \ci{preuve} puis-je concaténer à \ci{liste} pour résoudre mon problème ?
 \begin{itemize}
   \item \ci{preuve = [12, 3, 24, 72, 47, 77]} convient car concaténé à notre liste cela donne \ci{[0,1,2,3,4,5,12, 3, 24, 72, 47, 77]} et le hachage de toute cette liste vaut
   \ci{[0, 0, 5, 47, 44, 71]} qui commence par \ci{[0,0,5]} plus petit que l'objectif.
@@ -213,15 +216,20 @@ Par exemple : soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel blo
   \item \ci{[97, 49, 93, 87, 89, 47]} ne convient pas, car après concaténation puis hachage on obtient \ci{[0, 0, 8, 28, 6, 60]} qui est plus grand que l'objectif voulu.
 \end{itemize}
 
-\begin{enumerate}
-  \item \textbf{Vérification (facile).} 
+
+\newpage
+
+\textbf{Vérification (facile).} 
   
-  Programme une fonction \ci{verification_preuve_de_travail(liste,preuve)} qui renvoie vrai si la solution \ci{preuve} proposée convient pour \ci{liste}. Utilise la fonction \ci{est_plus_petit()} de l'activité 2.
+  Programme une fonction \ci{verification_preuve_de_travail(liste,preuve)} qui renvoie vrai si la solution \ci{preuve} proposée convient pour \ci{liste}. 
+   
+  \bigskip
   
-  \item \textbf{Recherche de solution (difficile).}
+\textbf{Recherche de solution (difficile).}
   
   Programme une fonction \ci{preuve_de_travail(liste)} qui cherche un bloc \ci{preuve} solution à notre problème pour la liste donnée. 
   
+  \bigskip
   
   \emph{Indications.}
   
@@ -236,51 +244,61 @@ Par exemple : soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel blo
     
    \end{itemize}
    
-   \item \textbf{Temps de calcul.}
-   
-   Compare le temps de calcul d'une simple vérification par rapport au temps de recherche d'une solution. Choisis l'objectif \ci{Max} de sorte que la recherche d'une preuve de travail nécessite environ entre 30 et 60 secondes de calculs.
-  
-\end{enumerate}  
+\newpage   
 
-Pour le \emph{bitcoin}, ceux qui calculent des preuves de travail sont appelés les \emph{mineurs}. Le premier qui trouve une preuve gagne une récompense. La difficulté du problème est ajustée de sorte 
+ \textbf{Temps de calcul.}
+   
+   \begin{itemize}
+   \item  Compare le temps de calcul d'une simple vérification par rapport au temps de recherche d'une solution. 
+   
+   \item Choisis l'objectif \ci{Max} de sorte que la recherche d'une preuve de travail nécessite environ entre 30 et 60 secondes de calculs.
+  
+  \item Pour le \emph{bitcoin}, ceux qui calculent des preuves de travail sont appelés les \emph{mineurs}. 
+  
+  \item Le premier qui trouve une preuve gagne une récompense. 
+  
+  \item La difficulté du problème est ajustée de sorte 
 que le temps de calcul mis par le gagnant (parmi l'ensemble de tous les mineurs) pour trouver une solution, soit d'environ $10$ minutes.
 
-\end{activite}
+  \end{itemize}
 
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Activité 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{activite}[Tes \emph{bitcoins}]
-
-\objectifs{Objectifs : créer un livre de compte (appelé \emph{blockchain} pour le \emph{bitcoin}) qui enregistre toutes les transactions, ce registre est public et certifié. Il est pratiquement impossible d'y falsifier une transaction déjà inscrite.}
-
+\section*{Tes \emph{bitcoins}}
 
 \myfigure{0.5}{
 \tikzinput{fig-bitcoin-3}
 }  
 
-\begin{enumerate}
-  \item \textbf{Initialisation et ajout d'une transaction.}
+\newpage
+
+\textbf{Initialisation et ajout d'une transaction.}
   
   \begin{enumerate}
-    \item Initialise une variable globale \ci{Livre} qui est une liste et contient au départ une preuve nulle : \ci{Livre = [ [0,0,0,0,0,0] ]} .
+    \item Variable globale \ci{Livre} initialisée à \ci{Livre = [ [0,0,0,0,0,0] ]} .
   
     \item Une \emph{transaction} est une chaîne de caractères comprenant un nom et la somme à ajouter (ou à retrancher) à son compte. Par exemple \ci{"Abel +25"} ou \ci{"Barbara -45"}.
     
-    Programme une fonction \ci{ajout_transaction(transaction)} qui ajoute la chaine de caractère \ci{transaction} à la liste \ci{Livre}. 
+    Programme une fonction \ci{ajout_transaction(transaction)} qui ajoute la chaîne de caractère \ci{transaction} à la liste \ci{Livre}. 
 Par exemple après l'initialisation \ci{ajout_transaction("Camille +100")},  
     \ci{Livre} vaut \ci{[ [0, 0, 0, 0, 0, 0], "Camille +100" ]}.
-    Attention, pour pouvoir modifier \ci{Livre} il faut commencer la fonction par : \ci{global Livre}.
     
-  \end{enumerate} 
-  
-   \item Dès qu'une transaction est ajoutée, il faut calculer et ajouter au livre de comptes une preuve de travail. Programme une fonction \ci{minage()}, sans paramètre, qui ajoute une preuve de travail au livre.   
+    
+    Attention, pour pouvoir modifier \ci{Livre} il faut commencer la fonction par : \ci{global Livre}.
+ 
+\newpage
+
+ \textbf{Calcul et ajout d'une preuve de travail.}  
+
+Dès qu'une transaction est ajoutée, il faut calculer et ajouter au livre de compte une preuve de travail. Programme une fonction \ci{minage()}, sans paramètre, qui ajoute une preuve de travail au livre.   
    
 Voici comment faire :
   \begin{itemize}
-    \item On prend la dernière transaction \ci{transaction}, on la transforme en une liste d'entiers par la fonction \ci{phrase_vers_liste()} de l'activité 2.
+    \item On prend la dernière transaction \ci{transaction}, on la transforme en une liste d'entiers par une fonction \ci{phrase_vers_liste()} (on associe à un caractère sur ordre ASCII/unicode modulo $100$).
     \item On prend la preuve de travail \ci{prec_preuve} située juste avant cette transaction.
     \item On forme la liste \ci{liste} composée d'abord des éléments de \ci{prec_preuve}, puis des éléments de la liste d'entiers obtenue en convertissant la chaîne \ci{transaction}.
     \item On calcule une preuve de travail de cette liste.
@@ -293,10 +311,22 @@ Voici comment faire :
      On rappelle que la preuve de travail n'est pas unique et qu'en plus elle dépend 
    de l'objectif \ci{Max}.
    
-   \item Une seule personne à la fois ajoute une preuve de travail. Par contre tout le monde a la possibilité de vérifier que la preuve proposée est correcte (et devrait le faire). 
+ \newpage
+
+ \textbf{Vérification du livre de compte.}  
+   
+Une seule personne à la fois ajoute une preuve de travail. Par contre tout le monde a la possibilité de vérifier que la preuve proposée est correcte (et devrait le faire). 
+
+
 	Écris une fonction \ci{verification_livre()}, sans paramètre, qui vérifie que la dernière preuve ajoutée au \ci{Livre} est valide.
 	
-	\item Écris un livre de compte qui correspond aux données suivantes :
+	
+	\bigskip
+	
+
+\textbf{Exemple.}
+
+Écris un livre de compte qui correspond aux données suivantes :
 	\begin{itemize}
 	  \item On prend \ci{Max  = [0,0,5]} et au départ \ci{Livre = [ [0,0,0,0,0,0] ]}.
 	  \item \ci{"Alfred -100"} (Alfred doit 100 \emph{bitcoins}).
@@ -306,13 +336,6 @@ Voici comment faire :
 
 \end{enumerate} 
 
-Conclusion : imaginons que Alfred veuille tricher, il veut changer le livre de compte afin de recevoir 100 \emph{bitcoins} au lieu d'en devoir 100. Il doit donc changer la transaction le concernant en \ci{"Alfred +100"} mais il doit alors recalculer une nouvelle preuve de travail ce qui est compliqué, surtout il doit aussi recalculer la preuve de la transaction de Barnabé et aussi celle de la transaction de Chloé ! 
 
-Quelqu'un qui veut modifier une transaction doit modifier toutes les preuves de travail suivantes. Si chaque preuve demande suffisamment de temps de calcul ceci est impossible. Pour le \emph{bitcoin} chaque preuve demande énormément de calculs (trop pour une personne seule) et une nouvelle preuve est à calculer toutes les 10 minutes. Il est donc impossible pour une personne de modifier une transaction passée.
-
-\end{activite}
-
-
-L'autre aspect du \emph{bitcoin} que nous n'avons pas abordé, c'est de s'assurer de l'identité de chaque personne impliquée, afin que personne ne puisse récupérer l'argent d'un autre. Ceci est rendu possible grâce à la cryptographie à clé privée/clé publique (système RSA). Chaque compte est identifié par une clé publique (deux très grands entiers), ce qui garantit l'anonymat. Mais surtout, seul celui qui possède la clé privée du compte (un grand entier) peut accéder à ses \emph{bitcoins}.
 
 \end{document}

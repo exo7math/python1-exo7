@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\definecolor{serpent}{HTML}{011A27}
+\definecolor{oeilserpent}{HTML}{AAAAAA}
+
+% \path[ultra thick,fill =serpent]  (0,0) arc (90:-90:-1) --  ++(9,0) -- ++(0,-6 ) -- ++ (-4,0) -- ++(0,-3) -- ++(4,0) -- ++(0,-6) -- ++(-8,0) % -- ++ (-1,1) -- ++ (1,1) 
+% --++(0,2)
+% -- ++(6,0) -- ++(0,2) --++(-4,0) -- ++(0,7) --++(4,0) -- ++(0,2) --cycle ; 
+
+\path[fill=oeilserpent] (0,1.2) circle (0.3);
+
+\draw[ultra thick] (0,0) arc (90:-90:-1) --  ++(9,0) -- ++(0,-6 ) -- ++ (-4,0) -- ++(0,-3) -- ++(8,0) -- ++(0,-2) --++(-10,0)--++(0,7) --++(4,0) --++(0,2) --cycle ; 
+\end{tikzpicture}
