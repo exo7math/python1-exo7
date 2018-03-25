@@ -313,7 +313,7 @@ Tu peux maintenant utiliser la fonction \ci{sorted()} de \Python{} qui ordonne d
 \index{nombre premier}
 
 \begin{enumerate}
-  \item \textbf{Facteurs premiers.} Programme une fonction \ci{facteurs_premiers(n)} qui renvoie la liste de tous les facteurs premiers d'un entier $n\ge2$. Par exemple, pour $n = 12\,936$, dont la décomposition en facteurs premiers est $n = 2^3 \times 3 \times 7^2 \times 11$, la fonction renvoie \ci{[2, 2, 2, 3, 7, 7, 11] }.
+  \item \textbf{Facteurs premiers.}   Programme une fonction \ci{facteurs_premiers(n)} qui renvoie la liste de tous les facteurs premiers d'un entier $n\ge2$. Par exemple, pour $n = 12\,936$, dont la décomposition en facteurs premiers est $n = 2^3 \times 3 \times 7^2 \times 11$, la fonction renvoie \ci{[2, 2, 2, 3, 7, 7, 11] }.
   
   \emph{Indications.} Consulte la fiche \og{}Arithmétique -- Boucle tant que\fg{}. Le corps de l'algorithme est le suivant :
 
@@ -328,9 +328,14 @@ Tant que $d \le n$:\\
 \end{center}
 
   \item \textbf{Liste de nombres premiers.} \'Ecris une fonction \ci{liste_premiers(n)} qui renvoie la liste de tous les nombres premiers strictement inférieurs à $n$. Par exemple \ci{liste_premiers(100)} renvoie la liste :\\
-  \centerline{\ci{[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]}}
+  \centerline{\small\ci{[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]}}
   
-  Pour cela, tu vas programmer un algorithme qui est une version simple du crible d'Ératosthène :\index{crible@crible d'Ératosthène}
+  Pour cela, tu vas programmer un algorithme qui est une version simple du crible d'Ératosthène :
+  
+  \index{crible@crible d'Ératosthène}
+  
+  \medskip
+  
    \begin{algorithme}
   \sauteligne 
  \begin{itemize}
@@ -339,7 +344,9 @@ Tant que $d \le n$:\\
      \item Entrée : un entier $n \ge 2$.
      \item Sortie : la liste des nombres premiers $< n$.
    \end{itemize}
+   
 
+  
   \item Initialiser \ci{liste} qui contient tous les entiers de $2$ à $n-1$. 
    
    \item Pour $d$ allant de $2$ à $n-1$ :\\
@@ -350,7 +357,8 @@ retirer l'élément $k$ de \ci{liste}
  \end{itemize}  
  \end{algorithme}
  
- 
+ %  \medskip
+
   \emph{Indications.}  
   \begin{itemize}
     \item Pars de \ci{liste = list(range(2,n))}.
@@ -377,11 +385,12 @@ retirer l'élément $k$ de \ci{liste}
 
 \end{activite}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{cours}[Visualiser une liste]
-
 
 Avec le module \ci{matplotlib} il est très facile de visualiser les éléments d'une liste de nombres.
 
@@ -390,7 +399,7 @@ Avec le module \ci{matplotlib} il est très facile de visualiser les éléments 
 \index{graphique}
 
 \begin{center}
-\includegraphics[scale=0.5]{ecran-liste-cours-visualisation}
+\includegraphics[scale=0.45]{ecran-liste-cours-visualisation}
 \end{center}
 
 \begin{lstlisting}
@@ -426,7 +435,7 @@ Pour afficher des points $(x_i,y_i)$ il faut fournir la listes des abscisses pui
 Voici un exemple de graphe obtenu en affichant des points de coordonnées du type $(x,y)$ avec $y = x^2$.
 
 \begin{center}
-\includegraphics[scale=0.5]{ecran-liste-cours-visualisation-bis}
+\includegraphics[scale=0.45]{ecran-liste-cours-visualisation-bis}
 \end{center}
 
 
@@ -454,7 +463,7 @@ plt.show()
 \index{tir balistique}
 
 \begin{center}
-\includegraphics[scale=0.5]{ecran-liste-I-tir-bis}
+\includegraphics[scale=0.45]{ecran-liste-I-tir-bis}
 \end{center}
 
 On tire un boulet de canon depuis l'origine $(0,0)$. L'équation de la trajectoire est donnée par la formule :

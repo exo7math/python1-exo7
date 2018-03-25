@@ -183,6 +183,7 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
   Pour éviter certaines lettres, on utiliserait : \\
   \centerline{\codeinline{if carac not in ["X", "Y", "Z"]:}}
   \index{not in@\ci{not in}}
+
   \end{enumerate}  
 \end{cours}
 
@@ -195,6 +196,9 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
 
 \objectifs{Objectifs : manipuler des mots de façon amusante.}
 
+  
+  \medskip
+  
 \begin{enumerate}
   \item \textbf{Distance entre deux mots.}
   
@@ -218,7 +222,9 @@ La première lettre de \mot{JAPON} est différente de la première lettre de \mo
   Exemple : \ci{distance_hamming("LAPIN","SATIN")} renvoie $2$
   \end{fonction}
 
-    
+      
+  \medskip
+  
   \item \textbf{Latin-cochon.} 
   
   On transforme un mot commençant par une consonne selon la recette suivante :
@@ -239,7 +245,9 @@ La première lettre de \mot{JAPON} est différente de la première lettre de \mo
     
   Exemple : \ci{latin_cochon("BONJOUR")} renvoie \ci{"ONJOURBUM"}
   \end{fonction} 
-
+  
+  \medskip
+  
   \item \textbf{Verlan.} 
   
   Écris une fonction \ci{verlan()} qui renvoie un mot à l'envers : \mot{SALUT} devient \mot{TULAS}.
@@ -256,6 +264,7 @@ La première lettre de \mot{JAPON} est différente de la première lettre de \mo
   Exemple : \ci{verlan("TOCARD")} renvoie \ci{"DRACOT"}
   \end{fonction}
   
+  \medskip
   
   \item \textbf{Palindrome.}
   
@@ -267,14 +276,14 @@ La première lettre de \mot{JAPON} est différente de la première lettre de \mo
   Sortie : \og{}vrai\fg{} si le mot est un palindrome, \og{}faux\fg{} sinon.
   
   \medskip
-    
-  Exemple : \ci{est_un_palindrome("KAYAK")} renvoie \ci{True}
-  \end{fonction}
  
   
-\end{enumerate}  
-\end{activite}
+  Exemple : \ci{est_un_palindrome("KAYAK")} renvoie \ci{True}
+  \end{fonction}
 
+\end{enumerate} 
+
+\end{activite}
 
 
 

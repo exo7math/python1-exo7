@@ -206,13 +206,32 @@ La liste est de longueur quelconque (un multiple de $N=6$), la preuve est un blo
 \textbf{Exemple.}
 
 soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel bloc \ci{preuve} puis-je concaténer à \ci{liste} pour résoudre mon problème ?
-\begin{itemize}
-  \item \ci{preuve = [12, 3, 24, 72, 47, 77]} convient car concaténé à notre liste cela donne \ci{[0,1,2,3,4,5,12, 3, 24, 72, 47, 77]} et le hachage de toute cette liste vaut
-  \ci{[0, 0, 5, 47, 44, 71]} qui commence par \ci{[0,0,5]} plus petit que l'objectif.
 
-  \item \ci{preuve = [0, 0, 2, 0, 61, 2]} convient aussi car après concaténation on a 
-  \ci{[0,1,2,3,4,5,0, 0, 2, 0, 61, 2]} dont le hachage donne \ci{[0, 0, 3, 12, 58, 92]}.
-  
+\bigskip
+
+\begin{itemize}
+  \item 
+  \begin{itemize}
+  \item   \ci{preuve = [12, 3, 24, 72, 47, 77]} convient 
+  \item car concaténé à notre liste cela donne \ci{[0,1,2,3,4,5,12, 3, 24, 72, 47, 77]} 
+  \item et le hachage de toute cette liste vaut
+  \ci{[0, 0, 5, 47, 44, 71]} 
+  \item qui commence par \ci{[0,0,5]} plus petit que l'objectif.
+  \end{itemize}
+
+\bigskip
+
+  \item 
+    \begin{itemize}
+  \item  
+  \ci{preuve = [0, 0, 2, 0, 61, 2]} convient aussi 
+  \item car après concaténation on a 
+  \ci{[0,1,2,3,4,5,0, 0, 2, 0, 61, 2]} 
+  \item dont le hachage donne \ci{[0, 0, 3, 12, 58, 92]}.
+    \end{itemize}
+    
+  \bigskip
+    
   \item \ci{[97, 49, 93, 87, 89, 47]} ne convient pas, car après concaténation puis hachage on obtient \ci{[0, 0, 8, 28, 6, 60]} qui est plus grand que l'objectif voulu.
 \end{itemize}
 
@@ -283,8 +302,11 @@ que le temps de calcul mis par le gagnant (parmi l'ensemble de tous les mineurs)
   
     \item Une \emph{transaction} est une chaîne de caractères comprenant un nom et la somme à ajouter (ou à retrancher) à son compte. Par exemple \ci{"Abel +25"} ou \ci{"Barbara -45"}.
     
-    Programme une fonction \ci{ajout_transaction(transaction)} qui ajoute la chaîne de caractère \ci{transaction} à la liste \ci{Livre}. 
-Par exemple après l'initialisation \ci{ajout_transaction("Camille +100")},  
+    Programme une fonction \ci{ajout_transaction(transaction)} qui ajoute la chaîne de caractère \ci{transaction} à la liste \ci{Livre}.
+    
+     
+Par exemple après l'initialisation 
+\ci{ajout_transaction("Camille +100")},  
     \ci{Livre} vaut \ci{[ [0, 0, 0, 0, 0, 0], "Camille +100" ]}.
     
     

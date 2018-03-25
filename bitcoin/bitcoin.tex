@@ -1,5 +1,5 @@
 \documentclass[11pt,class=report,crop=false]{standalone}
-\usepackage[screen]{../python}
+\usepackage[print]{../python}
 
 \begin{document}
 
@@ -328,11 +328,15 @@ Voici le schéma d'une situation avec trois blocs : dans un premier temps il y a
 
 On va construire un problème compliqué à résoudre, pour lequel, si quelqu'un nous donne la solution, alors il est facile de vérifier qu'elle convient.
 
+\medskip
+
 \textbf{Problème à résoudre.} On nous donne une liste, il s'agit de trouver un bloc tel que, lorsque qu'on le rajoute à la liste, cela produit un hachage commençant par des zéros.
 Plus précisément étant donné une liste  \ci{liste} et un objectif maximal \ci{Max}, il s'agit de trouver un bloc \ci{preuve} qui, concaténé à la liste puis haché, est plus petit que la liste \ci{Max}, c'est-à-dire : \\
 \centerline{\ci{hachage(liste + preuve)} \  plus petit que \  \ci{Max}}
 
 La liste est de longueur quelconque (un multiple de $N=6$), la preuve est un bloc de longueur $N$, l'objectif est de trouver une liste commençant par des $0$ (voir l'activité 2).
+
+\medskip
 
 Par exemple : soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel bloc \ci{preuve} puis-je concaténer à \ci{liste} pour résoudre mon problème ?
 \begin{itemize}
@@ -344,6 +348,8 @@ Par exemple : soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel blo
   
   \item \ci{[97, 49, 93, 87, 89, 47]} ne convient pas, car après concaténation puis hachage on obtient \ci{[0, 0, 8, 28, 6, 60]} qui est plus grand que l'objectif voulu.
 \end{itemize}
+
+\bigskip
 
 \begin{enumerate}
   \item \textbf{Vérification (facile).} 

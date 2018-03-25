@@ -217,6 +217,9 @@ Exemples :
   Nous n'expliquons pas comment fonctionne cet algorithme, mais il faut savoir que c'est l'une des méthodes les plus efficaces pour calculer les racines carrées. Les nombres $a$ et $b$ fournissent, au cours de l’exécution, un encadrement de plus en plus précis de $\sqrt{n}$. 
   
   Voici un tableau qui détaille un exemple de calcul pour la racine carrée entière de $n=1664$.
+
+  \medskip
+  
 $$\begin{array}{|c|c|c|} 
 \hline
 \text{Étape} & a & b \\ \hline\hline
@@ -229,6 +232,9 @@ i = 5  &  a =  61   &  b =  27 \\
 i = 6  &  a =  44   &  b =  37 \\
 i = 7  &  a =  40   &  b =  41 \\ \hline
 \end{array}$$
+
+\medskip
+
 À la dernière étape, l'écart entre $a$ et $b$ est inférieur ou égal à $1$, donc la racine carrée entière est $40$. On peut vérifier que c'est exact car : $40^2 = 1600 \le 1664 < 41^2 = 1681$.
     
 \end{enumerate}  

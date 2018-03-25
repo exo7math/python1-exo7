@@ -1,0 +1,59 @@
+\documentclass[12pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\pagestyle{empty}
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Premiers pas}
+%====================================================================
+
+
+\section*{Boucle \og{}pour\fg{}}
+
+
+\bigskip
+
+La boucle \og{}pour\fg{} est la façon la plus simple de répéter des instructions.
+
+\bigskip
+
+
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{fig-premiers_pas-boucle-pour}
+} }
+
+\newpage
+
+\section*{\ci{range()}}
+
+
+\bigskip
+
+	\begin{itemize}
+	  \item avec \ci{range(n)} on parcourt les entiers de $0$ à $n-1$.
+	  Par exemple \ci{range(10)} correspond à la liste \ci{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}. 
+	  
+	  \item  Attention ! la liste s'arrête bien à $n-1$ et pas à $n$. Ce qu'il faut retenir 
+	  c'est que la liste contient bien $n$ éléments (car elle commence à $0$).
+	  
+	 \bigskip 
+	  
+	 \item Si tu veux afficher la liste des éléments parcourus, il faut utiliser la commande :\\
+	  \centerline{\ci{list(range(10))}}
+
+\bigskip
+	
+	\item Avec \ci{range(a,b)} on parcourt les éléments de $a$ à $b-1$.
+	Par exemple  \ci{range(10,20)} correspond à la liste \ci{[10, 11, 12, 13, 14, 15, 16, 17, 18, 19]}.  
+
+\bigskip
+	
+	\item Avec \ci{range(a,b,pas)} on parcourt les éléments $a$, $a+\text{pas}$, $a + 2\text{pas}$\ldots{} Par exemple \ci{range(10,20,2)} correspond à la liste \ci{[10, 12, 14, 16, 18]}.  
+
+	\end{itemize}
+\end{document}
