@@ -1,0 +1,213 @@
+\documentclass[12pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\pagestyle{empty}
+
+\begin{document}
+
+%====================================================================
+\chapitre{Chaînes de caractères -- Analyse d'un texte}
+%====================================================================
+
+\section*{Caractère et chaîne}
+
+
+\begin{itemize}
+  \item Un \defi{caractère}\index{caractere@caractère} est un symbole unique, par exemple une lettre minuscule \codeinline{"a"}, une lettre majuscule \codeinline{"B"}, un symbole spécial \codeinline{"\&"}, un symbole représentant un chiffre \codeinline{"7"}, une espace \codeinline{" "} que l'on notera aussi \lstinline[showstringspaces=true]!" "!.
+  
+  \bigskip
+  
+  \item 
+Pour désigner un caractère, il faut le mettre entre guillemets simples \codeinline{'z'} ou entre guillemets doubles \codeinline{"z"}.
+
+    \bigskip
+    
+  \item Une \defi{chaîne de caractères}\index{chaine@chaîne} est une suite de caractères, comme un mot \codeinline{"Bonjour"}, une phrase \codeinline{'Il fait beau.'}, un mot de passe \codeinline{"N[w5ms\}e!"}.
+  
+    \bigskip
+  
+  \item Le type d'un caractère ou d'une chaîne est \codeinline{str}\index{str@\ci{str}} (pour \emph{string}).
+  
+
+\end{itemize}
+
+
+
+\newpage
+
+\section*{Opérations sur les chaînes}
+
+
+\begin{itemize}
+  \item La \defi{concaténation}\index{concatenation@concaténation}, c'est-à-dire la mise bout à bout de deux chaînes, s'effectue à l'aide de l'opérateur \codeinline{+}. Par exemple \ci{"para"+"pluie"} donne la chaîne \ci{"parapluie"}.
+ 
+   \bigskip
+ 
+  \item La chaîne vide \ci{""} est utile lorsque l'on veut initialiser une chaîne avant d'y ajouter d'autres caractères.
+  
+    \bigskip
+  
+  \item La \defi{longueur} d'une chaîne est le nombre de caractères qu'elle contient. Elle s'obtient par la fonction \ci{len()}\index{len@\ci{len}}.
+  Par exemple \lstinline[showstringspaces=true]!len("Hello World")! renvoie $11$ (l'espace compte comme un caractère).
+\end{itemize}  
+
+\newpage  
+ 
+\section*{Opérations sur les chaînes}
+ 
+Si \ci{mot} est une chaîne alors on peut récupérer chaque caractère par \ci{mot[i]}. Par exemple si 
+  \ci{mot = "avion"} alors :
+  \begin{itemize}
+    \item \ci{mot[0]} est le caractère \ci{"a"},
+    \item \ci{mot[1]} est le caractère \ci{"v"}, 
+    \item \ci{mot[2]} est le caractère \ci{"i"},
+    \item \ci{mot[3]} est le caractère \ci{"o"},       
+    \item \ci{mot[4]} est le caractère \ci{"n"}.
+  \end{itemize} 
+  
+\bigskip  
+  
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|}
+\hline
+Lettre & a & v & i & o & n \\ \hline
+Rang & 0 & 1 & 2 & 3 & 4 \\ \hline
+\end{tabular}
+\end{center}
+
+
+\bigskip
+
+Si \ci{mot} est une chaîne, les caractères s'obtiennent par \ci{mot[i]} pour \ci{i} variant de \ci{0} à \ci{len(mot)-1}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newpage
+
+\section*{Sous-chaînes}
+
+
+On peut extraire plusieurs caractères d'une chaîne à l'aide de la syntaxe \ci{mot[i:j]} qui renvoie une chaîne formée des caractères numéro $i$ à $j-1$ (attention le caractère numéro $j$ n'est pas inclus !).
+
+    \bigskip
+
+Par exemple si \ci{mot = "vendredi"} alors :
+\begin{itemize}
+  \item \ci{mot[0:4]} renvoie la sous-chaîne \ci{"vend"} formée des caractères de rang $0$, $1$, $2$ et $3$ (mais pas $4$),
+  
+      \bigskip
+      
+  \item \ci{mot[3:6]} renvoie \ci{"dre"} correspondant aux rangs $3$, $4$ et $5$.
+\end{itemize}  
+
+    \bigskip
+
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|c|c|}
+\hline
+Lettre & v & e & n & d & r & e & d & i \\ \hline
+Rang   & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\ \hline
+\end{tabular}
+\end{center}
+ 
+     \bigskip
+     
+Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et dernière lettre.
+
+
+\newpage
+
+
+\section*{Un peu plus sur les chaînes}
+
+
+\begin{itemize}
+  \item Une boucle \ci{for ... in ...} permet de parcourir une chaîne, caractère par caractère :\index{boucle!pour}\index{for@\ci{for}}
+  \begin{center}
+  \begin{minipage}{0.4\textwidth}
+  \ci{for carac in mot:}\\
+  \indentation \ci{print(carac)}
+  \end{minipage}
+  \end{center}
+
+  \bigskip
+
+  \item On peut tester si un caractère appartient à une certaine liste de caractères. Par exemple : \\  
+  \centerline{\codeinline{if carac in ["a", "A", "b", "B", "c", "C"]:}}
+\index{in@\ci{in}}  
+  
+  permet d’exécuter des instructions si le caractère \ci{carac}  est l'une des lettres a, A, b, B, c, C. 
+  
+    \bigskip
+    
+    \item 
+  Pour éviter certaines lettres, on utiliserait : \\
+  \centerline{\codeinline{if carac not in ["X", "Y", "Z"]:}}
+  \index{not in@\ci{not in}}
+
+  \end{itemize}  
+
+\newpage
+
+\section*{Codage des caractères}
+
+\index{codage des caracteres@codage des caractères}
+
+Un caractère est stocké par l'ordinateur sous la forme d'un entier.
+Pour le codage ASCII/unicode, la lettre majuscule \og{}A\fg{} est codé par $65$, la lettre minuscule \og{}h\fg{} est codée par $104$, le symbole \og{}\#\fg{} par $35$.
+
+Voici la table des premiers caractères. Les numéros $0$ à $32$ ne sont pas des caractères imprimables. Cependant le numéro $32$ est le caractère espace \lstinline!" "!.
+
+\index{ascii}
+\index{unicode}
+
+\myfigure{0.8}{
+\small
+  \tikzinput{chaines-unicode}
+} 
+
+
+\newpage
+
+\section*{Codage des caractères}
+
+La fonction \ci{chr()}\index{chr@\ci{chr}} est une fonction \Python{} qui renvoie le caractère associé à un code.
+  
+  \begin{fonctionpython}[\ci{python : chr()}]
+  Usage : \ci{chr(code)}\\
+   Entrée : un code (un entier)\\
+   Sortie : un caractère
+  
+  \medskip
+     
+   Exemple :
+  \begin{itemize}  
+    \item \ci{chr(65)} renvoie \ci{"A"}
+    \item \ci{chr(123)} renvoie \ci{"\{"}
+  \end{itemize} 
+  \end{fonctionpython} 
+  
+\bigskip
+
+
+La fonction \ci{ord()}\index{ord@\ci{ord}} est une fonction \Python{} correspondant à l'opération inverse : elle renvoie le code associé à un caractère.
+  
+  \begin{fonctionpython}[\ci{python : ord()}]
+  Usage : \ci{ord(carac)}\\
+   Entrée : un caractère (une chaîne de longueur $1$)\\
+   Sortie : un entier
+  
+  \medskip
+     
+   Exemple :
+  \begin{itemize}  
+    \item \ci{ord("A")} renvoie \ci{65}
+    \item \ci{ord("*")} renvoie \ci{42}
+  \end{itemize} 
+  \end{fonctionpython}  
+
+
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass[12pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\pagestyle{empty}
+\begin{document}
+
+
+%====================================================================
+\chapitre{Tortue (Scratch avec Python)}
+%====================================================================
+
+
+
+\centerline{\ci{from turtle import *}}
+
+\bigskip
+\bigskip
+
+\begin{itemize}
+  \item \ci{forward(longueur)}\index{forward@\ci{forward}} avance d'un certain nombre de pas
+  \item \ci{backward(longueur)} recule
+  \item \ci{right(angle)}\index{right@\ci{right}} tourne vers la droite (sans avancer) selon un angle donné en degrés
+  \item \ci{left(angle)}\index{left@\ci{left}} tourne vers la gauche
+  \item \ci{setheading(direction)} s'oriente dans une direction ($0$ = droite, $90$ = haut, $-90$ = bas, $180$ = gauche)
+  \item \ci{goto(x,y)}\index{goto@\ci{goto}} se déplace jusqu'au point $(x,y)$
+  \item \ci{setx(newx)} change la valeur de l'abscisse
+  \item \ci{sety(newy)} change la valeur de l'ordonnée
+  
+  
+  \item \ci{down()}\index{down@\ci{down}} abaisse le stylo
+  \item \ci{up()}\index{up@\ci{up}} relève le stylo
+  \item \ci{width(epaisseur)} change l'épaisseur du trait
+  \item \ci{color(couleur)} change la couleur : \ci{"red"}, \ci{"green"}, \ci{"blue"}, \ci{"orange"}, \ci{"purple"},\ldots
+  
+  \item \ci{position()}  renvoie la position $(x,y)$ de la tortue
+  \item \ci{heading()} renvoie la direction \ci{angle} vers laquelle pointe la tortue
+  \item \ci{towards(x,y)} renvoie l'angle entre l'horizontale et le segment commençant à la tortue et finissant au point $(x,y)$
+  \item \ci{exitonclick()} termine le programme dès que l'on clique
+\end{itemize}
+
+\newpage
+
+
+Les coordonnées de l'écran par défaut vont de $-475$ à $+475$ pour les $x$ et
+de $-400$ à $+400$ pour les $y$ ; $(0,0)$ est au centre de l'écran.
+
+\myfigure{0.9}{
+  \tikzinput{coord}
+}
+
+
+\end{document}

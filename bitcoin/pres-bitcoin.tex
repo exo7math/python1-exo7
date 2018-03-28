@@ -205,7 +205,7 @@ La liste est de longueur quelconque (un multiple de $N=6$), la preuve est un blo
 
 \textbf{Exemple.}
 
-soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel bloc \ci{preuve} puis-je concaténer à \ci{liste} pour résoudre mon problème ?
+Soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel bloc \ci{preuve} puis-je concaténer à \ci{liste} pour résoudre mon problème ?
 
 \bigskip
 
@@ -238,6 +238,10 @@ soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel bloc \ci{preuve} 
 
 \newpage
 
+Variable globale \ci{Max = [0,0,7]}
+
+  \bigskip
+  
 \textbf{Vérification (facile).} 
   
   Programme une fonction \ci{verification_preuve_de_travail(liste,preuve)} qui renvoie vrai si la solution \ci{preuve} proposée convient pour \ci{liste}. 
@@ -312,6 +316,27 @@ Par exemple après l'initialisation
     
     Attention, pour pouvoir modifier \ci{Livre} il faut commencer la fonction par : \ci{global Livre}.
  
+ \newpage
+
+ \textbf{Phrase vers liste d'entiers.}  
+  
+  Écris une fonction \ci{phrase_vers_liste(phrase)} qui convertit une chaîne de caractères en liste d'entiers entre $0$ et $99$ et si besoin rajoute des zéros devant afin que la liste ait une longueur un multiple de $N=6$. 
+  
+    \bigskip
+    
+  La formule à utiliser pour convertir un caractère en un entier strictement inférieur à $100$ est :\\
+  \centerline{\ci{ord(c) \% 100}} 
+  
+  \bigskip
+   
+  Exemple : \\
+  \centerline{\ci{phrase = "Vive moi !"}}
+  
+  la fonction renvoie :\\  
+\centerline{\ci{[0, 0, 86, 5, 18, 1, 32, 9, 11, 5, 32, 33]}}
+
+
+ 
 \newpage
 
  \textbf{Calcul et ajout d'une preuve de travail.}  
@@ -320,7 +345,7 @@ Dès qu'une transaction est ajoutée, il faut calculer et ajouter au livre de co
    
 Voici comment faire :
   \begin{itemize}
-    \item On prend la dernière transaction \ci{transaction}, on la transforme en une liste d'entiers par une fonction \ci{phrase_vers_liste()} (on associe à un caractère sur ordre ASCII/unicode modulo $100$).
+    \item On prend la dernière transaction \ci{transaction}, on la transforme en une liste d'entiers par la fonction \ci{phrase_vers_liste()}.
     \item On prend la preuve de travail \ci{prec_preuve} située juste avant cette transaction.
     \item On forme la liste \ci{liste} composée d'abord des éléments de \ci{prec_preuve}, puis des éléments de la liste d'entiers obtenue en convertissant la chaîne \ci{transaction}.
     \item On calcule une preuve de travail de cette liste.
