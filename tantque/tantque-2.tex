@@ -116,7 +116,7 @@ Tu vas voir que cette conjecture a l'air vrai pour $N$ assez petit, mais tu vas 
 \objectifs{Objectifs : étudier une nouvelle conjecture fausse !}
 
 On appelle $U_k$ l'entier :
-$$U_k = 1\,2 \underbrace{1\,1\,1\,\ldots\,1\,1\,1}_{k \text{ occurences de } 1}$$
+$$U_k = 1\,2 \underbrace{1\,1\,1\,\ldots\,1\,1\,1}_{k \text{ occurrences de } 1}$$
 formé du chiffre $1$, puis du chiffre $2$, puis de $k$ fois le chiffre $1$.
 
 Par exemple $U_0 = 12$, $U_1 = 121$, $U_2 = 1211$,\ldots
@@ -252,17 +252,18 @@ Il n'est pas toujours facile de trouver la condition adéquate pour une boucle \
 ou une boucle \og{}pour\fg{} : c'est l'instruction 
 \ci{break}\index{break@\ci{break}}\index{boucle!quitter}.
 
-Voici des exemples qui utilisent la commande \ci{break}. Comme c'est rarement un façon élégante d'écrire son programme, des alternatives sont aussi présentées.
+Voici des exemples qui utilisent la commande \ci{break}. Comme c'est rarement une façon élégante d'écrire son programme, des alternatives sont aussi présentées.
 
 \begin{exemple}
 
 Voici différents codes pour un compte à rebours de $10$ à $0$.
 
-\begin{minipage}{0.3\textwidth}
+\begin{minipage}{0.25\textwidth}
 \begin{lstlisting}
 # Compte à rebours
 n = 10
-while True: # Boucle infinie
+# Boucle infinie
+while True: 
     print(n)
     n = n - 1
     if n < 0:

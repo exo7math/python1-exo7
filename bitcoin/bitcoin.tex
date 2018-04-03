@@ -1,5 +1,5 @@
 \documentclass[11pt,class=report,crop=false]{standalone}
-\usepackage[print]{../python}
+\usepackage[screen]{../python}
 
 \begin{document}
 
@@ -102,7 +102,7 @@ $$101 \quad
 \index{module!time@\ci{time}}
 \index{time@\ci{time}}
 
-Le module \ci{time} permet de chronométrer le temps d'exécution mais aussi de savoir la date et l'heure (voir aussi le module \ci{timeit} expliqué dans la fiche \og{}Arithmétique -- Tant que\fg{}).
+Le module \ci{time} permet de chronométrer le temps d'exécution mais aussi de savoir la date et l'heure (voir aussi le module \ci{timeit} expliqué dans la fiche \og{}Arithmétique -- Tant que -- I\fg{}).
 Voici un petit script pour mesurer le temps de calcul d'une instruction. 
 
 \begin{lstlisting}
@@ -199,7 +199,7 @@ Nos listes sont des listes d'entiers compris entre $0$ et $99$.
 
   \item On aura besoin de transformer une phrase en une liste de nombres. De plus, on va découper nos listes en blocs de taille $N$ (avec $N=6$), on rajoute donc des zéros en début de liste afin qu'elle soit de longueur un multiple de $N$.
   
-  Écris une fonction \ci{phrase_vers_liste(phrase)} qui convertit une chaîne de caractères en liste d'entiers entre $0$ et $99$ et si besoin rajoute des zéros devant afin que la liste ait la bonne taille. 
+  Écris une fonction \ci{phrase_vers_liste(phrase)} qui convertit une chaîne de caractères en une liste d'entiers entre $0$ et $99$ et si besoin rajoute des zéros devant afin que la liste ait la bonne taille. 
   
   La formule à utiliser pour convertir un caractère en un entier strictement inférieur à $100$ est :\\
   \centerline{\ci{ord(c) \% 100}}  
@@ -292,7 +292,7 @@ Dans cette activité, notre message est une liste d'entiers (entre $0$ et $99$) 
    \end{itemize}
  
  
-Voici le schéma d'une situation avec trois blocs : dans un premier temps il y a trois blocs (A,B,C) ; dans un second temps il ne reste plus que deux bloc (B' et C) ; à la fin il ne reste qu'un bloc (C'') : c'est l'empreinte !
+Voici le schéma d'une situation avec trois blocs : dans un premier temps il y a trois blocs (A,B,C) ; dans un second temps il ne reste plus que deux blocs (B' et C) ; à la fin il ne reste qu'un bloc (C'') : c'est l'empreinte !
 \myfigure{0.5}{
 \tikzinput{fig-bitcoin-2}
 }  
@@ -340,13 +340,14 @@ La liste est de longueur quelconque (un multiple de $N=6$), la preuve est un blo
 
 Par exemple : soit la \ci{liste = [0,1,2,3,4,5]} et \ci{Max = [0,0,7]}. Quel bloc \ci{preuve} puis-je concaténer à \ci{liste} pour résoudre mon problème ?
 \begin{itemize}
-  \item \ci{preuve = [12, 3, 24, 72, 47, 77]} convient car concaténé à notre liste cela donne \ci{[0,1,2,3,4,5,12, 3, 24, 72, 47, 77]} et le hachage de toute cette liste vaut
-  \ci{[0, 0, 5, 47, 44, 71]} qui commence par \ci{[0,0,5]} plus petit que l'objectif.
+  \item \ci{preuve = [12,3,24,72,47,77]} convient car concaténé à notre liste cela donne \ci{[0,1,2,3,4,5,12,3,24,72,47,77]} et le hachage de toute cette liste vaut
+  \ci{[0,0,5,47,44,71]} qui commence par \ci{[0,0,5]} plus petit que l'objectif.
 
-  \item \ci{preuve = [0, 0, 2, 0, 61, 2]} convient aussi car après concaténation on a 
-  \ci{[0,1,2,3,4,5,0, 0, 2, 0, 61, 2]} dont le hachage donne \ci{[0, 0, 3, 12, 58, 92]}.
+  \item \ci{preuve = [0,0,2,0,61,2]} convient aussi car après concaténation on a 
+  \ci{[0,1,2,3,4,5,0,0,2,0,61,2]} dont le hachage donne \ci{[0,0,3,12,58,92]}.
   
-  \item \ci{[97, 49, 93, 87, 89, 47]} ne convient pas, car après concaténation puis hachage on obtient \ci{[0, 0, 8, 28, 6, 60]} qui est plus grand que l'objectif voulu.
+  \item \ci{[97,49,93,87,89,47]} ne convient pas, car après concaténation puis hachage on obtient 
+  \ci{[0,0,8,28,6,60]} qui est plus grand que l'objectif voulu.
 \end{itemize}
 
 \bigskip
@@ -407,9 +408,9 @@ que le temps de calcul mis par le gagnant (parmi l'ensemble de tous les mineurs)
   
     \item Une \emph{transaction} est une chaîne de caractères comprenant un nom et la somme à ajouter (ou à retrancher) à son compte. Par exemple \ci{"Abel +25"} ou \ci{"Barbara -45"}.
     
-    Programme une fonction \ci{ajout_transaction(transaction)} qui ajoute la chaîne de caractère \ci{transaction} à la liste \ci{Livre}. 
+    Programme une fonction \ci{ajout_transaction(transaction)} qui ajoute la chaîne de caractères \ci{transaction} à la liste \ci{Livre}. 
 Par exemple après l'initialisation \ci{ajout_transaction("Camille +100")},  
-    \ci{Livre} vaut \ci{[ [0, 0, 0, 0, 0, 0], "Camille +100" ]}.
+    \ci{Livre} vaut \ci{[ [0,0,0,0,0,0], "Camille +100" ]}.
     Attention, pour pouvoir modifier \ci{Livre} il faut commencer la fonction par : \ci{global Livre}.
     
   \end{enumerate} 
@@ -425,9 +426,9 @@ Voici comment faire :
     \item  On ajoute cette preuve au livre de compte.
   \end{itemize}
   Par exemple si le livre se termine par :\\
-  \centerline{\ci{[3, 1, 4, 1, 5, 9], "Abel +35"}}
+  \centerline{\ci{[3,1,4,1,5,9], "Abel +35"}}
   alors après calcul de la preuve de travail le livre se termine par exemple par :\\
-  \centerline{\ci{[3, 1, 4, 1, 5, 9], "Abel +35", [32, 17, 37, 73, 52, 90]}}  
+  \centerline{\ci{[3,1,4,1,5,9], "Abel +35", [32,17,37,73,52,90]}}  
      On rappelle que la preuve de travail n'est pas unique et qu'en plus elle dépend 
    de l'objectif \ci{Max}.
    

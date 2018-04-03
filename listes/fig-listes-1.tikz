@@ -1,4 +1,4 @@
-\begin{tikzpicture}[thick,scale=1.5, every node/.style={scale=1}]
+\begin{tikzpicture}[thick,scale=1.7, every node/.style={scale=1}]
 
 \draw (0,0) grid ++(6,1);
 

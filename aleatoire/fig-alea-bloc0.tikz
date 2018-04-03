@@ -16,7 +16,7 @@
 \node[scale=0.7,above] at (5.5,4) {$5$};
 
 
-\begin{scope}[xshift=7cm]
+\begin{scope}[xshift=9cm]
 
 \fill[green!70!black] (1,0) rectangle ++(1,1);
 \fill[green!70!black] (4,0) rectangle ++(1,1);
@@ -33,7 +33,7 @@
 \node[scale=0.7,above] at (5.5,4) {$5$};
 \end{scope}
 
-\begin{scope}[xshift=14cm]
+\begin{scope}[xshift=18cm]
 
 \fill[green!70!black] (1,0) rectangle ++(1,1);
 \fill[green!70!black] (4,0) rectangle ++(1,1);
@@ -73,7 +73,7 @@
 
 \end{scope}
 
-\begin{scope}[xshift=7cm,yshift=-7cm]
+\begin{scope}[xshift=9cm,yshift=-7cm]
 
 \fill[green!70!black] (1,0) rectangle ++(1,1);
 \fill[green!70!black] (4,0) rectangle ++(1,1);
@@ -94,7 +94,7 @@
 
 \end{scope}
 
-\begin{scope}[xshift=14cm,yshift=-7cm]
+\begin{scope}[xshift=18cm,yshift=-7cm]
 
 \fill[green!70!black] (1,0) rectangle ++(1,1);
 \fill[green!70!black] (4,0) rectangle ++(1,1);

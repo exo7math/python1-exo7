@@ -88,7 +88,7 @@
 % The cover size
 %=======================================================
 % Calculate the splin
-\def\numPages{251}
+\def\numPages{253}
 \newlength{\thickCream}\setlength{\thickCream}{0.0025 in}
 \newlength{\thickWhite}\setlength{\thickWhite}{0.002252 in}
 \newlength{\SpineW}\setlength{\SpineW}{\numPages\thickWhite} % 236*0.0025 = 0.59 (cream),  262*0.002252 = 0.590024 (white)
@@ -162,14 +162,14 @@
         (Front.center) +(21mm,21mm) node[titlepython]{PYTHON}
         (Front.center) +(-21mm,-21mm) node
           {\textcolor{titleau}{AU}\textcolor{titlelycee}{LYCÉE}};
-      \path (Cover.east) +(60mm,-105mm) node[left,scale=2.5,text width=.35\PageW,align=left,fill=white,text=subtitlealgo,inner sep=.7em,font=\authorfont]{\bf Algorithmes et programmation\vphantom{\Large t}};
+      \path (Cover.east) +(55mm,-105mm) node[left,scale=2.5,text width=.35\PageW,align=left,fill=white,text=subtitlealgo,inner sep=.3em,font=\authorfont]{\bf ~~Algorithmes et programmation~~\vphantom{\Large t}};
     \end{scope}
     % ---------------------------------------------------
     % Spine
     % ---------------------------------------------------
     \begin{scope}[transform canvas ={yshift=21mm}]
-      \node[rotate=-90,scale=2.1] (tranche) at (Spine.center)
-        {\textcolor{spinepython}{PYTHON}\textcolor{spineau}{AU}\textcolor{spinelycee}{LYCÉE}\textcolor{spinealgo}{~\textemdash~Algorithmes et programmation}\vphantom{\large y}};
+      \node[rotate=90,scale=1.8] (tranche) at (Spine.center)
+        {\textcolor{spinepython}{PYTHON}\textcolor{spineau}{AU}\textcolor{spinelycee}{LYCÉE}\textcolor{spinealgo}{~~~\textemdash~~Algorithmes et programmation}\vphantom{\large y}};
     \end{scope}
     % ---------------------------------------------------
     %  Logos Exo7
@@ -204,7 +204,7 @@ Vous avez tout en main pour réussir !
 \item Si ... alors ...
 \item Fonctions
 \item Arithmétique -- Boucle tant que -- I
-\item Chaînes de caractères% - Analyse d’un texte
+\item Chaînes de caractères% - Analyse d'un texte
 \item Listes I
 \item Statistique -- Visualisation de données
 \item Fichiers

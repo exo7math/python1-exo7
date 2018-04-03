@@ -156,7 +156,7 @@ Quelques explications :
   
   \item Une ellipse est tracée par la commande \ci{create_oval(x1,y1,x2,y2)}, où $(x_1,y_1)$, $(x_2,y_2)$ sont les coordonnées de deux sommets opposés d'un rectangle encadrant l'ellipse voulue (voir la figure). On obtient un cercle lorsque le rectangle correspondant est un carré !  
   
-  \item Du texte est affiché par la commande \ci{canvas.create_text(x,y,text="Mon texte")} en précisant les coordonnées $(x,y)$ du point à partir duquel l'on souhaite afficher le texte. 
+  \item Du texte est affiché par la commande \ci{canvas.create_text(x,y,text="Mon texte")} en précisant les coordonnées $(x,y)$ du point à partir duquel on souhaite afficher le texte. 
   
 \end{itemize}
 
@@ -365,14 +365,15 @@ Quelques explications :
 \objectifs{Objectifs : tracer des diagrammes en boîte.}
 
 Un \defi{diagramme en boîte} (appelé aussi \defi{boîte à moustaches}) est un graphique qui représente les principales caractéristiques d'une série statistique : minimum, maximum, médiane et quartiles. Le schéma de principe est le suivant :
-\myfigure{0.5}{
+
+\myfigure{0.45}{
   \tikzinput{fig-stat-boite}
 } 
 
 Écris une fonction \ci{diagramme_boite(effectif_notes)} qui trace le diagramme en boîte des notes d'une classe à partir d'un effectif par note (voir l'activité précédente).
 
 \begin{center}
-\includegraphics[scale=0.9]{ecran-stat-4}
+\includegraphics[scale=0.7]{ecran-stat-4}
 \end{center}
 
 \end{activite}
@@ -402,7 +403,7 @@ Un \defi{diagramme en boîte} (appelé aussi \defi{boîte à moustaches}) est un
   \item Trace point par point la courbe du cours sur une année. (Pour tracer un point, tu peux afficher un carré de taille $1$ pixel.)
   
 \begin{center}
-\includegraphics[scale=0.8]{ecran-stat-5a}
+\includegraphics[scale=0.7]{ecran-stat-5a}
 \end{center}
 
    \item \emph{Comme la courbe du cours journalier est très chaotique, nous souhaitons la lisser afin de la rendre plus lisible. Pour cela nous calculons des moyennes mobiles.}
@@ -414,7 +415,7 @@ Un \defi{diagramme en boîte} (appelé aussi \defi{boîte à moustaches}) est un
     \item Trace point par point sur un même graphique : la courbe du cours sur une année (en rouge ci-dessous), la courbe de ses moyennes mobiles à $7$ jours (en bleu ci-dessous) et la courbe des ses moyennes mobiles à $30$ jours (en marron ci-dessous). Note que plus la durée est longue plus la courbe est \og{}lisse\fg{}. (Bien sûr la courbe des moyennes mobiles à $30$ jours ne commence qu'à partir du trentième jour.)
    
 \begin{center}
-\includegraphics[scale=0.8]{ecran-stat-5b}
+\includegraphics[scale=0.7]{ecran-stat-5b}
 \end{center}
 
 \end{enumerate}

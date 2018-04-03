@@ -1,5 +1,5 @@
 \documentclass[11pt,class=report,crop=false]{standalone}
-\usepackage[screen]{../python}
+\usepackage[print]{../python}
 \begin{document}
 
 % Commande spécifique
@@ -191,7 +191,7 @@ P2
 \end{center}
 \end{minipage}
 \end{center}
-Par exemple avec \ci{tableau = [ [128,192,128,192,128],[224...]]}, la commande \ci{tableau_vers_image(tableau,"test")} écrit un fichier \ci{test.pgm} (à gauche) qui s'afficherait comme l'image à droite.
+Par exemple avec \ci{tableau = [ [128,192,128,192,128], [224,...] ]}, la commande \ci{tableau_vers_image(tableau,"test")} écrit un fichier \ci{test.pgm} (à gauche) qui s'afficherait comme l'image à droite.
 
   
   
@@ -279,21 +279,24 @@ La \defi{transformation du boulanger} est la succession d'un étirement et d'un 
 
 Voyons un exemple de l'action de plusieurs transformations du boulanger.
 À gauche l'image initiale de taille $128 \times 128$, puis le résultat de $k=1,2,3$ itérations. 
+
 \begin{center}
-\includegraphics[scale=0.6]{images_fiche/surf_gimp_new_boul_0.png}\qquad
-\includegraphics[scale=0.6]{images_fiche/surf_gimp_new_boul_1.png}\qquad
-\includegraphics[scale=0.6]{images_fiche/surf_gimp_new_boul_2.png}\qquad
-\includegraphics[scale=0.6]{images_fiche/surf_gimp_new_boul_3.png}
+\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_0.png}\qquad
+\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_1.png}\qquad
+\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_2.png}\qquad
+\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_3.png}
 \end{center}
 
 
 Voici les images pour $k=12,13,14,15$ itérations :
+
 \begin{center}
-\includegraphics[scale=0.6]{images_fiche/surf_gimp_new_boul_12.png}\qquad
-\includegraphics[scale=0.6]{images_fiche/surf_gimp_new_boul_13.png}\qquad
-\includegraphics[scale=0.6]{images_fiche/surf_gimp_new_boul_14.png}\qquad
-\includegraphics[scale=0.6]{images_fiche/surf_gimp_new_boul_15.png}
+\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_12.png}\qquad
+\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_13.png}\qquad
+\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_14.png}\qquad
+\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_15.png}
 \end{center}
+
 \end{cours}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -347,7 +350,7 @@ $$
   
 \end{enumerate}
 
-Voici un exemple avec une image de taille $256 \times 256$, d'abord l'image initiale, puis une première itération ($k=1$) et un deuxième itération ($k=2$).
+Voici un exemple avec une image de taille $256 \times 256$, d'abord l'image initiale, puis une première itération ($k=1$) et une deuxième itération ($k=2$).
 \begin{center}
 \includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_0.png}\qquad
 \includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_1.png}\qquad

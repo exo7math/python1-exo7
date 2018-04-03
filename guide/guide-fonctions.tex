@@ -19,7 +19,7 @@
   \item \ci{a \% b}\quad reste de la division euclidienne, appelé $a$ modulo $b$
   \item \ci{abs(x)}\quad valeur absolue
   \item \ci{x ** n}\quad puissance $x^n$
-  \item \ci{4.56e12}\quad pour $4,56 \times 10^{12}$
+  \item \ci{4.56e12}\quad pour $4.56 \times 10^{12}$
 \end{itemize}
 
 \bigskip
@@ -223,7 +223,7 @@ La méthode \ci{format()} permet de mettre en forme du texte ou des nombres. Cet
   \item \ci{ord(c)} \quad renvoie le numéro de code ASCII/unicode associé au caractère $c$. Exemple : \ci{ord("A")} renvoie \ci{65} ; \ci{ord("a")} renvoie \ci{97}.
 \end{itemize}
 
-Le début de la table des codes ASCII/unicode est donnée ci-dessous.
+Le début de la table des codes ASCII/unicode est donné ci-dessous.
 
 \myfigure{0.8}{
 \small
@@ -345,7 +345,7 @@ Rang & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
     \item \ci{nouv_liste = liste + [element]} \quad fournit une nouvelle liste avec un élément en plus à la fin. Exemple : \ci{[1,2,3,4] + [5]} vaut \ci{[1,2,3,4,5]}.
     \item \ci{[element] + liste} \quad renvoie une liste où l'élément est ajouté au début. Exemple : \ci{[5] + [1,2,3,4]} vaut \ci{[5,1,2,3,4]}. 
      \item \ci{liste1 + liste2} \quad concatène les deux listes. 
-     Exemple : \ci{liste1 = [4,5,6]} et \ci{liste2 = [7,8,9]} alors \ci{liste1 + liste2} vaut \ci{[4,5,6,7,8,9]}.
+     Exemple : avec \ci{liste1 = [4,5,6]} et \ci{liste2 = [7,8,9]} alors \ci{liste1 + liste2} vaut \ci{[4,5,6,7,8,9]}.
 \end{itemize}
 
 \bigskip
@@ -547,8 +547,8 @@ Un tableau de $n$ lignes et $p$ colonnes.
  Exemple : \ci{print("Valeur =",14)} affiche \ci{Valeur = 14}.
  Exemple : \ci{print("Ligne 1 \\n Ligne 2")} affiche sur deux lignes.
  
-  \item \textbf{Séparateur.} \ci{print(...,sep="...")} \quad change le séparateur (par défaut le séparateur est le caractère espace). Exemple : \ci{print("Bob",17,13,16,sep=" ; ")} affiche
-  \ci{Bob ; 17 ; 13 ; 16}.
+  \item \textbf{Séparateur.} \ci{print(...,sep="...")} \quad change le séparateur (par défaut le séparateur est le caractère espace). Exemple : \ci{print("Bob",17,13,16,sep="; ")} affiche
+  \ci{Bob; 17; 13; 16}.
   
    \item \textbf{Fin de ligne.} \ci{print(...,end="...")} \quad change le caractère placé à la fin (par défaut c'est le saut de ligne \ci{\\n}).
    Exemple \ci{print(17,end="")} puis \ci{print(89)} affiche \ci{1789} sur une seule ligne.
@@ -881,7 +881,7 @@ Quelques explications :
 %  \item On rappelle que pour le repère graphique l'axe des ordonnées est dirigé vers le bas. Pour définir un rectangle, il suffit de préciser les coordonnées 
 %  $(x_1,y_1)$, $(x_2,y_2)$ de deux sommets opposés (voir la figure ci-dessous). 
   
-  \item Le texte est affiché par la fonction \ci{canvas.create_text()}. Il faut préciser les coordonnées $(x,y)$ du point à partir duquel l'on souhaite afficher le texte. 
+  \item Le texte est affiché par la fonction \ci{canvas.create_text()}. Il faut préciser les coordonnées $(x,y)$ du point à partir duquel on souhaite afficher le texte. 
   
   \item L'option \ci{text} permet de passer la chaîne de caractères à afficher.
   
@@ -921,7 +921,7 @@ def action_clic_souris(event):
     x = event.x
     y = event.y
     canvas.create_rectangle(x,y,x+10,y+10,fill="red")
-    print("Clic a x =",x,", y =",y)
+    print("Clic à x =",x,", y =",y)
     return
 
 # Association clic/action

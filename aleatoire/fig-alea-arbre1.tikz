@@ -11,7 +11,7 @@
 \end{scope}
 
 
-\begin{scope}[xshift=9cm]
+\begin{scope}[xshift=10cm]
 
 \fill[green!70!black] (3,3) rectangle ++(1,1);
 \fill[green!70!black] (5,4) rectangle ++(1,1);
@@ -29,11 +29,11 @@
 \draw[thick] (0,0) grid ++(7,7);
 
 
-\node[text width=5cm,text centered] at (3.5,-1.2) {\bf Un bloc et ses 8 mouvements possibles};
+\node[text width=4.5cm,text centered] at (3.5,-1.2) {\bf Un bloc et ses 8 mouvements possibles};
 \end{scope}
 
 
-\begin{scope}[xshift=18cm]
+\begin{scope}[xshift=20cm]
 
 \fill[green!70!black] (3,3) rectangle ++(1,1);
 
@@ -47,11 +47,11 @@
 \draw[thick] (0,0) grid ++(7,7);
 
 
-\node[text width=5cm,text centered] at (3.5,-1.2) {\bf Le mouvement al\'eatoire du bloc};
+\node[text width=4.5cm,text centered] at (3.5,-1.2) {\bf Le mouvement al\'eatoire du bloc};
 \end{scope}
 
 
-\begin{scope}[xshift=3cm,yshift=-10cm]
+\begin{scope}[xshift=4cm,yshift=-10cm]
 
 \fill[green!70!black] (3,3) rectangle ++(1,1);
 
@@ -72,7 +72,7 @@
 \end{scope}
 
 
-\begin{scope}[xshift=14cm,yshift=-10cm]
+\begin{scope}[xshift=16cm,yshift=-10cm]
 
 \fill[green!70!black] (3,3) rectangle ++(1,1);
 \fill[green!70!black] (3,2) rectangle ++(1,1);

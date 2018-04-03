@@ -1,5 +1,5 @@
 \documentclass[11pt,class=report,crop=false]{standalone}
-\usepackage[screen]{../python}
+\usepackage[print]{../python}
 \begin{document}
 
 % Commande spécifique
@@ -154,6 +154,8 @@ for i in range(n):
   
   \item \textbf{Trancher des listes.}\index{liste!sous-liste} On peut extraire d'un seul coup toute une partie de la liste : \ci{liste[a:b]} renvoie la sous-liste des éléments de rang $a$ à $b-1$.
   
+  \smallskip
+  
  \myfigure{0.4}{
   \tikzinput{fig-listes-3}
 }    
@@ -307,7 +309,7 @@ Tu peux maintenant utiliser la fonction \ci{sorted()} de \Python{} qui ordonne d
 
 \begin{activite}[Arithmétique]
 
-\objectifs{Objectifs : améliorer quelques fonctions de la fiche \og{}Arithmétique -- Boucle tant que\fg{}.}
+\objectifs{Objectifs : améliorer quelques fonctions de la fiche \og{}Arithmétique -- Boucle tant que -- I\fg{}.}
 
 \index{facteur premier}
 \index{nombre premier}
@@ -315,7 +317,7 @@ Tu peux maintenant utiliser la fonction \ci{sorted()} de \Python{} qui ordonne d
 \begin{enumerate}
   \item \textbf{Facteurs premiers.}   Programme une fonction \ci{facteurs_premiers(n)} qui renvoie la liste de tous les facteurs premiers d'un entier $n\ge2$. Par exemple, pour $n = 12\,936$, dont la décomposition en facteurs premiers est $n = 2^3 \times 3 \times 7^2 \times 11$, la fonction renvoie \ci{[2, 2, 2, 3, 7, 7, 11] }.
   
-  \emph{Indications.} Consulte la fiche \og{}Arithmétique -- Boucle tant que\fg{}. Le corps de l'algorithme est le suivant :
+  \emph{Indications.} Consulte la fiche \og{}Arithmétique -- Boucle tant que -- I\fg{}. Le corps de l'algorithme est le suivant :
 
 \begin{center}
 \begin{minipage}{0.7\textwidth}
@@ -429,6 +431,7 @@ plt.show()
   
 \end{itemize}
 
+\bigskip
 
 Pour afficher des points $(x_i,y_i)$ il faut fournir la listes des abscisses puis la listes des ordonnées :\\
 \centerline{\ci{plt.plot(liste_x,liste_y,color="red")}}
@@ -490,7 +493,7 @@ où
   
   \emph{Méthode.} Pour $i$ allant de $0$ à $n$ :
   \begin{itemize}
-    \item calcule $x_i = i \cdot \dfrac{x_{\max}}{n}$,    
+    \item calcule $x_i = i \cdot \frac{x_{\max}}{n}$,    
     \item calcule $y_i = y(x_i)$ par la formule de la trajectoire,
     \item ajoute $y_i$ à la liste.
   \end{itemize}  

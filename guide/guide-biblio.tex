@@ -71,7 +71,9 @@ Par contre si le programme se lance mais qu'il ne fait pas ce qu'il faut, c'est 
 Certains éditeurs \Python{} permettent aussi une exécution \og{}pas à pas\fg{} du programme.
 
 On reviendra par la suite sur le \og{}vrai\fg{} et le \og{}faux\fg{}.
-Il existe aussi le test \ci{if ... elif ... elif ... else ...} qui permet d'enchaîner les tests et qui n'est pas abordé ici. 
+Il existe aussi le test\\ 
+\centerline{\ci{if ... elif ... elif ... else ...}}
+qui permet d'enchaîner les tests et qui n'est pas abordé ici. 
 Bien comprendre \ci{if ... else ...} est suffisant ! 
 
 
@@ -85,7 +87,7 @@ On peut définir une fonction par \ci{def fonc(x):} et l'appeler par
 \ci{fonc(y)}. Le \ci{x} correspond à une variable mathématique muette. 
 En informatique, on préfère parler de la \defi{portée} de la variable qui peut être locale ou globale.
 
-Ce que l'on peut retenir, c'est que tout ce qui passe à l'intérieur d'un fonction n'est pas accessible en dehors de la fonction. Il faut juste utiliser ce que renvoie la fonction.
+Ce que l'on peut retenir, c'est que tout ce qui passe à l'intérieur d'une fonction n'est pas accessible en dehors de la fonction. Il faut juste utiliser ce que renvoie la fonction.
 Il faut s’interdire l'utilisation de \ci{global} dans un premier temps.
 
 Dernier point, il est vraiment important de commenter abondamment ton code et de bien expliquer ce que font tes fonctions. Si tu définis une fonction \ci{fonc(x)} : prévois trois lignes de commentaires pour (a) dire ce que fait cette fonction, (b) dire quelle entrée est attendue (\ci{x} doit être un entier ? un nombre flottant ? positif ?\ldots), (c) dire ce que renvoie la fonction.
@@ -169,7 +171,7 @@ La première difficulté avec l'écriture binaire c'est de bien faire la différ
 
 Comme les ordinateurs travaillent avec des $0$ et $1$ il faut être à l'aise avec l'écriture binaire. Le passage à l'écriture binaire n'est pas très difficile, il est tout de même préférable de faire quelques exemples à la main avant de s'attaquer à la programmation.
 
-On utilisera l'écriture binaire pour d'autres problèmes sur le principe suivant : vous avez $4$ interrupteurs alors $1001$ signifie que vous actionnez le premier et le dernier interrupteur et pas les autres.
+On utilisera l'écriture binaire pour d'autres problèmes sur le principe suivant : vous avez $4$ interrupteurs alors $1.0.0.1$ signifie que vous actionnez le premier et le dernier interrupteur et pas les autres.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -241,12 +243,12 @@ Les formules sont tirées du livre \emph{The algorithmic beauty of plants}, par
 P.~Prusinkiewicz et A.~Lindenmayer (Springer-Verlag, 2004) en accès libre ici :
 \href{http://algorithmicbotany.org/papers/abop/abop.pdf}{\emph{The algorithmic beauty of plants} (pdf)}.
 
-Les illustrations qui débutent chaque partie sont des itérations du L-système appelé la courbe de Hilbert et défini par :\\
+Les illustrations qui débutent chaque partie de ce livre sont des itérations du L-système appelé la courbe de Hilbert et défini par :\\
 \centerline{
 \ci{depart = "X"}
-\qquad
+\quad
 \ci{regle1 = ("X","gYAdXAXdAYg")}
-\qquad
+\quad
 \ci{regle2 = ("Y","dXAgYAYgAXd")}
 }
 
@@ -283,11 +285,11 @@ Avant de placer toutes ses économies dans des \emph{bitcoins} mieux vaut en com
 Le principe de la \emph{blockchain} et de la preuve de travail ne sont pas si compliqués, tu trouveras des explications plus détaillées dans les articles de Jean-Paul Delahaye parus dans la revue \emph{Pour la science} :
 \begin{itemize}
   \item Bitcoin, la cryptomonnaie (2013) 
-  \href{http://www.lifl.fr/~jdelahay/pls/2013/241.pdf}{www.lifl.fr/~jdelahay/pls/2013/241.pdf}
+  \href{http://www.lifl.fr/~jdelahay/pls/2013/241.pdf}{\small (www.lifl.fr/$\sim$jdelahay/pls/2013/241.pdf)}
   \item Les preuves de travail (2014) 
-  \href{http://cristal.univ-lille.fr/~jdelahay/pls/2014/245.pdf}{cristal.univ-lille.fr/~jdelahay/pls/2014/245.pdf}
+  \href{http://cristal.univ-lille.fr/$\sim$jdelahay/pls/2014/245.pdf}{\small (cristal.univ-lille.fr/\~jdelahay/pls/2014/245.pdf)}
   \item Du bitcoin à Ethereum : l’ordinateur-monde (2016)
-  \href{http://cristal.univ-lille.fr/~jdelahay/pls/2016/276.pdf}{cristal.univ-lille.fr/~jdelahay/pls/2016/276.pdf}
+  \href{http://cristal.univ-lille.fr/$\sim$jdelahay/pls/2016/276.pdf}{\small (cristal.univ-lille.fr/\~jdelahay/pls/2016/276.pdf)}
 \end{itemize}
 
 

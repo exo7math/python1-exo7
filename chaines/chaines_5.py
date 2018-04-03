@@ -35,7 +35,7 @@ print("La phrase",phrase,"contient",nombre_E(phrase),"fois la lettre E")
 ## Question 1 ##
 
 
-def occurences_lettre(lettre,phrase):
+def occurrences_lettre(lettre,phrase):
     """ Compte le nombre d'occurrences d'une lettre donnée dans phrase
     Entrée : une lettre et une phrase en majuscule
     Sortie : le nombre de lettres """
@@ -50,7 +50,7 @@ def occurences_lettre(lettre,phrase):
 
 # Test 
 phrase = "ESPRIT ES TU LA"
-print("La phrase",phrase,"contient",occurences_lettre("S",phrase),"fois la lettre S")
+print("La phrase",phrase,"contient",occurrences_lettre("S",phrase),"fois la lettre S")
 
 
 
@@ -84,7 +84,7 @@ def pourcentage_lettre(lettre,phrase):
     Entrée : une lettre et une phrase en majuscule
     Sortie : le pourcentage d'apparition de la lettre """
 
-    nb_lettres = occurences_lettre(lettre,phrase)
+    nb_lettres = occurrences_lettre(lettre,phrase)
     nb_total = nombre_lettres(phrase)
     pourcentage = nb_lettres/nb_total*100
     

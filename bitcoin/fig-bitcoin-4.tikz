@@ -2,7 +2,7 @@
 
 
 \draw[ultra thick] (0,0) rectangle ++(6,2);
-\node[blue] at (3,1) {\bf preuve initiale};
+\node[blue,scale=0.9] at (3,1) {\bf preuve initiale};
 
 \begin{scope}[xshift=9cm]
 \draw[ultra thick] (0,0) rectangle ++(6,2);

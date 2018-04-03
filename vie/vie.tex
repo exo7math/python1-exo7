@@ -28,10 +28,14 @@ Voici les règles :
   \item Pour une case contenant une cellule au jour $j$, ayant soit $2$ ou soit $3$ cellules voisines : alors la cellule continue de vivre.
   Dans les autres cas la cellule meurt (avec $0$ ou $1$, elle meurt d'isolement, avec plus de $4$ voisins, elle meurt de surpopulation !).
   
+  \medskip
+  
 \myfigure{0.5}{
   \tikzinput{fig-vie-0b}
 }  
-  
+
+   \medskip
+    
 \end{itemize}
 
 Voici un exemple simple, le \og{}clignotant\fg{} :
@@ -230,7 +234,7 @@ def action_clic_souris(event):
     x = event.x
     y = event.y
     canvas.create_rectangle(x,y,x+10,y+10,fill="red")
-    print("Clic a x =",x,", y =",y)
+    print("Clic à x =",x,", y =",y)
     return
 
 # Association clic/action

@@ -305,7 +305,7 @@ Dans le module \ci{math} il y aussi des fonctions pour arrondir un nombre décim
 \objectifs{Objectifs : utiliser des fonctions de \Python{} et du module \ci{math}.}
 
 \begin{enumerate}
-  \item  La fonction \Python{} est \ci{gcd(a,b)}\index{gcd@\ci{gcd}}\index{pgcd} (sans le \og{}p\fg{}, pour \emph{greatest common divisor}). Calcule le pgcd de $a = 10\,403$ et $b = 10\,506$. Déduis-en le ppcm\index{ppcm} de $a$ et $b$. La fonction ppcm n'existe pas, tu dois utiliser la formule :
+  \item  La fonction \Python{} pour le pgcd est \ci{gcd(a,b)}\index{gcd@\ci{gcd}}\index{pgcd} (sans le \og{}p\fg{}, pour \emph{greatest common divisor}). Calcule le pgcd de $a = 10\,403$ et $b = 10\,506$. Déduis-en le ppcm\index{ppcm} de $a$ et $b$. La fonction ppcm n'existe pas, tu dois utiliser la formule :
   $$\text{ppcm}(a,b) = \frac{a \times b}{\text{pgcd}(a,b)}.$$
   
   \item Trouve par tâtonnement un nombre réel $x$ qui vérifie toutes les conditions suivantes (plusieurs solutions sont possibles) :
@@ -425,6 +425,7 @@ On peut mieux comprendre cette boucle en complétant un tableau :
 \index{list@\ci{list}}  
 \mybox
 { 
+ \begin{minipage}{0.95\textwidth}
  \begin{itemize}
  \item \textbf{\ci{range()}.}
 	\begin{itemize}
@@ -434,7 +435,7 @@ On peut mieux comprendre cette boucle en complétant un tableau :
 	  Attention ! la liste s'arrête bien à $n-1$ et pas à $n$. Ce qu'il faut retenir 
 	  c'est que la liste contient bien $n$ éléments (car elle commence à $0$).
 	  
-	  Si tu veux afficher la liste des éléments parcourus, il faut utiliser la commande :\\
+	 \item Si tu veux afficher la liste des éléments parcourus, il faut utiliser la commande :\\
 	  \centerline{\ci{list(range(10))}}
 	
 	\item Avec \ci{range(a,b)} on parcourt les éléments de $a$ à $b-1$.
@@ -443,7 +444,8 @@ On peut mieux comprendre cette boucle en complétant un tableau :
 	\item Avec \ci{range(a,b,pas)} on parcourt les éléments $a$, $a+\text{pas}$, $a + 2\text{pas}$\ldots{} Par exemple \ci{range(10,20,2)} correspond à la liste \ci{[10, 12, 14, 16, 18]}.  
 
 	\end{itemize}
-\end{itemize}	
+\end{itemize}
+\end{minipage}	
 }
 \begin{itemize}
   \item \textbf{Imbrication de boucles.}

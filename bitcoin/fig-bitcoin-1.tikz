@@ -32,10 +32,10 @@
 
 % Multiplications
 \foreach \i/\p in {0/7,2/13,4/19}{
-  \draw[<-,>=latex,ultra thick,red] (\i+0.35,7.75) -- ++(0,1) node[midway,right,scale=0.6,black]{$\times \p + 1$};
+  \draw[<-,>=latex,ultra thick,red] (\i+0.35,7.75) -- ++(0,1) node[midway,right,scale=0.45,black]{$\times \p + 1$};
 };
 \foreach \i/\p in {1/11,3/17,5/23}{
-  \draw[<-,>=latex,ultra thick,red] (\i+0.35,7.75) -- ++(0,1) node[pos=0.7,right,scale=0.6,black]{$\times \p + 1$};
+  \draw[<-,>=latex,ultra thick,red] (\i+0.35,7.75) -- ++(0,1) node[pos=0.7,right,scale=0.45,black]{$\times \p + 1$};
 };
 
 % Additions
