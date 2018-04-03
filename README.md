@@ -11,7 +11,7 @@ Vous avez tout en main pour réussir !
 Vidéos
 ======
 
-Les vidéos sont visible depuis la chaîne *Youtube* [Python au lycée](https://www.youtube.com/channel/UC6PiFyqBiUjiJ7Q3DRSW2Wg "www.youtube.com/PythonAuLycee").
+Les vidéos seront visibles depuis la chaîne *Youtube* [Python au lycée](https://www.youtube.com/channel/UC6PiFyqBiUjiJ7Q3DRSW2Wg "www.youtube.com/PythonAuLycee").
 
 Livre
 =====
@@ -41,7 +41,7 @@ Activités
 * Calculatrice polonaise -- Piles [Activités](piles/piles.pdf)
 * Visualiseur de texte -- Markdown [Activités](markdown/markdown.pdf)
 * L-système [Activités](lsysteme/lsysteme.pdf)
-* Images dynamiques [Activités](imahes/images.pdf)
+* Images dynamiques [Activités](images/images.pdf)
 * Jeu de la vie [Activités](vie/vie.pdf)
 * Graphes et combinatoire de Ramsey [Activités](ramsey/ramsey.pdf)
 * Bitcoin [Activités](bitcoin/bitcoin.pdf)
@@ -55,13 +55,15 @@ Guides
 * Principales fonctions [Guide](guide/guide-fonctions.pdf)
 * Notes et références [Guide](guide/guide-biblio.pdf)
 
-Auteurs
-=======
+Auteur
+======
 
 Arnaud Bodin
 
 Rermciements à : Stéphanie Bodin, Michel Bodin, François Recher, Éric Wegrzynowski, Philippe Marquet, Kroum Tzanev.
 
 ![Logo Python Exo7](cover/logo-python.png "logo Python Exo7")
+
+Ce livre est diffusé sous la licence *Creative Commons -- BY-NC-SA -- 4.0 FR*.
 
 
