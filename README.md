@@ -60,7 +60,7 @@ Codes
 
 Vous trouverez les fichiers sources en naviguant dans les répertoires de GitHub.
 
-La totalité des codes est regroupée ici : [Code Python] (code/code.pdf)
+La totalité des codes est regroupée ici : [Code Python](code/code.pdf)
 
 Auteur
 ======
