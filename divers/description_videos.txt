@@ -64,6 +64,63 @@ Notions avancées
 Projets
 ======================
 
+======================
+
+[Python] Probabilités - Paradoxe de Parrondo
+https://youtu.be/kBCFpEPAcoE
+Deux jeux de hasard défavorables donne un jeu favorable !
+
+
+======================
+
+[Python] Chercher et remplacer - partie 1
+https://youtu.be/pfu9IJR0vZY
+Utiliser les fonctions Python puis programmer tes propres fonctions pour chercher et remplacer.
+Utiliser les expressions rationnelles (regex, regular expression) : joker et choix.
+
+
+[Python] Chercher et remplacer - partie 2
+https://youtu.be/GL446gvcN-U
+Itérations de remplacements avec des lettres '0' et '1'.
+
+
+======================
+
+[Python] Calculatrice polonaise - Piles - partie 1
+https://youtu.be/oSbV09DaF5s
+Qu'est-ce qu'une pile ? Comment manipuler un pile ?
+Empiler. Dépiler.
+
+
+[Python] Calculatrice polonaise - Piles - partie 2
+https://youtu.be/Ak8I7o-rXKg
+Programme ta propre calculatrice. Notation polonaise inversée.
+
+
+======================
+
+[Python] Visualiseur de texte - Markdown - partie 1
+https://youtu.be/zPhMxjnNnWg
+Format Markdown.
+
+[Python] Visualiseur de texte - Markdown - partie 2
+https://youtu.be/lVNDym8opE0
+Texte avec tkinter. Afficher une ligne au format Markdown.
+
+[Python] Visualiseur de texte - Markdown - partie 3
+https://youtu.be/ozm80uP9KsA
+Justification (version mathématique).
+
+
+======================
+
+[Python] L-sytème
+https://youtu.be/ShjScrFA5iQ
+Trace des jolies figures dont des plantes !
+
+[Python] Arguments optionnels
+https://youtu.be/6sso3x3sGFs
+Comment écrire une fonction avec des arguments en option.
 
 ======================
 
