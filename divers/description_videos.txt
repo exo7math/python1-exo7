@@ -1,0 +1,125 @@
+
+Description des vidéos
+======================
+
+
+Mots-clés
+=========
+
+Python, Algorithmes, Programmation, Exo7, Informatique, Mathématiques
+
+
+======================
+Mise en route
+======================
+
+Premiers pas 1
+https://youtu.be/9M9yz8bFzuU
+Lance-toi ! Console, opérations simples, print(), utiliser un éditeur de texte.
+
+Premiers pas 2
+https://youtu.be/9h9nLLRRjls
+Variable, affectation, réaffectation.
+
+Premiers pas 3
+https://youtu.be/WLTNpIdHIls
+Utiliser des fonctions. Module math, racine carrée, trigonométrie, arrondi.
+
+Premiers pas 4
+https://youtu.be/zxf7QRfZato
+Boucle pour (boucle "for"). Parcourir une liste. range().
+
+
+======================
+
+[Python] Tortue (Scratch avec Python) - partie 1
+https://youtu.be/OpJb6ur4JAk
+Utiliser la tortue Python (avancer, tourner, tracer,...)
+
+[Python] Tortue (Scratch avec Python) - partie 2
+https://youtu.be/7Fb_FOp5NGs
+Manipuler plusieurs tortues.
+
+
+======================
+Fondamentaux
+======================
+
+Chaîne de caractères 1
+https://youtu.be/t2DSnx0R_NI
+Caractère. Chaîne de caractères. Longueur. Concaténation. Récupérer un caractère d'une chaîne par "chaine[i]". Sous-chaîne.
+
+Chaîne de caractères 2
+https://youtu.be/4XN1lN-9jtM
+Parcourir une chaîne. Code ascii/unicode.
+
+
+
+======================
+Notions avancées
+======================
+
+
+======================
+Projets
+======================
+
+
+======================
+
+[Python] Images dynamiques - partie 1
+https://youtu.be/WXGci8trILg
+Transformation du photomaton.
+
+[Python] Images dynamiques - partie 2
+https://youtu.be/DlZyWbXkotM
+Transformation du boulanger.
+
+
+
+======================
+
+[Python] Jeu de la vie
+https://youtu.be/7SR5-sUnotY
+Un monde passionnant des cellules qui naissent et meurent.
+
+[Python] Souris avec tkinter
+https://youtu.be/8d386Op5fsU
+Comment récupérer la position du clic de la souris.
+
+
+======================
+
+[Python] Graphe et combinatoire de Ramsey
+https://youtu.be/CsCSRszXYxI
+Un problème simple mais avec beaucoup de calculs.
+
+
+======================
+
+[Python] Bitcoin - partie 1
+https://youtu.be/lcVC2fqByEo
+Principe général : livre de compte (blockchain), preuve de travail.
+
+[Python] Bitcoin - partie 2
+https://youtu.be/6yZAHoPGGbw
+Fonction de hachage.
+
+[Python] Bitcoin - partie 3
+https://youtu.be/FPh9huqhJJg
+Preuve de travail. Minage.
+
+[Python] Bitcoin - partie 4
+https://youtu.be/XfVpekxADyM
+Tes propres bitcoins.
+
+
+======================
+
+[Python] Constructions aléatoires
+https://youtu.be/-AgiGtmzvI0
+Blocs qui tombent comme des flocons et arbres browniens.
+
+[Python] Mouvement avec tkinter
+https://youtu.be/DJWA7bFiimA
+Comment déplacer un objet avec tkinter afin de simuler le mouvement.
