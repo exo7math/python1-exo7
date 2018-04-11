@@ -16,7 +16,7 @@ Les vidéos seront visibles depuis la chaîne *Youtube* [Python au lycée](https
 Livre
 =====
 
-Le livre est en vente sur Amazon.fr à prix coûtant. [Commander le livre sur Amazon.fr]( https://www.amazon.fr/).
+Le livre est en vente sur Amazon.fr à prix coûtant. [Commander le livre sur Amazon.fr]( https://www.amazon.fr/dp/1986820033).
 
 Vous pouvez aussi le télécharger sur ce site : [Livre 'Python au lycée' (3 Mo)](livre-python1.pdf).
 
@@ -54,6 +54,13 @@ Guides
 * Guide de survie Python [Guide](guide/guide-python.pdf)
 * Principales fonctions [Guide](guide/guide-fonctions.pdf)
 * Notes et références [Guide](guide/guide-biblio.pdf)
+
+Codes
+=====
+
+Vous trouverez les fichiers sources en naviguant dans les répertoires de GitHub.
+
+La totalité des codes est regroupée ici : [Code Python](code/code.pdf)
 
 Auteur
 ======
