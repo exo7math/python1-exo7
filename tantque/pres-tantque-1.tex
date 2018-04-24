@@ -1,0 +1,396 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\pagestyle{empty}
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Arithmétique -- Boucle tant que -- I}
+%====================================================================
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section*{Arithmétique}
+
+\index{division euclidienne}
+\index{quotient}
+\index{reste}
+\index{modulo}
+\index{\ci{//}}
+\index{\ci{\%}}
+
+\vspace*{-1cm}
+
+\myfigure{1}{
+\tikzinput{fig-tantque}
+}
+
+On a les deux propriétés fondamentales qui définissent $q$ et $r$ :
+$$a = b \times q  + r \qquad \text{ et } \qquad 0 \le r < b$$
+
+\bigskip
+
+Exemple :  division de $a=100$ par $b=7$ : on a le quotient $q=14$ et le reste $r=2$ qui vérifient bien $a = b \times q  + r$ car $100 = 7 \times 14 + 2$  et aussi $r<b$ car $2<7$.
+
+\mybox{
+Avec \Python{} :
+\begin{itemize}
+  \item \ci{a // b} \quad renvoie le quotient,
+  \item \ci{a \% b} \quad renvoie le reste.
+\end{itemize}
+}
+
+
+\centerline{$b$ est un diviseur de $a$ si et seulement si $r=0$.}
+
+
+\newpage
+
+\section*{Boucle \og{}tant que\fg{}}
+
+La boucle \og{}tant que\fg{} exécute des instructions tant qu'une condition est vraie.
+Dès que la condition devient fausse, elle passe aux instructions suivantes.
+
+\index{boucle!tant que}
+\index{while@\ci{while}}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{fig-tantque-cours}
+} }
+
+%\begin{minipage}{0.4\textwidth}
+%Tant que condition :\\
+%\indentation instruction 1\\
+%\indentation instruction 2\\
+%Instructions suivantes
+%\end{minipage}\qquad\qquad
+%\begin{minipage}{0.4\textwidth}
+%\begin{lstlisting}  
+%while condition :
+%    instruction 1
+%    instruction 2
+%Instructions suivantes
+%\end{lstlisting}
+%\end{minipage}
+
+
+\end{document}
+
+
+\begin{exemple}
+\begin{minipage}{0.55\textwidth}
+Voici un programme qui affiche le compte à rebours $10,9,8,\ldots3,2,1,0$.
+Tant que la condition $n \ge 0$ est vraie, on diminue $n$ de $1$. La dernière valeur affichée est $n=0$, car ensuite $n=-1$ et la condition \og{}$n \ge 0$\fg{} devient fausse donc la boucle s'arrête.
+\end{minipage}\qquad\qquad
+\begin{minipage}{0.4\textwidth}
+\begin{lstlisting}
+n = 10
+while n >= 0:
+    print(n)
+    n = n - 1
+\end{lstlisting}
+\end{minipage}
+
+On résume ceci sous la forme d'un tableau :
+  $$
+  \begin{array}{l}
+  \text{Entrée : $n=10$}    \\
+  \begin{array}{|c|c|c|}
+  \hline  
+  n & \text{\og $n\ge0$ \fg{} ?} & \text{nouvelle valeur de } n \\
+  \hline\hline 
+  10 & \text{oui} & 9 \\
+  9 & \text{oui} & 8 \\
+  \ldots & \ldots & \ldots \\
+  1 & \text{oui} & 0 \\
+  0 & \text{oui} & -1 \\
+  -1 & \text{non} &  \\ 
+  \hline
+  \end{array} \\
+  \text{Affichage : $10,9,8,7,6,5,4,3,2,1,0$}  
+  \end{array} 
+  $$ 
+
+\end{exemple}
+
+
+\begin{exemple}
+\begin{minipage}{0.55\textwidth}
+Ce bout de code cherche la première puissance de $2$ plus grande qu'un entier $n$ donné.
+La boucle fait prendre à $p$ les valeurs $2$, $4$, $8$, $16$,\ldots{} Elle s'arrête dès que la puissance de $2$ est supérieure ou égale à $n$, donc ici ce programme affiche $128$.
+\end{minipage}\qquad\qquad
+\begin{minipage}{0.4\textwidth}
+\begin{lstlisting}
+n = 100
+p = 1
+while p < n:
+    p = 2 * p
+print(p)
+\end{lstlisting}
+\end{minipage}
+
+  $$
+  \begin{array}{l}
+  \text{Entrées : $n=100$, $p=1$}    \\
+  \begin{array}{|c|c|c|}
+  \hline  
+  p & \text{\og $p < n$ \fg{} ?} & \text{nouvelle valeur de } p \\
+  \hline\hline 
+  1 & \text{oui} & 2 \\
+  2 & \text{oui} & 4 \\
+  4 & \text{oui} & 8 \\
+  8 & \text{oui} & 16 \\  
+  16 & \text{oui} & 32 \\
+  32 & \text{oui} & 64 \\ 
+  64 & \text{oui} & 128 \\   
+  128 & \text{non} &  \\     
+  \hline
+  \end{array} \\
+  \text{Affichage : $128$}  
+  \end{array} 
+  $$ 
+  
+\end{exemple}
+
+
+\begin{exemple}
+\begin{minipage}{0.55\textwidth}
+Pour cette dernière boucle on a déjà programmé une fonction \ci{est_pair(n)} qui renvoie \ci{True} si l'entier $n$ est pair et \ci{False} sinon. La boucle fait donc ceci : tant que l'entier $n$ est pair, $n$ devient $n/2$. Cela revient à supprimer tous les facteurs $2$ de l'entier $n$. Comme ici $n = 56 = 2\times 2 \times 2 \times 7$, ce programme affiche $7$.
+\end{minipage}\qquad\qquad
+\begin{minipage}{0.4\textwidth}
+\begin{lstlisting}
+n = 56
+while est_pair(n) == True:
+    n = n // 2
+print(n)
+\end{lstlisting}
+
+
+
+\end{minipage}
+
+  $$
+  \begin{array}{l}
+  \text{Entrée : $n=56$}    \\
+  \begin{array}{|c|c|c|}
+  \hline  
+  n & \text{\og $n$ est pair \fg{} ?} & \text{nouvelle valeur de } n \\
+  \hline\hline 
+  56 & \text{oui} & 28 \\
+  28 & \text{oui} & 14 \\
+  14 & \text{oui} & 7 \\
+  7 & \text{non} &  \\ 
+  \hline
+  \end{array} \\
+  \text{Affichage : $7$}  
+  \end{array} 
+  $$ 
+\medskip
+
+Pour ce dernier exemple il est beaucoup plus naturel de démarrer la boucle par\\
+\centerline{\ci{while est_pair(n):}}
+En effet \ci{est_pair(n)} est déjà une valeur \og{}vrai\fg{} ou \ci{}faux\fg{}.
+On se rapproche d'une phrase \og{}tant que $n$ est pair...\fg{}
+
+\end{exemple}
+
+
+\textbf{Opération \og{}\ci{+=}\fg{}.}
+\index{+=@\ci{+=}}
+Pour incrémenter un nombre tu peux utiliser ces deux méthodes :\\
+\centerline{\ci{nb = nb + 1} \qquad ou \qquad \ci{nb += 1}}
+La seconde écriture est plus courte mais rend le programme moins lisible.
+\end{cours}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{activite}[Nombres premiers]
+
+\objectifs{Objectifs : tester si un entier est (ou pas) un nombre premier.}
+
+\index{diviseur}
+\index{nombre premier}
+
+\begin{enumerate}
+  \item \textbf{Plus petit diviseur.}
+  
+  Programme une fonction \ci{plus_petit_diviseur(n)} qui renvoie, le plus petit diviseur $d\ge2$ de l'entier $n\ge2$.
+  
+  Par exemple \ci{plus_petit_diviseur(91)} renvoie $7$, car $91 = 7 \times 13$.
+  
+  \textbf{Méthode.}
+  \begin{itemize}
+    \item On rappelle que $d$ divise $n$ si et seulement si \ci{n \% d} vaut $0$.
+    \item La mauvaise idée est d'utiliser une boucle \og{}pour $d$ variant de $2$ à $n$\fg{}. En effet, si par exemple on sait que $7$ est diviseur de $91$ cela ne sert à rien de tester si $8,9,10\ldots$ sont aussi des diviseurs car on a déjà trouvé le plus petit.
+    
+    \item La bonne idée est d'utiliser une boucle \og{}tant que\fg{} !
+    Le principe est : \og{}tant que je n'ai pas obtenu mon diviseur, je continue de chercher\fg{}. (Et donc, dès que je l'ai trouvé, j'arrête de chercher.)
+    
+    \item En pratique voici les grandes lignes :
+    \begin{itemize}
+      \item Commence avec $d=2$.
+      \item Tant que $d$ ne divise pas $n$ alors, passe au candidat suivant ($d$ devient $d+1$).
+      \item À la fin $d$ est le plus petit diviseur de $n$ (dans le pire des cas $d=n$).
+     \end{itemize} 
+  \end{itemize}
+  
+  
+  \item \textbf{Nombres premiers (1).}
+  
+  Modifie légèrement ta fonction \ci{plus_petit_diviseur(n)} pour écrire une première fonction \ci{est_premier_1(n)} qui renvoie \og{}vrai\fg{} (\ci{True}) si $n$ est un nombre premier et \og{}faux\fg{} (\ci{False}) sinon.
+  
+  Par exemple \ci{est_premier_1(13)} renvoie \ci{True}, \ci{est_premier_1(14)} renvoie \ci{False}.
+  
+  \item \textbf{Nombres de Fermat.}
+  
+  Pierre de Fermat ($\sim$1605--1665) pensait que tous les entiers $F_n = 2^{(2^n)}+1$ étaient des nombres premiers. Effectivement $F_0=3$, $F_1=5$ et $F_2=17$
+  sont des nombres premiers. S'il avait connu \Python{} il aurait sûrement changé d'avis ! Trouve le plus petit entier $F_n$ qui n'est pas premier.
+  
+  \emph{Indication.} Avec \Python{} $b^c$ s'écrit \ci{b ** c} et donc
+  $a^{(b^c)}$ s'écrit \ci{a ** (b ** c)}.
+  
+  \medskip
+  
+  \emph{On va améliorer notre fonction qui teste si un nombre est premier ou pas, cela nous permettra de tester plus vite plein de nombres ou bien des nombres très grands.}  
+  
+  \item \textbf{Nombres premiers (2).}
+  
+   Améliore ta fonction en une fonction \ci{est_premier_2(n)} qui ne teste pas tous les diviseurs $d$ jusqu'à $n$, mais seulement jusqu'à $\sqrt{n}$.
+   
+  \emph{Explications.}
+  \begin{itemize}
+    \item Par exemple pour tester si $101$ est un nombre premier, il suffit de voir s'il admet des diviseurs parmi $2,3,\ldots,10$. Le gain est appréciable !
+    
+    \item Cette amélioration est due à la proposition suivante : si un entier n'est pas premier alors il admet un diviseurs $d$ qui vérifie $2 \le d \le \sqrt{n}$.
+    
+    \item Au lieu de tester si $d \le \sqrt{n}$, il est plus facile de tester $d^2 \le n$ !
+   \end{itemize} 
+  
+  
+  \item \textbf{Nombres premiers (3).}  
+  
+  Améliore ta fonction en une fonction \ci{est_premier_3(n)} à l'aide de l'idée suivante.  On teste si $d=2$ divise $n$, mais à partir de $d=3$, il suffit de tester les diviseurs impairs (on teste $d$, puis $d+2$\ldots).
+ 
+ \begin{itemize}
+   \item Par exemple pour tester si $n = 419$ est un nombre premier, on teste d'abord si $d=2$ divise $n$, puis $d=3$ et ensuite $d=5$, $d=7$\ldots 
+   \item Cela permet de faire environ deux fois moins de tests !
+   \item Explications : si un nombre pair $d$ divise $n$, alors on sait déjà que $2$ divise $n$.   
+   \end{itemize}
+  
+  
+  \item \textbf{Temps de calcul.}
+  
+  Compare les temps de calcul de tes différentes fonctions \ci{est_premier()} en répétant par exemple un million de fois l'appel \ci{est_premier(97)}. Voir le cours ci-dessous pour savoir comment faire.
+\end{enumerate}   
+     
+\end{activite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{cours}[Temps de calcul]
+
+Il existe deux façons de faire tourner plus rapidement des programmes : une bonne et une mauvaise. La mauvaise, c'est d'acheter un ordinateur plus puissant.
+La bonne, c'est de trouver un algorithme plus efficace !
+
+Avec \Python, c'est facile de mesurer le temps d'exécution d'une fonction afin de le comparer avec le temps d'exécution d'une autre. Il suffit d'utiliser le module \ci{timeit}.
+
+\index{module!timeit@\ci{timeit}}
+\index{timeit@\ci{timeit}}
+\index{temps de calcul}
+
+Voici un exemple : on mesure le temps de calcul de deux fonctions qui ont le même but, tester si un entier $n$ est divisible par $7$.
+
+\begin{lstlisting}  
+# Première fonction (pas très maligne)
+def ma_fonction_1(n):
+    divis = False
+    for k in range(n):
+        if k*7 == n:
+            divis = True
+    return divis
+
+# Seconde fonction (plus rapide)
+def ma_fonction_2(n):
+    if n % 7 == 0:
+        return True
+    else:
+        return False
+
+import timeit
+
+print(timeit.timeit("ma_fonction_1(1000)", 
+    setup="from __main__ import ma_fonction_1", 
+    number=100000))
+print(timeit.timeit("ma_fonction_2(1000)", 
+    setup="from __main__ import ma_fonction_2", 
+    number=100000))
+\end{lstlisting} 
+
+\textbf{Résultats.} \\
+Le résultat dépend de l'ordinateur, mais permet la comparaison des temps d'exécution des deux fonctions.
+\begin{itemize}
+  \item La mesure pour la première fonction renvoie $5$ secondes. L'algorithme n'est pas très malin. On teste
+  si $7\times 1 =n$, puis on teste $7\times 2 = n$, $7\times 3 = n$\ldots
+  
+  \item La mesure pour la seconde fonction renvoie $0.01$ seconde ! On teste si le reste de $n$ divisé par $7$ est $0$. La seconde méthode est donc $500$ fois plus rapide que la première.
+\end{itemize}  
+
+\textbf{Explications.}
+\begin{itemize}
+  \item On appelle le module \ci{timeit}.
+    
+  \item La fonction \ci{timeit.timeit()} renvoie le temps d'exécution en seconde.
+Elle prend comme paramètres : 
+  \begin{itemize}
+    \item une chaîne pour l'appel de la fonction à tester (ici est-ce que $1000$ est divisible par $7$),
+    \item un argument \ci{setup="..."} qui indique où trouver cette fonction,
+    \item le nombre de fois qu'il faut répéter l'appel à la fonction (ici \ci{number=100000}).
+  \end{itemize}
+  \item Il faut que le nombre de répétitions soit assez grand pour éviter les incertitudes.
+\end{itemize} 
+
+\end{cours}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Activité 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{activite}[Plus de nombres premiers]
+
+\objectifs{Objectifs : programmer davantage de boucles \og{}tant que\fg{} et étudier différentes sortes de nombres premiers à l'aide de ta fonction \ci{est_premier()}.}
+
+\begin{enumerate}
+  \item Écris une fonction \ci{nombre_premier_apres(n)} qui renvoie le premier nombre premier $p$ supérieur ou égal à $n$. 
+  
+  Par exemple, le premier nombre premier après $n=60$ est $p=61$. 
+  Quel est le premier nombre premier après $n=100\,000$ ?
+  
+  \item Deux nombres premiers $p$ et $p+2$ sont appelés \defi{nombres premiers jumeaux}. Écris une fonction \ci{nombres_jumeaux_apres(n)} qui renvoie le premier couple $p$, $p+2$ de nombres premiers jumeaux, avec $p \ge n$.
+  
+  Par exemple, le premier couple de nombres premiers jumeaux après $n=60$ est $p=71$ et $p+2=73$.   
+    Quel est le premier couple de nombres premiers jumeaux après $n=100\,000$ ?
+    
+  \item Un entier $p$ est un \defi{nombre premier de Germain} si $p$ et $2p+1$ sont des nombres premiers. Écris une fonction \ci{nombre_germain_apres(n)} qui renvoie le couple $p$, $2p+1$ où $p$ est le premier nombre premier de Germain $p \ge n$.
+  
+  Par exemple, le premier nombre premier de Germain après $n=60$ est $p=83$ avec $2p+1=167$.   
+  Quel est le premier nombre premier de Germain après $n=100\,000$ ?
+  
+\end{enumerate}   
+     
+\end{activite}
+
+
+\end{document}

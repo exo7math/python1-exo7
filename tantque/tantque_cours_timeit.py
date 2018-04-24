@@ -1,4 +1,4 @@
-# Premiere fonction (pas tres maligne)
+# Première fonction (pas très maligne)
 def ma_fonction_1(n):
     divis = False
     for k in range(n):
@@ -13,7 +13,7 @@ def ma_fonction_2(n):
     else:
         return False
 
-
+# Mesure des temps d'exécution
 import timeit
 
 print(timeit.timeit("ma_fonction_1(1000)", 

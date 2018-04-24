@@ -1,0 +1,177 @@
+\documentclass[11pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\pagestyle{empty}
+
+\begin{document}
+
+
+%====================================================================
+\chapitre{Si ... alors ...}
+%====================================================================
+
+
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{fig-sialors-cours-1}
+} }
+
+\newpage
+\section*{Si ... alors ... sinon ...}
+
+\mybox{
+\myfigure{0.7}{
+  \tikzinput{fig-sialors-cours-2}
+} }
+
+
+\newpage
+
+
+\section*{Entrée au clavier}
+
+
+\begin{itemize}
+  \item \ci{input()} met en pause l'exécution du programme et attend de l'utilisateur un texte
+  
+  \bigskip
+  
+  \item Cette commande renvoie une chaîne de caractères.
+   
+  \bigskip
+   
+  \item \ci{int}. Si on veut un entier, il faut convertir la chaîne. 
+  
+  
+  Exemple. Si \ci{age_chaine} vaut  \ci{"17"}, alors \ci{int(age_chaine)} vaut l'entier \ci{17}. 
+
+
+  \bigskip
+   
+  \item \ci{float}. Si on veut un nombre flottant, il faut convertir la chaîne. 
+  
+  
+  Exemple. Si \ci{pi_chaine} vaut  \ci{"3.14"}, alors \ci{float(pi_chaine)} vaut le nombre flottant \ci{3.14}. 
+     
+  \bigskip
+   
+  \item \ci{str} convertit un nombre en une chaîne. 
+  
+  Exemple.  \ci{str(17)} renvoie la chaîne \ci{"17"} ; si \ci{age = 17}, alors \ci{str(age)} renvoie également \ci{"17"}.
+\end{itemize}
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Le module \og{}random\fg{}}
+
+Le module \ci{random} génère des nombres comme s'ils étaient tirés au hasard.
+
+   
+  \bigskip
+  
+\begin{itemize}
+  \item En début du programme :\\
+  \centerline{\ci{from random import *}}
+    
+  \bigskip 
+  \item \ci{randint(a,b)}\index{randint@\ci{randint}} renvoie un entier au hasard compris entre $a$ et $b$.
+  
+  Exemple. \ci{n = randint(1,6)}, $n$ est un entier tiré au hasard avec $1 \le n \le 6$.
+  Si on recommence l'instruction \ci{n = randint(1,6)}, $n$ prend une nouvelle valeur. C'est comme si on effectuait le lancer d'un dé à $6$ faces.
+     
+     
+  \bigskip
+  \item \ci{random()} renvoie un nombre flottant compris entre $0$ et $1$.  
+  
+  Exemple. Avec \ci{x = random()}, alors $x$ est un nombre flottant avec $0 \le x < 1$.
+\end{itemize}
+
+
+
+\newpage
+
+\section*{Booléens}
+
+
+\sauteligne
+\begin{itemize}
+  \item Un \defi{booléen}\index{booleen@booléen} est une donnée qui vaut soit la valeur \og{}vrai\fg{}, soit la valeur \og{}faux\fg{}. En \Python{} les valeurs sont \ci{True}\index{true@\ci{True}} et \ci{False}\index{false@\ci{False}} (avec une majuscule).
+     
+  \bigskip
+    
+  \item On obtient un booléen par exemple comme résultat de la comparaison de deux nombres.
+  Par exemple \ci{7 < 4} vaut \ci{False} (car $7$ n'est pas plus petit que $4$). 
+  Vérifie que \ci{print(7 < 4)} affiche \ci{False}.
+    
+\end{itemize} 
+     
+  \bigskip
+  \bigskip  
+  
+    Voici les principales comparaisons :
+  \begin{itemize}
+    \item \textbf{Test d'égalité :}\quad \ci{a == b}\index{\ci{==}}
+    	\item \textbf{Test inférieur strict :}\quad \ci{a < b}
+    	\item \textbf{Test inférieur large :}\quad \ci{a <= b}\index{\ci{<=}}
+    	\item \textbf{Test supérieur :}\quad \ci{a > b} \quad ou \quad \ci{a >= b}\index{\ci{>=}}
+    	\item \textbf{Test non égalité :}\quad \ci{a != b}\index{\ci{"!}\ci{=}}
+  \end{itemize}
+   
+   Par exemple \ci{6*7 == 42} vaut \ci{True}.
+
+  
+\newpage
+
+ \section*{Booléens}
+
+
+   
+   \mybox{
+   \textbf{ATTENTION !}   
+   L'erreur classique est de confondre \og{}\ci{a = b}\fg{} et \og{}\ci{a == b}\fg{}.
+   \begin{itemize}
+     \item \textbf{Affectation.} \ci{a = b}
+     met le contenu de la variable \ci{b} dans la variable \ci{a}.
+     \item \textbf{Test d'égalité.} \ci{a == b} teste si les contenus de \ci{a} et de \ci{b} sont égaux et vaut \ci{True} ou \ci{False}.
+   \end{itemize}
+   }
+   
+   
+\newpage
+
+ \section*{Booléens}
+   
+ \begin{itemize} 
+      
+  \item On peut comparer autre chose que des nombres. Par exemple 
+  \og{}\ci{car == "A"}\fg{} teste si la variable \ci{car} vaut \ci{"A"} ; \og{}\ci{il_pleut == True}\fg{} teste si la variable \ci{il_pleut} est vraie\ldots
+  
+   \bigskip  
+    
+  \item Les booléens sont utiles dans le test \og{}si \ldots{} alors \ldots\fg{} et dans les boucles \og{}tant que \ldots{} alors \ldots\fg{}.
+  
+    \bigskip  
+    
+  \item \textbf{Opérations entre les booléens.}
+  \index{operation logique@opération logique}
+  Si $P$ et $Q$ sont deux booléens, on peut définir de nouveaux booléens.
+  \begin{itemize}
+    \item \textbf{Et logique.}\index{et}\quad \og{}\ci{P and Q}\fg{}\index{and@\ci{and}} est vrai si et seulement si $P$ et $Q$ sont vrais.
+    	\item \textbf{Ou logique.}\index{ou}\quad \og{}\ci{P or Q}\fg{}\index{or@\ci{or}} est vrai si et seulement si $P$ ou $Q$ est vrai.
+    	\item \textbf{Négation.}\index{non}\quad \og{}\ci{not P}\fg{}\index{not@\ci{not}} est vrai si et seulement si $P$ est faux.
+  \end{itemize}  
+   
+    \bigskip  
+     
+  Exemple. \og{}\ci{(2+2 == 2*2) and (5 < 3)}\fg{} renvoie \ci{False}, car
+  même si on a bien $2+2 = 2 \times 2$, l'autre condition n'est pas remplie car $5 < 3$ est faux.
+  
+  
+\end{itemize}
+
+\end{document}
