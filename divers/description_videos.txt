@@ -45,14 +45,72 @@ Manipuler plusieurs tortues.
 Fondamentaux
 ======================
 
-Chaîne de caractères 1
+[Python] Si ... alors ... - partie 1
+https://youtu.be/tjZQ64VjvaU
+Test "si ... alors ..." et "si ... alors ... sinon ..." : if/then/else.
+
+[Python] Si ... alors ... - partie 2 - Entrée au clavier
+https://youtu.be/UlSmDST7zfk
+Entrée utilisateur au clavier : input()).
+Conversion entier/chaîne.
+
+[Python] Hasard - Module random
+https://youtu.be/ll5RENiJZwU
+Générer des nombres (presque) au hasard : randint(), random().
+
+[Python] Si ... alors ... - partie 3 - Booléens
+https://youtu.be/WNJRn4LbxXs
+Vrai/faux : les booléens. 
+
+======================
+
+[Python] Fonctions - partie 1
+https://youtu.be/lp5KTIduKJw
+Définir tes propres fonctions (sans paramètres). def, return
+
+[Python] Fonctions - partie 2
+https://youtu.be/otOE1xA5wAA
+Fonctions avec un paramètre et/ou une sortie.
+
+[Python] Fonctions - partie 3
+https://youtu.be/QDgY4Ki4Yu8
+Fonctions avec plusieurs paramètres et/ou plusieurs sorties.
+
+[Python] Fonctions - partie 4 : variable locale
+https://youtu.be/QdPTjHN9Q-g
+Notions de variable locale.
+
+======================
+
+[Python] Arithmétique - Quotient et reste
+https://youtu.be/Qa9eSV4wB_s
+Arithmétique avec Python : division euclidienne, quotient, reste, modulo.
+
+[Python] Boucle tant que I - partie 1
+https://youtu.be/2Xxty4oaHBs
+Comprendre la boucle "tant que" : while. Condition vrai/faux.
+Exemples avec l'arithmétique.
+
+[Python] Boucle tant que I - partie 2
+https://youtu.be/NRvv1odnoIU
+Encore la boucle "tant que" (while). Bien comprendre la condition.
+Exemples avec l'arithmétique : plus petit diviseur, test si un nombre est premier.
+
+[Python] Temps de calcul - Module timeit
+https://youtu.be/l5Pm1EdxWsQ
+Mesurer le temps d'exécution d'une fonction.
+
+
+======================
+
+
+[Python] Chaîne de caractères 1
 https://youtu.be/t2DSnx0R_NI
 Caractère. Chaîne de caractères. Longueur. Concaténation. Récupérer un caractère d'une chaîne par "chaine[i]". Sous-chaîne.
 
-Chaîne de caractères 2
+[Python] Chaîne de caractères 2
 https://youtu.be/4XN1lN-9jtM
 Parcourir une chaîne. Code ascii/unicode.
-
 
 
 ======================
