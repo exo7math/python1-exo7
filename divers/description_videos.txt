@@ -13,19 +13,19 @@ Python, Algorithmes, Programmation, Exo7, Informatique, Mathématiques
 Mise en route
 ======================
 
-Premiers pas 1
+[Python] Premiers pas 1
 https://youtu.be/9M9yz8bFzuU
 Lance-toi ! Console, opérations simples, print(), utiliser un éditeur de texte.
 
-Premiers pas 2
+[Python] Premiers pas 2
 https://youtu.be/9h9nLLRRjls
 Variable, affectation, réaffectation.
 
-Premiers pas 3
+[Python] Premiers pas 3
 https://youtu.be/WLTNpIdHIls
 Utiliser des fonctions. Module math, racine carrée, trigonométrie, arrondi.
 
-Premiers pas 4
+[Python] Premiers pas 4
 https://youtu.be/zxf7QRfZato
 Boucle pour (boucle "for"). Parcourir une liste. range().
 
@@ -103,7 +103,6 @@ Mesurer le temps d'exécution d'une fonction.
 
 ======================
 
-
 [Python] Chaîne de caractères 1
 https://youtu.be/t2DSnx0R_NI
 Caractère. Chaîne de caractères. Longueur. Concaténation. Récupérer un caractère d'une chaîne par "chaine[i]". Sous-chaîne.
@@ -111,6 +110,23 @@ Caractère. Chaîne de caractères. Longueur. Concaténation. Récupérer un car
 [Python] Chaîne de caractères 2
 https://youtu.be/4XN1lN-9jtM
 Parcourir une chaîne. Code ascii/unicode.
+
+
+======================
+
+[Python] Listes I - partie 1
+https://youtu.be/Vqtmbon5_Nk
+Construction d'une liste. Récupérer un élément. Ajouter un élément.
+Construction à l'aide d'une boucle. Longueur d'une liste. Parcourir une liste, boucle "pour".
+
+[Python] Listes I - partie 2 
+https://youtu.be/pRje2HvY5OQ
+Concaténation. Ajouter un élément au début ou à la fin d'une liste. Trancher des listes.
+Manipulation : inverser une liste, supprimer un élément, trier une liste.
+
+[Python] Listes I - partie 3
+https://youtu.be/lp-MC8Hguk0
+Visualiser une liste avec le module 'matplolib'.
 
 
 ======================
