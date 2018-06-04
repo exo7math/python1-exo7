@@ -42,7 +42,7 @@ while n >= 0:
 # Racine carrée entière
 n = 777
 for i in range(100):
-    if i**2 >= n:
+    if i**2 > n:
         break
 print(i-1)
 
@@ -50,7 +50,7 @@ print(i-1)
 # Mieux
 n = 777
 i = 0 
-while (i**2 < n)  and (i < 100):
+while i**2 <= n:
     i = i + 1
 print(i-1) 
 

@@ -76,12 +76,13 @@ Dans cette activité \ci{liste} désigne une liste de nombres (entiers ou flotta
   
   Écris une fonction \ci{variance(liste)} qui calcule la variance des éléments d'une liste.
   
-  Par exemple, pour la série $(6,8,2,10)$, la moyenne est $m = 8$, la variance est
-  $$v = \frac{1}{4} = \big((6-8)^2 + (8-8)^2 + (2-8)^2 + (10-8)^2\big) = 8.75.$$
+  Par exemple, pour la série $(6,8,2,10)$, la moyenne est $m = 6.5$, la variance est
+  $$v = \frac{1}{4} \big((6-6.5)^2 + (8-6.5)^2 + (2-6.5)^2 + (10-6.5)^2\big) = 8.75.$$
   
   \item L'\defi{écart-type}\index{ecart-type@écart-type} d'une série $(x_1,x_2,\ldots,x_n)$ est la racine carrée de la variance :
   $$e = \sqrt{v}$$
   où $v$ est la variance. Programme une fonction \ci{ecart_type(liste)}.
+  Avec l'exemple ci-dessus on trouve $e = \sqrt{v} = \sqrt{8.75} = 2.95\ldots$
   
 %  La fonction racine carrée \ci{sqrt()} n'est pas disponible par défaut dans \Python. Pour l'utiliser, il faut appeler le module des fonctions mathématiques par la commande :\\
 %  \centerline{\ci{from math import *}}

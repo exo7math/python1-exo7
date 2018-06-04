@@ -133,6 +133,51 @@ Visualiser une liste avec le module 'matplolib'.
 Notions avancées
 ======================
 
+[Python] Statistique - Visualisation de données - partie 1
+https://youtu.be/LfwCejyQrws
+Statistiques sur une liste : somme, minimum, maximum, moyenne,
+variance, écart-type, exemples.
+
+[Python] Statistique - Visualisation de données - partie 2
+https://youtu.be/MB79YkqPpJc
+Graphique en barres, cumulatif, en pourcentage, en secteurs.
+Tracer un arc avec tkinter.
+
+[Python] Statistique - Visualisation de données - partie 3
+https://youtu.be/xRJFmrD6G9o
+Diagramme en boîtes ou diagramme à moustaches. Médiane, quartiles.
+
+[Python] Graphiques avec tkinter
+https://youtu.be/sFqVEJFf8n4
+Créer une fenêtre avec tkinter. Tracer un rectangle, un cercle, afficher du texte.
+
+[Python] Boutons avec tkinter
+https://youtu.be/DwQlqagVcyw
+Ajouter des boutons à une fenêtre tkinter.
+
+[Python] Fichiers - partie 1 - Écrire un fichier
+https://youtu.be/kLdHGVD2qZo
+Comment écrire un fichier texte ?
+Conversion d'un entier ou d'un flottant en une chaîne ('str').
+Exemple du format 'csv'.
+
+[Python] Fichiers - partie 2 - Lire un fichier
+https://youtu.be/e3OWL8e4yZQ
+Comment lire un fichier texte ? 
+Conversion d'une chaîne vers un entier ou un flottant ('int' et 'float').
+Fragmenter une chaînes de caractères ('split').
+
+
+[Python] Fichiers - partie 3 - Images
+https://youtu.be/Uw2yKTEqOmI
+Comment écire un fichier d'image ? Image noir et blanc, en niveau de gris ou en couleurs. Format pbm, pgm, ppm.
+
+[Python] Boucle tant que II - Quitter une boucle
+https://youtu.be/pU7Wvh6J9iM
+Comment quitter une boucle ? Trouver une bonne condition. Drapeau. Commande 'break', commandes 'try/except'.
+
+
+
 
 ======================
 Projets

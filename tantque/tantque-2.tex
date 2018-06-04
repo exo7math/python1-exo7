@@ -295,14 +295,14 @@ while n >= 0:
 
 \begin{exemple}
 
-Voici des programmes qui cherchent la racine carrée entière de $777$, c'est-à-dire le plus grand entier $i$ qui vérifie $i^2 \le 777$. La recherche est limitée aux entiers $i$ entre $0$ et $99$.
+Voici des programmes qui cherchent la racine carrée entière de $777$, c'est-à-dire le plus grand entier $i$ qui vérifie $i^2 \le 777$. Dans le script de droite, la recherche est limitée aux entiers $i$ entre $0$ et $99$.
 
 \begin{minipage}{0.4\textwidth}
 \begin{lstlisting}
 # Racine carrée entière
 n = 777
 for i in range(100):
-    if i**2 >= n:
+    if i**2 > n:
         break
 print(i-1)
 \end{lstlisting}
@@ -312,7 +312,7 @@ print(i-1)
 # Mieux
 n = 777
 i = 0 
-while (i**2 < n)  and (i < 100):
+while i**2 <= n:
     i = i + 1
 print(i-1) 
 \end{lstlisting}
