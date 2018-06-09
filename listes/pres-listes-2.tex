@@ -1,0 +1,128 @@
+\documentclass[12pt,class=report,crop=false]{standalone}
+\usepackage[screen]{../python}
+
+\pagestyle{empty}
+
+\begin{document}
+
+% Commande spécifique
+\newcommand{\badletter}[1]{\underline{\textcolor{red}{#1}}}
+
+
+
+%====================================================================
+\chapitre{Listes II}
+%====================================================================
+
+
+
+
+\section*{Trancher des listes}
+  
+  \begin{itemize}
+    \item Tu connais déjà \ci{maliste[a:b]} qui renvoie la sous-liste des éléments du rang $a$ au rang $b-1$.
+    
+    \item \ci{maliste[a:]} renvoie la liste des éléments du rang $a$ jusqu'à la fin.
+      
+    \item \ci{maliste[:b]} renvoie la liste des éléments du début jusqu'au rang $b-1$.
+    
+    \item \ci{maliste[-1]} renvoie le dernier élément, \ci{maliste[-2]} renvoie l'avant-dernier élément,\ldots
+    \end{itemize}
+        
+        
+ 
+\bigskip       
+          
+\textbf{Exercice.} 
+  \myfigure{0.7}{
+  \tikzinput{fig-listes-4}
+}  
+  Avec \ci{maliste = [7,2,4,5,3,10,9,8,3]}, 
+que renvoient les instructions suivantes ?
+
+
+\begin{itemize}
+  \item \ci{maliste[3:5]}
+  \item \ci{maliste[4:]}
+  \item \ci{maliste[:6]}
+  \item \ci{maliste[-1]}
+\end{itemize}
+
+\newpage
+
+\section*{Trouver le rang d'un élément} 
+
+   \ci{liste.index(element)} renvoie la première position à laquelle l'élément a été trouvé. Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
+   \ci{liste.index(5)} renvoie $2$.
+
+
+\bigskip
+\bigskip
+
+  Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :\\
+  \centerline{\ci{element in liste}}  
+  renvoie \ci{True} ou \ci{False}.
+  Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
+   \og\ci{9 in liste}\fg{} est vrai, alors que \og\ci{8 in liste}\fg{} est faux.
+
+
+\newpage
+
+\section*{Liste par compréhension}
+  
+ $$E = \{0,2,4,6,8,10\}$$
+ 
+  $$E = \{ x \in \Nn \mid x \le 10 \text{ et } x \text{ est pair} \}$$
+  
+\bigskip
+\bigskip  
+  
+  Liste par compréhension \Python{}
+  \bigskip  
+  
+  \begin{itemize}
+    \item Partons d'une liste, par exemple \ci{maliste = [1,2,3,4,5,6,7,6,5,4,3,2,1]}.
+ \bigskip     
+    \item La commande \ci{liste_doubles = [ 2*x for x in maliste ]} renvoie une liste qui contient les doubles des éléments de la liste \ci{maliste}. C'est donc la liste 
+    \ci{[2,4,6,8,...]}.
+\bigskip      
+    \item La commande \ci{liste_carres = [ x**2 for x in maliste ]} renvoie la liste des carrés des éléments de la liste initiale. C'est donc la liste \ci{[1,4,9,16,...]}.
+\bigskip      
+    \item La commande \ci{liste_partielle = [x for x in maliste if x > 2]}
+    extrait la liste composée des seuls éléments strictement supérieurs à $2$. C'est donc la liste \ci{[3,4,5,6,7,6,5,4,3]}.
+	\end{itemize}
+	
+	
+\newpage
+
+\section*{Liste de listes}
+  
+
+  
+  Une liste peut contenir d'autres listes, par exemple :\\
+  \centerline{\ci{maliste = [ ["Harry", "Hermione", "Ron"], [101,103] ]}}
+   contient deux listes. 
+   
+\bigskip
+\bigskip 
+   
+  Listes qui contiennent des listes d'entiers : des \defi{tableaux}. 
+  
+  Par exemple : \\
+  \centerline{\ci{tableau = [ [2,14,5], [3,5,7], [15,19,4], [8,6,5] ]}}
+
+  $$\begin{array}{ccc}2&14&5\\3&5&7\\15&19&4\\8&6&5\end{array}$$
+  
+\bigskip 
+  
+  Alors \ci{tableau[i]} renvoie la sous-liste de rang $i$, alors que
+  \ci{tableau[i][j]} renvoie l'entier situé au rang $j$ dans la sous-liste de rang $i$. Par exemple :
+  \begin{itemize}
+  \item \ci{tableau[0]} renvoie la liste \ci{[2,14,5]},
+  \item \ci{tableau[1]} renvoie la liste \ci{[3,5,7]},
+  \item \ci{tableau[0][0]} renvoie l'entier \ci{2},
+  \item \ci{tableau[0][1]} renvoie l'entier \ci{14},
+  \item \ci{tableau[2][1]} renvoie l'entier \ci{19}.
+\end{itemize}
+
+\end{document}
