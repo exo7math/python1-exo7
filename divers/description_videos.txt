@@ -13,19 +13,19 @@ Python, Algorithmes, Programmation, Exo7, Informatique, Mathématiques
 Mise en route
 ======================
 
-[Python] Premiers pas 1
+[Python] Premiers pas - partie 1
 https://youtu.be/9M9yz8bFzuU
 Lance-toi ! Console, opérations simples, print(), utiliser un éditeur de texte.
 
-[Python] Premiers pas 2
+[Python] Premiers pas - partie 2
 https://youtu.be/9h9nLLRRjls
 Variable, affectation, réaffectation.
 
-[Python] Premiers pas 3
+[Python] Premiers pas - partie 3
 https://youtu.be/WLTNpIdHIls
 Utiliser des fonctions. Module math, racine carrée, trigonométrie, arrondi.
 
-[Python] Premiers pas 4
+[Python] Premiers pas - partie 4
 https://youtu.be/zxf7QRfZato
 Boucle pour (boucle "for"). Parcourir une liste. range().
 
@@ -166,7 +166,6 @@ https://youtu.be/e3OWL8e4yZQ
 Comment lire un fichier texte ? 
 Conversion d'une chaîne vers un entier ou un flottant ('int' et 'float').
 Fragmenter une chaînes de caractères ('split').
-
 
 [Python] Fichiers - partie 3 - Images
 https://youtu.be/Uw2yKTEqOmI
