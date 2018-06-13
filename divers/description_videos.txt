@@ -175,8 +175,32 @@ Comment écire un fichier d'image ? Image noir et blanc, en niveau de gris ou en
 https://youtu.be/pU7Wvh6J9iM
 Comment quitter une boucle ? Trouver une bonne condition. Drapeau. Commande 'break', commandes 'try/except'.
 
+[Python] Binaire - partie 1 - Écriture décimale
+https://youtu.be/EhxiXresX7Y
+Avant de comprendre l'écriture binaire, on comprend l'écriture décimale.
+Passage de l'entier vers son écriture décimale et inversement.
 
+[Python] Binaire - partie 2 - De l'écriture binaire vers l'entier 
+https://youtu.be/_NrAp2C16j4
+Comment calculer l'entier à partir de son écriture binaire. 
+Algorithme et écriture avec préfixe '0b'.
 
+[Python] Binaire - partie 3 - De l'entier vers l'écriture binaire
+https://youtu.be/D9ZSxpCvE7A
+Comment calculer l'écriture binaire d'un entier.
+Calculs à la main, avec la fonction 'bin()' et algorithme.
+
+[Python] Listes II - partie 1 -Trancher des listes - Trouver le rang
+https://youtu.be/J4lV4LJOEk4
+Trancher des listes (suite). Trouver le rang d'un élément ('index'). Opérateur 'in'.
+
+[Python] Listes II - partie 2 - Liste par compréhension
+https://youtu.be/eFgHwutcxIg
+Définir une liste en utilisant la syntaxe des listes par compréhension.
+
+[Python] Listes II - partie 3 - Liste de listes
+https://youtu.be/JJVH3lcP_AM
+Utiliser une liste de listes. Tableau à double entrée.
 
 ======================
 Projets
