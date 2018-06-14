@@ -29,6 +29,18 @@ Utiliser des fonctions. Module math, racine carrée, trigonométrie, arrondi.
 https://youtu.be/zxf7QRfZato
 Boucle pour (boucle "for"). Parcourir une liste. range().
 
+[Python] Installer Python pour Windows
+https://youtu.be/IS117_uXZKE
+Comment installer Python 3 sous Windows ? Explications pas à pas.
+
+[Python] Démarrer Python et utiliser IDLE
+https://youtu.be/QtUxL52VPtA
+Utiliser la console Python. Utiliser IDLE : nouveau fichier, sauvegarder, lancer Python depuis IDLE.
+
+[Python] Un éditeur de texte moderne : Sublime Text
+https://youtu.be/WWiceaSiMTk
+Présentation succinte d'un éditeur de texte très efficace : Sublime Text.
+
 
 ======================
 
