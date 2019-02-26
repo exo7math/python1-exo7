@@ -278,6 +278,8 @@ La seconde écriture est plus courte mais rend le programme moins lisible.
   
   Par exemple \ci{plus_petit_diviseur(91)} renvoie $7$, car $91 = 7 \times 13$.
   
+  \medskip
+  
   \textbf{Méthode.}
   \begin{itemize}
     \item On rappelle que $d$ divise $n$ si et seulement si \ci{n \% d} vaut $0$.
@@ -309,7 +311,7 @@ La seconde écriture est plus courte mais rend le programme moins lisible.
   \emph{Indication.} Avec \Python{} $b^c$ s'écrit \ci{b ** c} et donc
   $a^{(b^c)}$ s'écrit \ci{a ** (b ** c)}.
   
-  \medskip
+  \bigskip
   
   \emph{On va améliorer notre fonction qui teste si un nombre est premier ou pas, cela nous permettra de tester plus vite plein de nombres ou bien des nombres très grands.}  
   
@@ -387,6 +389,7 @@ print(timeit.timeit("ma_fonction_2(1000)",
     number=100000))
 \end{lstlisting} 
 
+
 \textbf{Résultats.} \\
 Le résultat dépend de l'ordinateur, mais permet la comparaison des temps d'exécution des deux fonctions.
 \begin{itemize}
@@ -395,6 +398,8 @@ Le résultat dépend de l'ordinateur, mais permet la comparaison des temps d'ex�
   
   \item La mesure pour la seconde fonction renvoie $0.01$ seconde ! On teste si le reste de $n$ divisé par $7$ est $0$. La seconde méthode est donc $500$ fois plus rapide que la première.
 \end{itemize}  
+
+\medskip
 
 \textbf{Explications.}
 \begin{itemize}

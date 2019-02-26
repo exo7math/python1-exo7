@@ -11,7 +11,7 @@
 \objectifs{Tu vas voir qu'un problème tout simple, qui concerne les relations entre seulement six personnes, va demander énormément de calculs pour être résolu.}
 
 \begin{center}
-\includegraphics[scale=0.4]{ecran-ramsey-1d}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-ramsey-1d}
 \end{center} 
 
 \index{graphe}
@@ -90,12 +90,12 @@ Voici un graphe plus compliqué et son tableau :
 
 
 \begin{center}
-\includegraphics[height=5cm]{ecran-ramsey-1a}\quad
-\includegraphics[height=5cm]{ecran-ramsey-1b}
+\includegraphics[scale=\myscale,height=5cm]{ecran-ramsey-1a}\quad
+\includegraphics[scale=\myscale,height=5cm]{ecran-ramsey-1b}
 \end{center} 
 \begin{center}
-\includegraphics[height=5cm]{ecran-ramsey-1c}\quad
-\includegraphics[height=5cm]{ecran-ramsey-1d}
+\includegraphics[scale=\myscale,height=5cm]{ecran-ramsey-1c}\quad
+\includegraphics[scale=\myscale,height=5cm]{ecran-ramsey-1d}
 \end{center} 
 
 
@@ -136,7 +136,7 @@ Trouve à la main sur le quatrième exemple, trois sommets amis ou étrangers et
 \objectifs{Objectifs : dessiner un graphe ! Activité facultative.}
 
 \begin{center}
-\includegraphics[scale=0.4]{ecran-ramsey-2}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-ramsey-2}
 \end{center}
 
 Programme l'affichage graphique d'un graphe par une fonction \ci{afficher_graphe(graphe)}.
@@ -371,7 +371,7 @@ Voici le principe de cette boucle qui remplit la partie au-dessus de la diagonal
 Cette boucle prend le dernier \emph{bit} de la liste et le place sur la première case libre au-dessus de la diagonale ; puis l'avant-dernier \emph{bit} est placé sur la seconde case libre\ldots ; le premier \emph{bit} de la liste remplit la dernière case libre.
 
 
- \myfigure{0.7}{
+ \myfigure{0.8}{
   \tikzinput{fig-ramsey-5}
 } 
   
@@ -403,6 +403,7 @@ Tu dois trouver que :
     \item Tu peux seulement tester les graphes qui correspondent à $p$ entre $0$ et $2^{N}/2$ (car pour les $p$ suivants cela revient à échanger les segments verts en rouges et inversement).
   \end{itemize}
   
+\medskip
   
   Avec ces conseils voici les temps de calcul auxquels tu peux t'attendre :
   \begin{center}

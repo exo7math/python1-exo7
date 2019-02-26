@@ -41,7 +41,7 @@ fic.close()
 \end{lstlisting}
 \end{minipage}
 \begin{minipage}{0.3\textwidth}
-\includegraphics[scale=0.5]{ecran-fichiers-cours-1}
+\includegraphics[scale=\myscale,scale=0.5]{ecran-fichiers-cours-1}
 \end{minipage}
 \end{center}
 
@@ -122,7 +122,7 @@ Coucou
   
   Par exemple :
 \begin{center}
-\includegraphics[scale=0.7]{ecran-fichiers-1a}
+\includegraphics[scale=\myscale,scale=0.7]{ecran-fichiers-1a}
 \end{center} 
 
   \emph{Indications.}
@@ -144,7 +144,7 @@ Coucou
   
     Par exemple :
 \begin{center}
-\includegraphics[scale=0.7]{ecran-fichiers-1b}
+\includegraphics[scale=\myscale,scale=0.7]{ecran-fichiers-1b}
 \end{center}  
 
   \emph{Indications.}
@@ -199,7 +199,7 @@ NOBEL,Alfred,1833,1.70,0
   
 Voici un exemple :
 \begin{center}
-\includegraphics[scale=0.6]{ecran-fichiers-2a}
+\includegraphics[scale=\myscale,scale=0.6]{ecran-fichiers-2a}
 \end{center} 
 
 \begin{itemize}
@@ -209,12 +209,12 @@ Voici un exemple :
 \end{itemize}
 
 \begin{center}
-\includegraphics[scale=0.4]{ecran-fichiers-2b}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-fichiers-2b}
 \end{center} 
 
   \item Lit le fichier \ci{ventes.csv} pour afficher les courbes de ventes.
   \begin{center}
-\includegraphics[scale=0.5]{ecran-fichiers-2c}
+\includegraphics[scale=\myscale,scale=0.5]{ecran-fichiers-2c}
 \end{center}  
 
   \emph{Indications.} 
@@ -272,7 +272,7 @@ P1
 \end{lstlisting}
 \end{minipage}
 \begin{minipage}{0.3\textwidth}
-\includegraphics[scale=0.2]{ecran-cours-image_nb}
+\includegraphics[scale=\myscale,scale=0.2]{ecran-cours-image_nb}
 \end{minipage}
 \end{center}
 
@@ -303,7 +303,7 @@ P2
 \end{lstlisting}
 \end{minipage}
 \begin{minipage}{0.3\textwidth}
-\includegraphics[scale=0.2]{ecran-cours-image_gris}
+\includegraphics[scale=\myscale,scale=0.2]{ecran-cours-image_gris}
 \end{minipage}
 \end{center}
 
@@ -334,7 +334,7 @@ P3
 \end{lstlisting}
 \end{minipage}
 \begin{minipage}{0.3\textwidth}
-\includegraphics[scale=0.2]{ecran-cours-image_coul}
+\includegraphics[scale=\myscale,scale=0.2]{ecran-cours-image_coul}
 \end{minipage}
 \end{center}
 
@@ -362,7 +362,7 @@ Voici la description du format :
 \begin{enumerate}
   \item Génère un fichier \ci{image_nb.pbm} qui représente une image en noir et blanc (par exemple de taille $300 \times 200$) selon le motif suivant :
 \begin{center}
-\includegraphics[scale=0.5]{ecran-image_nb}
+\includegraphics[scale=\myscale,scale=0.5]{ecran-image_nb}
 \end{center}   
 
 \emph{Indications.} Si $i$ désigne le numéro de ligne et $j$ le numéro de colonne (en partant du haut à gauche), alors le pixel en position $(i,j)$ est blanc si $i+j$ est compris entre $0$ et $9$, ou compris entre $20$ et $29$, ou entre $40$ et $49$,\ldots{} Ce qui s'obtient par la formule :\\
@@ -371,7 +371,7 @@ qui renvoie $0$ ou $1$ comme désiré.
 
   \item  Génère un fichier \ci{image_gris.pgm} qui représente une image en niveaux de gris (par exemple de taille $200 \times 200$ avec $256$ niveaux de gris) selon le motif suivant :
 \begin{center}
-\includegraphics[scale=0.7]{ecran-image_gris}
+\includegraphics[scale=\myscale,scale=0.7]{ecran-image_gris}
 \end{center}   
 
 \emph{Indications.} Cette fois la formule est :\\
@@ -380,7 +380,7 @@ qui renvoie un entier entre $0$ et $255$.
 
    \item Génère un fichier \ci{image_coul.ppm} qui représente une image en couleurs (par exemple de taille $200 \times 200$ avec $256$ niveaux de rouge, vert et bleu) selon le motif suivant :
 \begin{center}
-\includegraphics[scale=0.7]{ecran-image_coul}
+\includegraphics[scale=\myscale,scale=0.7]{ecran-image_coul}
 \end{center}   
 
 \emph{Indications.} Cette fois la formule est :\\
@@ -393,8 +393,8 @@ qui donne les niveaux de rouge, vert et bleu du pixel $(i,j)$.
 
 Exemple : à gauche l'image de départ, à droite l'image d'arrivée.
 \begin{center}
-\includegraphics[scale=0.3]{ecran-simple_nb}\qquad\qquad
-\includegraphics[scale=0.3]{ecran-simple_nb_inverse}
+\includegraphics[scale=\myscale,scale=0.3]{ecran-simple_nb}\qquad\qquad
+\includegraphics[scale=\myscale,scale=0.3]{ecran-simple_nb_inverse}
 \end{center} 
 
 \item Écris une fonction \ci{couleurs_vers_gris(fichier)} qui lit un fichier image couleur au format \ci{.ppm} et crée un nouveau fichier au format \ci{.pgm} dans lequel les pixels couleurs sont transformés en niveaux de gris. 
@@ -409,8 +409,8 @@ où
 
 Exemple : à gauche l'image de départ en couleur, à droite l'image d'arrivée en niveau de gris.
 \begin{center}
-\includegraphics[scale=0.5]{ecran-image_coul}\qquad\qquad
-\includegraphics[scale=0.5]{ecran-image_coul_gris}
+\includegraphics[scale=\myscale,scale=0.5]{ecran-image_coul}\qquad\qquad
+\includegraphics[scale=\myscale,scale=0.5]{ecran-image_coul_gris}
 \end{center} 
 
 
@@ -440,12 +440,12 @@ Exemple : à gauche l'image de départ en couleur, à droite l'image d'arrivée 
   
 \textbf{Exemple.} Voici un exemple de fichier en entrée :
 \begin{center}
-\includegraphics[scale=0.7]{ecran-fichiers-4a}
+\includegraphics[scale=\myscale,scale=0.7]{ecran-fichiers-4a}
 \end{center}   
 
 Et voici le fichier de sortie produit par le programme :
 \begin{center}
-\includegraphics[scale=0.7]{ecran-fichiers-4b} 
+\includegraphics[scale=\myscale,scale=0.7]{ecran-fichiers-4b} 
 \end{center}   
 On lit sur ce fichier que la distance entre Lille et Marseille est de $1077$ kilomètres.
 
@@ -465,12 +465,12 @@ Sur la Terre, la distance entre deux villes correspond à un trajet suivant un \
   
 \textbf{Exemple.} Voici un exemple de fichier en entrée :
 \begin{center}
-\includegraphics[scale=0.7]{ecran-fichiers-4c}
+\includegraphics[scale=\myscale,scale=0.7]{ecran-fichiers-4c}
 \end{center}   
 
 Et voici le fichier de sortie produit par le programme :
 \begin{center}
-\includegraphics[scale=0.55]{ecran-fichiers-4d} 
+\includegraphics[scale=\myscale,scale=0.55]{ecran-fichiers-4d} 
 \end{center}  
     
     
