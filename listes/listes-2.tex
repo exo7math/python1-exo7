@@ -70,8 +70,10 @@ que renvoient les instructions suivantes ?
    \ci{liste.index(5)} renvoie $2$.
 
   \item   \index{in@\ci{in}} 
-  Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :\\
+  Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :
+  
   \centerline{\ci{element in liste}}  
+  
   renvoie \ci{True} ou \ci{False}.
   Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
    \og\ci{9 in liste}\fg{} est vrai, alors que \og\ci{8 in liste}\fg{} est faux.
@@ -105,11 +107,15 @@ que renvoient les instructions suivantes ?
   \index{liste!de listes}
   \index{tableau}
   
-  Une liste peut contenir d'autres listes, par exemple :\\
+  Une liste peut contenir d'autres listes, par exemple :
+  
   \centerline{\ci{maliste = [ ["Harry", "Hermione", "Ron"], [101,103] ]}}
+  
    contient deux listes. 
-  Nous allons nous intéresser à des listes qui contiennent des listes d'entiers, que nous appellerons des \defi{tableaux}. Par exemple : \\
+  Nous allons nous intéresser à des listes qui contiennent des listes d'entiers, que nous appellerons des \defi{tableaux}. Par exemple : 
+  
   \centerline{\ci{tableau = [ [2,14,5], [3,5,7], [15,19,4], [8,6,5] ]}}
+  
   Alors \ci{tableau[i]} renvoie la sous-liste de rang $i$, alors que
   \ci{tableau[i][j]} renvoie l'entier situé au rang $j$ dans la sous-liste de rang $i$. Par exemple :
   \begin{itemize}
@@ -215,7 +221,8 @@ $$\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}$$
   
   \item Écris une fonction \ci{somme_tout(tableau)} qui calcule la somme totale de tous les éléments. Pour l'exemple la somme totale vaut $45$.
   
-  \item  Écris une fonction \ci{affiche_tableau(tableau)} qui affiche proprement à l'écran un tableau. Tu peux utiliser la commande :\\
+  \item  Écris une fonction \ci{affiche_tableau(tableau)} qui affiche proprement à l'écran un tableau. Tu peux utiliser la commande :
+  
 \centerline{\ci{print('\{:>3d\}'.format(tableau[i][j]), end="")}}  
 
 \emph{Explications.}
@@ -281,9 +288,11 @@ $$\begin{array}{ccc}
 3&8&1\\2&4&6\\7&0&5
 \end{array}$$  
 
-\emph{Indications.} Pour définir un nouveau carré, commence par le remplir avec des $0$ :\\
+\emph{Indications.} Pour définir un nouveau carré, commence par le remplir avec des $0$ :
+
 \centerline{\ci{nouv_carre = [[0 for j in range(n)] for i in range(n)]}}
-puis remplis-le avec les bonnes valeurs par des commandes du type :\\
+puis remplis-le avec les bonnes valeurs par des commandes du type :
+
 \centerline{\ci{nouv_carre[i][j] = ...}}
 
   \item \textbf{Multiplication.} Définis une fonction \ci{multiplication_carre(carre,k)}

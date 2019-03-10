@@ -222,7 +222,8 @@ Le programme affiche d'abord la valeur de \ci{x}, donc \ci{7}, puis il ajoute un
 
 Une \defi{variable globale} est une variable qui est définie pour l'ensemble du programme. Il n'est généralement pas recommandé d'utiliser de telles variables, mais cela peut être utile dans certain cas. Voyons un exemple.
 
-On déclare la variable globale, ici la constante de gravitation, en début de programme comme une variable classique : \\
+On déclare la variable globale, ici la constante de gravitation, en début de programme comme une variable classique : 
+
 \centerline{\ci{gravitation = 9.81}}
 
 La contenu de la variable \ci{gravitation} est maintenant accessible partout.
@@ -232,7 +233,7 @@ Par exemple pour des calculs sur la Lune, il faut changer la constante de gravit
 
 \begin{lstlisting}
 def sur_la_lune():
-    global gravitation   # Oui, je veux modifier cette variable globale !
+    global gravitation # Oui, je veux modifier cette variable globale!
     gravitation = 1.625  # Nouvelle valeur pour tout le programme    
     ...
 \end{lstlisting}

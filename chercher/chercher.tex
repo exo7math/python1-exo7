@@ -31,8 +31,10 @@
   
   \index{in@\ci{in}}
   
-  La façon la plus simple de savoir si une sous-chaîne est présente dans une chaîne de caractères est d'utiliser l'opérateur \og{}\ci{in}\fg{}. Par exemple, l'expression :\\
+  La façon la plus simple de savoir si une sous-chaîne est présente dans une chaîne de caractères est d'utiliser l'opérateur \og{}\ci{in}\fg{}. Par exemple, l'expression :
+  
   \centerline{\ci{"PAS" in "ETRE OU NE PAS ETRE"}}
+  
   vaut \og{}vrai\fg{} car la sous-chaîne \mot{PAS} est bien présente dans la phrase
   \mot{ETRE OU NE PAS ETRE}. 
   
@@ -75,7 +77,8 @@
 \objectifs{Objectifs : remplacer des portions de texte par d'autres.}
 
 \begin{enumerate}
-  \item  La méthode \ci{replace()} s'utilise sous la forme :\\
+  \item  La méthode \ci{replace()} s'utilise sous la forme :
+  
   \centerline{\ci{chaine.replace(sous_chaine,nouv_sous_chaine)}}
 
   \index	{replace@\ci{replace}}
@@ -85,8 +88,10 @@
 	Transforme la phrase \mot{ETRE OU NE PAS ETRE} en \mot{ETRE OU NE PLUS ETRE}, puis en 
 	\mot{AVOIR OU NE PLUS AVOIR}.
 	
-	\item Écris ta propre fonction \ci{remplacer()} que tu appelleras sous la forme suivante :\\
+	\item Écris ta propre fonction \ci{remplacer()} que tu appelleras sous la forme suivante :
+	
   \centerline{\ci{remplacer(chaine,sous_chaine,nouv_sous_chaine)}}
+  
  et qui remplace seulement la première occurrence de \ci{sous_chaine} trouvée. Par exemple \ci{remplacer("ABBA","B","XY")} renvoie \ci{"AXYBA"}.
   
   
@@ -272,8 +277,9 @@ On considère ici uniquement des transformations du type \rzero$^a$\run$^b$ $\ri
   
   Programme une fonction \ci{iterations(phrase,motif,nouv_motif)} qui, à partir d'une phrase, itère la transformation. Une fois que la phrase est stabilisée, la fonction renvoie le nombre d'itérations effectuées ainsi que la phrase obtenue. Si le nombre d'itérations n'a pas l'air de s'arrêter (par exemple quand il dépasse $1000$) alors renvoie \ci{None}.
   
-  Exemple. Pour la transformation \rzero\rzero\run\run{} $\rightarrow$ \run\run\rzero\rzero{} et la phrase \rzero\rzero\rzero\rzero\run\run\rzero\run\run, les phrases obtenues sont : \\
-  \\
+  Exemple. Pour la transformation \rzero\rzero\run\run{} $\rightarrow$ \run\run\rzero\rzero{} et la phrase \rzero\rzero\rzero\rzero\run\run\rzero\run\run, les phrases obtenues sont : 
+  
+  
 \centerline{
 \rzero\rzero\rzero\rzero\run\run\rzero\run\run{}  $\underset{\mathbf{1}}{\longmapsto}$
 \rzero\rzero\run\run\rzero\rzero\rzero\run\run{}  $\underset{\mathbf{2}}{\longmapsto}$
@@ -281,7 +287,7 @@ On considère ici uniquement des transformations du type \rzero$^a$\run$^b$ $\ri
 \run\run\rzero\rzero\rzero\run\run\rzero\rzero{}  $\underset{\mathbf{4}}{\longmapsto}$
 \run\run\rzero\run\run\rzero\rzero\rzero\rzero{}  $\longmapsto$
 idem
-}\\
+}
 
 Pour cet exemple l'appel à la fonction \ci{iterations()} renvoie alors $4$ (le nombre de transformations avant stabilisation) et \ci{"110110000"} (la phrase stabilisée).
 
@@ -296,7 +302,8 @@ qui, parmi toutes les phrases de longueur $p$, cherche l'une de celles qui met l
 \end{itemize}
 
 Exemple : pour la transformation \rzero\run{} $\rightarrow$ \run\rzero\rzero, parmi toutes les phrases de longueur $p=4$, le maximum d'itérations possibles est $7$. Un tel exemple de phrase est \rzero\run\run\run, qui va se stabiliser (après 7 itérations donc) en \run\run\run\rzero\rzero\rzero\rzero\rzero\rzero\rzero\rzero.
-Ainsi la commande \ci{iteration_maximale(4,"01","100")} renvoie : \\
+Ainsi la commande \ci{iteration_maximale(4,"01","100")} renvoie : 
+
 \centerline{7, '0111', '11100000000'}
 
 

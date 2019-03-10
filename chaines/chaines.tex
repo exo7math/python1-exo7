@@ -125,12 +125,14 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
   
   \item Rassemble tout ton travail des trois premières questions dans une fonction \ci{met_au_pluriel()}. La fonction n'affiche rien, mais renvoie le mot au pluriel.
   
+  \medskip
+  
   \begin{fonction}[\ci{met_au_pluriel()}]
   Usage : \ci{met_au_pluriel(mot)} \\
   Entrée : un mot (une chaîne de caractères) \\
   Sortie : le pluriel du mot 
   
-  \medskip
+  \bigskip
   
   Exemples : 
   \begin{itemize}
@@ -141,6 +143,8 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
   \end{fonction}
 
   \item Écris une fonction \ci{affiche_conjugaison()} qui conjugue un verbe du premier groupe au présent.
+  
+  \medskip
   
   \begin{fonction}[\ci{affiche_conjugaison()}]
   Usage : \ci{affiche_conjugaison(verbe)} \\
@@ -167,6 +171,8 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \bigskip
+\bigskip
+
 
 \begin{cours}[Un peu plus sur les chaînes]
 
@@ -181,14 +187,22 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
   \end{minipage}
   \end{center}
 
-  \item On peut tester si un caractère appartient à une certaine liste de caractères. Par exemple : \\  
+  \item On peut tester si un caractère appartient à une certaine liste de caractères. Par exemple : 
+    
+  \smallskip
+    
   \centerline{\codeinline{if carac in ["a", "A", "b", "B", "c", "C"]:}}
+  
 \index{in@\ci{in}}  
   
   permet d’exécuter des instructions si le caractère \ci{carac}  est l'une des lettres a, A, b, B, c, C. 
   
-  Pour éviter certaines lettres, on utiliserait : \\
+  Pour éviter certaines lettres, on utiliserait : 
+  
+  \smallskip
+  
   \centerline{\codeinline{if carac not in ["X", "Y", "Z"]:}}
+  
   \index{not in@\ci{not in}}
 
   \end{enumerate}  
@@ -212,10 +226,12 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
   
   La distance\index{distance} de Hamming entre deux mots de même longueur est le nombre d'endroits  où les lettres sont différentes.
 
-Par exemple : \\
+Par exemple : 
+
 \centerline{\mot{
 \badletter{J}A\badletter{P}ON}\qquad \mot{\badletter{S}A\badletter{V}ON}
 }
+
 La première lettre de \mot{JAPON} est différente de la première lettre de \mot{SAVON}, les troisièmes aussi sont différentes. La distance de Hamming entre  \mot{JAPON} et \mot{SAVON} vaut donc $2$.  
 
 Écris une fonction \ci{distance_hamming()} qui calcule la distance de Hamming entre deux mots de même longueur.
@@ -359,7 +375,7 @@ Premier code du coupable : \mot{CATA}
 
 Second code du coupable : \mot{ATGC}
 
-{\small
+{\footnotesize
 ADN du colonel Moutarde :
 
  \mot{CCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGC}

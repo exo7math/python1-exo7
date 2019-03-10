@@ -155,12 +155,16 @@ Par exemple avec \ci{mot = "AdAAg"}, \ci{remplacer_1(mot,"A","Ag")} renvoie le m
     \item \ci{regle = ("A","AgAdAdAgA")} c'est-à-dire \mot{A} $\rightarrow$ \mot{AgAdAdAgA}
     \item pour \ci{k = 0}, la fonction renvoie le mot de départ \ci{A},
     \item pour \ci{k = 1}, la fonction renvoie \ci{AgAdAdAgA},
-    \item pour \ci{k = 2}, la fonction renvoie :\\ \centerline{\ci{AgAdAdAgAgAgAdAdAgAdAgAdAdAgAdAgAdAdAgAgAgAdAdAgA}}
+    \item pour \ci{k = 2}, la fonction renvoie :
+    
+     \centerline{\ci{AgAdAdAgAgAgAdAdAgAdAgAdAdAgAdAgAdAdAgAgAgAdAdAgA}}
+     
     \item pour \ci{k = 3}, la fonction renvoie : \ci{AgAdAdAgAgA...} un mot de $249$ lettres.
     
   \end{itemize}
   
-  \item Trace les premières images du  flocon de Koch donné comme ci-dessus par : \\
+  \item Trace les premières images du  flocon de Koch donné comme ci-dessus par : 
+  
   \centerline{départ : \mot{A} \qquad règle : \mot{A} $\rightarrow$ \mot{AgAdAdAgA}} 
   
   
@@ -239,12 +243,15 @@ Par exemple avec \ci{mot = "AdBgA"}, \ci{remplacer_2(mot,"A","ABg","B","Bd")} re
     \item \ci{regle2 = ("B","BB")} c'est-à-dire \mot{B} $\rightarrow$ \mot{BB}  
     \item pour \ci{k = 0}, la fonction renvoie le mot de départ \ci{AdBdB},
     \item pour \ci{k = 1}, la fonction renvoie \ci{AdBgAgBdAdBBdBB},
-    \item pour \ci{k = 2}, la fonction renvoie :\\ 
+    \item pour \ci{k = 2}, la fonction renvoie :
+    
     \centerline{\ci{AdBgAgBdAdBBgAdBgAgBdAgBBdAdBgAgBdAdBBBBdBBBB}}
   \end{itemize}  
 
-  \item Trace les premières images du triangle de Sierpinski donné comme ci-dessus par : \\
+  \item Trace les premières images du triangle de Sierpinski donné comme ci-dessus par : 
+  
   \centerline{départ : \mot{AdBdB} \qquad règles : \mot{A} $\rightarrow$ \mot{AdBgAgBdA} \quad \mot{B} $\rightarrow$ \mot{BB}} 
+  
  L'angle est de $-120$ degrés. Voici les images pour $k=0$ jusqu'à $k=4$.
   
 \begin{center}
@@ -258,7 +265,8 @@ Par exemple avec \ci{mot = "AdBgA"}, \ci{remplacer_2(mot,"A","ABg","B","Bd")} re
 	\item Trace d'autres figures fractales à partir des L-systèmes suivants.
 	
 	\begin{itemize}
-	  \item La courbe du dragon :\\
+	  \item La courbe du dragon :
+	  
 \centerline{\ci{
 depart="AX"    
 regle1=("X","XgYAg")    
@@ -267,14 +275,16 @@ regle2=("Y","dAXdY")
 
 Les lettres \ci{X} et \ci{Y} ne correspondent à aucune action.
 
-	\item Une variante du triangle de Sierpinski, avec \ci{angle = 60} :\\
+	\item Une variante du triangle de Sierpinski, avec \ci{angle = 60} :
+	
 \centerline{\ci{	
 depart="A"    
 regle1=("A","BdAdB")    
 regle2=("B","AgBgA")
 }}
 
-\item La courbe de Gosper, avec \ci{angle = 60} :\\	 
+\item La courbe de Gosper, avec \ci{angle = 60} :
+ 
 \centerline{\ci{ 
 depart="A"    
 regle1=("A","AgBggBdAddAAdBg")    
@@ -313,8 +323,10 @@ Une \defi{pile} est une zone de stockage temporaire. Les détails sont dans la f
   \item On modélise une pile par une liste. 
   \item Au départ la pile est vide : \ci{pile = []}.
   \item \textbf{Empiler.} On ajoute les éléments en fin de liste : \ci{pile = pile + [element]}.
-  \item \textbf{Dépiler.} On retire un élément par la commande \ci{pop()}\index{pop@\ci{pop}}\index{depiler@dépiler} :\\
+  \item \textbf{Dépiler.} On retire un élément par la commande \ci{pop()}\index{pop@\ci{pop}}\index{depiler@dépiler} :
+  
   \centerline{\ci{element = pile.pop()}}
+  
   qui renvoie le dernier élément de la pile et le supprime de la liste.
   
   \item Sur le dessin et dans l'activité suivante, les éléments de la pile sont du type $\big((x,y),\theta\big)$  qui stockeront un état de la tortue : $(x,y)$ est la position et $\theta$ sa direction.

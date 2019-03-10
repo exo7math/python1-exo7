@@ -37,7 +37,7 @@
   \tikzinput{fig-piles1}
 } 
 
-\myfigure{0.5}{
+\myfigure{0.45}{
   \tikzinput{fig-piles2}
 } 
 
@@ -75,7 +75,7 @@ Par exemple pour des calculs sur la Lune, il faut changer la constante de gravit
 
 \begin{lstlisting}
 def sur_la_lune():
-    global gravitation   # Oui, je veux modifier cette variable globale !
+    global gravitation # Oui, je veux modifier cette variable globale!
     gravitation = 1.625  # Nouvelle valeur pour tout le programme    
     ...
 \end{lstlisting}
@@ -681,8 +681,10 @@ Par exemple :
 \begin{itemize}
   \item Définis une expression \ci{exp = "( 17 * ( 2 + 3 ) ) + ( 4 + ( 8 * 5 ) )"}
   \item Demande à \Python{} de calculer cette expression : \ci{eval(exp)}.\index{eval@\ci{eval}} \Python{} renvoie \ci{129}.
-  \item Convertis l'expression en écriture polonaise :  \ci{ecriture_polonaise(exp)} renvoie \\
+  \item Convertis l'expression en écriture polonaise :  \ci{ecriture_polonaise(exp)} renvoie 
+  
   \centerline{ \ci{"17 2 3 + * 4 8 5 * + +"} }
+  
   \item Avec ta calculatrice calcule le résultat : \ci{calculatrice_polonaise("17 2 3 + * 4 8 5 * + +")} renvoie \ci{129}. On obtient bien le même résultat !
   \end{itemize}
   

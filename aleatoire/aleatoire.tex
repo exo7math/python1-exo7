@@ -295,8 +295,10 @@ Voici les points principaux :
   
   \item Cet objet est (un petit peu) déplacé par la fonction \ci{deplacer()} qui décale le rectangle de \ci{(dx,dy)}.
     
-  \item Le point clé est que cette fonction sera exécutée une nouvelle fois après un court laps de temps. La commande :\\
+  \item Le point clé est que cette fonction sera exécutée une nouvelle fois après un court laps de temps. La commande :
+  
   \centerline{\ci{canvas.after(50,deplacer)}}
+  
   demande une nouvelle exécution de la fonction \ci{deplacer()} après un court délai (ici $50$ millisecondes).
   
   \item La répétition de petits déplacements simule le mouvement.
@@ -309,7 +311,7 @@ Largeur = 400
 Hauteur = 200
 
 root = Tk()     
-canvas = Canvas(root, width=Largeur, height=Hauteur, background="white")
+canvas = Canvas(root,width=Largeur,height=Hauteur,background="white")
 canvas.pack(fill="both", expand=True)
 
 # Les coordonnées et la vitesse
@@ -344,10 +346,10 @@ def action_deplacer():
     return
 
 # Boutons
-bouton_couleur = Button(root,text="Déplacer", width=20, command=action_deplacer)
+bouton_couleur=Button(root,text="Déplacer",width=20,command=action_deplacer)
 bouton_couleur.pack(pady=10)
 
-bouton_quitter = Button(root,text="Quitter", width=20, command=root.quit)
+bouton_quitter = Button(root,text="Quitter",width=20,command=root.quit)
 bouton_quitter.pack(side=BOTTOM, pady=10)
 
 root.mainloop()

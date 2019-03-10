@@ -32,7 +32,7 @@ Une fonction en informatique est une portion réalisant un tâche bien précise 
 Pour définir une fonction avec \Python{}, c'est très simple. 
 Voici deux exemples :
 \begin{center}
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.5\textwidth}
 \begin{lstlisting}
 def dit_bonjour():
     print("Bonjour le monde !")
@@ -273,8 +273,10 @@ Retenons donc :
     
     \item Utilise ta fonction précédente pour conjecturer à partir de quel rayon, l'aire d'un disque est plus grande que le périmètre de ce disque.
     
-    \emph{Indication.} Si tu veux balayer les rayons en incrémentant la valeur de $0.1$ à chaque fois, tu peux construire une boucle ainsi :\\
+    \emph{Indication.} Si tu veux balayer les rayons en incrémentant la valeur de $0.1$ à chaque fois, tu peux construire une boucle ainsi :
+    
     \centerline{\ci{for rayon in range(0,30):}}
+    
     puis faire un appel à la fonction par \ci{perimetre_aire_disque(rayon/10)}.
   \end{enumerate}
 \end{enumerate}

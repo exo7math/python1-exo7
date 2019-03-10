@@ -68,7 +68,7 @@ Le module \ci{random} génère des nombres de façon pseudo-aléatoire. Il s'app
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Booléens}
 
-Un booléen est une donnée qui prend soit la valeur \ci{True} (\og{}vrai\fg{}), soit la valeur \ci{False} (\og{}faux\fg{}).
+Un booléen est une donnée qui prend soit la valeur \ci{True} (\og{}Vrai\fg{}), soit la valeur \ci{False} (\og{}Faux\fg{}).
 
   
 \bigskip
@@ -279,7 +279,7 @@ Le début de la table des codes ASCII/unicode est donné ci-dessous.
 
    Exemples :
   \begin{itemize}  
-    \item \ci{"".join(["Etre", "ou", "ne", "pas", "etre."])} \quad renvoie \ci{'Etreounepasetre.'} Il manque les espaces.
+    \item \ci{"".join(["Etre", "ou", "ne", "pas", "etre."])} \  renvoie \ci{'Etreounepasetre.'} Il manque les espaces.
     \item \ci{" ".join(["Etre", "ou", "ne", "pas", "etre."])} \ renvoie \ci{'Etre ou ne pas etre.'}   C'est mieux lorsque le séparateur est une espace.
     \item \ci{"--".join(["Etre", "ou", "ne", "pas", "etre."])}  renvoie
     
@@ -443,8 +443,10 @@ Rang & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
    \ci{liste.index(element)} renvoie la première position à laquelle l'élément a été trouvé. Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
    \ci{liste.index(5)} renvoie $2$.
 
-  \item Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :\\
+  \item Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :
+  
   \centerline{\ci{element in liste}}  
+  
   renvoie \ci{True} ou \ci{False}.
   Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
    \og\ci{9 in liste}\fg{} est vrai, alors que \og\ci{8 in liste}\fg{} est faux.
@@ -820,15 +822,15 @@ canvas.pack(fill="both", expand=True)
 
 def action_bouton():
     canvas.delete("all")         # Efface tout
-    couleurs = ["red","orange","yellow","green","cyan","blue","violet","purple"]
+    couleurs = ["red","orange","yellow","green","cyan","blue","violet"]
     coul = choice(couleurs)      # Couleur au hasard
     canvas.create_rectangle(100,50,300,150,width=5,fill=coul)
     return
 
-bouton_couleur = Button(root,text="Afficher", width=20, command=action_bouton)
+bouton_couleur=Button(root,text="Afficher",width=20,command=action_bouton)
 bouton_couleur.pack()
 
-bouton_quitter = Button(root,text="Quitter", width=20, command=root.quit)
+bouton_quitter = Button(root,text="Quitter",width=20,command=root.quit)
 bouton_quitter.pack()
 
 root.mainloop()
@@ -936,8 +938,10 @@ Voici quelques explications :
 \begin{itemize}
   \item La création de la fenêtre est habituelle. Le programme se termine par le lancement de la fenêtre avec la commande \ci{mainloop()}.
   
-  \item Le premier point clé est d'associer un clic de souris à une action, c'est ce que fait la ligne \\
+  \item Le premier point clé est d'associer un clic de souris à une action, c'est ce que fait la ligne 
+  
 \centerline{\ci{canvas.bind("<Button-1>", action_clic_souris)}}
+
 Chaque fois que le bouton gauche de la souris est cliqué, \Python{} exécute la fonction \ci{action_clic_souris}. Note qu'il n'y a pas de parenthèses pour l'appel à la fonction.
 
    \item Second point clé : la fonction \ci{action_clic_souris} récupère les coordonnées du clic et ici ensuite fait deux choses : elle affiche un petit rectangle à l'endroit du clic et affiche dans la fenêtre du terminal les coordonnées $(x,y)$.
@@ -960,8 +964,10 @@ Voici les points principaux :
   
   \item Cet objet est (un petit peu) déplacé par la fonction \ci{deplacer()} qui décale le rectangle de \ci{(dx,dy)}.
   
-  \item Le point clé est que cette fonction sera exécutée une nouvelle fois après un court laps de temps. La commande :\\
+  \item Le point clé est que cette fonction sera exécutée une nouvelle fois après un court laps de temps. La commande :
+  
   \centerline{\ci{canvas.after(50,deplacer)}}
+  
   demande une nouvelle exécution de la fonction \ci{deplacer()} après un court délai (ici $50$ millisecondes).
 
   \item La répétition de petits déplacements simule le mouvement.
@@ -1009,10 +1015,10 @@ def action_deplacer():
     return
 
 # Boutons
-bouton_couleur = Button(root,text="Déplacer", width=20, command=action_deplacer)
+bouton_couleur=Button(root,text="Déplacer",width=20,command=action_deplacer)
 bouton_couleur.pack(pady=10)
 
-bouton_quitter = Button(root,text="Quitter", width=20, command=root.quit)
+bouton_quitter = Button(root,text="Quitter",width=20,command=root.quit)
 bouton_quitter.pack(side=BOTTOM, pady=10)
 
 root.mainloop()
