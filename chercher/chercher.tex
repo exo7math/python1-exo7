@@ -158,7 +158,7 @@ Programme-la et teste-la. Elle renvoie : (1) la sous-chaîne trouvée, (2) la po
      
    Exemple avec \ci{chaine = "ETRE OU NE PAS ETRE"}
   \begin{itemize}  
-    \item avec \ci{exp = "P.S"}, alors \ci{python_regex_chercher(chaine,exp)} renvoie
+    \item avec \ci{exp = "P.S"}, alors \ci{python_regex_chercher(chaine, exp)} renvoie
     \ci{('PAS', 11, 14)}.
     \item avec \ci{exp = "E..E"}, la fonction renvoie
     \ci{('ETRE', 0, 4)}.
@@ -279,7 +279,7 @@ On considère ici uniquement des transformations du type \rzero$^a$\run$^b$ $\ri
   
   Exemple. Pour la transformation \rzero\rzero\run\run{} $\rightarrow$ \run\run\rzero\rzero{} et la phrase \rzero\rzero\rzero\rzero\run\run\rzero\run\run, les phrases obtenues sont : 
   
-  
+{\small
 \centerline{
 \rzero\rzero\rzero\rzero\run\run\rzero\run\run{}  $\underset{\mathbf{1}}{\longmapsto}$
 \rzero\rzero\run\run\rzero\rzero\rzero\run\run{}  $\underset{\mathbf{2}}{\longmapsto}$
@@ -288,6 +288,9 @@ On considère ici uniquement des transformations du type \rzero$^a$\run$^b$ $\ri
 \run\run\rzero\run\run\rzero\rzero\rzero\rzero{}  $\longmapsto$
 idem
 }
+}
+
+\medskip
 
 Pour cet exemple l'appel à la fonction \ci{iterations()} renvoie alors $4$ (le nombre de transformations avant stabilisation) et \ci{"110110000"} (la phrase stabilisée).
 
