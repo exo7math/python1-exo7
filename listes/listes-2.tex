@@ -71,8 +71,7 @@ que renvoient les instructions suivantes ?
 
   \item   \index{in@\ci{in}} 
   Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :
-  
-  \centerline{\ci{element in liste}}  
+  \mycenterline{\ci{element in liste}}  
   
   renvoie \ci{True} ou \ci{False}.
   Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
@@ -107,14 +106,12 @@ que renvoient les instructions suivantes ?
   \index{liste!de listes}
   \index{tableau}
   
-  Une liste peut contenir d'autres listes, par exemple :
-  
-  \centerline{\ci{maliste = [ ["Harry", "Hermione", "Ron"], [101,103] ]}}
+  Une liste peut contenir d'autres listes, par exemple :  
+  \mycenterline{\ci{maliste = [ ["Harry", "Hermione", "Ron"], [101,103] ]}}
   
    contient deux listes. 
-  Nous allons nous intéresser à des listes qui contiennent des listes d'entiers, que nous appellerons des \defi{tableaux}. Par exemple : 
-  
-  \centerline{\ci{tableau = [ [2,14,5], [3,5,7], [15,19,4], [8,6,5] ]}}
+  Nous allons nous intéresser à des listes qui contiennent des listes d'entiers, que nous appellerons des \defi{tableaux}. Par exemple :   
+  \mycenterline{\ci{tableau = [ [2,14,5], [3,5,7], [15,19,4], [8,6,5] ]}}
   
   Alors \ci{tableau[i]} renvoie la sous-liste de rang $i$, alors que
   \ci{tableau[i][j]} renvoie l'entier situé au rang $j$ dans la sous-liste de rang $i$. Par exemple :
@@ -167,10 +164,10 @@ que renvoient les instructions suivantes ?
 \objectifs{Objectifs : chercher à atteindre le total de $100$ dans une liste de nombres.}
 
 On considère une liste de $n$ entiers compris entre $1$ et $99$ (inclus).
-Par exemple la liste de $n=20$ entiers :\\
-\centerline{\ci{[16,2,85,27,9,45,98,73,12,26,46,25,26,49,18,99,10,86,7,42]}}
-qui a été obtenue au hasard par la commande :\\
-\centerline{\ci{liste_20 = [randint(1,99) for i in range(20)]}}
+Par exemple la liste de $n=20$ entiers :
+\mycenterline{\ci{[16,2,85,27,9,45,98,73,12,26,46,25,26,49,18,99,10,86,7,42]}}
+qui a été obtenue au hasard par la commande :
+\mycenterline{\ci{liste_20 = [randint(1,99) for i in range(20)]}}
 
 On cherche différentes manières de trouver des nombres de la liste dont la somme fait exactement $100$.
 
@@ -207,8 +204,8 @@ On cherche différentes manières de trouver des nombres de la liste dont la som
 Dans cette activité nous travaillons avec des tableaux carrés de taille $n \times n$ contenant des entiers.
 L'élément \ci{tableau} est donc une liste de $n$ listes ayant chacune $n$ éléments.
 
-Par exemple (avec $n=3$) : \\
-\centerline{\ci{tableau = [ [1,2,3], [4,5,6], [7,8,9] ]}}
+Par exemple (avec $n=3$) : 
+\mycenterline{\ci{tableau = [ [1,2,3], [4,5,6], [7,8,9] ]}}
 représente le tableau :
 $$\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}$$
 
@@ -222,8 +219,7 @@ $$\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}$$
   \item Écris une fonction \ci{somme_tout(tableau)} qui calcule la somme totale de tous les éléments. Pour l'exemple la somme totale vaut $45$.
   
   \item  Écris une fonction \ci{affiche_tableau(tableau)} qui affiche proprement à l'écran un tableau. Tu peux utiliser la commande :
-  
-\centerline{\ci{print('\{:>3d\}'.format(tableau[i][j]), end="")}}  
+\mycenterline{\ci{print('\{:>3d\}'.format(tableau[i][j]), end="")}}  
 
 \emph{Explications.}
 \begin{itemize}
@@ -289,11 +285,9 @@ $$\begin{array}{ccc}
 \end{array}$$  
 
 \emph{Indications.} Pour définir un nouveau carré, commence par le remplir avec des $0$ :
-
-\centerline{\ci{nouv_carre = [[0 for j in range(n)] for i in range(n)]}}
+\mycenterline{\ci{nouv_carre = [[0 for j in range(n)] for i in range(n)]}}
 puis remplis-le avec les bonnes valeurs par des commandes du type :
-
-\centerline{\ci{nouv_carre[i][j] = ...}}
+\mycenterline{\ci{nouv_carre[i][j] = ...}}
 
   \item \textbf{Multiplication.} Définis une fonction \ci{multiplication_carre(carre,k)}
   qui multiplie par $k$ tous les éléments du carré. Avec l'exemple du carré $3\times 3$, la commande \ci{multiplication_carre(carre,2)} multiplie tous les éléments par $2$ et renvoie donc un tableau qui s'afficherait ainsi :

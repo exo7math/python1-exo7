@@ -124,13 +124,11 @@ $$\begin{array}{cccc}
  13&15&14&16
 \end{array}$$
 
-  \emph{Indications.} Tu peux initialiser un nouveau tableau par la commande :
+  \emph{Indications.} Tu peux initialiser un nouveau tableau par la commande :  
+  \mycenterline{\ci{nouv_tableau = [[0 for j in range(n)] for i in range(n)]}}
   
-  \centerline{\ci{nouv_tableau = [[0 for j in range(n)] for i in range(n)]}}
-  
-  Puis le remplir par des commandes du type :
-  
-  \centerline{\ci{nouv_tableau[ii][jj] = tableau[i][j]}}
+  Puis le remplir par des commandes du type : 
+  \mycenterline{\ci{nouv_tableau[ii][jj] = tableau[i][j]}}
 
   \item Programme une fonction \ci{photomaton_iterer(tableau,k)} qui renvoie le tableau calculé après $k$ itérations de la transformation du photomaton.
   

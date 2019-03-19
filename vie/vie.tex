@@ -78,9 +78,8 @@ Nous modélisons l'espace de vie des cellules par un tableau à double entrée, 
   \begin{itemize}
     \item Initialise deux variables \ci{n} (la hauteur du tableau) et \ci{p} (la largeur) (par exemple à $5$ et $8$).
     
-    \item Définis un tableau à deux dimensions rempli de zéros par la commande :
-    
-    \centerline{\ci{tableau = [[0 for j in range(p)] for i in range(n)]}}
+    \item Définis un tableau à deux dimensions rempli de zéros par la commande :  
+    \mycenterline{\ci{tableau = [[0 for j in range(p)] for i in range(n)]}}
     
     \item Par des instructions du type \ci{tableau[i][j] = 1} remplis le tableau afin de définir la configuration du clignotant, de la bouche\ldots
   \end{itemize}
@@ -174,9 +173,8 @@ au tableau de droite :
 \end{minipage} 
 \end{center}
 
-  \emph{Indications.} Pour définir un nouveau tableau reprend la commande :
-  
-      \centerline{\ci{nouveau_tableau = [[0 for j in range(p)] for i in range(n)]}}
+  \emph{Indications.} Pour définir un nouveau tableau reprend la commande :  
+      \mycenterline{\ci{nouveau_tableau = [[0 for j in range(p)] for i in range(n)]}}
       
   puis modifie le tableau comme voulu.
 
@@ -261,8 +259,7 @@ Voici quelques explications :
   \item La création de la fenêtre est habituelle. Le programme se termine par le lancement avec la commande \ci{mainloop()}.
   
   \item Le premier point clé est d'associer un clic de souris à une action, c'est ce que fait la ligne 
-  
-\centerline{\ci{canvas.bind("<Button-1>", action_clic_souris)}}
+\mycenterline{\ci{canvas.bind("<Button-1>", action_clic_souris)}}
 
 Chaque fois que le bouton gauche de la souris est cliqué, \Python{} exécute la fonction \ci{action_clic_souris}. (Note qu'il n'y a pas de parenthèses pour l'appel à la fonction.)
 

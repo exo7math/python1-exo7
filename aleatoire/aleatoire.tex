@@ -60,10 +60,10 @@ Le lancer aléatoire de centaines de blocs sur une grande grille produit de joli
 On modélise l'espace de travail par un tableau de $n$ lignes et $p$ colonnes. Au départ le tableau ne contient que des $0$ ;
  ensuite la présence d'un bloc est représentée par $1$.
 
-Voici comment initialiser le tableau :\\
-\centerline{\ci{tableau = [[0 for j in range(p)] for i in range(n)]}}
-On modifie le tableau par des instructions du type :\\
-\centerline{\ci{tableau[i][j] = 1}}
+Voici comment initialiser le tableau :
+\mycenterline{\ci{tableau = [[0 for j in range(p)] for i in range(n)]}}
+On modifie le tableau par des instructions du type :
+\mycenterline{\ci{tableau[i][j] = 1}}
 
 
 Voici un exemple de tableau (à gauche) pour représenter la situation graphique de droite (le bloc en haut à droite est en train de tomber).
@@ -295,9 +295,8 @@ Voici les points principaux :
   
   \item Cet objet est (un petit peu) déplacé par la fonction \ci{deplacer()} qui décale le rectangle de \ci{(dx,dy)}.
     
-  \item Le point clé est que cette fonction sera exécutée une nouvelle fois après un court laps de temps. La commande :
-  
-  \centerline{\ci{canvas.after(50,deplacer)}}
+  \item Le point clé est que cette fonction sera exécutée une nouvelle fois après un court laps de temps. La commande : 
+  \mycenterline{\ci{canvas.after(50,deplacer)}}
   
   demande une nouvelle exécution de la fonction \ci{deplacer()} après un court délai (ici $50$ millisecondes).
   

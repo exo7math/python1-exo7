@@ -65,8 +65,8 @@ Remarques.
 
 Une \defi{variable globale} est une variable qui est définie pour l'ensemble du programme. Il n'est généralement pas recommandé d'utiliser de telles variables mais cela peut être utile dans certain cas. Voyons un exemple.
 
-On déclare la variable globale, ici la constante de gravitation, en début de programme comme une variable classique : \\
-\centerline{\ci{gravitation = 9.81}}
+On déclare la variable globale, ici la constante de gravitation, en début de programme comme une variable classique : 
+\mycenterline{\ci{gravitation = 9.81}}
 
 La contenu de la variable \ci{gravitation} est maintenant accessible partout.
 Par contre, si on souhaite changer la valeur de cette variable dans une fonction, il faut bien préciser à \Python{} que l'on est conscient de modifier une variable globale !
@@ -99,8 +99,8 @@ Dans cette fiche, une pile sera modélisée par une liste. L'élément en fin de
 } 
 
 La pile sera stockée dans une variable globale \ci{pile}. 
-Il faut commencer chaque fonction qui modifie la pile par la commande : \\
-\centerline{\ci{global pile}}
+Il faut commencer chaque fonction qui modifie la pile par la commande : 
+\mycenterline{\ci{global pile}}
 
 
 \begin{enumerate}
@@ -681,9 +681,8 @@ Par exemple :
 \begin{itemize}
   \item Définis une expression \ci{exp = "( 17 * ( 2 + 3 ) ) + ( 4 + ( 8 * 5 ) )"}
   \item Demande à \Python{} de calculer cette expression : \ci{eval(exp)}.\index{eval@\ci{eval}} \Python{} renvoie \ci{129}.
-  \item Convertis l'expression en écriture polonaise :  \ci{ecriture_polonaise(exp)} renvoie 
-  
-  \centerline{ \ci{"17 2 3 + * 4 8 5 * + +"} }
+  \item Convertis l'expression en écriture polonaise :  \ci{ecriture_polonaise(exp)} renvoie  
+  \mycenterline{ \ci{"17 2 3 + * 4 8 5 * + +"} }
   
   \item Avec ta calculatrice calcule le résultat : \ci{calculatrice_polonaise("17 2 3 + * 4 8 5 * + +")} renvoie \ci{129}. On obtient bien le même résultat !
   \end{itemize}

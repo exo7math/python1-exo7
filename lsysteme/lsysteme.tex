@@ -31,8 +31,8 @@
 
 \begin{cours}[L-système]
 Un \defi{L-système} est la donnée d'un mot initial et de règles de remplacement.
-Voici un exemple avec le mot de départ et une seule règle : \\
-\centerline{\mot{BgAdB} \qquad \mot{A} $\rightarrow$ \mot{ABA}}
+Voici un exemple avec le mot de départ et une seule règle : 
+\mycenterline{\mot{BgAdB} \qquad \mot{A} $\rightarrow$ \mot{ABA}}
 
 
 Le \defi{$k$-ème itéré} du L-système s'obtient en appliquant $k$ fois la substitution au mot de départ.
@@ -47,8 +47,7 @@ Avec notre exemple :
 
 Lorsqu'il y a deux règles (ou plus) il faut les appliquer en même temps.
 Voici un exemple de L-système à deux règles :
- \\
-\centerline{\mot{A} \qquad \mot{A} $\rightarrow$ \mot{BgA} \qquad \mot{B} $\rightarrow$ \mot{BB}}
+\mycenterline{\mot{A} \qquad \mot{A} $\rightarrow$ \mot{BgA} \qquad \mot{B} $\rightarrow$ \mot{BB}}
 Avec notre exemple :
 \begin{itemize}
   \item Première itération. Le mot de départ est \mot{A}, on applique la première règle \mot{A} $\rightarrow$ \mot{BgA} (la seconde règle ne s'applique pas, car il n'y a pas encore de \mot{B}): on obtient le mot \mot{BgA}.
@@ -68,16 +67,16 @@ Avec notre exemple :
 
 Je veux programmer une fonction qui trace un trait d'une longueur donnée, avec la possibilité de changer l'épaisseur du trait et la couleur.
 
-Une méthode serait de définir une fonction par : \\
- \centerline{\ci{def tracer(longueur, epaisseur, couleur):}}
- Je l'appellerais alors par exemple par :\\
- \centerline{\ci{tracer(100, 5, "blue"):}} 
+Une méthode serait de définir une fonction par :
+ \mycenterline{\ci{def tracer(longueur, epaisseur, couleur):}}
+ Je l'appellerais alors par exemple par :
+ \mycenterline{\ci{tracer(100, 5, "blue"):}} 
 Mais comme mes traits auront le plupart du temps l'épaisseur $5$ et la couleur bleue, je perds du temps et de la lisibilité en redonnant ces informations à chaque fois.
 
 \medskip
 
-Avec \Python{} il est possible de donner des arguments optionnels. Voici une meilleure façon de faire en donnant des valeurs par défaut :\\
- \centerline{\ci{def tracer(longueur, epaisseur=5, couleur="blue"):}}
+Avec \Python{} il est possible de donner des arguments optionnels. Voici une meilleure façon de faire en donnant des valeurs par défaut :
+ \mycenterline{\ci{def tracer(longueur, epaisseur=5, couleur="blue"):}}
  
 \begin{itemize}
   \item La commande \ci{tracer(100)} trace mon trait, et comme je n'ai précisé que la longueur, les arguments \ci{epaisseur} et \ci{couleur} prennent les valeurs par défaut ($5$ et bleu).
@@ -155,17 +154,15 @@ Par exemple avec \ci{mot = "AdAAg"}, \ci{remplacer_1(mot,"A","Ag")} renvoie le m
     \item \ci{regle = ("A","AgAdAdAgA")} c'est-à-dire \mot{A} $\rightarrow$ \mot{AgAdAdAgA}
     \item pour \ci{k = 0}, la fonction renvoie le mot de départ \ci{A},
     \item pour \ci{k = 1}, la fonction renvoie \ci{AgAdAdAgA},
-    \item pour \ci{k = 2}, la fonction renvoie :
-    
-     \centerline{\ci{AgAdAdAgAgAgAdAdAgAdAgAdAdAgAdAgAdAdAgAgAgAdAdAgA}}
+    \item pour \ci{k = 2}, la fonction renvoie :  
+     \mycenterline{\ci{AgAdAdAgAgAgAdAdAgAdAgAdAdAgAdAgAdAdAgAgAgAdAdAgA}}
      
     \item pour \ci{k = 3}, la fonction renvoie : \ci{AgAdAdAgAgA...} un mot de $249$ lettres.
     
   \end{itemize}
   
-  \item Trace les premières images du  flocon de Koch donné comme ci-dessus par : 
-  
-  \centerline{départ : \mot{A} \qquad règle : \mot{A} $\rightarrow$ \mot{AgAdAdAgA}} 
+  \item Trace les premières images du  flocon de Koch donné comme ci-dessus par :  
+  \mycenterline{départ : \mot{A} \qquad règle : \mot{A} $\rightarrow$ \mot{AgAdAdAgA}} 
   
   
   Ici les images pour $k=1$ jusqu'à $k=5$.
@@ -243,14 +240,12 @@ Par exemple avec \ci{mot = "AdBgA"}, \ci{remplacer_2(mot,"A","ABg","B","Bd")} re
     \item \ci{regle2 = ("B","BB")} c'est-à-dire \mot{B} $\rightarrow$ \mot{BB}  
     \item pour \ci{k = 0}, la fonction renvoie le mot de départ \ci{AdBdB},
     \item pour \ci{k = 1}, la fonction renvoie \ci{AdBgAgBdAdBBdBB},
-    \item pour \ci{k = 2}, la fonction renvoie :
-    
-    \centerline{\ci{AdBgAgBdAdBBgAdBgAgBdAgBBdAdBgAgBdAdBBBBdBBBB}}
+    \item pour \ci{k = 2}, la fonction renvoie :    
+    \mycenterline{\ci{AdBgAgBdAdBBgAdBgAgBdAgBBdAdBgAgBdAdBBBBdBBBB}}
   \end{itemize}  
 
-  \item Trace les premières images du triangle de Sierpinski donné comme ci-dessus par : 
-  
-  \centerline{départ : \mot{AdBdB} \qquad règles : \mot{A} $\rightarrow$ \mot{AdBgAgBdA} \quad \mot{B} $\rightarrow$ \mot{BB}} 
+  \item Trace les premières images du triangle de Sierpinski donné comme ci-dessus par :  
+  \mycenterline{départ : \mot{AdBdB} \qquad règles : \mot{A} $\rightarrow$ \mot{AdBgAgBdA} \quad \mot{B} $\rightarrow$ \mot{BB}} 
   
  L'angle est de $-120$ degrés. Voici les images pour $k=0$ jusqu'à $k=4$.
   
@@ -266,8 +261,7 @@ Par exemple avec \ci{mot = "AdBgA"}, \ci{remplacer_2(mot,"A","ABg","B","Bd")} re
 	
 	\begin{itemize}
 	  \item La courbe du dragon :
-	  
-\centerline{\ci{
+\mycenterline{\ci{
 depart="AX"    
 regle1=("X","XgYAg")    
 regle2=("Y","dAXdY")
@@ -275,19 +269,17 @@ regle2=("Y","dAXdY")
 
 Les lettres \ci{X} et \ci{Y} ne correspondent à aucune action.
 
-	\item Une variante du triangle de Sierpinski, avec \ci{angle = 60} :
-	
-\centerline{\ci{	
+	\item Une variante du triangle de Sierpinski, avec \ci{angle = 60} :	
+\mycenterline{\ci{	
 depart="A"    
 regle1=("A","BdAdB")    
 regle2=("B","AgBgA")
 }}
 
 \item La courbe de Gosper, avec \ci{angle = 60} :
- 
-\centerline{\ci{depart="A"}}    
-\centerline{\ci{regle1=("A","AgBggBdAddAAdBg")}}    
-\centerline{\ci{regle2=("B","dAgBBggBgAddAdB")}}
+\mycenterline{\ci{depart="A"}}    
+\mycenterline{\ci{regle1=("A","AgBggBdAddAAdBg")}}    
+\mycenterline{\ci{regle2=("B","dAgBBggBgAddAdB")}}
 	  
 	\end{itemize}
 	
@@ -321,9 +313,8 @@ Une \defi{pile} est une zone de stockage temporaire. Les détails sont dans la f
   \item On modélise une pile par une liste. 
   \item Au départ la pile est vide : \ci{pile = []}.
   \item \textbf{Empiler.} On ajoute les éléments en fin de liste : \ci{pile = pile + [element]}.
-  \item \textbf{Dépiler.} On retire un élément par la commande \ci{pop()}\index{pop@\ci{pop}}\index{depiler@dépiler} :
-  
-  \centerline{\ci{element = pile.pop()}}
+  \item \textbf{Dépiler.} On retire un élément par la commande \ci{pop()}\index{pop@\ci{pop}}\index{depiler@dépiler} :  
+  \mycenterline{\ci{element = pile.pop()}}
   
   qui renvoie le dernier élément de la pile et le supprime de la liste.
   

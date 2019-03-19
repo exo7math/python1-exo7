@@ -213,13 +213,11 @@ Nos listes sont des listes d'entiers compris entre $0$ et $99$.
   
   Écris une fonction \ci{phrase_vers_liste(phrase)} qui convertit une chaîne de caractères en une liste d'entiers entre $0$ et $99$ et si besoin rajoute des zéros devant afin que la liste ait la bonne taille. 
   
-  La formule à utiliser pour convertir un caractère en un entier strictement inférieur à $100$ est :
+  La formule à utiliser pour convertir un caractère en un entier strictement inférieur à $100$ est :  
+  \mycenterline{\ci{ord(c) \% 100}}  
   
-  \centerline{\ci{ord(c) \% 100}}  
-  
-  Par exemple : si \ci{phrase = "Vive moi !"} alors la fonction renvoie :
-   
-\centerline{\ci{[0, 0, 86, 5, 18, 1, 32, 9, 11, 5, 32, 33]}}
+  Par exemple : si \ci{phrase = "Vive moi !"} alors la fonction renvoie :   
+\mycenterline{\ci{[0, 0, 86, 5, 18, 1, 32, 9, 11, 5, 32, 33]}}
 
 Le caractère \ci{"i"} à pour code ASCII/unicode $105$ donc, modulo $100$, le nombre est $5$. Note que la fonction ajoute deux $0$ en début de liste afin d'avoir une longueur qui est un multiple de $N=6$.
   
@@ -242,13 +240,11 @@ Le caractère \ci{"i"} à pour code ASCII/unicode $105$ donc, modulo $100$, le n
 
 Dans cette activité, notre message est une liste d'entiers (entre $0$ et $99$) de longueur un multiple quelconque de $N=6$, nous le transformons en une liste de longueur $N=6$ : son empreinte (ou \emph{hash}). Voici des exemples de ce que va faire notre fonction de hachage :
 \begin{itemize}	
-  \item la liste \ci{[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]} a pour empreinte :
+  \item la liste \ci{[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]} a pour empreinte :  
+  \mycenterline{\ci{[10, 0, 58, 28, 0, 90]}}
   
-  \centerline{\ci{[10, 0, 58, 28, 0, 90]}}
-  
-  \item la liste \ci{[1, 1, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]} a pour empreinte :
-  
-  \centerline{\ci{[25, 14, 29, 1, 19, 6]}}
+  \item la liste \ci{[1, 1, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]} a pour empreinte :  
+  \mycenterline{\ci{[25, 14, 29, 1, 19, 6]}}
 \end{itemize}  
   
  L'idée est de mélanger les nombres par bloc de $N=6$ entiers, puis de combiner ce bloc au suivant et de recommencer, jusqu'à obtenir un seul bloc.
@@ -350,8 +346,8 @@ On va construire un problème compliqué à résoudre, pour lequel, si quelqu'un
 \medskip
 
 \textbf{Problème à résoudre.} On nous donne une liste, il s'agit de trouver un bloc tel que, lorsque qu'on le rajoute à la liste, cela produit un hachage commençant par des zéros.
-Plus précisément étant donné une liste  \ci{liste} et un objectif maximal \ci{Max}, il s'agit de trouver un bloc \ci{preuve} qui, concaténé à la liste puis haché, est plus petit que la liste \ci{Max}, c'est-à-dire : \\
-\centerline{\ci{hachage(liste + preuve)} \  plus petit que \  \ci{Max}}
+Plus précisément étant donné une liste  \ci{liste} et un objectif maximal \ci{Max}, il s'agit de trouver un bloc \ci{preuve} qui, concaténé à la liste puis haché, est plus petit que la liste \ci{Max}, c'est-à-dire : 
+\mycenterline{\ci{hachage(liste + preuve)} \  plus petit que \  \ci{Max}}
 
 La liste est de longueur quelconque (un multiple de $N=6$), la preuve est un bloc de longueur $N$, l'objectif est de trouver une liste commençant par des $0$ (voir l'activité 2).
 
@@ -445,12 +441,10 @@ Voici comment faire :
     \item  On ajoute cette preuve au livre de compte.
   \end{itemize}
   Par exemple si le livre se termine par :
+  \mycenterline{\ci{[3,1,4,1,5,9], "Abel +35"}}
   
-  \centerline{\ci{[3,1,4,1,5,9], "Abel +35"}}
-  
-  alors après calcul de la preuve de travail le livre se termine par exemple par :
-  
-  \centerline{\ci{[3,1,4,1,5,9], "Abel +35", [32,17,37,73,52,90]}}  
+  alors après calcul de la preuve de travail le livre se termine par exemple par :  
+  \mycenterline{\ci{[3,1,4,1,5,9], "Abel +35", [32,17,37,73,52,90]}}  
   
      On rappelle que la preuve de travail n'est pas unique et qu'en plus elle dépend 
    de l'objectif \ci{Max}.

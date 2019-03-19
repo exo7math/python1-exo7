@@ -101,13 +101,11 @@ Voici un graphe plus compliqué et son tableau :
 
 \begin{enumerate}
   \item Définis le tableau des graphes des quatre exemples ci-dessus.
-  Tu peux commencer par initialiser le tableau par 
+  Tu peux commencer par initialiser le tableau par   
+  \mycenterline{\ci{graphe = [[0 for j in range(n)] for i in range(n)]}}
   
-  \centerline{\ci{graphe = [[0 for j in range(n)] for i in range(n)]}}
-  
-  Puis ajoute des commandes :
-  
-  \centerline{\ci{graphe[i][j] = 1} \quad et \quad \ci{graphe[j][i] = 1}}
+  Puis ajoute des commandes : 
+  \mycenterline{\ci{graphe[i][j] = 1} \quad et \quad \ci{graphe[j][i] = 1}}
   
   N'oublie pas que si le sommet $i$ est relié au sommet $j$ par une arête, alors il faut mettre un $1$ en position $(i,j)$ mais aussi en position $(j,i)$. 
   
@@ -305,8 +303,7 @@ Par exemple :
   \item Programme la fonction \ci{sous_ensembles(n)} qui renvoie la liste de tous les sous-ensembles possibles de $E_n =  \{0,1,2,\ldots,n-1\}$.
   
   Par exemple, pour $n=3$, \ci{sous_ensembles(n)} renvoie la liste (qui contient elle-même des listes) :
-  
-\centerline{\ci{[ [], [2], [1], [1, 2], [0], [0, 2], [0, 1], [0, 1, 2]  ]}}
+\mycenterline{\ci{[ [], [2], [1], [1, 2], [0], [0, 2], [0, 1], [0, 1, 2]  ]}}
 
 C'est-à-dire les $8$ sous-ensembles (en commençant par l'ensemble vide) :
 $$\varnothing \quad \{2\}\quad \{1\}\quad \{1,2\}\quad \{0\}\quad \{0,2\}\quad \{0,1\}\quad \{0,1,2\}.$$
@@ -316,8 +313,7 @@ $$\varnothing \quad \{2\}\quad \{1\}\quad \{1,2\}\quad \{0\}\quad \{0,2\}\quad \
   \item Déduis-en une fonction \ci{sous_ensembles_fixe(n,k)} qui renvoie seulement les sous-ensembles de $E_n$ ayant $k$ éléments.
   
  Par exemple, pour $n=3$ et $k=2$, \ci{sous_ensembles_fixe(n,k)} renvoie la liste des paires :
- 
-\centerline{\ci{[ [0, 1], [0, 2], [1, 2] ]}}
+\mycenterline{\ci{[ [0, 1], [0, 2], [1, 2] ]}}
  
 Teste ton programme :
 \begin{itemize}

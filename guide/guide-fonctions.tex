@@ -26,8 +26,8 @@
 
 \textbf{Module \og{}math\fg{}}
 
-L'usage d'autres fonctions mathématiques nécessite le recours au module \ci{math} qui s'appelle par la commande :\\
-\centerline{\ci{from math import *}}
+L'usage d'autres fonctions mathématiques nécessite le recours au module \ci{math} qui s'appelle par la commande :
+\mycenterline{\ci{from math import *}}
 
 \begin{itemize}
   \item \ci{sqrt(x)}\quad racine carrée $\sqrt{x}$
@@ -41,8 +41,8 @@ L'usage d'autres fonctions mathématiques nécessite le recours au module \ci{ma
 
 \textbf{Module \og{}random\fg{}}
 
-Le module \ci{random} génère des nombres de façon pseudo-aléatoire. Il s'appelle par la commande :\\
-\centerline{\ci{from random import *}}
+Le module \ci{random} génère des nombres de façon pseudo-aléatoire. Il s'appelle par la commande :
+\mycenterline{\ci{from random import *}}
 
 \begin{itemize}
   \item \ci{random()}\quad à chaque appel, renvoie un nombre flottant $x$ au hasard vérifiant  $0 \le x < 1$.
@@ -360,8 +360,8 @@ for i in range(10):
 \end{lstlisting}
   \end{minipage}
   \end{center}  
-\`A la fin \ci{liste_carres} vaut :\\
-\centerline{\ci{[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]}}  
+\`A la fin \ci{liste_carres} vaut :
+\mycenterline{\ci{[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]}}  
 
 
 \bigskip
@@ -443,9 +443,8 @@ Rang & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
    \ci{liste.index(element)} renvoie la première position à laquelle l'élément a été trouvé. Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
    \ci{liste.index(5)} renvoie $2$.
 
-  \item Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :
-  
-  \centerline{\ci{element in liste}}  
+  \item Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :  
+  \mycenterline{\ci{element in liste}}  
   
   renvoie \ci{True} ou \ci{False}.
   Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
@@ -514,8 +513,8 @@ Trois méthodes.
 
 \textbf{Liste de listes}
   
-Exemple : \\
-  \centerline{\ci{tableau = [ [2,14,5], [3,5,7], [15,19,4], [8,6,5] ]}}
+Exemple : 
+  \mycenterline{\ci{tableau = [ [2,14,5], [3,5,7], [15,19,4], [8,6,5] ]}}
   correspond au tableau :
   \myfigure{0.7}{
   \tikzinput{fig-tableau}
@@ -643,8 +642,8 @@ with open("mon_fichier.txt","r") as fic:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tortue}
 
-Le module \ci{turtle} s'appelle par la commande :\\
-\centerline{\ci{from turtle import *}}
+Le module \ci{turtle} s'appelle par la commande :
+\mycenterline{\ci{from turtle import *}}
 
 \bigskip
 
@@ -792,8 +791,7 @@ Quelques explications :
 
 \textbf{Portion de cercle.}
 La fonction \ci{create_arc()} n'est pas très intuitive. Il faut penser que l'on dessine un cercle, en précisant les coordonnées de deux sommets opposés d'un carré qui l'entoure, puis en précisant l'angle de début et l'angle du secteur (en degrés). 
-
-\centerline{\ci{canvas.create_arc(x1,y1,x2,y2,start=debut_angle,extent=mon_angle)}}
+\mycenterline{\ci{canvas.create_arc(x1,y1,x2,y2,start=debut_angle,extent=mon_angle)}}
 
 
 \myfigure{0.8}{
@@ -939,8 +937,7 @@ Voici quelques explications :
   \item La création de la fenêtre est habituelle. Le programme se termine par le lancement de la fenêtre avec la commande \ci{mainloop()}.
   
   \item Le premier point clé est d'associer un clic de souris à une action, c'est ce que fait la ligne 
-  
-\centerline{\ci{canvas.bind("<Button-1>", action_clic_souris)}}
+\mycenterline{\ci{canvas.bind("<Button-1>", action_clic_souris)}}
 
 Chaque fois que le bouton gauche de la souris est cliqué, \Python{} exécute la fonction \ci{action_clic_souris}. Note qu'il n'y a pas de parenthèses pour l'appel à la fonction.
 
@@ -965,9 +962,7 @@ Voici les points principaux :
   \item Cet objet est (un petit peu) déplacé par la fonction \ci{deplacer()} qui décale le rectangle de \ci{(dx,dy)}.
   
   \item Le point clé est que cette fonction sera exécutée une nouvelle fois après un court laps de temps. La commande :
-  
-  \centerline{\ci{canvas.after(50,deplacer)}}
-  
+  \mycenterline{\ci{canvas.after(50,deplacer)}}  
   demande une nouvelle exécution de la fonction \ci{deplacer()} après un court délai (ici $50$ millisecondes).
 
   \item La répétition de petits déplacements simule le mouvement.

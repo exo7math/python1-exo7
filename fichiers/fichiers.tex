@@ -117,9 +117,8 @@ Coucou
 \objectifs{Objectifs : écrire un fichier de notes, puis le lire pour calculer les moyennes.}
 
 \begin{enumerate}
-  \item Génère au hasard un fichier de notes, nommé \ci{notes.txt}, qui est composé de lignes ayant la structure :
-  
-  \centerline{\ci{Prenom Nom note1 note2 note3}} 
+  \item Génère au hasard un fichier de notes, nommé \ci{notes.txt}, qui est composé de lignes ayant la structure : 
+  \mycenterline{\ci{Prenom Nom note1 note2 note3}} 
   
   Par exemple :
 \begin{center}
@@ -140,9 +139,8 @@ Coucou
    \end{itemize}
     
   
-  \item Lis le fichier \ci{notes.txt} que tu as produit. Calcule la moyenne de chaque personne et écrit le résultat dans un fichier \ci{moyennes.txt} où chaque ligne est de la forme :
-  
-  \centerline{\ci{Prenom Nom moyenne}} 
+  \item Lis le fichier \ci{notes.txt} que tu as produit. Calcule la moyenne de chaque personne et écrit le résultat dans un fichier \ci{moyennes.txt} où chaque ligne est de la forme : 
+  \mycenterline{\ci{Prenom Nom moyenne}} 
   
     Par exemple :
 \begin{center}
@@ -221,9 +219,8 @@ Voici un exemple :
 
   \emph{Indications.} 
   \begin{itemize}
-    	\item Le package \ci{matplotlib} permet d'afficher facilement des graphiques, il s'appelle souvent avec l'instruction :
-    	
-   \centerline{\ci{import matplotlib.pyplot as plt}}  
+    	\item Le package \ci{matplotlib} permet d'afficher facilement des graphiques, il s'appelle souvent avec l'instruction :  	
+   \mycenterline{\ci{import matplotlib.pyplot as plt}}  
    
    \item Voici comment visualiser deux listes de données \ci{liste1} et \ci{liste2} :
 \begin{center}
@@ -369,9 +366,7 @@ Voici la description du format :
 \end{center}   
 
 \emph{Indications.} Si $i$ désigne le numéro de ligne et $j$ le numéro de colonne (en partant du haut à gauche), alors le pixel en position $(i,j)$ est blanc si $i+j$ est compris entre $0$ et $9$, ou compris entre $20$ et $29$, ou entre $40$ et $49$,\ldots{} Ce qui s'obtient par la formule :
-
-\centerline{\ci{coul = (i+j)//10 \% 2}}
-
+\mycenterline{\ci{coul = (i+j)//10 \% 2}}
 qui renvoie $0$ ou $1$ comme désiré.
 
   \item  Génère un fichier \ci{image_gris.pgm} qui représente une image en niveaux de gris (par exemple de taille $200 \times 200$ avec $256$ niveaux de gris) selon le motif suivant :
@@ -380,9 +375,7 @@ qui renvoie $0$ ou $1$ comme désiré.
 \end{center}   
 
 \emph{Indications.} Cette fois la formule est :
-
-\centerline{\ci{coul = (i**2 + j**2) \% 256}}
-
+\mycenterline{\ci{coul = (i**2 + j**2) \% 256}}
 qui renvoie un entier entre $0$ et $255$.
 
    \item Génère un fichier \ci{image_coul.ppm} qui représente une image en couleurs (par exemple de taille $200 \times 200$ avec $256$ niveaux de rouge, vert et bleu) selon le motif suivant :
@@ -391,13 +384,9 @@ qui renvoie un entier entre $0$ et $255$.
 \end{center}   
 
 \emph{Indications.} Cette fois la formule est :
-
-\centerline{\ci{R = (i*j) \% 256}}
-
-\centerline{\ci{V = i \% 256}}
-
-\centerline{\ci{B = (i + j)//3 \% 256}}
-
+\mycenterline{\ci{R = (i*j) \% 256}}
+\mycenterline{\ci{V = i \% 256}}
+\mycenterline{\ci{B = (i + j)//3 \% 256}}
 qui donne les niveaux de rouge, vert et bleu du pixel $(i,j)$.
 
 \item Écris une fonction \ci{inverser_couleurs_nb(fichier)} qui lit un fichier image noir et blanc \ci{.pbm} et crée un nouveau fichier dans lequel les pixels blancs sont devenus noirs et inversement. 
