@@ -165,6 +165,7 @@ Le module \ci{random} génère des nombres comme s'ils étaient tirés au hasard
 
 
 \mybox{
+\begin{minipage}{0.95\textwidth}
 \textbf{Test d'égalité.} Pour tester si deux nombres $x$ et $y$ sont égaux, l'instruction est :
 
 \mycenterline{\ci{if x == y:}}
@@ -173,6 +174,7 @@ Le test d'égalité s'écrit bien avec le double signe égal \og{}\ci{==}\fg{}.
 Par exemple \og{}\ci{x == 3}\fg{} renvoie \og{}vrai\fg{} si $x$ vaut $3$ et \og{}faux\fg{} sinon.
 
 Attention ! La commande \og{}\ci{x = 3}\fg{} n'a rien à voir, cette instruction stocke $3$ dans la variable $x$.
+\end{minipage}
 }
 
 \end{activite}
@@ -247,6 +249,7 @@ for c in mot:
    
    \item ~\index{affectation}\index{=@\ci{=}}
    \mybox{
+   \begin{minipage}{0.95\textwidth}	
    \textbf{ATTENTION !}   
    L'erreur classique est de confondre \og{}\ci{a = b}\fg{} et \og{}\ci{a == b}\fg{}.
    \begin{itemize}
@@ -254,6 +257,7 @@ for c in mot:
      met le contenu de la variable \ci{b} dans la variable \ci{a}.
      \item \textbf{Test d'égalité.} \ci{a == b} teste si les contenus de \ci{a} et de \ci{b} sont égaux et vaut \ci{True} ou \ci{False}.
    \end{itemize}
+	\end{minipage}
    }
    
   \item On peut comparer autre chose que des nombres. Par exemple 
@@ -333,7 +337,7 @@ for d in range(10):
 
 On se donne trois longueurs $a$, $b$ et $c$. Tu vas déterminer les propriétés du triangle dont les longueurs seraient $a$, $b$, $c$.
 
-\myfigure{1}{
+\myfigure{1.1}{
 \tikzinput{fig-sialors-1}
 }  
 
@@ -361,7 +365,7 @@ Définis trois variables $a$, $b$ et $c$ avec des valeurs entières et $a \le b 
     \begin{itemize}
       \item La loi des cosinus permet de calculer un angle en fonction des longueurs :
       
- \myfigure{1}{
+ \myfigure{1.1}{
 \tikzinput{fig-sialors-3}
 }   
    
@@ -379,10 +383,14 @@ Définis trois variables $a$, $b$ et $c$ avec des valeurs entières et $a \le b 
    
 \end{enumerate}   
      
+    \smallskip 
+     
     \objectifs{Trouve des exemples de longueurs $a,b,c$ pour illustrer les différentes propriétés.}
     
 \end{activite}
 
+\bigskip
+\bigskip
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Activité 5
