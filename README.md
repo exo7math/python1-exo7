@@ -12,14 +12,14 @@ Vous avez tout en main pour réussir !
 Vidéos
 ======
 
-Les vidéos seront visibles depuis la chaîne *Youtube* [Python au lycée](https://www.youtube.com/channel/UC6PiFyqBiUjiJ7Q3DRSW2Wg "www.youtube.com/PythonAuLycée").
+Les vidéos sont visibles depuis la chaîne *Youtube* [Python au lycée](https://www.youtube.com/channel/UC6PiFyqBiUjiJ7Q3DRSW2Wg "www.youtube.com/PythonAuLycée").
 
 Livre
 =====
 
 Le livre est en vente sur Amazon.fr à prix coûtant. [Commander le livre sur Amazon.fr]( https://www.amazon.fr/dp/1986820033).
 
-Vous pouvez aussi le télécharger sur ce site : [Livre 'Python au lycée' (3 Mo)](livre-python1.pdf).
+Vous pouvez aussi le télécharger sur ce site : [Livre 'Python au lycée - tome 1' (3 Mo)](livre-python1.pdf).
 
 Activités
 =========
@@ -68,7 +68,7 @@ Auteur
 
 Arnaud Bodin
 
-Rermciements à : Stéphanie Bodin, Michel Bodin, François Recher, Éric Wegrzynowski, Philippe Marquet, Kroum Tzanev.
+Remerciements à : Stéphanie Bodin, Michel Bodin, François Recher, Éric Wegrzynowski, Philippe Marquet, Kroum Tzanev.
 
 ![Logo Python Exo7](cover/logo-python.png "logo Python Exo7")
 
