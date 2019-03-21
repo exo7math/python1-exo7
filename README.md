@@ -1,6 +1,6 @@
 
-Python au lycée
-===============
+Python au lycée - tome 1
+========================
 
 Python est le langage idéal pour apprendre la programmation.
 C'est un langage puissant qui vous permettra de plonger dans le monde des algorithmes. 
