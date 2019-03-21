@@ -31,8 +31,9 @@
   
   \index{in@\ci{in}}
   
-  La façon la plus simple de savoir si une sous-chaîne est présente dans une chaîne de caractères est d'utiliser l'opérateur \og{}\ci{in}\fg{}. Par exemple, l'expression :\\
-  \centerline{\ci{"PAS" in "ETRE OU NE PAS ETRE"}}
+  La façon la plus simple de savoir si une sous-chaîne est présente dans une chaîne de caractères est d'utiliser l'opérateur \og{}\ci{in}\fg{}. Par exemple, l'expression : 
+  \mycenterline{\ci{"PAS" in "ETRE OU NE PAS ETRE"}}
+  
   vaut \og{}vrai\fg{} car la sous-chaîne \mot{PAS} est bien présente dans la phrase
   \mot{ETRE OU NE PAS ETRE}. 
   
@@ -75,8 +76,8 @@
 \objectifs{Objectifs : remplacer des portions de texte par d'autres.}
 
 \begin{enumerate}
-  \item  La méthode \ci{replace()} s'utilise sous la forme :\\
-  \centerline{\ci{chaine.replace(sous_chaine,nouv_sous_chaine)}}
+  \item  La méthode \ci{replace()} s'utilise sous la forme :
+  \mycenterline{\ci{chaine.replace(sous_chaine,nouv_sous_chaine)}}
 
   \index	{replace@\ci{replace}}
 	
@@ -85,8 +86,9 @@
 	Transforme la phrase \mot{ETRE OU NE PAS ETRE} en \mot{ETRE OU NE PLUS ETRE}, puis en 
 	\mot{AVOIR OU NE PLUS AVOIR}.
 	
-	\item Écris ta propre fonction \ci{remplacer()} que tu appelleras sous la forme suivante :\\
-  \centerline{\ci{remplacer(chaine,sous_chaine,nouv_sous_chaine)}}
+	\item Écris ta propre fonction \ci{remplacer()} que tu appelleras sous la forme suivante :	
+  \mycenterline{\ci{remplacer(chaine,sous_chaine,nouv_sous_chaine)}}
+  
  et qui remplace seulement la première occurrence de \ci{sous_chaine} trouvée. Par exemple \ci{remplacer("ABBA","B","XY")} renvoie \ci{"AXYBA"}.
   
   
@@ -126,7 +128,7 @@ Il existe plein d'autres possibilités, mais nous étudions seulement ces deux-l
 
 \bigskip
 
-Nous utiliserons les expressions rationnelles à travers la commande :\\ \centerline{\ci{python_regex_chercher(chaine,exp)}} 
+Nous utiliserons les expressions rationnelles à travers la commande : \mycenterline{\ci{python_regex_chercher(chaine,exp)}} 
 
 \index{module!re@\ci{re}}
 
@@ -153,7 +155,7 @@ Programme-la et teste-la. Elle renvoie : (1) la sous-chaîne trouvée, (2) la po
      
    Exemple avec \ci{chaine = "ETRE OU NE PAS ETRE"}
   \begin{itemize}  
-    \item avec \ci{exp = "P.S"}, alors \ci{python_regex_chercher(chaine,exp)} renvoie
+    \item avec \ci{exp = "P.S"}, alors \ci{python_regex_chercher(chaine, exp)} renvoie
     \ci{('PAS', 11, 14)}.
     \item avec \ci{exp = "E..E"}, la fonction renvoie
     \ci{('ETRE', 0, 4)}.
@@ -209,33 +211,33 @@ On considère une \og{}phrase\fg{} composée de seulement deux lettres possibles
 Appliquer la transformation \rzero\run{} $\rightarrow$ \run\rzero{}
 à la phrase \run\rzero\run\run\rzero.
 
-On lit la phrase de gauche à droite, on trouve le premier motif \rzero\run{} à partir de la seconde lettre, on le remplace par \run\rzero{} :\\
-\centerline{\run(\rzero\run)\run\rzero{} \quad $\longmapsto$ \quad \run(\run\rzero)\run\rzero}
+On lit la phrase de gauche à droite, on trouve le premier motif \rzero\run{} à partir de la seconde lettre, on le remplace par \run\rzero{} :
+\mycenterline{\run(\rzero\run)\run\rzero{} \quad $\longmapsto$ \quad \run(\run\rzero)\run\rzero}
 
-On peut recommencer à partir du début de la phrase obtenue, avec toujours la même transformation  \rzero\run{} $\rightarrow$ \run\rzero{} :\\
-\centerline{\run\run(\rzero\run)\rzero{}  \quad $\longmapsto$ \quad \run\run(\run\rzero)\rzero}
+On peut recommencer à partir du début de la phrase obtenue, avec toujours la même transformation  \rzero\run{} $\rightarrow$ \run\rzero{} :
+\mycenterline{\run\run(\rzero\run)\rzero{}  \quad $\longmapsto$ \quad \run\run(\run\rzero)\rzero}
 
 Le motif \rzero\run{} n'apparaît plus dans la phrase \run\run\run\rzero\rzero{} donc
 la transformation \rzero\run{} $\rightarrow$ \run\rzero{} laisse maintenant cette phrase inchangée.
 
-Résumons : voici l'effet de la transformation itérée \rzero\run{} $\rightarrow$ \run\rzero{} à la phrase \run\rzero\run\run\rzero{} :\\
-\centerline{\run\rzero\run\run\rzero{}  \quad $\longmapsto$ \quad \run\run\rzero\run\rzero{} \quad $\longmapsto$ \quad \run\run\run\rzero\rzero}
+Résumons : voici l'effet de la transformation itérée \rzero\run{} $\rightarrow$ \run\rzero{} à la phrase \run\rzero\run\run\rzero{} :
+\mycenterline{\run\rzero\run\run\rzero{}  \quad $\longmapsto$ \quad \run\run\rzero\run\rzero{} \quad $\longmapsto$ \quad \run\run\run\rzero\rzero}
 \end{exemple}
 
 \begin{exemple}
 Appliquer la transformation \rzero\rzero\run{} $\rightarrow$ \run\run\rzero\rzero{}
 à la phrase \rzero\rzero\run\run.
 
-Une première fois :\\
-\centerline{(\rzero\rzero\run)\run{}  \quad $\longmapsto$ \quad (\run\run\rzero\rzero)\run}
-Une seconde fois :\\
-\centerline{\run\run(\rzero\rzero\run)  \quad $\longmapsto$ \quad \run\run(\run\run\rzero\rzero)}
+Une première fois :
+\mycenterline{(\rzero\rzero\run)\run{}  \quad $\longmapsto$ \quad (\run\run\rzero\rzero)\run}
+Une seconde fois :
+\mycenterline{\run\run(\rzero\rzero\run)  \quad $\longmapsto$ \quad \run\run(\run\run\rzero\rzero)}
 Et ensuite la transformation ne modifie plus la phrase.
 \end{exemple}
 
 \begin{exemple}
-Voyons un dernier exemple avec la transformation \rzero\run{} $\rightarrow$ \run\run\rzero\rzero{} pour la phrase de départ \rzero\rzero\rzero\run{}: \\
-\centerline{
+Voyons un dernier exemple avec la transformation \rzero\run{} $\rightarrow$ \run\run\rzero\rzero{} pour la phrase de départ \rzero\rzero\rzero\run{}: 
+\mycenterline{
 \rzero\rzero\rzero\run{} \quad $\longmapsto$ \quad 
 \rzero\rzero\run\run\rzero\rzero{} \quad $\longmapsto$ \quad 
 \rzero\run\run\rzero\rzero\run\rzero\rzero{} \quad $\longmapsto$ \quad 
@@ -272,16 +274,20 @@ On considère ici uniquement des transformations du type \rzero$^a$\run$^b$ $\ri
   
   Programme une fonction \ci{iterations(phrase,motif,nouv_motif)} qui, à partir d'une phrase, itère la transformation. Une fois que la phrase est stabilisée, la fonction renvoie le nombre d'itérations effectuées ainsi que la phrase obtenue. Si le nombre d'itérations n'a pas l'air de s'arrêter (par exemple quand il dépasse $1000$) alors renvoie \ci{None}.
   
-  Exemple. Pour la transformation \rzero\rzero\run\run{} $\rightarrow$ \run\run\rzero\rzero{} et la phrase \rzero\rzero\rzero\rzero\run\run\rzero\run\run, les phrases obtenues sont : \\
-  \\
-\centerline{
+  Exemple. Pour la transformation \rzero\rzero\run\run{} $\rightarrow$ \run\run\rzero\rzero{} et la phrase \rzero\rzero\rzero\rzero\run\run\rzero\run\run, les phrases obtenues sont : 
+  
+{\small
+\mycenterline{
 \rzero\rzero\rzero\rzero\run\run\rzero\run\run{}  $\underset{\mathbf{1}}{\longmapsto}$
 \rzero\rzero\run\run\rzero\rzero\rzero\run\run{}  $\underset{\mathbf{2}}{\longmapsto}$
 \run\run\rzero\rzero\rzero\rzero\rzero\run\run{}  $\underset{\mathbf{3}}{\longmapsto}$
 \run\run\rzero\rzero\rzero\run\run\rzero\rzero{}  $\underset{\mathbf{4}}{\longmapsto}$
 \run\run\rzero\run\run\rzero\rzero\rzero\rzero{}  $\longmapsto$
 idem
-}\\
+}
+}
+
+\medskip
 
 Pour cet exemple l'appel à la fonction \ci{iterations()} renvoie alors $4$ (le nombre de transformations avant stabilisation) et \ci{"110110000"} (la phrase stabilisée).
 
@@ -296,8 +302,8 @@ qui, parmi toutes les phrases de longueur $p$, cherche l'une de celles qui met l
 \end{itemize}
 
 Exemple : pour la transformation \rzero\run{} $\rightarrow$ \run\rzero\rzero, parmi toutes les phrases de longueur $p=4$, le maximum d'itérations possibles est $7$. Un tel exemple de phrase est \rzero\run\run\run, qui va se stabiliser (après 7 itérations donc) en \run\run\run\rzero\rzero\rzero\rzero\rzero\rzero\rzero\rzero.
-Ainsi la commande \ci{iteration_maximale(4,"01","100")} renvoie : \\
-\centerline{7, '0111', '11100000000'}
+Ainsi la commande \ci{iteration_maximale(4,"01","100")} renvoie : 
+\mycenterline{7, '0111', '11100000000'}
 
 
   \emph{Indication.} Pour générer toutes les phrases de longueur $p$ formées de \rzero{} et \run{}, tu peux consulter la fiche \og{}Binaire II\fg{} (activité 3).

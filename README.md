@@ -1,9 +1,3 @@
-Relecteurs pour le tome 2
-===============
-
-Un tome 2 de *Python au lycée* est en préparation. Nous cherchons des élèves/étudiants/enseignants/informaticiens motivés qui voudraient bien relire/tester/corriger/critiquer un ou plusieurs chapitres.
-Si vous êtes interessé, n'hésitez pas à contacter Arnaud Bodin.
-
 
 Python au lycée
 ===============
@@ -18,7 +12,7 @@ Vous avez tout en main pour réussir !
 Vidéos
 ======
 
-Les vidéos seront visibles depuis la chaîne *Youtube* [Python au lycée](https://www.youtube.com/channel/UC6PiFyqBiUjiJ7Q3DRSW2Wg "www.youtube.com/PythonAuLycee").
+Les vidéos seront visibles depuis la chaîne *Youtube* [Python au lycée](https://www.youtube.com/channel/UC6PiFyqBiUjiJ7Q3DRSW2Wg "www.youtube.com/PythonAuLycée").
 
 Livre
 =====

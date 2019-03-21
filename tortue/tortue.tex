@@ -44,11 +44,11 @@ exitonclick()
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.6]{ecran-tortue-0}
+\includegraphics[scale=\myscale,scale=0.6]{ecran-tortue-0}
 \end{center}
 
-Voici une liste des principales commandes, accessibles après avoir écrit :\\
-\centerline{\ci{from turtle import *}}
+Voici une liste des principales commandes, accessibles après avoir écrit :
+\mycenterline{\ci{from turtle import *}}
 
 \begin{itemize}
   \item \ci{forward(longueur)}\index{forward@\ci{forward}} avance d'un certain nombre de pas
@@ -64,7 +64,7 @@ Voici une liste des principales commandes, accessibles après avoir écrit :\\
   \item \ci{down()}\index{down@\ci{down}} abaisse le stylo
   \item \ci{up()}\index{up@\ci{up}} relève le stylo
   \item \ci{width(epaisseur)} change l'épaisseur du trait
-  \item \ci{color(couleur)} change la couleur : \ci{"red"}, \ci{"green"}, \ci{"blue"}, \ci{"orange"}, \ci{"purple"},\ldots
+  \item \ci{color(couleur)} change la couleur : \ci{"red"}, \ci{"green"}, \ci{"blue"}, \ci{"orange"}, \ci{"purple"}\ldots
   
   \item \ci{position()}  renvoie la position $(x,y)$ de la tortue
   \item \ci{heading()} renvoie la direction \ci{angle} vers laquelle pointe la tortue
@@ -93,7 +93,7 @@ de $-400$ à $+400$ pour les $y$ ; $(0,0)$ est au centre de l'écran.
 Trace les premières lettres de \Python{}, par exemple comme ci-dessous.
 
 \begin{center}
-\includegraphics[scale=0.4]{ecran-tortue-1}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-tortue-1}
 \end{center}
 
 \end{activite}
@@ -110,17 +110,18 @@ Trace les premières lettres de \Python{}, par exemple comme ci-dessous.
 \objectifs{Objectifs : tracer des figures géométriques.}
 
 \begin{center}
-\includegraphics[scale=0.25]{ecran-tortue-2a}
-\includegraphics[scale=0.25]{ecran-tortue-2b}
-\includegraphics[scale=0.25]{ecran-tortue-2c}
-\includegraphics[scale=0.2]{ecran-tortue-2d}
+\includegraphics[scale=\myscale,scale=0.25]{ecran-tortue-2a}
+\includegraphics[scale=\myscale,scale=0.25]{ecran-tortue-2b}
+\includegraphics[scale=\myscale,scale=0.25]{ecran-tortue-2c}
+\includegraphics[scale=\myscale,scale=0.2]{ecran-tortue-2d}
 \end{center}
 
 \begin{enumerate}
   \item \textbf{Pentagone.} Trace un premier pentagone (en bleu). Tu dois répéter $5$ fois : avancer de $100$ pas, tourner de $72$ degrés.
   
-  \emph{Indication.} Pour construire une boucle utilise \\
-  \centerline{\ci{for i in range(5):}}
+  \emph{Indication.} Pour construire une boucle utilise  
+  \mycenterline{\ci{for i in range(5):}}
+  
    (même si tu n'utilises pas ensuite la variable \ci{i}).
   
   \item \textbf{Pentagone (bis).} Définis une variable \ci{longueur} qui vaut $200$ et une variable \ci{angle} qui vaut $72$ degrés. Trace un second pentagone (en rouge) en avançant cette fois de \ci{longueur} et en tournant de \ci{angle}.
@@ -148,8 +149,8 @@ Trace les premières lettres de \Python{}, par exemple comme ci-dessous.
 \objectifs{Objectifs : tracer le graphe d'une fonction.}
 
 \begin{center}
-\includegraphics[scale=0.4]{ecran-tortue-3a}
-\includegraphics[scale=0.4]{ecran-tortue-3b}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-tortue-3a}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-tortue-3b}
 \end{center}
 
 Trace le graphe de la fonction carré et de la fonction sinus.
@@ -163,8 +164,8 @@ Afin d'obtenir une courbe dans la fenêtre de la tortue, répète pour $x$ varia
 Pour la sinuso\"ide, tu peux utiliser la formule 
 $$y = 100\sin\left(\frac{1}{20}x\right).$$
   
-Par défaut \Python{} ne connaît pas la fonction sinus, pour utiliser \ci{sin()} il faut d'abord importer le module \ci{math} :\\
-\centerline{\ci{from math import *}}
+Par défaut \Python{} ne connaît pas la fonction sinus, pour utiliser \ci{sin()} il faut d'abord importer le module \ci{math} :
+\mycenterline{\ci{from math import *}}
 
 Pour que la tortue avance plus vite, tu peux utiliser la commande \ci{speed("fastest")}.
 \end{activite}
@@ -182,10 +183,10 @@ Pour que la tortue avance plus vite, tu peux utiliser la commande \ci{speed("fas
 \index{triangle de Sierpinski}
 
 \begin{center}
-\includegraphics[scale=0.3]{ecran-tortue-4a}
-\includegraphics[scale=0.3]{ecran-tortue-4b}
-\includegraphics[scale=0.3]{ecran-tortue-4c}
-\includegraphics[scale=0.3]{ecran-tortue-4d}
+\includegraphics[scale=\myscale,scale=0.3]{ecran-tortue-4a}
+\includegraphics[scale=\myscale,scale=0.3]{ecran-tortue-4b}
+\includegraphics[scale=\myscale,scale=0.3]{ecran-tortue-4c}
+\includegraphics[scale=\myscale,scale=0.3]{ecran-tortue-4d}
 \end{center}
 
 Voici comment tracer le second dessin. Analyse l'imbrication des boucles et trace les dessins suivants.
@@ -216,7 +217,7 @@ for i in range(3):
 \begin{activite}[Le c\oe ur des tables de multiplication]
 
 \objectifs{Objectifs : dessiner les tables de multiplication. Pour une introduction en vidéo voir 
-\href{https://youtu.be/-X49VQgi86E}{\emph{la face cachée des tables de multiplication}} sur \emph{Youtube} par Micmaths.}
+\og{}\href{https://youtu.be/-X49VQgi86E}{\emph{la face cachée des tables de multiplication}}\fg{} sur \emph{Youtube} par Micmaths.}
 
 On fixe un entier $n$. On étudie la table de $2$, c'est-à-dire 
 que l'on calcule $2 \times 0$, $2\times 1$, $2 \times 2$, jusqu'à $2 \times (n-1)$. En plus les calculs se feront modulo $n$. On calcule donc  
@@ -254,7 +255,7 @@ Trace la table de $2$ modulo $n$, pour différentes valeurs de $n$.
 Voici ce que cela donne pour $n=100$.
 
 \begin{center}
-\includegraphics[scale=0.5]{ecran-tortue-5b}
+\includegraphics[scale=\myscale,scale=0.5]{ecran-tortue-5b}
 \end{center}
 
 \emph{Indications.}
@@ -311,7 +312,7 @@ tortue2.forward(100)
 Programme quatre tortues qui courent les unes après les autres :
 
 \begin{center}
-\includegraphics[scale=0.5]{ecran-tortue-6a}
+\includegraphics[scale=\myscale,scale=0.5]{ecran-tortue-6a}
 \end{center}
 
 
@@ -358,7 +359,7 @@ tortue1.setheading(angle1)
 Améliore ton programme en traçant à chaque fois un segment entre la tortue poursuivante et la tortue poursuivie.
 
 \begin{center}
-\includegraphics[scale=0.5]{ecran-tortue-6b}
+\includegraphics[scale=\myscale,scale=0.5]{ecran-tortue-6b}
 \end{center}  
 \end{activite}
 

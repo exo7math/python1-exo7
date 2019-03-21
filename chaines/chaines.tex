@@ -125,12 +125,14 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
   
   \item Rassemble tout ton travail des trois premières questions dans une fonction \ci{met_au_pluriel()}. La fonction n'affiche rien, mais renvoie le mot au pluriel.
   
+  \medskip
+  
   \begin{fonction}[\ci{met_au_pluriel()}]
   Usage : \ci{met_au_pluriel(mot)} \\
   Entrée : un mot (une chaîne de caractères) \\
   Sortie : le pluriel du mot 
   
-  \medskip
+  \bigskip
   
   Exemples : 
   \begin{itemize}
@@ -142,12 +144,14 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
 
   \item Écris une fonction \ci{affiche_conjugaison()} qui conjugue un verbe du premier groupe au présent.
   
+  \medskip
+  
   \begin{fonction}[\ci{affiche_conjugaison()}]
   Usage : \ci{affiche_conjugaison(verbe)} \\
   Entrée : un verbe du premier groupe (une chaîne de caractères se terminant par \ci{"er"}) \\
   Sortie : pas de résultat mais l'affichage de la conjugaison du verbe au présent
   
-  \medskip
+  \bigskip
     
   Exemple : 
   \begin{itemize}
@@ -166,6 +170,10 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\bigskip
+\bigskip
+
+
 \begin{cours}[Un peu plus sur les chaînes]
 
 \sauteligne
@@ -179,18 +187,27 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
   \end{minipage}
   \end{center}
 
-  \item On peut tester si un caractère appartient à une certaine liste de caractères. Par exemple : \\  
-  \centerline{\codeinline{if carac in ["a", "A", "b", "B", "c", "C"]:}}
+  \item On peut tester si un caractère appartient à une certaine liste de caractères. Par exemple : 
+    
+  \smallskip
+    
+  \mycenterline{\codeinline{if carac in ["a", "A", "b", "B", "c", "C"]:}}
+  
 \index{in@\ci{in}}  
   
   permet d’exécuter des instructions si le caractère \ci{carac}  est l'une des lettres a, A, b, B, c, C. 
   
-  Pour éviter certaines lettres, on utiliserait : \\
-  \centerline{\codeinline{if carac not in ["X", "Y", "Z"]:}}
+  Pour éviter certaines lettres, on utiliserait : 
+  
+  \smallskip
+  
+  \mycenterline{\codeinline{if carac not in ["X", "Y", "Z"]:}}
+  
   \index{not in@\ci{not in}}
 
   \end{enumerate}  
 \end{cours}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -202,17 +219,19 @@ Autre exemple : \ci{mot[1:len(mot)-1]} renvoie le mot privé de sa première et 
 \objectifs{Objectifs : manipuler des mots de façon amusante.}
 
   
-  \medskip
+  %\medskip
   
 \begin{enumerate}
   \item \textbf{Distance entre deux mots.}
   
   La distance\index{distance} de Hamming entre deux mots de même longueur est le nombre d'endroits  où les lettres sont différentes.
 
-Par exemple : \\
-\centerline{\mot{
+Par exemple : 
+
+\mycenterline{\mot{
 \badletter{J}A\badletter{P}ON}\qquad \mot{\badletter{S}A\badletter{V}ON}
 }
+
 La première lettre de \mot{JAPON} est différente de la première lettre de \mot{SAVON}, les troisièmes aussi sont différentes. La distance de Hamming entre  \mot{JAPON} et \mot{SAVON} vaut donc $2$.  
 
 Écris une fonction \ci{distance_hamming()} qui calcule la distance de Hamming entre deux mots de même longueur.
@@ -228,7 +247,7 @@ La première lettre de \mot{JAPON} est différente de la première lettre de \mo
   \end{fonction}
 
       
-  \medskip
+  %\medskip
   
   \item \textbf{Latin-cochon.} 
   
@@ -251,7 +270,7 @@ La première lettre de \mot{JAPON} est différente de la première lettre de \mo
   Exemple : \ci{latin_cochon("BONJOUR")} renvoie \ci{"ONJOURBUM"}
   \end{fonction} 
   
-  \medskip
+  %\medskip
   
   \item \textbf{Verlan.} 
   
@@ -269,7 +288,7 @@ La première lettre de \mot{JAPON} est différente de la première lettre de \mo
   Exemple : \ci{verlan("TOCARD")} renvoie \ci{"DRACOT"}
   \end{fonction}
   
-  \medskip
+  %\medskip
   
   \item \textbf{Palindrome.}
   
@@ -356,25 +375,24 @@ Premier code du coupable : \mot{CATA}
 
 Second code du coupable : \mot{ATGC}
 
-{\small
+{\footnotesize
 ADN du colonel Moutarde :
 
- \mot{CCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGC}
-
+\mot{CCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGC}
 
 ADN de Mlle Rose :
 
- \mot{CTCCTGATGCTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGG}
+\mot{CTCCTGATGCTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGG}
 
 
 ADN de Mme Pervenche :
 
- \mot{AAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGTACTCCGCGCGCCGGGACAGAATGCC}
-
+\mot{AAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGTACTCCGCGCGCCGGGACAGAATGCC}
 
 ADN de M. Leblanc :
 
 \mot{CTGCAGGAACTTCTTCTGGAAGTACTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAG}
+
 }
 \end{enumerate}
 \end{activite}
@@ -447,9 +465,8 @@ Voici la table des premiers caractères. Les numéros $0$ à $32$ ne sont pas de
 
 
 \begin{enumerate}
-  \item Décode à la main le message chiffré sous les codes suivants : \\
-  
-\centerline{80-121-116-104-111-110 \quad 101-115-116 \quad 115-121-109-112-64}
+  \item Décode à la main le message chiffré sous les codes suivants : 
+\mycenterline{80-121-116-104-111-110 \quad 101-115-116 \quad 115-121-109-112-64}
    
 %    [\symbol{80}\symbol{121}\symbol{116}\symbol{104}\symbol{111}\symbol{110}
 %    \symbol{101}\symbol{115}\symbol{116}   

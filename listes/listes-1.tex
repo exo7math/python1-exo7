@@ -72,8 +72,8 @@ for i in range(10):
 \end{lstlisting}
   \end{minipage}
   \end{center}  
-\`A la fin \ci{liste_carres} vaut :\\
-\centerline{\ci{[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]}}   
+\`A la fin \ci{liste_carres} vaut :
+\mycenterline{\ci{[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]}}   
   
          
 \end{itemize}
@@ -101,8 +101,8 @@ for i in range(n):
     print(i,liste[i])
 \end{lstlisting}  
 
-\item Pour obtenir une liste à partir de \ci{range()} il faut écrire :\\
-\centerline{\ci{list(range(n))}}
+\item Pour obtenir une liste à partir de \ci{range()} il faut écrire :
+\mycenterline{\ci{list(range(n))}}
 \end{itemize}
 \end{cours}
 
@@ -146,18 +146,20 @@ for i in range(n):
 \sauteligne
 \begin{itemize}
   \item \textbf{Concaténer deux listes.}\index{liste!fusionner}\index{concatenation@concaténation} Si on a deux listes, on peut les fusionner par l'opérateur \og{}\ci{+}\fg{}. Par exemple avec 
-  \ci{liste1 = [4,5,6]} et \ci{liste2 = [7,8,9]}  \\
-  \centerline{\ci{liste1 + liste2} \quad vaut \quad \ci{[4,5,6,7,8,9]}.}
+  \ci{liste1 = [4,5,6]} et \ci{liste2 = [7,8,9]}   
+  \mycenterline{\ci{liste1 + liste2} \quad vaut \quad \ci{[4,5,6,7,8,9]}.}
   
     
-  \item \textbf{Ajouter un élément à la fin.}\index{liste!ajouter} L'opérateur \og{}\ci{+}\fg{} fournit une autre méthode permettant d'ajouter un élément à une liste :\\
-  \centerline{\ci{liste = liste + [element]}}
+  \item \textbf{Ajouter un élément à la fin.}\index{liste!ajouter} L'opérateur \og{}\ci{+}\fg{} fournit une autre méthode permettant d'ajouter un élément à une liste : 
+  \mycenterline{\ci{liste = liste + [element]}}
+  
   Par exemple \ci{[1,2,3,4] + [5]} vaut \ci{[1,2,3,4,5]}.
   Attention ! Il faut entourer l'élément à ajouter de crochets.   
   C'est une méthode alternative à \ci{liste.append(element)}.
   
-  \item \textbf{Ajouter un élément au début.} Avec :\\
-  \centerline{\ci{liste = [element] + liste}}
+  \item \textbf{Ajouter un élément au début.} Avec : 
+  \mycenterline{\ci{liste = [element] + liste}}
+  
   on ajoute l'élément en début de liste.
   Par exemple \ci{[5] + [1,2,3,4]} vaut \ci{[5,1,2,3,4]}. 
   
@@ -282,8 +284,9 @@ Programme l'algorithme du tri à bulles en une fonction \ci{trier(liste)} qui re
 \emph{Indications.}
 \begin{itemize}
   \item Commence par définir \ci{nouv_liste = list(liste)} et travaille uniquement avec cette nouvelle liste.
-  \item Pour que l'indice $i$ parcourt les indices à rebours de $n-1$ à $0$, tu peux utiliser la commande :\\
-\centerline{\ci{for i in range(n-1,-1,-1):}}
+  \item Pour que l'indice $i$ parcourt les indices à rebours de $n-1$ à $0$, tu peux utiliser la commande : 
+\mycenterline{\ci{for i in range(n-1,-1,-1):}}
+
 En effet \ci{range(a,b,-1)} correspond à la liste décroissante des entiers $i$ vérifiant $a \ge i > b$ (comme d'habitude la borne de droite n'est pas incluse).
 \end{itemize}
 
@@ -338,8 +341,8 @@ Tant que $d \le n$:\\
 \end{minipage}
 \end{center}
 
-  \item \textbf{Liste de nombres premiers.} \'Ecris une fonction \ci{liste_premiers(n)} qui renvoie la liste de tous les nombres premiers strictement inférieurs à $n$. Par exemple \ci{liste_premiers(100)} renvoie la liste :\\
-  \centerline{\small\ci{[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]}}
+  \item \textbf{Liste de nombres premiers.} \'Ecris une fonction \ci{liste_premiers(n)} qui renvoie la liste de tous les nombres premiers strictement inférieurs à $n$. Par exemple \ci{liste_premiers(100)} renvoie la liste : 
+  \mycenterline{\small\ci{[2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]}}
   
   Pour cela, tu vas programmer un algorithme qui est une version simple du crible d'Ératosthène :
   
@@ -383,6 +386,7 @@ retirer l'élément $k$ de \ci{liste}
   \begin{itemize}
     \item Au départ la liste est 
     $$[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29]$$
+    
     \item On part avec $d=2$, on élimine tous les nombres divisibles par $2$, sauf si c'est le nombre $2$ : on élimine donc $4$, $6$, $8$,\ldots, la liste est maintenant : $[2,3,5,7,9,11,13,15,17,19,21,23,25,27,29]$.
     \item On continue avec $d=3$, on élimine les multiples de $3$ (sauf $3$), après ces opérations la liste est : $[2,3,5,7,11,13,17,19,23,25,29]$.
     \item Avec $d=4$, on élimine les multiples de $4$ (mais il n'y en a plus).
@@ -410,7 +414,7 @@ Avec le module \ci{matplotlib} il est très facile de visualiser les éléments 
 \index{graphique}
 
 \begin{center}
-\includegraphics[scale=0.45]{ecran-liste-cours-visualisation}
+\includegraphics[scale=\myscale,scale=0.45]{ecran-liste-cours-visualisation}
 \end{center}
 
 \begin{lstlisting}
@@ -442,12 +446,12 @@ plt.show()
 
 \bigskip
 
-Pour afficher des points $(x_i,y_i)$ il faut fournir la listes des abscisses puis la listes des ordonnées :\\
-\centerline{\ci{plt.plot(liste_x,liste_y,color="red")}}
+Pour afficher des points $(x_i,y_i)$ il faut fournir la listes des abscisses puis la listes des ordonnées :
+\mycenterline{\ci{plt.plot(liste_x,liste_y,color="red")}}
 Voici un exemple de graphe obtenu en affichant des points de coordonnées du type $(x,y)$ avec $y = x^2$.
 
 \begin{center}
-\includegraphics[scale=0.45]{ecran-liste-cours-visualisation-bis}
+\includegraphics[scale=\myscale,scale=0.45]{ecran-liste-cours-visualisation-bis}
 \end{center}
 
 
@@ -475,7 +479,7 @@ plt.show()
 \index{tir balistique}
 
 \begin{center}
-\includegraphics[scale=0.45]{ecran-liste-I-tir-bis}
+\includegraphics[scale=\myscale,scale=0.45]{ecran-liste-I-tir-bis}
 \end{center}
 
 On tire un boulet de canon depuis l'origine $(0,0)$. L'équation de la trajectoire est donnée par la formule :

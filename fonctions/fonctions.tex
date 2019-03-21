@@ -32,7 +32,7 @@ Une fonction en informatique est une portion réalisant un tâche bien précise 
 Pour définir une fonction avec \Python{}, c'est très simple. 
 Voici deux exemples :
 \begin{center}
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.5\textwidth}
 \begin{lstlisting}
 def dit_bonjour():
     print("Bonjour le monde !")
@@ -203,7 +203,10 @@ Retenons donc :
   
   \item Dans les instructions d'une fonction, on peut bien sûr faire appel à d'autres fonctions !
    
-  \item Il est important de bien commenter tes programmes. Pour documenter une fonction, tu peux décrire ce qu'elle fait en commençant par un \emph{docstring}\index{docstring@\emph{docstring}}\index{fonction!docstring@\emph{docstring}}, c'est-à-dire une description (en français) entourée par trois guillemets : \ci{""" Ma fonction fait ceci et cela. """} à placer juste après l'entête.
+  \item Il est important de bien commenter tes programmes. Pour documenter une fonction, tu peux décrire ce qu'elle fait en commençant par un \emph{docstring}\index{docstring@\emph{docstring}}\index{fonction!docstring@\emph{docstring}}, c'est-à-dire une description (en français) entourée par trois guillemets :   
+  \mycenterline{\ci{""" Ma fonction fait ceci et cela. """}}
+  
+  à placer juste après l'entête.
 
   
   \item Lorsque l'on définit une fonction, les variables qui apparaissent entre les parenthèses sont appelées les \defi{paramètres} ; par contre, lorsque l'on appelle la fonction, les valeurs entre les parenthèses sont appelées les \defi{arguments}\index{argument}\index{fonction!argument}. Il y a bien sûr une correspondance entre les deux.
@@ -273,8 +276,9 @@ Retenons donc :
     
     \item Utilise ta fonction précédente pour conjecturer à partir de quel rayon, l'aire d'un disque est plus grande que le périmètre de ce disque.
     
-    \emph{Indication.} Si tu veux balayer les rayons en incrémentant la valeur de $0.1$ à chaque fois, tu peux construire une boucle ainsi :\\
-    \centerline{\ci{for rayon in range(0,30):}}
+    \emph{Indication.} Si tu veux balayer les rayons en incrémentant la valeur de $0.1$ à chaque fois, tu peux construire une boucle ainsi :   
+    \mycenterline{\ci{for rayon in range(0,30):}}
+    
     puis faire un appel à la fonction par \ci{perimetre_aire_disque(rayon/10)}.
   \end{enumerate}
 \end{enumerate}
@@ -295,7 +299,7 @@ Retenons donc :
 \objectifs{Objectifs : définir quelques fonctions qui dessinent des figures géométriques. Créer une fonction est similaire à créer un bloc avec \emph{Scratch}.}
 
 \begin{center}
-\includegraphics[scale=0.4]{ecran-fonctions-tortue}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-fonctions-tortue}
 \end{center}
 
 \begin{enumerate}

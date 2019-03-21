@@ -98,8 +98,11 @@ Dans cette activité \ci{liste} désigne une liste de nombres (entiers ou flotta
 %  \centerline{\ci{from math import *}}
 
   \item Voici les températures mensuelles moyennes à Brest et à Strasbourg.
-  \centerline{\ci{temp_brest = [6.4,6.5,8.5,9.7,11.9,14.6,15.9,16.3,15.1,12.2,9.2,7.1]}}
-  \centerline{\ci{temp_strasbourg = [0.9,2.4,6.1,9.7,13.8,17.2,19.2,18.6,15.7,10.7,5.3,2.1]}}
+
+{\small	  
+  \mycenterline{\ci{temp_brest = [6.4,6.5,8.5,9.7,11.9,14.6,15.9,16.3,15.1,12.2,9.2,7.1]}}  
+  \mycenterline{\ci{temp_strasbourg = [0.9,2.4,6.1,9.7,13.8,17.2,19.2,18.6,15.7,10.7,5.3,2.1]}}
+}
 
   Calcule la température moyenne sur l'année à Brest puis à Strasbourg. Calcule l'écart-type 
   des températures à Brest puis à Strasbourg. Quelles conclusions en tires-tu ? 
@@ -122,7 +125,7 @@ Dans cette activité \ci{liste} désigne une liste de nombres (entiers ou flotta
 
 Pour afficher ceci :
 \begin{center}
-\includegraphics[scale=0.6]{ecran-stat-cours-intro}
+\includegraphics[scale=\myscale,scale=0.6]{ecran-stat-cours-intro}
 \end{center}
 Le code est :
 \begin{lstlisting}
@@ -187,16 +190,16 @@ Quelques explications :
 \objectifs{Objectifs : visualiser des données par différents types de graphiques.}
 
 \begin{center}
-\includegraphics[width=5cm]{ecran-stat-2a}\qquad\qquad
-\includegraphics[height=5cm]{ecran-stat-2b}
+\includegraphics[scale=\myscale,width=5cm]{ecran-stat-2a}\qquad\qquad
+\includegraphics[scale=\myscale,height=5cm]{ecran-stat-2b}
 
 \qquad\qquad\textbf{Graphique en barres}\qquad\qquad\quad
 \textbf{Graphique cumulatif}
 \end{center}
 
 \begin{center}
-\includegraphics[width=7cm]{ecran-stat-2c}\qquad\qquad
-\includegraphics[width=4cm]{ecran-stat-2d}
+\includegraphics[scale=\myscale,width=7cm]{ecran-stat-2c}\qquad\qquad
+\includegraphics[scale=\myscale,width=4cm]{ecran-stat-2d}
 
 \qquad\qquad\textbf{Graphique en pourcentage}\qquad\qquad\qquad
 \textbf{Graphique en secteurs}
@@ -232,8 +235,7 @@ liste = [randint(1,20) for i in range(10)]
  
 La fonction \ci{create_arc()}, qui permet de dessiner des arcs de cercles, n'est pas très intuitive. Il faut penser que l'on dessine un cercle, en précisant les coordonnées des coins d'un carré qui l'entoure, puis en précisant l'angle de début et l'angle du secteur (en degrés). 
 
-
-\centerline{\ci{canvas.create_arc(x1,y1,x2,y2,start=debut_angle,extent=mon_angle)}}
+\mycenterline{\ci{canvas.create_arc(x1,y1,x2,y2,start=debut_angle,extent=mon_angle)}}
 
 
 \myfigure{1}{
@@ -245,7 +247,7 @@ L'option \ci{style=PIESLICE} affiche un secteur au lieu d'un arc.
   \item \textbf{Bonus.} Rassemble ton travail en un programme qui laisse la possibilité à l'utilisateur de choisir le diagramme qu'il souhaite en cliquant sur des boutons, et aussi la possibilité d'obtenir une nouvelle série aléatoire de données. \emph{Pour afficher et gérer les boutons avec \ci{tkinter}, vois le cours ci-dessous.}
   
 \begin{center}
-\includegraphics[scale=0.4]{ecran-stat-2e}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-stat-2e}
 \end{center}   
   \end{enumerate}
 \end{activite}
@@ -262,7 +264,7 @@ Il est plus ergonomique d'afficher des fenêtres où les actions sont exécutée
 
 Voici la fenêtre d'un petit programme avec deux boutons. Le premier bouton change la couleur du rectangle, le second termine le programme.
 \begin{center}
-\includegraphics[scale=0.6]{ecran-stat-cours-boutons}
+\includegraphics[scale=\myscale,scale=0.6]{ecran-stat-cours-boutons}
 \end{center}
 Le code est :
 \begin{lstlisting}
@@ -275,15 +277,15 @@ canvas.pack(fill="both", expand=True)
 
 def action_bouton():
     canvas.delete("all")         # Efface tout
-    couleurs = ["red","orange","yellow","green","cyan","blue","violet","purple"]
+    couleurs = ["red","orange","yellow","green","cyan","blue","violet"]
     coul = choice(couleurs)      # Couleur au hasard
     canvas.create_rectangle(100,50,300,150,width=5,fill=coul)
     return
 
-bouton_couleur = Button(root,text="Afficher", width=20, command=action_bouton)
+bouton_couleur=Button(root,text="Afficher",width=20,command=action_bouton)
 bouton_couleur.pack()
 
-bouton_quitter = Button(root,text="Quitter", width=20, command=root.quit)
+bouton_quitter=Button(root,text="Quitter",width=20,command=root.quit)
 bouton_quitter.pack()
 
 root.mainloop()
@@ -343,8 +345,9 @@ Quelques explications :
    
    
      
-    \item Les résultats d'une classe sont collectés sous la forme suivante d'un effectif par note : \\
-    \centerline{\ci{effectif_notes = [0,0,0,0,0,1,0,2,0,1,5,1,2,3,2,4,1,2,0,1,0]}} 
+    \item Les résultats d'une classe sont collectés sous la forme suivante d'un effectif par note :   
+    \mycenterline{\ci{effectif_notes = [0,0,0,0,0,1,0,2,0,1,5,1,2,3,2,4,1,2,0,1,0]}} 
+    
     Le rang $i$ va de $0$ à $20$. Et la valeur au rang $i$ indique le nombre d'élèves ayant eu la note $i$.
     Par exemple ici, $1$ élève a eu la note $5$, $2$ élèves ont eu la note $7$,\ldots , $5$ élèves ont obtenus $10$, \ldots{}  
     Écris une fonction \ci{notes_vers_liste(effectif_notes)} qui prend en entrée un effectif de notes et renvoie la liste des notes. Pour notre exemple la fonction doit renvoyer \ci{[5,7,7,9,10,10,10,10,10,10,...]}.
@@ -384,7 +387,7 @@ Un \defi{diagramme en boîte} (appelé aussi \defi{boîte à moustaches}) est un
 Écris une fonction \ci{diagramme_boite(effectif_notes)} qui trace le diagramme en boîte des notes d'une classe à partir d'un effectif par note (voir l'activité précédente).
 
 \begin{center}
-\includegraphics[scale=0.7]{ecran-stat-4}
+\includegraphics[scale=\myscale,scale=0.7]{ecran-stat-4}
 \end{center}
 
 \end{activite}
@@ -403,18 +406,18 @@ Un \defi{diagramme en boîte} (appelé aussi \defi{boîte à moustaches}) est un
 
 \begin{enumerate}
   \item Simule le cours de la bourse de l'indice \emph{Top 40} sur 365 jours.
-  Au jour $j=0$, l'indice vaut $1000$. Ensuite l'indice d'un jour est déterminé en ajoutant une valeur au hasard (positive ou négative) à la valeur de l'indice de la veille :\\
-  \centerline{indice du jour $j$ = indice du jour $(j-1)$ \ + \ valeur au hasard}.
+  Au jour $j=0$, l'indice vaut $1000$. Ensuite l'indice d'un jour est déterminé en ajoutant une valeur au hasard (positive ou négative) à la valeur de l'indice de la veille :  
+  \mycenterline{indice du jour $j$ = indice du jour $(j-1)$ \ + \ valeur au hasard}.
   
-  Pour cette valeur au hasard, tu peux essayer une formule du style :\\
-  \centerline{\ci{valeur = randint(-10,12)/3}}
+  Pour cette valeur au hasard, tu peux essayer une formule du style :  
+  \mycenterline{\ci{valeur = randint(-10,12)/3}}
   
   Écris une fonction \ci{cours_bourse()}, sans paramètre, qui renvoie une liste de $365$ valeurs de l'indice \emph{Top 40} selon cette méthode.
   
   \item Trace point par point la courbe du cours sur une année. (Pour tracer un point, tu peux afficher un carré de taille $1$ pixel.)
   
 \begin{center}
-\includegraphics[scale=0.7]{ecran-stat-5a}
+\includegraphics[scale=\myscale,scale=0.7]{ecran-stat-5a}
 \end{center}
 
    \item \emph{Comme la courbe du cours journalier est très chaotique, nous souhaitons la lisser afin de la rendre plus lisible. Pour cela nous calculons des moyennes mobiles.}
@@ -426,7 +429,7 @@ Un \defi{diagramme en boîte} (appelé aussi \defi{boîte à moustaches}) est un
     \item Trace point par point sur un même graphique : la courbe du cours sur une année (en rouge ci-dessous), la courbe de ses moyennes mobiles à $7$ jours (en bleu ci-dessous) et la courbe des ses moyennes mobiles à $30$ jours (en marron ci-dessous). Note que plus la durée est longue plus la courbe est \og{}lisse\fg{}. (Bien sûr la courbe des moyennes mobiles à $30$ jours ne commence qu'à partir du trentième jour.)
    
 \begin{center}
-\includegraphics[scale=0.7]{ecran-stat-5b}
+\includegraphics[scale=\myscale,scale=0.7]{ecran-stat-5b}
 \end{center}
 
 \end{enumerate}

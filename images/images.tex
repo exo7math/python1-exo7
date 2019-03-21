@@ -69,21 +69,21 @@ $$\begin{array}{cccc}
 Voici une image $256 \times 256$ et sa première transformation :
 
 \begin{center}
-\includegraphics[scale=0.4]{images_fiche/pi_gimp_new_photo_0.png}\qquad\qquad
-\includegraphics[scale=0.4]{images_fiche/pi_gimp_new_photo_1.png}
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/pi_gimp_new_photo_0.png}\qquad\qquad
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/pi_gimp_new_photo_1.png}
 \end{center}
 
 Voici ce qui se passe si on répète plusieurs fois la transformation du photomaton :
 \begin{center}
-\includegraphics[scale=0.3]{images_fiche/pi_gimp_new_photo_2.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/pi_gimp_new_photo_3.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/pi_gimp_new_photo_4.png}
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/pi_gimp_new_photo_2.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/pi_gimp_new_photo_3.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/pi_gimp_new_photo_4.png}
 \end{center}
 \begin{center}
-\includegraphics[scale=0.3]{images_fiche/pi_gimp_new_photo_5.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/pi_gimp_new_photo_6.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/pi_gimp_new_photo_7.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/pi_gimp_new_photo_8.png}
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/pi_gimp_new_photo_5.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/pi_gimp_new_photo_6.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/pi_gimp_new_photo_7.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/pi_gimp_new_photo_8.png}
 \end{center}
 L'image devient de plus en plus brouillée, mais au bout d'un certain nombre de répétitions de la transformation, on retombe sur l'image de départ !
 \end{cours}
@@ -124,11 +124,11 @@ $$\begin{array}{cccc}
  13&15&14&16
 \end{array}$$
 
-  \emph{Indications.} Tu peux initialiser un nouveau tableau par la commande :\\
-  \centerline{\ci{nouv_tableau = [[0 for j in range(n)] for i in range(n)]}}
+  \emph{Indications.} Tu peux initialiser un nouveau tableau par la commande :  
+  \mycenterline{\ci{nouv_tableau = [[0 for j in range(n)] for i in range(n)]}}
   
-  Puis le remplir par des commandes du type :\\
-  \centerline{\ci{nouv_tableau[ii][jj] = tableau[i][j]}}
+  Puis le remplir par des commandes du type : 
+  \mycenterline{\ci{nouv_tableau[ii][jj] = tableau[i][j]}}
 
   \item Programme une fonction \ci{photomaton_iterer(tableau,k)} qui renvoie le tableau calculé après $k$ itérations de la transformation du photomaton.
   
@@ -143,19 +143,19 @@ $$\begin{array}{cccc}
 
 Voici l'image de départ de taille $256 \times 256$ et les images obtenues par itérations de la transformation du photomaton pour $k=1$ jusqu'à $k=8$. Au bout de $8$ itérations on retrouve l'image initiale !
 \begin{center}
-\includegraphics[scale=0.4]{images_fiche/chat_gimp_new_photo_0.png}
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/chat_gimp_new_photo_0.png}
 \end{center}
 \begin{center}
-\includegraphics[scale=0.3]{images_fiche/chat_gimp_new_photo_1.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/chat_gimp_new_photo_2.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/chat_gimp_new_photo_3.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/chat_gimp_new_photo_4.png}
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/chat_gimp_new_photo_1.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/chat_gimp_new_photo_2.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/chat_gimp_new_photo_3.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/chat_gimp_new_photo_4.png}
 \end{center}
 \begin{center}
-\includegraphics[scale=0.3]{images_fiche/chat_gimp_new_photo_5.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/chat_gimp_new_photo_6.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/chat_gimp_new_photo_7.png}\qquad
-\includegraphics[scale=0.3]{images_fiche/chat_gimp_new_photo_8.png}
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/chat_gimp_new_photo_5.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/chat_gimp_new_photo_6.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/chat_gimp_new_photo_7.png}\qquad
+\includegraphics[scale=\myscale,scale=0.3]{images_fiche/chat_gimp_new_photo_8.png}
 \end{center}
 
 
@@ -193,7 +193,7 @@ P2
 \end{minipage}
 \begin{minipage}{0.3\textwidth}
 \begin{center}
-\includegraphics[scale=0.15]{input/ecran-test-pgm}
+\includegraphics[scale=\myscale,scale=0.15]{input/ecran-test-pgm}
 \end{center}
 \end{minipage}
 \end{center}
@@ -287,20 +287,20 @@ Voyons un exemple de l'action de plusieurs transformations du boulanger.
 À gauche l'image initiale de taille $128 \times 128$, puis le résultat de $k=1,2,3$ itérations. 
 
 \begin{center}
-\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_0.png}\qquad
-\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_1.png}\qquad
-\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_2.png}\qquad
-\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_3.png}
+\includegraphics[scale=\myscale,scale=0.65]{images_fiche/surf_gimp_new_boul_0.png}\qquad
+\includegraphics[scale=\myscale,scale=0.65]{images_fiche/surf_gimp_new_boul_1.png}\qquad
+\includegraphics[scale=\myscale,scale=0.65]{images_fiche/surf_gimp_new_boul_2.png}\qquad
+\includegraphics[scale=\myscale,scale=0.65]{images_fiche/surf_gimp_new_boul_3.png}
 \end{center}
 
 
 Voici les images pour $k=12,13,14,15$ itérations :
 
 \begin{center}
-\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_12.png}\qquad
-\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_13.png}\qquad
-\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_14.png}\qquad
-\includegraphics[scale=0.65]{images_fiche/surf_gimp_new_boul_15.png}
+\includegraphics[scale=\myscale,scale=0.65]{images_fiche/surf_gimp_new_boul_12.png}\qquad
+\includegraphics[scale=\myscale,scale=0.65]{images_fiche/surf_gimp_new_boul_13.png}\qquad
+\includegraphics[scale=\myscale,scale=0.65]{images_fiche/surf_gimp_new_boul_14.png}\qquad
+\includegraphics[scale=\myscale,scale=0.65]{images_fiche/surf_gimp_new_boul_15.png}
 \end{center}
 
 \end{cours}
@@ -358,22 +358,22 @@ $$
 
 Voici un exemple avec une image de taille $256 \times 256$, d'abord l'image initiale, puis une première itération ($k=1$) et une deuxième itération ($k=2$).
 \begin{center}
-\includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_0.png}\qquad
-\includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_1.png}\qquad
-\includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_2.png}
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/reveil_gimp_new_boul_0.png}\qquad
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/reveil_gimp_new_boul_1.png}\qquad
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/reveil_gimp_new_boul_2.png}
 \end{center}
 $k=3,4,5$ :
 \begin{center}
-\includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_3.png}\qquad
-\includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_4.png}\qquad
-\includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_5.png}
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/reveil_gimp_new_boul_3.png}\qquad
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/reveil_gimp_new_boul_4.png}\qquad
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/reveil_gimp_new_boul_5.png}
 \end{center}
 
 $k=15,16,17$ :
 \begin{center}
-\includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_15.png}\qquad
-\includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_16.png}\qquad
-\includegraphics[scale=0.4]{images_fiche/reveil_gimp_new_boul_17.png}
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/reveil_gimp_new_boul_15.png}\qquad
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/reveil_gimp_new_boul_16.png}\qquad
+\includegraphics[scale=\myscale,scale=0.4]{images_fiche/reveil_gimp_new_boul_17.png}
 \end{center}
 
 Pour $k=17$ on retrouve l'image de départ !

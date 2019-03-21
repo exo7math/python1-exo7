@@ -4,10 +4,13 @@
 % ----------------------------------------------------------------------
 % Format de la page
 \usepackage[
-  papersize={8.5in,11in},%papersize={7.5in,9.25in}
+  papersize={7.5in,9.25in},
+  % old Python/Scratch papersize={8.5in,11in},
+  % algebre/analyse papersize={7.5in,9.25in},  
   nomarginpar, nofoot,
-  margin = 0.9in,
-  %top=0.5in,
+  margin = 0.7in,
+  %old margin = 0.9in,
+  %top=0.9in,
   %right=0.8in, left=0.8in, top=0.5in, bottom=0.7in,
   bindingoffset=0.5in,
   headsep=21pt, heightrounded,
@@ -34,10 +37,10 @@
 \ifXeTeX\else
 \tikzifexternalizing{}{
   \pdfinfo{
-    /Title (Cours de mathématiques - Première année)
-    /Author (exo7)
-    /Subject (cours de mathématiques)
-    /Keywords (cours, mathématiques, exercices)
+    /Title (Python au lycée - tome 1)
+    /Author (Arnaud Bodin)
+    /Subject (algorithmes et programmation)
+    /Keywords (informatique, mathématiques, algorithme, python)
     /GTS_PDFXVersion (PDF/X-3:2002)
   }%
   \pdfcatalog{
@@ -78,7 +81,7 @@
 \fi
 
 
-\usepackage[charter]{mathdesign}
+\usepackage[charter,cal=cmcal]{mathdesign}
 
 
 % Police pour l'entete
@@ -452,9 +455,8 @@
 
 % ----------------------------------------------------------------------
 % Constantes pour l'inclusion des figures
-\newcommand{\scalebloc}{1.1}
-\newcommand{\scaleecran}{0.27}
-\newcommand{\scalesolution}{0.7}
+\newcommand{\myscale}{0.8}
+
 
 
 % Pour afficher/cacher les solutions 
@@ -479,7 +481,7 @@
 % --- les figures avec échelle éventuel
 \renewcommand{\myfigure}[2]{% entrée : échelle, fichier(s) figure à inclure
 \begin{center}\small
-\tikzstyle{every picture}=[scale=0.95*#1]% mise en échelle + 10% (automatiquement annulé à la fin du groupe)
+\tikzstyle{every picture}=[scale=0.90*#1]% mise en échelle + 10% (automatiquement annulé à la fin du groupe)
 #2
 \end{center}}
 
@@ -562,7 +564,13 @@ colback=lightgray}]
 }
 
 % code en ligne (\codeinline)
-\newcommand{\codeinline}[1]{\lstinline[showstringspaces=false]!#1!}
+% \newcommand{\codeinline}[1]{\lstinline[showstringspaces=false]!#1!}
+\newcommand{\codeinline}[1]{\lstinline[showstringspaces=false,breaklines=true,breakatwhitespace=true]!#1!}
 \newcommand{\ci}[1]{\codeinline{#1}}
 
-
+% Ligne bien centrée ()sans utiliser \centerline)
+\newenvironment{nscenter}
+{\parskip=0pt\par\nopagebreak\centering}
+{\par\noindent\ignorespacesafterend}
+\newcommand{\mycenterline}[1]{\begin{nscenter}#1\end{nscenter}}
+%\renewcommand{\centerline}[1]{\erreur}  % A commenter après débugage

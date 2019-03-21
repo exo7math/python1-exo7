@@ -50,8 +50,8 @@ Avec \Python{} :
 \end{itemize}
 }
 
-Il est facile de vérifier que :\\
-\centerline{$b$ est un diviseur de $a$ si et seulement si $r=0$.}
+Il est facile de vérifier que :
+\mycenterline{$b$ est un diviseur de $a$ si et seulement si $r=0$.}
 
 \end{cours}
 
@@ -145,6 +145,8 @@ while n >= 0:
     n = n - 1
 \end{lstlisting}
 \end{minipage}
+
+\medskip
 
 On résume ceci sous la forme d'un tableau :
   $$
@@ -242,8 +244,8 @@ print(n)
   $$ 
 \medskip
 
-Pour ce dernier exemple il est beaucoup plus naturel de démarrer la boucle par\\
-\centerline{\ci{while est_pair(n):}}
+Pour ce dernier exemple il est beaucoup plus naturel de démarrer la boucle par
+\mycenterline{\ci{while est_pair(n):}}
 En effet \ci{est_pair(n)} est déjà une valeur \og{}vrai\fg{} ou \ci{}faux\fg{}.
 On se rapproche d'une phrase \og{}tant que $n$ est pair...\fg{}
 
@@ -252,8 +254,8 @@ On se rapproche d'une phrase \og{}tant que $n$ est pair...\fg{}
 
 \textbf{Opération \og{}\ci{+=}\fg{}.}
 \index{+=@\ci{+=}}
-Pour incrémenter un nombre tu peux utiliser ces deux méthodes :\\
-\centerline{\ci{nb = nb + 1} \qquad ou \qquad \ci{nb += 1}}
+Pour incrémenter un nombre tu peux utiliser ces deux méthodes :
+\mycenterline{\ci{nb = nb + 1} \qquad ou \qquad \ci{nb += 1}}
 La seconde écriture est plus courte mais rend le programme moins lisible.
 \end{cours}
 
@@ -277,6 +279,8 @@ La seconde écriture est plus courte mais rend le programme moins lisible.
   Programme une fonction \ci{plus_petit_diviseur(n)} qui renvoie, le plus petit diviseur $d\ge2$ de l'entier $n\ge2$.
   
   Par exemple \ci{plus_petit_diviseur(91)} renvoie $7$, car $91 = 7 \times 13$.
+  
+  \medskip
   
   \textbf{Méthode.}
   \begin{itemize}
@@ -309,7 +313,7 @@ La seconde écriture est plus courte mais rend le programme moins lisible.
   \emph{Indication.} Avec \Python{} $b^c$ s'écrit \ci{b ** c} et donc
   $a^{(b^c)}$ s'écrit \ci{a ** (b ** c)}.
   
-  \medskip
+  \bigskip
   
   \emph{On va améliorer notre fonction qui teste si un nombre est premier ou pas, cela nous permettra de tester plus vite plein de nombres ou bien des nombres très grands.}  
   
@@ -387,6 +391,7 @@ print(timeit.timeit("ma_fonction_2(1000)",
     number=100000))
 \end{lstlisting} 
 
+
 \textbf{Résultats.} \\
 Le résultat dépend de l'ordinateur, mais permet la comparaison des temps d'exécution des deux fonctions.
 \begin{itemize}
@@ -395,6 +400,8 @@ Le résultat dépend de l'ordinateur, mais permet la comparaison des temps d'ex�
   
   \item La mesure pour la seconde fonction renvoie $0.01$ seconde ! On teste si le reste de $n$ divisé par $7$ est $0$. La seconde méthode est donc $500$ fois plus rapide que la première.
 \end{itemize}  
+
+\medskip
 
 \textbf{Explications.}
 \begin{itemize}

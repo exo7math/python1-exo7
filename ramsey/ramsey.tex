@@ -11,7 +11,7 @@
 \objectifs{Tu vas voir qu'un problème tout simple, qui concerne les relations entre seulement six personnes, va demander énormément de calculs pour être résolu.}
 
 \begin{center}
-\includegraphics[scale=0.4]{ecran-ramsey-1d}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-ramsey-1d}
 \end{center} 
 
 \index{graphe}
@@ -90,21 +90,22 @@ Voici un graphe plus compliqué et son tableau :
 
 
 \begin{center}
-\includegraphics[height=5cm]{ecran-ramsey-1a}\quad
-\includegraphics[height=5cm]{ecran-ramsey-1b}
+\includegraphics[scale=\myscale,height=5cm]{ecran-ramsey-1a}\quad
+\includegraphics[scale=\myscale,height=5cm]{ecran-ramsey-1b}
 \end{center} 
 \begin{center}
-\includegraphics[height=5cm]{ecran-ramsey-1c}\quad
-\includegraphics[height=5cm]{ecran-ramsey-1d}
+\includegraphics[scale=\myscale,height=5cm]{ecran-ramsey-1c}\quad
+\includegraphics[scale=\myscale,height=5cm]{ecran-ramsey-1d}
 \end{center} 
 
 
 \begin{enumerate}
   \item Définis le tableau des graphes des quatre exemples ci-dessus.
-  Tu peux commencer par initialiser le tableau par \\
-  \centerline{\ci{graphe = [[0 for j in range(n)] for i in range(n)]}}
-  Puis ajoute des commandes :\\
-  \centerline{\ci{graphe[i][j] = 1} \quad et \quad \ci{graphe[j][i] = 1}}
+  Tu peux commencer par initialiser le tableau par   
+  \mycenterline{\ci{graphe = [[0 for j in range(n)] for i in range(n)]}}
+  
+  Puis ajoute des commandes : 
+  \mycenterline{\ci{graphe[i][j] = 1} \quad et \quad \ci{graphe[j][i] = 1}}
   
   N'oublie pas que si le sommet $i$ est relié au sommet $j$ par une arête, alors il faut mettre un $1$ en position $(i,j)$ mais aussi en position $(j,i)$. 
   
@@ -136,7 +137,7 @@ Trouve à la main sur le quatrième exemple, trois sommets amis ou étrangers et
 \objectifs{Objectifs : dessiner un graphe ! Activité facultative.}
 
 \begin{center}
-\includegraphics[scale=0.4]{ecran-ramsey-2}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-ramsey-2}
 \end{center}
 
 Programme l'affichage graphique d'un graphe par une fonction \ci{afficher_graphe(graphe)}.
@@ -301,8 +302,9 @@ Par exemple :
 \begin{enumerate}
   \item Programme la fonction \ci{sous_ensembles(n)} qui renvoie la liste de tous les sous-ensembles possibles de $E_n =  \{0,1,2,\ldots,n-1\}$.
   
-  Par exemple, pour $n=3$, \ci{sous_ensembles(n)} renvoie la liste (qui contient elle-même des listes) :\\
-\centerline{\ci{[ [], [2], [1], [1, 2], [0], [0, 2], [0, 1], [0, 1, 2]  ]}}
+  Par exemple, pour $n=3$, \ci{sous_ensembles(n)} renvoie la liste (qui contient elle-même des listes) :
+\mycenterline{\ci{[ [], [2], [1], [1, 2], [0], [0, 2], [0, 1], [0, 1, 2]  ]}}
+
 C'est-à-dire les $8$ sous-ensembles (en commençant par l'ensemble vide) :
 $$\varnothing \quad \{2\}\quad \{1\}\quad \{1,2\}\quad \{0\}\quad \{0,2\}\quad \{0,1\}\quad \{0,1,2\}.$$
 
@@ -310,8 +312,8 @@ $$\varnothing \quad \{2\}\quad \{1\}\quad \{1,2\}\quad \{0\}\quad \{0,2\}\quad \
 
   \item Déduis-en une fonction \ci{sous_ensembles_fixe(n,k)} qui renvoie seulement les sous-ensembles de $E_n$ ayant $k$ éléments.
   
- Par exemple, pour $n=3$ et $k=2$, \ci{sous_ensembles_fixe(n,k)} renvoie la liste des paires :\\
-\centerline{\ci{[ [0, 1], [0, 2], [1, 2] ]}}
+ Par exemple, pour $n=3$ et $k=2$, \ci{sous_ensembles_fixe(n,k)} renvoie la liste des paires :
+\mycenterline{\ci{[ [0, 1], [0, 2], [1, 2] ]}}
  
 Teste ton programme :
 \begin{itemize}
@@ -371,7 +373,7 @@ Voici le principe de cette boucle qui remplit la partie au-dessus de la diagonal
 Cette boucle prend le dernier \emph{bit} de la liste et le place sur la première case libre au-dessus de la diagonale ; puis l'avant-dernier \emph{bit} est placé sur la seconde case libre\ldots ; le premier \emph{bit} de la liste remplit la dernière case libre.
 
 
- \myfigure{0.7}{
+ \myfigure{0.6}{
   \tikzinput{fig-ramsey-5}
 } 
   
@@ -385,6 +387,7 @@ Tu dois trouver que :
 \end{enumerate}   
      
 \end{activite}
+
 
 
 \begin{activite}[Pour aller plus loin]
@@ -403,6 +406,7 @@ Tu dois trouver que :
     \item Tu peux seulement tester les graphes qui correspondent à $p$ entre $0$ et $2^{N}/2$ (car pour les $p$ suivants cela revient à échanger les segments verts en rouges et inversement).
   \end{itemize}
   
+\medskip
   
   Avec ces conseils voici les temps de calcul auxquels tu peux t'attendre :
   \begin{center}

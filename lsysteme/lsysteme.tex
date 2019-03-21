@@ -15,7 +15,7 @@
 }
 
 \begin{center}
-\includegraphics[scale=0.3]{ecran-lsysteme-14}
+\includegraphics[scale=\myscale,scale=0.3]{ecran-lsysteme-14}
 \end{center}
 
 \index{lsysteme@L-système}
@@ -31,8 +31,8 @@
 
 \begin{cours}[L-système]
 Un \defi{L-système} est la donnée d'un mot initial et de règles de remplacement.
-Voici un exemple avec le mot de départ et une seule règle : \\
-\centerline{\mot{BgAdB} \qquad \mot{A} $\rightarrow$ \mot{ABA}}
+Voici un exemple avec le mot de départ et une seule règle : 
+\mycenterline{\mot{BgAdB} \qquad \mot{A} $\rightarrow$ \mot{ABA}}
 
 
 Le \defi{$k$-ème itéré} du L-système s'obtient en appliquant $k$ fois la substitution au mot de départ.
@@ -47,8 +47,7 @@ Avec notre exemple :
 
 Lorsqu'il y a deux règles (ou plus) il faut les appliquer en même temps.
 Voici un exemple de L-système à deux règles :
- \\
-\centerline{\mot{A} \qquad \mot{A} $\rightarrow$ \mot{BgA} \qquad \mot{B} $\rightarrow$ \mot{BB}}
+\mycenterline{\mot{A} \qquad \mot{A} $\rightarrow$ \mot{BgA} \qquad \mot{B} $\rightarrow$ \mot{BB}}
 Avec notre exemple :
 \begin{itemize}
   \item Première itération. Le mot de départ est \mot{A}, on applique la première règle \mot{A} $\rightarrow$ \mot{BgA} (la seconde règle ne s'applique pas, car il n'y a pas encore de \mot{B}): on obtient le mot \mot{BgA}.
@@ -68,16 +67,16 @@ Avec notre exemple :
 
 Je veux programmer une fonction qui trace un trait d'une longueur donnée, avec la possibilité de changer l'épaisseur du trait et la couleur.
 
-Une méthode serait de définir une fonction par : \\
- \centerline{\ci{def tracer(longueur, epaisseur, couleur):}}
- Je l'appellerais alors par exemple par :\\
- \centerline{\ci{tracer(100, 5, "blue"):}} 
+Une méthode serait de définir une fonction par :
+ \mycenterline{\ci{def tracer(longueur, epaisseur, couleur):}}
+ Je l'appellerais alors par exemple par :
+ \mycenterline{\ci{tracer(100, 5, "blue"):}} 
 Mais comme mes traits auront le plupart du temps l'épaisseur $5$ et la couleur bleue, je perds du temps et de la lisibilité en redonnant ces informations à chaque fois.
 
 \medskip
 
-Avec \Python{} il est possible de donner des arguments optionnels. Voici une meilleure façon de faire en donnant des valeurs par défaut :\\
- \centerline{\ci{def tracer(longueur, epaisseur=5, couleur="blue"):}}
+Avec \Python{} il est possible de donner des arguments optionnels. Voici une meilleure façon de faire en donnant des valeurs par défaut :
+ \mycenterline{\ci{def tracer(longueur, epaisseur=5, couleur="blue"):}}
  
 \begin{itemize}
   \item La commande \ci{tracer(100)} trace mon trait, et comme je n'ai précisé que la longueur, les arguments \ci{epaisseur} et \ci{couleur} prennent les valeurs par défaut ($5$ et bleu).
@@ -122,7 +121,7 @@ qui affiche le dessin correspondant aux lettres de \ci{mot}. Par défaut l'angle
 
 Par exemple : \ci{trace_lsysteme("AgAdAAdAdA")} affiche ceci :
 \begin{center}
-\includegraphics[scale=0.6]{ecran-lsysteme-1}
+\includegraphics[scale=\myscale,scale=0.6]{ecran-lsysteme-1}
 \end{center}
 
 \end{activite}
@@ -139,7 +138,7 @@ Par exemple : \ci{trace_lsysteme("AgAdAAdAdA")} affiche ceci :
 \objectifs{Objectifs : tracer le flocon de Koch à partir d'un mot obtenu par itérations.}
 
 \begin{center}
-\includegraphics[scale=0.4]{ecran-lsysteme-2}
+\includegraphics[scale=\myscale,scale=0.4]{ecran-lsysteme-2}
 \end{center}
 
 \begin{enumerate}
@@ -155,24 +154,26 @@ Par exemple avec \ci{mot = "AdAAg"}, \ci{remplacer_1(mot,"A","Ag")} renvoie le m
     \item \ci{regle = ("A","AgAdAdAgA")} c'est-à-dire \mot{A} $\rightarrow$ \mot{AgAdAdAgA}
     \item pour \ci{k = 0}, la fonction renvoie le mot de départ \ci{A},
     \item pour \ci{k = 1}, la fonction renvoie \ci{AgAdAdAgA},
-    \item pour \ci{k = 2}, la fonction renvoie :\\ \centerline{\ci{AgAdAdAgAgAgAdAdAgAdAgAdAdAgAdAgAdAdAgAgAgAdAdAgA}}
+    \item pour \ci{k = 2}, la fonction renvoie :  
+     \mycenterline{\ci{AgAdAdAgAgAgAdAdAgAdAgAdAdAgAdAgAdAdAgAgAgAdAdAgA}}
+     
     \item pour \ci{k = 3}, la fonction renvoie : \ci{AgAdAdAgAgA...} un mot de $249$ lettres.
     
   \end{itemize}
   
-  \item Trace les premières images du  flocon de Koch donné comme ci-dessus par : \\
-  \centerline{départ : \mot{A} \qquad règle : \mot{A} $\rightarrow$ \mot{AgAdAdAgA}} 
+  \item Trace les premières images du  flocon de Koch donné comme ci-dessus par :  
+  \mycenterline{départ : \mot{A} \qquad règle : \mot{A} $\rightarrow$ \mot{AgAdAdAgA}} 
   
   
   Ici les images pour $k=1$ jusqu'à $k=5$.
   Pour $k=1$, le mot est \mot{AgAdAdAgA} et tu peux vérifier le tracé sur la première image.
   
 \begin{center}
-\includegraphics[scale=0.22]{ecran-lsysteme-3a}
-\includegraphics[scale=0.22]{ecran-lsysteme-3b}
-\includegraphics[scale=0.22]{ecran-lsysteme-3c}
-\includegraphics[scale=0.22]{ecran-lsysteme-3d}
-\includegraphics[scale=0.22]{ecran-lsysteme-3e}
+\includegraphics[scale=\myscale,scale=0.22]{ecran-lsysteme-3a}
+\includegraphics[scale=\myscale,scale=0.22]{ecran-lsysteme-3b}
+\includegraphics[scale=\myscale,scale=0.22]{ecran-lsysteme-3c}
+\includegraphics[scale=\myscale,scale=0.22]{ecran-lsysteme-3d}
+\includegraphics[scale=\myscale,scale=0.22]{ecran-lsysteme-3e}
 \end{center}
   
 	\item Trace d'autres figures fractales à partir des L-systèmes suivants. Pour tous ces exemples le mot de départ est \ci{"AdAdAdA"} (un carré) et la règle est à choisir parmi :
@@ -193,9 +194,9 @@ Par exemple avec \ci{mot = "AdAAg"}, \ci{remplacer_1(mot,"A","Ag")} renvoie le m
 \medskip	
 	
 \begin{center}
-\includegraphics[scale=0.3]{ecran-lsysteme-4}\quad
-\includegraphics[scale=0.2]{ecran-lsysteme-5}\quad
-\includegraphics[scale=0.27]{ecran-lsysteme-6}
+\includegraphics[scale=\myscale,scale=0.3]{ecran-lsysteme-4}\quad
+\includegraphics[scale=\myscale,scale=0.2]{ecran-lsysteme-5}\quad
+\includegraphics[scale=\myscale,scale=0.27]{ecran-lsysteme-6}
 \end{center}
 
 
@@ -219,7 +220,7 @@ Par exemple avec \ci{mot = "AdAAg"}, \ci{remplacer_1(mot,"A","Ag")} renvoie le m
 \index{triangle de Sierpinski}
 
 \begin{center}	
-\includegraphics[scale=0.35]{ecran-lsysteme-7e}
+\includegraphics[scale=\myscale,scale=0.35]{ecran-lsysteme-7e}
 \end{center}
 
 \begin{enumerate}
@@ -239,27 +240,28 @@ Par exemple avec \ci{mot = "AdBgA"}, \ci{remplacer_2(mot,"A","ABg","B","Bd")} re
     \item \ci{regle2 = ("B","BB")} c'est-à-dire \mot{B} $\rightarrow$ \mot{BB}  
     \item pour \ci{k = 0}, la fonction renvoie le mot de départ \ci{AdBdB},
     \item pour \ci{k = 1}, la fonction renvoie \ci{AdBgAgBdAdBBdBB},
-    \item pour \ci{k = 2}, la fonction renvoie :\\ 
-    \centerline{\ci{AdBgAgBdAdBBgAdBgAgBdAgBBdAdBgAgBdAdBBBBdBBBB}}
+    \item pour \ci{k = 2}, la fonction renvoie :    
+    \mycenterline{\ci{AdBgAgBdAdBBgAdBgAgBdAgBBdAdBgAgBdAdBBBBdBBBB}}
   \end{itemize}  
 
-  \item Trace les premières images du triangle de Sierpinski donné comme ci-dessus par : \\
-  \centerline{départ : \mot{AdBdB} \qquad règles : \mot{A} $\rightarrow$ \mot{AdBgAgBdA} \quad \mot{B} $\rightarrow$ \mot{BB}} 
+  \item Trace les premières images du triangle de Sierpinski donné comme ci-dessus par :  
+  \mycenterline{départ : \mot{AdBdB} \qquad règles : \mot{A} $\rightarrow$ \mot{AdBgAgBdA} \quad \mot{B} $\rightarrow$ \mot{BB}} 
+  
  L'angle est de $-120$ degrés. Voici les images pour $k=0$ jusqu'à $k=4$.
   
 \begin{center}
-\includegraphics[scale=0.22]{ecran-lsysteme-7a}
-\includegraphics[scale=0.22]{ecran-lsysteme-7b}
-\includegraphics[scale=0.22]{ecran-lsysteme-7c}
-\includegraphics[scale=0.22]{ecran-lsysteme-7d}
-\includegraphics[scale=0.22]{ecran-lsysteme-7e}
+\includegraphics[scale=\myscale,scale=0.22]{ecran-lsysteme-7a}
+\includegraphics[scale=\myscale,scale=0.22]{ecran-lsysteme-7b}
+\includegraphics[scale=\myscale,scale=0.22]{ecran-lsysteme-7c}
+\includegraphics[scale=\myscale,scale=0.22]{ecran-lsysteme-7d}
+\includegraphics[scale=\myscale,scale=0.22]{ecran-lsysteme-7e}
 \end{center}
   
 	\item Trace d'autres figures fractales à partir des L-systèmes suivants.
 	
 	\begin{itemize}
-	  \item La courbe du dragon :\\
-\centerline{\ci{
+	  \item La courbe du dragon :
+\mycenterline{\ci{
 depart="AX"    
 regle1=("X","XgYAg")    
 regle2=("Y","dAXdY")
@@ -267,26 +269,24 @@ regle2=("Y","dAXdY")
 
 Les lettres \ci{X} et \ci{Y} ne correspondent à aucune action.
 
-	\item Une variante du triangle de Sierpinski, avec \ci{angle = 60} :\\
-\centerline{\ci{	
+	\item Une variante du triangle de Sierpinski, avec \ci{angle = 60} :	
+\mycenterline{\ci{	
 depart="A"    
 regle1=("A","BdAdB")    
 regle2=("B","AgBgA")
 }}
 
-\item La courbe de Gosper, avec \ci{angle = 60} :\\	 
-\centerline{\ci{ 
-depart="A"    
-regle1=("A","AgBggBdAddAAdBg")    
-regle2=("B","dAgBBggBgAddAdB")
-}}
+\item La courbe de Gosper, avec \ci{angle = 60} :
+\mycenterline{\ci{depart="A"}}    
+\mycenterline{\ci{regle1=("A","AgBggBdAddAAdBg")}}    
+\mycenterline{\ci{regle2=("B","dAgBBggBgAddAdB")}}
 	  
 	\end{itemize}
 	
 \begin{center}
-\includegraphics[scale=0.15]{ecran-lsysteme-8}\quad
-\includegraphics[scale=0.33]{ecran-lsysteme-9}\quad
-\includegraphics[scale=0.24]{ecran-lsysteme-10}
+\includegraphics[scale=\myscale,scale=0.15]{ecran-lsysteme-8}\quad
+\includegraphics[scale=\myscale,scale=0.33]{ecran-lsysteme-9}\quad
+\includegraphics[scale=\myscale,scale=0.24]{ecran-lsysteme-10}
 \end{center}
 
 
@@ -313,8 +313,9 @@ Une \defi{pile} est une zone de stockage temporaire. Les détails sont dans la f
   \item On modélise une pile par une liste. 
   \item Au départ la pile est vide : \ci{pile = []}.
   \item \textbf{Empiler.} On ajoute les éléments en fin de liste : \ci{pile = pile + [element]}.
-  \item \textbf{Dépiler.} On retire un élément par la commande \ci{pop()}\index{pop@\ci{pop}}\index{depiler@dépiler} :\\
-  \centerline{\ci{element = pile.pop()}}
+  \item \textbf{Dépiler.} On retire un élément par la commande \ci{pop()}\index{pop@\ci{pop}}\index{depiler@dépiler} :  
+  \mycenterline{\ci{element = pile.pop()}}
+  
   qui renvoie le dernier élément de la pile et le supprime de la liste.
   
   \item Sur le dessin et dans l'activité suivante, les éléments de la pile sont du type $\big((x,y),\theta\big)$  qui stockeront un état de la tortue : $(x,y)$ est la position et $\theta$ sa direction.
@@ -333,7 +334,7 @@ Une \defi{pile} est une zone de stockage temporaire. Les détails sont dans la f
 \objectifs{Objectifs : améliorer nos tracés en autorisant d'avancer sans tracer et aussi à l'aide d'une sorte de retour en arrière, afin de tracer des plantes.}
 
 \begin{center}
-\includegraphics[scale=0.25]{ecran-lsysteme-17}
+\includegraphics[scale=\myscale,scale=0.27]{ecran-lsysteme-17}
 \end{center}
 
 \begin{enumerate}
@@ -349,7 +350,7 @@ Trace alors le L-système suivant :
 \item \ci{regle2 = ("a","aaaaaa")}
 \end{itemize}
 \begin{center}
-\includegraphics[scale=0.2]{ecran-lsysteme-11}
+\includegraphics[scale=\myscale,scale=0.2]{ecran-lsysteme-11}
 \end{center}  
 
   \item \textbf{Retour en arrière.} 
@@ -422,9 +423,9 @@ Comprenons l'exemple du tracé du
 	\end{itemize}
 	
 \begin{center}
-\includegraphics[scale=0.27]{ecran-lsysteme-15}\qquad
-\includegraphics[scale=0.25]{ecran-lsysteme-16}\qquad
-\includegraphics[scale=0.25]{ecran-lsysteme-12}
+\includegraphics[scale=\myscale,scale=0.27]{ecran-lsysteme-15}\qquad
+\includegraphics[scale=\myscale,scale=0.25]{ecran-lsysteme-16}\qquad
+\includegraphics[scale=\myscale,scale=0.25]{ecran-lsysteme-12}
 \end{center}
 	
   

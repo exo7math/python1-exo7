@@ -26,8 +26,8 @@
 
 \textbf{Module \og{}math\fg{}}
 
-L'usage d'autres fonctions mathématiques nécessite le recours au module \ci{math} qui s'appelle par la commande :\\
-\centerline{\ci{from math import *}}
+L'usage d'autres fonctions mathématiques nécessite le recours au module \ci{math} qui s'appelle par la commande :
+\mycenterline{\ci{from math import *}}
 
 \begin{itemize}
   \item \ci{sqrt(x)}\quad racine carrée $\sqrt{x}$
@@ -41,8 +41,8 @@ L'usage d'autres fonctions mathématiques nécessite le recours au module \ci{ma
 
 \textbf{Module \og{}random\fg{}}
 
-Le module \ci{random} génère des nombres de façon pseudo-aléatoire. Il s'appelle par la commande :\\
-\centerline{\ci{from random import *}}
+Le module \ci{random} génère des nombres de façon pseudo-aléatoire. Il s'appelle par la commande :
+\mycenterline{\ci{from random import *}}
 
 \begin{itemize}
   \item \ci{random()}\quad à chaque appel, renvoie un nombre flottant $x$ au hasard vérifiant  $0 \le x < 1$.
@@ -68,7 +68,7 @@ Le module \ci{random} génère des nombres de façon pseudo-aléatoire. Il s'app
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Booléens}
 
-Un booléen est une donnée qui prend soit la valeur \ci{True} (\og{}vrai\fg{}), soit la valeur \ci{False} (\og{}faux\fg{}).
+Un booléen est une donnée qui prend soit la valeur \ci{True} (\og{}Vrai\fg{}), soit la valeur \ci{False} (\og{}Faux\fg{}).
 
   
 \bigskip
@@ -279,7 +279,7 @@ Le début de la table des codes ASCII/unicode est donné ci-dessous.
 
    Exemples :
   \begin{itemize}  
-    \item \ci{"".join(["Etre", "ou", "ne", "pas", "etre."])} \quad renvoie \ci{'Etreounepasetre.'} Il manque les espaces.
+    \item \ci{"".join(["Etre", "ou", "ne", "pas", "etre."])} \  renvoie \ci{'Etreounepasetre.'} Il manque les espaces.
     \item \ci{" ".join(["Etre", "ou", "ne", "pas", "etre."])} \ renvoie \ci{'Etre ou ne pas etre.'}   C'est mieux lorsque le séparateur est une espace.
     \item \ci{"--".join(["Etre", "ou", "ne", "pas", "etre."])}  renvoie
     
@@ -360,8 +360,8 @@ for i in range(10):
 \end{lstlisting}
   \end{minipage}
   \end{center}  
-\`A la fin \ci{liste_carres} vaut :\\
-\centerline{\ci{[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]}}  
+\`A la fin \ci{liste_carres} vaut :
+\mycenterline{\ci{[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]}}  
 
 
 \bigskip
@@ -443,8 +443,9 @@ Rang & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
    \ci{liste.index(element)} renvoie la première position à laquelle l'élément a été trouvé. Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
    \ci{liste.index(5)} renvoie $2$.
 
-  \item Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :\\
-  \centerline{\ci{element in liste}}  
+  \item Si on souhaite juste savoir si un élément appartient à une liste, alors l'instruction :  
+  \mycenterline{\ci{element in liste}}  
+  
   renvoie \ci{True} ou \ci{False}.
   Exemple : avec \ci{liste = [12, 30, 5, 9, 5, 21]},
    \og\ci{9 in liste}\fg{} est vrai, alors que \og\ci{8 in liste}\fg{} est faux.
@@ -512,8 +513,8 @@ Trois méthodes.
 
 \textbf{Liste de listes}
   
-Exemple : \\
-  \centerline{\ci{tableau = [ [2,14,5], [3,5,7], [15,19,4], [8,6,5] ]}}
+Exemple : 
+  \mycenterline{\ci{tableau = [ [2,14,5], [3,5,7], [15,19,4], [8,6,5] ]}}
   correspond au tableau :
   \myfigure{0.7}{
   \tikzinput{fig-tableau}
@@ -641,8 +642,8 @@ with open("mon_fichier.txt","r") as fic:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tortue}
 
-Le module \ci{turtle} s'appelle par la commande :\\
-\centerline{\ci{from turtle import *}}
+Le module \ci{turtle} s'appelle par la commande :
+\mycenterline{\ci{from turtle import *}}
 
 \bigskip
 
@@ -661,7 +662,7 @@ Le module \ci{turtle} s'appelle par la commande :\\
   \item \ci{down()} \quad abaisse le stylo
   \item \ci{up()} \quad relève le stylo
   \item \ci{width(epaisseur)} \quad change l'épaisseur du trait
-  \item \ci{color(couleur)} \quad change la couleur du trait : \ci{"red"}, \ci{"green"}, \ci{"blue"}, \ci{"orange"}, \ci{"purple"},\ldots
+  \item \ci{color(couleur)} \quad change la couleur du trait : \ci{"red"}, \ci{"green"}, \ci{"blue"}, \ci{"orange"}\ldots
   
   \item \ci{position()}  \quad renvoie la position $(x,y)$ de la tortue
   \item \ci{heading()} \quad renvoie la direction \ci{angle} vers laquelle pointe la tortue
@@ -695,7 +696,7 @@ tortue2.forward(100)
 Avec le module \ci{matplotlib} il est très facile de tracer une liste. Voici un exemple.
 
 \begin{center}
-\includegraphics[scale=0.5]{../listes/ecran-liste-cours-visualisation}
+\includegraphics[scale=\myscale,scale=0.5]{../listes/ecran-liste-cours-visualisation}
 \end{center}
 
 \begin{lstlisting}
@@ -735,7 +736,7 @@ plt.show()
 
 Pour afficher ceci :
 \begin{center}
-\includegraphics[scale=0.6]{../statistique/ecran-stat-cours-intro}
+\includegraphics[scale=\myscale,scale=0.6]{../statistique/ecran-stat-cours-intro}
 \end{center}
 le code est :
 \begin{lstlisting}
@@ -790,8 +791,7 @@ Quelques explications :
 
 \textbf{Portion de cercle.}
 La fonction \ci{create_arc()} n'est pas très intuitive. Il faut penser que l'on dessine un cercle, en précisant les coordonnées de deux sommets opposés d'un carré qui l'entoure, puis en précisant l'angle de début et l'angle du secteur (en degrés). 
-
-\centerline{\ci{canvas.create_arc(x1,y1,x2,y2,start=debut_angle,extent=mon_angle)}}
+\mycenterline{\ci{canvas.create_arc(x1,y1,x2,y2,start=debut_angle,extent=mon_angle)}}
 
 
 \myfigure{0.8}{
@@ -807,7 +807,7 @@ Il est plus ergonomique d'afficher des fenêtres dans lesquelles les actions son
 
 Voici un petit programme qui affiche une fenêtre avec deux boutons. Le premier bouton change la couleur du rectangle, le second termine le programme.
 \begin{center}
-\includegraphics[scale=0.6]{../statistique/ecran-stat-cours-boutons}
+\includegraphics[scale=\myscale,scale=0.6]{../statistique/ecran-stat-cours-boutons}
 \end{center}
 Le code est :
 \begin{lstlisting}
@@ -820,15 +820,15 @@ canvas.pack(fill="both", expand=True)
 
 def action_bouton():
     canvas.delete("all")         # Efface tout
-    couleurs = ["red","orange","yellow","green","cyan","blue","violet","purple"]
+    couleurs = ["red","orange","yellow","green","cyan","blue","violet"]
     coul = choice(couleurs)      # Couleur au hasard
     canvas.create_rectangle(100,50,300,150,width=5,fill=coul)
     return
 
-bouton_couleur = Button(root,text="Afficher", width=20, command=action_bouton)
+bouton_couleur=Button(root,text="Afficher",width=20,command=action_bouton)
 bouton_couleur.pack()
 
-bouton_quitter = Button(root,text="Quitter", width=20, command=root.quit)
+bouton_quitter = Button(root,text="Quitter",width=20,command=root.quit)
 bouton_quitter.pack()
 
 root.mainloop()
@@ -837,11 +837,11 @@ root.mainloop()
 Quelques explications :
 \begin{itemize}
   \item On crée un bouton par la commande \ci{Button}. L'option \ci{text} personnalise le texte qui s'affiche sur le bouton. On ajoute le bouton créé à la fenêtre par la méthode \ci{pack}.
-  \item Le plus important est l'action associée au bouton ! C'est l'option \ci{command} qui reçoit le nom de la fonction à exécuter lorsque le bouton est cliqué. Pour notre exemple \ci{command=action_bouton} associe au clic sur le bouton un changement de couleur.
+  \item Le plus important est l'action associée au bouton ! C'est l'option \ci{command} qui reçoit le nom de la fonction à exécuter lorsque le bouton est cliqué. Pour notre exemple \ci{command = action_bouton} associe au clic sur le bouton un changement de couleur.
   
-  \item Attention ! il faut donner le nom de la fonction sans parenthèses : \ci{commande=ma_fonction} et pas \ci{command=ma_fonction()}.
+  \item Attention ! il faut donner le nom de la fonction sans parenthèses : \ci{commande=ma_fonction} et pas \ci{command = ma_fonction()}.
   
-  \item Pour associer au bouton \og{}Quitter\fg{} la fermeture du programme, l'argument est \ci{command=root.quit}.
+  \item Pour associer au bouton \og{}Quitter\fg{} la fermeture du programme, l'argument est \ci{command = root.quit}.
   
   \item La commande \ci{canvas.delete("all")} efface tous les dessins de notre fenêtre graphique.
   
@@ -853,7 +853,7 @@ Quelques explications :
 Voici comment afficher du texte avec \Python{} et le module des fenêtres graphiques \ci{tkinter}.
 
 \begin{center}
-\includegraphics[scale=0.6]{../markdown/ecran-markdown-7}
+\includegraphics[scale=\myscale,scale=0.6]{../markdown/ecran-markdown-7}
 \end{center}
 Le code est :
 \begin{lstlisting}
@@ -936,8 +936,9 @@ Voici quelques explications :
 \begin{itemize}
   \item La création de la fenêtre est habituelle. Le programme se termine par le lancement de la fenêtre avec la commande \ci{mainloop()}.
   
-  \item Le premier point clé est d'associer un clic de souris à une action, c'est ce que fait la ligne \\
-\centerline{\ci{canvas.bind("<Button-1>", action_clic_souris)}}
+  \item Le premier point clé est d'associer un clic de souris à une action, c'est ce que fait la ligne 
+\mycenterline{\ci{canvas.bind("<Button-1>", action_clic_souris)}}
+
 Chaque fois que le bouton gauche de la souris est cliqué, \Python{} exécute la fonction \ci{action_clic_souris}. Note qu'il n'y a pas de parenthèses pour l'appel à la fonction.
 
    \item Second point clé : la fonction \ci{action_clic_souris} récupère les coordonnées du clic et ici ensuite fait deux choses : elle affiche un petit rectangle à l'endroit du clic et affiche dans la fenêtre du terminal les coordonnées $(x,y)$.
@@ -951,7 +952,7 @@ Chaque fois que le bouton gauche de la souris est cliqué, \Python{} exécute la
 Voici un programme qui fait se déplacer un petit carré en le faisant rebondir sur les bords de la fenêtre.
 
 \begin{center}
-\includegraphics[scale=0.5]{../aleatoire/ecran-alea-cours-mouv}
+\includegraphics[scale=\myscale,scale=0.5]{../aleatoire/ecran-alea-cours-mouv}
 \end{center}
 
 Voici les points principaux :
@@ -960,8 +961,8 @@ Voici les points principaux :
   
   \item Cet objet est (un petit peu) déplacé par la fonction \ci{deplacer()} qui décale le rectangle de \ci{(dx,dy)}.
   
-  \item Le point clé est que cette fonction sera exécutée une nouvelle fois après un court laps de temps. La commande :\\
-  \centerline{\ci{canvas.after(50,deplacer)}}
+  \item Le point clé est que cette fonction sera exécutée une nouvelle fois après un court laps de temps. La commande :
+  \mycenterline{\ci{canvas.after(50,deplacer)}}  
   demande une nouvelle exécution de la fonction \ci{deplacer()} après un court délai (ici $50$ millisecondes).
 
   \item La répétition de petits déplacements simule le mouvement.
@@ -1009,10 +1010,10 @@ def action_deplacer():
     return
 
 # Boutons
-bouton_couleur = Button(root,text="Déplacer", width=20, command=action_deplacer)
+bouton_couleur=Button(root,text="Déplacer",width=20,command=action_deplacer)
 bouton_couleur.pack(pady=10)
 
-bouton_quitter = Button(root,text="Quitter", width=20, command=root.quit)
+bouton_quitter = Button(root,text="Quitter",width=20,command=root.quit)
 bouton_quitter.pack(side=BOTTOM, pady=10)
 
 root.mainloop()
