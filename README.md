@@ -17,7 +17,7 @@ Les vidéos sont visibles depuis la chaîne *Youtube* [Python au lycée](https:/
 Livre
 =====
 
-Le livre est en vente sur Amazon.fr à prix coûtant. [Commander le livre sur Amazon.fr]( https://www.amazon.fr/dp/1986820033).
+Le livre est en vente sur Amazon.fr à prix coûtant. [Commander le livre sur Amazon.fr]( https://www.amazon.fr/dp/1091267510).
 
 Vous pouvez aussi le télécharger sur ce site : [Livre 'Python au lycée - tome 1' (3 Mo)](livre-python1.pdf).
 

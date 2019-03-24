@@ -1,0 +1,69 @@
+Python au lycée (tome 1)
+Algorithmes et programmation
+Livres Exo7 4
+Numéro d’édition (Facultatif) 2
+
+Python est le langage idéal pour apprendre la programmation. C'est un langage puissant qui vous plongera dans le monde des algorithmes. Ce livre vous guide pas à pas à travers des activités mathématiques et informatiques originales adaptées au lycée. Il se complète par des ressources en ligne : tous les codes Python, des vidéos et des fiches en couleurs. Vous avez tout en main pour réussir !
+
+ • Premiers pas• Tortue (Scratch avec Python)• Si ... alors ...• Fonctions• Arithmétique – Boucle tant que – I• Chaînes de caractères• Listes I• Statistique – Visualisation de données• Fichiers• Arithmétique – Boucle tant que – II• Binaire I• Listes II• Binaire II• Probabilités – Paradoxe de Parrondo• Chercher et remplacer• Calculatrice polonaise – Piles• Visualiseur de texte – Markdown• L-système• Images dynamiques• Jeu de la vie• Graphes et combinatoire de Ramsey• Bitcoin• Constructions aléatoires
+
+Mathématiques
+Algorithmes
+Programmation
+Python
+Lycée
+
+
+
+Non-fiction > Ordinateurs > Langages de programmation > Python
+Scolaire et Ouvrages de référence > Éducation > Ordinateurs et Technologies
+
+ISBN utilisé sur CreateSpace
+9781986820035 
+
+Date de publication 04/04/2018
+
+intérieur nb avec papier blanc
+
+taille de coupe 7.5 x 9.25 pouces
+
+Absence de fond perdu
+
+couv brillante
+
+Territoire europe + canada + usa
+
+prix 6,08 €  7,16$
+
+
+
+# NEW 
+Code ISBN : 9781091267510 
+Marque éditoriale : Independently published 
+prix 6,28 €
+
+
+ • Premiers pas
+ • Tortue (Scratch avec Python)
+ • Si ... alors ...
+ • Fonctions
+ • Arithmétique – Boucle tant que – I
+ • Chaînes de caractères
+ • Listes I
+ • Statistique – Visualisation de données
+ • Fichiers
+ • Arithmétique – Boucle tant que – II
+ • Binaire I
+ • Listes II
+ • Binaire II
+ • Probabilités – Paradoxe de Parrondo
+ • Chercher et remplacer
+ • Calculatrice polonaise – Piles
+ • Visualiseur de texte – Markdown
+ • L-système
+ • Images dynamiques
+ • Jeu de la vie
+ • Graphes et combinatoire de Ramsey
+ • Bitcoin
+ • Constructions aléatoires
+
