@@ -74,7 +74,8 @@ def test_multiplication(a,b,lang):
         question = "Combien vaut le produit a x b ? "
         reponse_juste = "Bravo !"
         reponse_fausse = "Eh non !"
-    elif lang == "anglais":
+    
+    if lang == "anglais":
         question = "How much is the product a x b? "
         reponse_juste = "Well done!"
         reponse_fausse = "It's wrong!"

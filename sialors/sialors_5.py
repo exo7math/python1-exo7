@@ -24,9 +24,11 @@ for essai in range(7):
     if nb_mystere == reponse_int:
         print("Bravo !")
         break   # Arrête la boucle
-    elif nb_mystere < reponse_int:
+    
+    if nb_mystere < reponse_int:
         print("Non, le nombre à trouver est plus petit !")    
-    elif nb_mystere > reponse_int:
+    
+    if nb_mystere > reponse_int:
         print("Non, le nombre à trouver est plus grand !")
 
 # Lorsque c'est fini :
@@ -55,12 +57,14 @@ if nb_mystere != reponse_int:
 #     if nb_mystere == reponse_int:
 #         print("Bravo !")
 #         break   # Arrête la boucle
-#     elif nb_mystere < reponse_int:
+#
+#     if nb_mystere < reponse_int:
 #         if verite == True:
 #             print("Non, le nombre à trouver est plus petit !")    
 #         else:
-#             print("Non, le nombre à trouver est plus grand !")    
-#     elif nb_mystere > reponse_int:
+#             print("Non, le nombre à trouver est plus grand !") 
+#   
+#     if nb_mystere > reponse_int:
 #         if verite == True:
 #             print("Non, le nombre à trouver est plus grand !")
 #         else: 
@@ -94,9 +98,9 @@ if nb_mystere != reponse_int:
 #     if nb_mystere == reponse_int:
 #         print("Bravo !")
 #         break   # Arrête la boucle
-#     elif nb_mystere < reponse_int:
+#     if nb_mystere < reponse_int:
 #         print("Non, le nombre à trouver est plus petit !")    
-#     elif nb_mystere > reponse_int:
+#     if nb_mystere > reponse_int:
 #         print("Non, le nombre à trouver est plus grand !")
 
 # # Lorsque c'est fini :

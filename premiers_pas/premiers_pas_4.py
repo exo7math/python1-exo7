@@ -70,7 +70,7 @@ for i in range(101):
     print("x =",x,"y =",y)
 
 # Q4
-# Aire d'un disque qui vaut 100
+# Volume d'une boule qui vaut 100
 for i in range(50):
     R = i/10
     V = 4/3 * 3.14 * R**3

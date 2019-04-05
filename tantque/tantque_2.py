@@ -118,7 +118,7 @@ print(est_premier_3(97))
 
 ## Question 5 ##
 
-# Calcul les temps d'éxécution moyens des différents fonction est_premier()
+# Calcul les temps d'éxécution des différentes fonctions est_premier()
 
 import timeit
 print(timeit.timeit("est_premier_1(97)", setup="from __main__ import est_premier_1", number=10000))

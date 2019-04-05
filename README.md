@@ -40,7 +40,7 @@ Activités
 * Probabilités -- Paradoxe de Parrondo [Activités](proba/proba.pdf)
 * Chercher et remplacer [Activités](chercher/chercher.pdf)
 * Calculatrice polonaise -- Piles [Activités](piles/piles.pdf)
-* Visualiseur de texte -- Markdown [Activités](markdown/markdown.pdf)
+* Visualiseur de texte -- Markdown [Activités](markdown/texte_markdown.pdf)
 * L-système [Activités](lsysteme/lsysteme.pdf)
 * Images dynamiques [Activités](images/images.pdf)
 * Jeu de la vie [Activités](vie/vie.pdf)
