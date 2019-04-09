@@ -334,7 +334,7 @@ Quelques explications :
     \end{itemize}
     
     \item \textbf{Cas $n$ pair.} La médiane est la moyenne entre la valeur de la liste au rang $\frac{n}{2}-1$ et au rang $\frac{n}{2}$.
-    Exemple avec \ci{liste = [13,14,19,20]} :
+    Exemple avec \ci{liste = [10,14,19,20]} :
     \begin{itemize}
       \item la longueur de la liste est $n=4$ (les indices vont de $0$ à $3$),
       \item les indices du milieu sont $1$ et $2$,
@@ -426,7 +426,7 @@ Un \defi{diagramme en boîte} (appelé aussi \defi{boîte à moustaches}) est un
    
    Écris une fonction \ci{moyenne_mobile(liste,duree)} qui renvoie la liste de toutes les moyennes mobiles d'une série de données, pour une durée fixée.
    
-    \item Trace point par point sur un même graphique : la courbe du cours sur une année (en rouge ci-dessous), la courbe de ses moyennes mobiles à $7$ jours (en bleu ci-dessous) et la courbe des ses moyennes mobiles à $30$ jours (en marron ci-dessous). Note que plus la durée est longue plus la courbe est \og{}lisse\fg{}. (Bien sûr la courbe des moyennes mobiles à $30$ jours ne commence qu'à partir du trentième jour.)
+    \item Trace point par point sur un même graphique : la courbe du cours sur une année\couleurnb{ (en rouge ci-dessous)}{}, la courbe de ses moyennes mobiles à $7$ jours\couleurnb{ (en bleu ci-dessous)}{} et la courbe des ses moyennes mobiles à $30$ jours\couleurnb{ (en marron ci-dessous)}{}. Note que plus la durée est longue plus la courbe est \og{}lisse\fg{}. (Bien sûr la courbe des moyennes mobiles à $30$ jours ne commence qu'à partir du trentième jour.)
    
 \begin{center}
 \includegraphics[scale=\myscale,scale=0.7]{ecran-stat-5b}

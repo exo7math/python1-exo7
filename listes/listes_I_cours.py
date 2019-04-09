@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 # plt.show()
 
 liste_x = [2, 3, 5, 7, 9]
-liste_y = [4, 9,25,49,81]
+liste_y = [4, 9, 25, 49, 81]
 plt.plot(liste_x,liste_y,color="red")
 plt.grid()
 plt.show()

@@ -395,7 +395,7 @@ print(timeit.timeit("ma_fonction_2(1000)",
 \textbf{Résultats.} \\
 Le résultat dépend de l'ordinateur, mais permet la comparaison des temps d'exécution des deux fonctions.
 \begin{itemize}
-  \item La mesure pour la première fonction renvoie $5$ secondes. L'algorithme n'est pas très malin. On teste
+  \item La mesure pour la première fonction (appelée $100\,000$ fois)  renvoie $5$ secondes. L'algorithme n'est pas très malin. On teste
   si $7\times 1 =n$, puis on teste $7\times 2 = n$, $7\times 3 = n$\ldots
   
   \item La mesure pour la seconde fonction renvoie $0.01$ seconde ! On teste si le reste de $n$ divisé par $7$ est $0$. La seconde méthode est donc $500$ fois plus rapide que la première.
