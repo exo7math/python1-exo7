@@ -226,10 +226,10 @@ Dans cet exercice, on travaille avec une pile formée d'entiers. Les questions s
  Rappelons que l'on peut convertir une chaîne en un entier par la commande \ci{int(chaine)}. Le petit programme suivant teste si une chaîne peut être convertie en un entier positif :
  
 \begin{lstlisting}
-machaine = "1789"             # Une chaîne
+machaine = "1789"               # Une chaîne
 if machaine.isdigit():
-    monentier = int(chaine)   # monentier est un entier
-else:                         # Problème
+    monentier = int(machaine)   # monentier est un entier
+else:                           # Problème
     print("Je ne sais pas convertir la chaîne en un entier !")
 \end{lstlisting} 
 
@@ -301,7 +301,7 @@ Voici comment nous allons modéliser le train et son triage.
 \end{itemize}
 
 
-En suivant les instructions du chef de gare, écris une fonction \ci{tri_wagons()} qui sépare les wagons bleus et rouges d'un train.
+En suivant les instructions du chef de gare et en utilisant les opérations sur une pile, écris une fonction \ci{tri_wagons()} qui sépare les wagons bleus et rouges d'un train.
 
 
 \begin{fonction}[\ci{tri_wagons()}]

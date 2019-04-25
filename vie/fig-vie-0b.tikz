@@ -32,7 +32,7 @@
 \draw (0,0) grid ++(7,5);
 
 
-\draw[<-,>=latex,ultra thick]   (2.5,2.5)  to[bend right] (3.5,6.2) node[left] {A $5$ voisins};
+\draw[<-,>=latex,ultra thick]   (2.5,2.5)  to[bend right] (3.5,6.2) node[left] {A $4$ voisins};
 \draw[<-,>=latex,ultra thick]   (2.5,3.5)  to[bend right] (2.5,5.5) node[left] {A $4$ voisins};
 \draw[<-,>=latex,ultra thick]   (5.5,1.5)  to[bend right] (7,5.5) node[left] {A $0$ voisin};
 

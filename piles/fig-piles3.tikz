@@ -23,7 +23,7 @@
 
 \begin{scope}[xshift=10cm]
 
-\node at (0,1) {\bf\texttt{pile = [4,2,11,7]}};
+\node[scale=1.1] at (0,1) {\bf\texttt{pile = [4,2,11,7]}};
 \node at (0,-2) {\bf Mod\`ele sous forme de liste};
 
 \end{scope}

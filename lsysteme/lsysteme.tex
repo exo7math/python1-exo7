@@ -312,7 +312,7 @@ Une \defi{pile} est une zone de stockage temporaire. Les détails sont dans la f
   
   \item On modélise une pile par une liste. 
   \item Au départ la pile est vide : \ci{pile = []}.
-  \item \textbf{Empiler.} On ajoute les éléments en fin de liste : \ci{pile = pile + [element]}.
+  \item \textbf{Empiler.} On ajoute les éléments en fin de liste : \ci{pile.append(element)} ou bien \ci{pile = pile + [element]}.
   \item \textbf{Dépiler.} On retire un élément par la commande \ci{pop()}\index{pop@\ci{pop}}\index{depiler@dépiler} :  
   \mycenterline{\ci{element = pile.pop()}}
   
