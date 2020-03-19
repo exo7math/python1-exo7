@@ -81,6 +81,7 @@ Programme une fonction \ci{racine(y)} qui renvoie une solution $x$ du problème 
 	\item Au lieu de chercher une solution exacte à notre problème $x^2 = y \pmod{p}$, qui est équivalent à $x^2-y \pmod{p} = 0$. On cherche une solution approchée, c'est-à-dire qui vérifie : 	$$x^2 - y \pmod{p} \ \le m.$$
 	Par exemple si $m=5$, alors on peut avoir (modulo $p$) : $x^2 - y = 0$, $x^2 - y = 1$,
 	$x^2-y = 2$,\ldots{} ou $x^2-y=5$. 
+	Maintenant il y a bien plus de solutions possibles.
 	
 	Programme une fonction \ci{racine_approchee(y,marge)} qui trouve une solution approchée à notre problème $x^2 = y \pmod{p}$.
 	
